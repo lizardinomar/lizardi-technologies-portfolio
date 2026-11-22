@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menú · PURO Sin Fondo — Toa Baja, Puerto Rico</title>
+<meta name="description" content="Menú completo de PURO Sin Fondo. Tapas, paellas, platos principales, kids y postres. Cocina criolla y española con alma propia.">
+
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180x180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --rojo: #C0272D; --rojo-dark: #8B1C20; --gold: #D4A847; --gold-soft: #B8923D;
+  --negro: #0A0A0A; --negro-soft: #131313; --negro-card: #1A1A1A; --gris: #2A2A2A;
+  --crema: #F5F1EA; --blanco: #FFFFFF;
+  --text-dim: rgba(245, 241, 234, 0.65); --text-muted: rgba(245, 241, 234, 0.45);
+  --font-display: 'Playfair Display', serif; --font-body: 'Barlow', sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; max-width: 100vw; }
+body { font-family: var(--font-body); background: var(--negro); color: var(--crema); line-height: 1.6; overflow-x: hidden; max-width: 100vw; position: relative; }
+::selection { background: var(--rojo); color: var(--blanco); }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+/* PRELOADER */
+
+/* SCROLL PROGRESS + CURSOR */
+.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: linear-gradient(90deg, var(--rojo), var(--gold)); transform: scaleX(0); transform-origin: left; z-index: 1001; }
+.cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 9000; mix-blend-mode: difference; will-change: transform; }
+.cursor-dot { width: 8px; height: 8px; background: var(--crema); margin: -4px 0 0 -4px; }
+.cursor-ring { width: 44px; height: 44px; border: 1px solid rgba(245,241,234,0.5); margin: -22px 0 0 -22px; transition: width .3s var(--ease-out), height .3s var(--ease-out), border-color .3s, background .3s; display: flex; align-items: center; justify-content: center; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: transparent; }
+.cursor-ring.hover { width: 64px; height: 64px; border-color: var(--gold); }
+body.cursor-active { cursor: none; }
+body.cursor-active a, body.cursor-active button { cursor: none; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; transition: all 0.5s var(--ease-out); background: linear-gradient(180deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0) 100%); }
+.nav.scrolled { background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 14px 48px; border-bottom: 1px solid rgba(212, 168, 71, 0.1); }
+.nav-logo { display: flex; align-items: center; gap: 12px; transition: transform 0.4s var(--ease-out); }
+.nav-logo:hover { transform: scale(1.04); }
+.nav-logo img { height: 44px; width: auto; }
+.nav-menu { display: flex; align-items: center; gap: 38px; list-style: none; }
+.nav-menu a { font-size: 13px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; position: relative; padding: 6px 0; transition: color 0.3s ease; }
+.nav-menu > li > a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform 0.4s var(--ease-out); }
+.nav-menu > li > a:hover { color: var(--gold); } .nav-menu > li > a:hover::after { transform: scaleX(1); transform-origin: left; }
+.nav-menu a.active { color: var(--gold); } .nav-menu a.active::after { transform: scaleX(1); }
+.lang-toggle { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 2px; padding: 8px 14px; border: 1px solid rgba(212, 168, 71, 0.3); border-radius: 50px; transition: all 0.3s ease; }
+.lang-toggle:hover { border-color: var(--gold); background: rgba(212, 168, 71, 0.05); }
+.lang-toggle .active-lang { color: var(--gold); } .lang-toggle .inactive-lang { color: var(--text-muted); }
+.nav-cta { background: var(--rojo); color: var(--blanco); padding: 12px 24px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: all 0.4s var(--ease-out); border: 1px solid var(--rojo); }
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(192, 39, 45, 0.35); }
+.menu-toggle { display: none; flex-direction: column; gap: 5px; z-index: 1001; padding: 8px; }
+.menu-toggle span { width: 26px; height: 2px; background: var(--crema); transition: all 0.3s var(--ease-out); }
+.menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: var(--gold); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--gold); }
+
+/* PAGE HERO */
+.page-hero { position: relative; padding: 220px 48px 90px; text-align: center; overflow: hidden; }
+.page-hero-blobs { position: absolute; inset: 0; z-index: 0; filter: blur(70px); opacity: 0.6; }
+.blob { position: absolute; border-radius: 50%; will-change: transform; }
+.blob-1 { width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(192,39,45,0.5), transparent 70%); top: -15%; left: 50%; transform: translateX(-50%); }
+.blob-2 { width: 30vw; height: 30vw; background: radial-gradient(circle, rgba(212,168,71,0.25), transparent 70%); top: 10%; right: 5%; }
+.page-hero-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+.page-eyebrow { display: inline-flex; align-items: center; gap: 16px; font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+.page-eyebrow .line { width: 0; height: 1px; background: var(--gold); }
+.page-title { font-family: var(--font-display); font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 900; line-height: 0.92; letter-spacing: -0.04em; margin-bottom: 28px; }
+.page-title .line { display: block; overflow: hidden; }
+.page-title .line > span { display: inline-block; will-change: transform; }
+.page-title .accent { color: var(--rojo); font-style: italic; }
+.page-lead { font-family: var(--font-display); font-style: italic; font-size: clamp(1.1rem, 1.8vw, 1.4rem); color: var(--text-dim); margin: 0 auto; overflow: hidden; }
+.page-lead span { display: inline-block; will-change: transform; }
+.page-legend { display: inline-flex; gap: 28px; margin-top: 40px; padding: 16px 28px; border: 1px solid rgba(212, 168, 71, 0.2); border-radius: 50px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-dim); flex-wrap: wrap; justify-content: center; }
+.page-legend span { display: flex; align-items: center; gap: 8px; }
+.page-legend .star { color: var(--rojo); font-size: 14px; }
+
+/* CATEGORY NAV */
+.category-nav-wrap { position: sticky; top: 70px; z-index: 100; background: rgba(10,10,10,0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 16px 0; border-top: 1px solid rgba(212, 168, 71, 0.08); border-bottom: 1px solid rgba(212, 168, 71, 0.08); }
+.category-nav { max-width: 1400px; margin: 0 auto; padding: 0 48px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+.category-nav::-webkit-scrollbar { display: none; }
+.category-btn { flex-shrink: 0; padding: 10px 20px; border-radius: 50px; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--text-dim); background: transparent; border: 1px solid rgba(212, 168, 71, 0.15); transition: all 0.3s ease; white-space: nowrap; }
+.category-btn:hover { color: var(--gold); border-color: rgba(212, 168, 71, 0.4); }
+.category-btn.active { color: var(--negro); background: var(--gold); border-color: var(--gold); }
+
+/* MENU SECTIONS */
+.menu-section { padding: 110px 48px 80px; max-width: 1400px; margin: 0 auto; scroll-margin-top: 140px; }
+.menu-section-header { text-align: center; margin-bottom: 60px; }
+.menu-section-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; margin-bottom: 16px; overflow: hidden; }
+.menu-section-title .line-in { display: inline-block; will-change: transform; }
+.menu-section-title .accent { color: var(--rojo); font-style: italic; }
+.menu-section-sub { font-size: 14px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+.menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.menu-item { padding: 28px 32px; background: linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0) 100%); border: 1px solid rgba(212, 168, 71, 0.08); border-radius: 4px; transition: border-color .4s, transform .4s, background .4s; position: relative; overflow: hidden; will-change: transform; }
+.menu-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--rojo); transform: scaleY(0); transform-origin: top; transition: transform 0.5s var(--ease-out); }
+.menu-item:hover { border-color: rgba(212, 168, 71, 0.3); transform: translateY(-4px); background: linear-gradient(135deg, rgba(212, 168, 71, 0.03) 0%, rgba(212, 168, 71, 0) 100%); }
+.menu-item:hover::before { transform: scaleY(1); }
+.menu-item-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+.menu-item-name { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; flex: 1; }
+.menu-item-stars { color: var(--rojo); font-size: 14px; letter-spacing: 2px; flex-shrink: 0; padding-top: 4px; }
+.menu-item-desc { font-size: 14px; color: var(--text-dim); line-height: 1.55; }
+.menu-item-meta { display: inline-block; margin-top: 12px; padding: 4px 10px; background: rgba(212, 168, 71, 0.08); border: 1px solid rgba(212, 168, 71, 0.2); border-radius: 50px; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); }
+.simple-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; max-width: 900px; margin: 0 auto; }
+.simple-item { padding: 18px 22px; background: rgba(255,255,255,0.02); border: 1px solid rgba(212, 168, 71, 0.1); border-radius: 4px; transition: all 0.3s ease; text-align: center; will-change: transform; }
+.simple-item:hover { border-color: var(--gold); background: rgba(212, 168, 71, 0.05); }
+.simple-item-name { font-family: var(--font-display); font-size: 1.1rem; font-weight: 500; }
+.addons-row { margin-top: 24px; padding: 20px 24px; background: rgba(192, 39, 45, 0.05); border: 1px solid rgba(192, 39, 45, 0.2); border-radius: 4px; text-align: center; font-size: 13px; color: var(--text-dim); letter-spacing: 0.5px; }
+.addons-row strong { color: var(--gold); font-weight: 600; letter-spacing: 1px; }
+.section-divider { height: 1px; background: linear-gradient(90deg, transparent, rgba(212, 168, 71, 0.3), transparent); margin: 60px auto; max-width: 600px; }
+
+/* FOOTER */
+.footer { background: #050505; padding: 80px 48px 32px; border-top: 1px solid rgba(212, 168, 71, 0.1); margin-top: 80px; }
+.footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-brand img { height: 60px; margin-bottom: 24px; }
+.footer-brand p { color: var(--text-muted); font-size: 14px; line-height: 1.6; max-width: 280px; }
+.footer-col h4 { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+.footer-col ul { list-style: none; } .footer-col li { margin-bottom: 12px; }
+.footer-col a { font-size: 14px; color: var(--text-dim); transition: color 0.3s ease; } .footer-col a:hover { color: var(--gold); }
+.footer-social { display: flex; gap: 12px; margin-top: 24px; }
+.footer-social a { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(212, 168, 71, 0.2); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+.footer-social a:hover { border-color: var(--gold); background: var(--gold); color: var(--negro); transform: translateY(-2px); }
+.footer-social svg { width: 18px; height: 18px; }
+.footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--text-muted); }
+.footer-bottom a { color: var(--gold); }
+
+/* POPUP */
+.popup-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 9500; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; visibility: hidden; transition: all 0.5s var(--ease-out); }
+.popup-overlay.active { opacity: 1; visibility: visible; }
+.popup { background: linear-gradient(180deg, var(--negro-card) 0%, var(--negro-soft) 100%); border: 1px solid rgba(212, 168, 71, 0.25); border-radius: 8px; max-width: 500px; width: 100%; padding: 48px 40px; position: relative; transform: scale(0.9) translateY(20px); transition: all 0.6s var(--ease-bounce); box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(192, 39, 45, 0.15); }
+.popup-overlay.active .popup { transform: scale(1) translateY(0); }
+.popup-close { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: all 0.3s ease; }
+.popup-close:hover { color: var(--gold); background: rgba(255,255,255,0.05); }
+.popup-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.popup-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+.popup h3 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.1; margin-bottom: 16px; letter-spacing: -0.02em; }
+.popup h3 .accent { color: var(--rojo); font-style: italic; }
+.popup p { color: var(--text-dim); font-size: 15px; line-height: 1.6; margin-bottom: 28px; }
+.popup form { display: flex; flex-direction: column; gap: 14px; }
+.popup input { width: 100%; padding: 16px 20px; background: rgba(0,0,0,0.4); border: 1px solid rgba(212, 168, 71, 0.2); border-radius: 4px; color: var(--crema); font-family: var(--font-body); font-size: 15px; transition: all 0.3s ease; }
+.popup input::placeholder { color: var(--text-muted); }
+.popup input:focus { outline: none; border-color: var(--gold); background: rgba(212, 168, 71, 0.05); }
+.popup button[type="submit"] { width: 100%; padding: 16px; background: var(--rojo); color: white; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; transition: all 0.3s var(--ease-out); margin-top: 4px; }
+.popup button[type="submit"]:hover { background: var(--rojo-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(192, 39, 45, 0.3); }
+.popup button[type="submit"]:disabled { opacity: 0.5; cursor: not-allowed; }
+.popup-skip { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 16px; text-decoration: underline; cursor: pointer; transition: color 0.3s ease; }
+.popup-skip:hover { color: var(--gold); }
+.popup-success { text-align: center; padding: 24px 0; }
+.popup-success svg { width: 64px; height: 64px; color: var(--gold); margin: 0 auto 24px; }
+.popup-success h3 { margin-bottom: 12px; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .nav { padding: 20px 32px; } .nav.scrolled { padding: 14px 32px; }
+  .page-hero { padding: 180px 32px 70px; }
+  .menu-section { padding: 90px 32px 60px; }
+  .category-nav { padding: 0 32px; }
+  .menu-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 768px) {
+  .nav { padding: 16px 20px; } .nav.scrolled { padding: 12px 20px; }
+  .nav-logo img { height: 36px; }
+  .nav-menu { position: fixed; top: 0; right: 0; width: 85%; max-width: 360px; height: 100vh; height: 100svh; background: var(--negro); flex-direction: column; justify-content: center; gap: 32px; padding: 80px 32px 32px; transform: translateX(100%); transition: transform 0.5s var(--ease-out); border-left: 1px solid rgba(212, 168, 71, 0.1); }
+  .nav-menu.open { transform: translateX(0); }
+  .nav-menu a { font-size: 18px; }
+  .nav-cta { display: none; }
+  .menu-toggle { display: flex; }
+  .lang-toggle { padding: 6px 10px; font-size: 10px; }
+  .page-hero { padding: 140px 20px 50px; }
+  .menu-section { padding: 70px 20px 50px; }
+  .category-nav { padding: 0 20px; gap: 6px; }
+  .category-btn { padding: 8px 14px; font-size: 10px; }
+  .menu-item { padding: 22px 20px; }
+  .menu-item-name { font-size: 1.15rem; }
+  .footer { padding: 60px 20px 24px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .popup { padding: 36px 24px; }
+  .popup h3 { font-size: 1.6rem; }
+  .page-legend { gap: 16px; padding: 12px 20px; font-size: 11px; }
+}
+
+/* SAFETY */
+* { min-width: 0; }
+h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; word-break: break-word; hyphens: auto; }
+img, svg, video, iframe { max-width: 100%; }
+.category-nav > *, .menu-grid > *, .simple-list > * { flex-shrink: 0; }
+@media (max-width: 480px) { h1 { font-size: clamp(2.5rem, 12vw, 4rem) !important; } }
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .cursor-dot, .cursor-ring { display: none !important; }
+}
+.js .page-title .line > span, .js .page-lead span, .js .menu-section-title .line-in { transform: translateY(110%); }
+html:not(.js) .page-title .line > span, html:not(.js) .page-lead span, html:not(.js) .menu-section-title .line-in { transform: none; }
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo" data-cursor="hover" aria-label="PURO Inicio"><img src="images/logo-nav.png" alt="PURO"></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+    <li><a href="menu.html" class="active" data-i18n="nav.menu">Menú</a></li>
+    <li><a href="nosotros.html" data-i18n="nav.about">Nosotros</a></li>
+    <li><a href="visitanos.html" data-i18n="nav.visit">Visítanos</a></li>
+    <li><a href="reservar.html" data-i18n="nav.reserve">Reservar</a></li>
+    <li><button class="lang-toggle" id="langToggle" data-cursor="hover" aria-label="Cambiar idioma"><span class="active-lang">ES</span><span class="inactive-lang">/ EN</span></button></li>
+    <li><a href="reservar.html" class="nav-cta" data-cursor="hover" data-i18n="nav.cta">Reservar Mesa</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-blobs"><div class="blob blob-1" data-blob></div><div class="blob blob-2" data-blob></div></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow" id="pageEyebrow"><span class="line"></span><span data-i18n="menu.eyebrow">Nuestra Carta</span><span class="line"></span></div>
+    <h1 class="page-title">
+      <span class="line"><span data-i18n="menu.titleL1">Platos <span class="accent">que no</span></span></span>
+      <span class="line"><span data-i18n="menu.titleL2">olvidarás.</span></span>
+    </h1>
+    <p class="page-lead"><span data-i18n="menu.lead">Cocina criolla puertorriqueña con alma española. Cada plato tiene historia. Eso es PURO.</span></p>
+    <div class="page-legend" id="pageLegend">
+      <span><span class="star">★</span> <span data-i18n="menu.legend1">Especialidad de la casa</span></span>
+      <span><span class="star">★★</span> <span data-i18n="menu.legend2">Favorito de nuestros clientes</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY NAV -->
+<div class="category-nav-wrap">
+  <div class="category-nav" id="categoryNav">
+    <button class="category-btn active" data-target="tapas" data-cursor="hover" data-i18n="cat.tapas">Tapas</button>
+    <button class="category-btn" data-target="paellas" data-cursor="hover" data-i18n="cat.paellas">Paellas</button>
+    <button class="category-btn" data-target="entradas" data-cursor="hover" data-i18n="cat.entradas">Entradas</button>
+    <button class="category-btn" data-target="principales" data-cursor="hover" data-i18n="cat.principales">Principales</button>
+    <button class="category-btn" data-target="acompanantes" data-cursor="hover" data-i18n="cat.acompanantes">Acompañantes</button>
+    <button class="category-btn" data-target="kids" data-cursor="hover" data-i18n="cat.kids">Kids</button>
+    <button class="category-btn" data-target="complementos" data-cursor="hover" data-i18n="cat.complementos">Complementos</button>
+    <button class="category-btn" data-target="postres" data-cursor="hover" data-i18n="cat.postres">Postres</button>
+  </div>
+</div>
+
+<!-- TAPAS -->
+<section class="menu-section" id="tapas">
+  <div class="menu-section-header"><h2 class="menu-section-title"><span class="line-in" data-i18n="mt.tapas">Tapas <span class="accent">para compartir</span></span></h2><p class="menu-section-sub" data-i18n="cat.tapasSub">El comienzo perfecto</p></div>
+  <div class="menu-grid">
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="t.1n">Camarones en Crema de Ajo Rostizado</div></div><div class="menu-item-desc" data-i18n="t.1d">Camarones rebozados en salsa de ajo rostizado, sobre una cama del majado de la casa y ajos fritos. (5 unid)</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="t.2n">Tacos de Malanga con Tartar de Atún</div><div class="menu-item-stars">★</div></div><div class="menu-item-desc" data-i18n="t.2d">Atún aderezado al estilo oriental, con crema de aguacate y picadillo de mango. (3 unid)</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="t.3n">Ceviche de Mero Infusionado con Parcha</div></div><div class="menu-item-desc" data-i18n="t.3d">Ceviche tradicional en leche de tigre de parcha, acompañado de chips de viandas (yuca, malanga y plátano).</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="t.4n">Pulpo a la Mediterránea</div><div class="menu-item-stars">★</div></div><div class="menu-item-desc" data-i18n="t.4d">Pata de pulpo español a la parrilla sobre majado del día y salteado mediterráneo: tomates cherry, ajo, aceitunas negras, alcaparras, aceite de oliva, pimiento morrón y perejil.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="t.5n">Egg Roll de Pernil</div><div class="menu-item-stars">★★</div></div><div class="menu-item-desc" data-i18n="t.5d">Pernil asado al estilo criollo con vegetales, salsa ponzu y aioli de jengibre.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="t.6n">Croquetas Carbonara</div><div class="menu-item-stars">★</div></div><div class="menu-item-desc" data-i18n="t.6d">Bechamel de salsa carbonara y pollo rostizado. Aioli de guayaba y bacon jam. (5 unid)</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="t.7n">Pinchos de Filete Mignon</div><div class="menu-item-stars">★★</div></div><div class="menu-item-desc" data-i18n="t.7d">Mignon marinado en salsa teriyaki hecho a la parrilla con pimientos. Salpicado de semillas de sésamo y salsa de tamarindo. (3 unid)</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="t.8n">Rueda de Chorizo al Vino Tinto</div><div class="menu-item-stars">★</div></div><div class="menu-item-desc" data-i18n="t.8d">Chorizo a la parrilla con nuestra salsa de vino tinto, queso manchego rallado y tostadas.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="t.9n">Bolitas de Corn Beef</div><div class="menu-item-stars">★★</div></div><div class="menu-item-desc" data-i18n="t.9d">Bolitas rellenas de corn beef, queso crema y amarillos. Sobre arroz blanco y salsa criolla. (4 unid)</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="t.10n">Costillas Puro Pecado</div><div class="menu-item-stars">★</div></div><div class="menu-item-desc" data-i18n="t.10d">Short ribs asados a fuego lento, terminados a la parrilla con glaseado de teriyaki casero.</div></div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PAELLAS -->
+<section class="menu-section" id="paellas">
+  <div class="menu-section-header"><h2 class="menu-section-title"><span class="line-in" data-i18n="mt.paellas">Paellas <span class="accent">del chef</span></span></h2><p class="menu-section-sub" data-i18n="cat.paellasSub">Orden mínima para 2 personas</p></div>
+  <div class="menu-grid">
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="p.1n">Paella de Carnes</div></div><div class="menu-item-desc" data-i18n="p.1d">Lomo de cerdo, filete de res y pechuga de pollo en sofrito español con azafrán y caldo de pollo.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="p.2n">Paella de Marisco</div></div><div class="menu-item-desc" data-i18n="p.2d">Mejillones, almejas, camarones, vieiras, calamares y pescado en sofrito español con azafrán y caldo de mariscos.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="p.3n">Paella Mixta</div><div class="menu-item-stars">★★</div></div><div class="menu-item-desc" data-i18n="p.3d">Cerdo, pollo, res, almeja, mejillones, calamares, vieiras y camarones, en sofrito español con azafrán y caldo de mariscos.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="p.4n">Paella Negra</div></div><div class="menu-item-desc" data-i18n="p.4d">Calamares y camarones en sofrito español, tinta de calamar y caldo de mariscos.</div></div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ENTRADAS -->
+<section class="menu-section" id="entradas">
+  <div class="menu-section-header"><h2 class="menu-section-title"><span class="line-in" data-i18n="mt.entradas">Entradas</span></h2><p class="menu-section-sub" data-i18n="cat.entradasSub">Para empezar bien</p></div>
+  <div class="menu-grid">
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="e.1n">Sopa del Día</div></div><div class="menu-item-desc" data-i18n="e.1d">Selección del Chef diaria.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="e.2n">Ensalada César</div></div><div class="menu-item-desc" data-i18n="e.2d">Lechuga romana, aderezo César, crutones y queso parmesano rallado.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="e.3n">Ensalada PURO</div></div><div class="menu-item-desc" data-i18n="e.3d">Spring mix, queso manchego, tomates cherry, zanahoria, cebolla roja, bacon y vinagreta de tamarindo.</div></div>
+  </div>
+  <div class="addons-row" data-item><span data-i18n="e.addons">Añade a tu ensalada:</span> <strong>+ Pollo · + Churrasco · + Camarones</strong></div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PRINCIPALES -->
+<section class="menu-section" id="principales">
+  <div class="menu-section-header"><h2 class="menu-section-title"><span class="line-in" data-i18n="mt.principales">Platos <span class="accent">Principales</span></span></h2><p class="menu-section-sub" data-i18n="cat.principalesSub">Escoge un acompañante</p></div>
+  <div class="menu-grid">
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="pr.1n">Risotto Puro Jíbaro</div><div class="menu-item-stars">★★</div></div><div class="menu-item-desc" data-i18n="pr.1d">Risotto de gandules, chicharrones de pork belly frito, queso parmesano y aceite de trufas.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="pr.2n">Pechuga Rellena de Yuca al Mojo</div><div class="menu-item-stars">★</div></div><div class="menu-item-desc" data-i18n="pr.2d">Pechuga rellena de yuca al mojo envuelta en bacon, terminada con salsa de queso Manchego.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="pr.3n">Churrasco 10oz</div></div><div class="menu-item-desc" data-i18n="pr.3d">Churrasco angus prime a la parrilla de 10oz.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="pr.4n">Carne Ahumada</div></div><div class="menu-item-desc" data-i18n="pr.4d">Carne ahumada con cebollas salteadas y ajos fritos.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="pr.5n">Puro Burger</div><div class="menu-item-stars">★★</div></div><div class="menu-item-desc" data-i18n="pr.5d">Carne de mignon, churrasco y brisket con cebolla, setas salteadas, queso muenster, bacon, huevo frito y salsa puro.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="pr.6n">Pasta Alfredo</div></div><div class="menu-item-desc" data-i18n="pr.6d">Pasta alfredo con pollo. Cambia el pollo por camarones o churrasco por un suplemento.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="pr.7n">Filete de Dorado Fresco</div></div><div class="menu-item-desc" data-i18n="pr.7d">Dorado del país, hecho a la parrilla con un acompañante a escoger.</div><span class="menu-item-meta" data-i18n="pr.mp">Precio del mercado</span></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="pr.8n">Pescado Entero</div></div><div class="menu-item-desc" data-i18n="pr.8d">Pescado entero frito o al horno.</div><span class="menu-item-meta" data-i18n="pr.mp">Precio del mercado</span></div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ACOMPAÑANTES -->
+<section class="menu-section" id="acompanantes">
+  <div class="menu-section-header"><h2 class="menu-section-title"><span class="line-in" data-i18n="mt.acomp">Acompañantes <span class="accent">a escoger</span></span></h2><p class="menu-section-sub" data-i18n="cat.acompSub">Incluidos con tu plato principal</p></div>
+  <div class="simple-list">
+    <div class="simple-item" data-item><div class="simple-item-name" data-i18n="a.1">Papas Fritas</div></div>
+    <div class="simple-item" data-item><div class="simple-item-name" data-i18n="a.2">Majado del Día</div></div>
+    <div class="simple-item" data-item><div class="simple-item-name" data-i18n="a.3">Arroz Blanco y Habichuelas</div></div>
+    <div class="simple-item" data-item><div class="simple-item-name" data-i18n="a.4">Arroz Mamposteado</div></div>
+    <div class="simple-item" data-item><div class="simple-item-name" data-i18n="a.5">Ensalada</div></div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- KIDS -->
+<section class="menu-section" id="kids">
+  <div class="menu-section-header"><h2 class="menu-section-title"><span class="line-in" data-i18n="mt.kids">Kids <span class="accent">Menu</span></span></h2><p class="menu-section-sub" data-i18n="cat.kidsSub">Para los más pequeños</p></div>
+  <div class="menu-grid">
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="k.1n">Mini Hamburguesas</div></div><div class="menu-item-desc" data-i18n="k.1d">Con queso y acompañadas de papas fritas.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="k.2n">Tiritas de Pollo con Papas</div></div><div class="menu-item-desc" data-i18n="k.2d">Tiras de pollo con papas fritas.</div></div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- COMPLEMENTOS -->
+<section class="menu-section" id="complementos">
+  <div class="menu-section-header"><h2 class="menu-section-title"><span class="line-in" data-i18n="mt.comp">Complementos</span></h2><p class="menu-section-sub" data-i18n="cat.compSub">Costo adicional</p></div>
+  <div class="simple-list">
+    <div class="simple-item" data-item><div class="simple-item-name" data-i18n="c.1">Amarillos</div></div>
+    <div class="simple-item" data-item><div class="simple-item-name" data-i18n="c.2">Tostones</div></div>
+    <div class="simple-item" data-item><div class="simple-item-name" data-i18n="c.3">Rissoto de Gandules</div></div>
+    <div class="simple-item" data-item><div class="simple-item-name" data-i18n="c.4">Mofongo</div></div>
+    <div class="simple-item" data-item><div class="simple-item-name" data-i18n="c.5">Papas Trufadas</div></div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- POSTRES -->
+<section class="menu-section" id="postres">
+  <div class="menu-section-header"><h2 class="menu-section-title"><span class="line-in" data-i18n="mt.postres">Postres</span></h2><p class="menu-section-sub" data-i18n="cat.postresSub">El cierre dulce</p></div>
+  <div class="menu-grid">
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="d.1n">Flan de Queso Manchego</div></div><div class="menu-item-desc" data-i18n="d.1d">Flan de queso manchego, suave y cremoso.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="d.2n">Caramel Pecan Cheesecake</div></div><div class="menu-item-desc" data-i18n="d.2d">Cheesecake con caramelo y nueces pecan.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="d.3n">Crema Catalana</div></div><div class="menu-item-desc" data-i18n="d.3d">Crema catalana clásica con su capa de azúcar caramelizada.</div></div>
+    <div class="menu-item" data-item><div class="menu-item-head"><div class="menu-item-name" data-i18n="d.4n">Brownie con Mantecado</div></div><div class="menu-item-desc" data-i18n="d.4d">Brownie tibio con bola de mantecado de vainilla y frutos rojos.</div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="PURO">
+      <p data-i18n="footer.tagline">El sabor de dos culturas en una sola mesa. Toa Baja, Puerto Rico.</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/purofonda" target="_blank" rel="noopener" data-cursor="hover" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"/></svg></a>
+        <a href="https://facebook.com/purofonda" target="_blank" rel="noopener" data-cursor="hover" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4 data-i18n="footer.explore">Explora</h4><ul>
+      <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="menu.html" data-i18n="nav.menu">Menú</a></li>
+      <li><a href="nosotros.html" data-i18n="nav.about">Nosotros</a></li>
+      <li><a href="visitanos.html" data-i18n="nav.visit">Visítanos</a></li>
+      <li><a href="reservar.html" data-i18n="nav.reserve">Reservar</a></li>
+    </ul></div>
+    <div class="footer-col"><h4 data-i18n="footer.contact">Contacto</h4><ul>
+      <li><a href="tel:+17879953774">(787) 995-3774</a></li>
+      <li><a href="https://wa.me/17875261368">WhatsApp · 787-526-1368</a></li>
+      <li><a href="https://instagram.com/purofonda">@purofonda</a></li>
+    </ul></div>
+    <div class="footer-col"><h4 data-i18n="footer.visit">Visítanos</h4><ul>
+      <li><span data-i18n="footer.address">Carr #2 KM 20.1, Toa Baja, PR</span></li>
+      <li><span data-i18n="footer.address2">Frente a la Holsum</span></li>
+      <li><span data-i18n="footer.hours1">Mié–Sáb · 11:00 AM – 10:00 PM</span></li>
+      <li><span data-i18n="footer.hours2">Dom · 11:00 AM – 8:00 PM</span></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 PURO Sin Fondo · <span data-i18n="footer.rights">Todos los derechos reservados</span></div>
+    <div data-i18n="footer.by">Diseñado por <a href="https://lizarditech.com" target="_blank" rel="noopener">Lizardi Technologies</a></div>
+  </div>
+</footer>
+
+<!-- POPUP -->
+<div class="popup-overlay" id="popup" role="dialog" aria-labelledby="popupTitle" aria-hidden="true">
+  <div class="popup">
+    <button class="popup-close" id="popupClose" aria-label="Cerrar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div id="popupForm">
+      <div class="popup-eyebrow"><span data-i18n="popup.eyebrow">Exclusivo · Miembros</span></div>
+      <h3 id="popupTitle"><span data-i18n="popup.titleA">Promociones</span> <span class="accent" data-i18n="popup.titleB">directo a ti.</span></h3>
+      <p data-i18n="popup.desc">Regístrate para recibir nuestras ofertas exclusivas, especiales semanales y eventos privados directo en tu teléfono.</p>
+      <form id="leadForm" novalidate>
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="Nuevo Lead PURO">
+        <input type="hidden" name="from_name" value="PURO Sin Fondo Website">
+        <input type="hidden" name="source" id="leadSource" value="menu-page">
+        <input type="text" name="nombre" placeholder="Nombre" required autocomplete="given-name" data-i18n-placeholder="popup.name">
+        <input type="tel" name="telefono" placeholder="Teléfono · (787) 555-1234" required autocomplete="tel" data-i18n-placeholder="popup.phone">
+        <button type="submit" id="leadSubmit"><span data-i18n="popup.submit">Quiero las Promociones</span></button>
+      </form>
+      <div class="popup-skip" id="popupSkip" data-i18n="popup.skip">No, gracias — ver el menú</div>
+    </div>
+    <div id="popupSuccess" class="popup-success" style="display: none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
+      <h3 data-i18n="popup.successTitle">¡Bienvenido a PURO!</h3>
+      <p data-i18n="popup.successDesc">Te avisaremos de las próximas promociones y eventos. Disfruta el menú.</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const IS_TOUCH = window.matchMedia('(hover: none)').matches || 'ontouchstart' in window;
+
+const translations = {
+  es: {
+    "menu.titleL1": "Platos <span class=\'accent\'>que no</span>", "menu.titleL2": "olvidarás.",
+    "mt.tapas": "Tapas <span class=\'accent\'>para compartir</span>", "mt.paellas": "Paellas <span class=\'accent\'>del chef</span>", "mt.entradas": "Entradas", "mt.principales": "Platos <span class=\'accent\'>Principales</span>", "mt.acomp": "Acompañantes <span class=\'accent\'>a escoger</span>", "mt.kids": "Kids <span class=\'accent\'>Menu</span>", "mt.comp": "Complementos", "mt.postres": "Postres",
+    "nav.home": "Inicio", "nav.menu": "Menú", "nav.about": "Nosotros", "nav.visit": "Visítanos", "nav.reserve": "Reservar", "nav.cta": "Reservar Mesa",
+    "menu.eyebrow": "Nuestra Carta", "menu.lead": "Cocina criolla puertorriqueña con alma española. Cada plato tiene historia. Eso es PURO.",
+    "menu.legend1": "Especialidad de la casa", "menu.legend2": "Favorito de nuestros clientes",
+    "cat.tapas": "Tapas", "cat.paellas": "Paellas", "cat.entradas": "Entradas", "cat.principales": "Principales",
+    "cat.acompanantes": "Acompañantes", "cat.kids": "Kids", "cat.complementos": "Complementos", "cat.postres": "Postres",
+    "cat.tapasSub": "El comienzo perfecto", "cat.paellasSub": "Orden mínima para 2 personas", "cat.entradasSub": "Para empezar bien",
+    "cat.principalesSub": "Escoge un acompañante", "cat.acompSub": "Incluidos con tu plato principal", "cat.kidsSub": "Para los más pequeños",
+    "cat.compSub": "Costo adicional", "cat.postresSub": "El cierre dulce",
+    "t.1n": "Camarones en Crema de Ajo Rostizado", "t.1d": "Camarones rebozados en salsa de ajo rostizado, sobre una cama del majado de la casa y ajos fritos. (5 unid)",
+    "t.2n": "Tacos de Malanga con Tartar de Atún", "t.2d": "Atún aderezado al estilo oriental, con crema de aguacate y picadillo de mango. (3 unid)",
+    "t.3n": "Ceviche de Mero Infusionado con Parcha", "t.3d": "Ceviche tradicional en leche de tigre de parcha, acompañado de chips de viandas (yuca, malanga y plátano).",
+    "t.4n": "Pulpo a la Mediterránea", "t.4d": "Pata de pulpo español a la parrilla sobre majado del día y salteado mediterráneo: tomates cherry, ajo, aceitunas negras, alcaparras, aceite de oliva, pimiento morrón y perejil.",
+    "t.5n": "Egg Roll de Pernil", "t.5d": "Pernil asado al estilo criollo con vegetales, salsa ponzu y aioli de jengibre.",
+    "t.6n": "Croquetas Carbonara", "t.6d": "Bechamel de salsa carbonara y pollo rostizado. Aioli de guayaba y bacon jam. (5 unid)",
+    "t.7n": "Pinchos de Filete Mignon", "t.7d": "Mignon marinado en salsa teriyaki hecho a la parrilla con pimientos. Salpicado de semillas de sésamo y salsa de tamarindo. (3 unid)",
+    "t.8n": "Rueda de Chorizo al Vino Tinto", "t.8d": "Chorizo a la parrilla con nuestra salsa de vino tinto, queso manchego rallado y tostadas.",
+    "t.9n": "Bolitas de Corn Beef", "t.9d": "Bolitas rellenas de corn beef, queso crema y amarillos. Sobre arroz blanco y salsa criolla. (4 unid)",
+    "t.10n": "Costillas Puro Pecado", "t.10d": "Short ribs asados a fuego lento, terminados a la parrilla con glaseado de teriyaki casero.",
+    "p.1n": "Paella de Carnes", "p.1d": "Lomo de cerdo, filete de res y pechuga de pollo en sofrito español con azafrán y caldo de pollo.",
+    "p.2n": "Paella de Marisco", "p.2d": "Mejillones, almejas, camarones, vieiras, calamares y pescado en sofrito español con azafrán y caldo de mariscos.",
+    "p.3n": "Paella Mixta", "p.3d": "Cerdo, pollo, res, almeja, mejillones, calamares, vieiras y camarones, en sofrito español con azafrán y caldo de mariscos.",
+    "p.4n": "Paella Negra", "p.4d": "Calamares y camarones en sofrito español, tinta de calamar y caldo de mariscos.",
+    "e.1n": "Sopa del Día", "e.1d": "Selección del Chef diaria.",
+    "e.2n": "Ensalada César", "e.2d": "Lechuga romana, aderezo César, crutones y queso parmesano rallado.",
+    "e.3n": "Ensalada PURO", "e.3d": "Spring mix, queso manchego, tomates cherry, zanahoria, cebolla roja, bacon y vinagreta de tamarindo.",
+    "e.addons": "Añade a tu ensalada:",
+    "pr.1n": "Risotto Puro Jíbaro", "pr.1d": "Risotto de gandules, chicharrones de pork belly frito, queso parmesano y aceite de trufas.",
+    "pr.2n": "Pechuga Rellena de Yuca al Mojo", "pr.2d": "Pechuga rellena de yuca al mojo envuelta en bacon, terminada con salsa de queso Manchego.",
+    "pr.3n": "Churrasco 10oz", "pr.3d": "Churrasco angus prime a la parrilla de 10oz.",
+    "pr.4n": "Carne Ahumada", "pr.4d": "Carne ahumada con cebollas salteadas y ajos fritos.",
+    "pr.5n": "Puro Burger", "pr.5d": "Carne de mignon, churrasco y brisket con cebolla, setas salteadas, queso muenster, bacon, huevo frito y salsa puro.",
+    "pr.6n": "Pasta Alfredo", "pr.6d": "Pasta alfredo con pollo. Cambia el pollo por camarones o churrasco por un suplemento.",
+    "pr.7n": "Filete de Dorado Fresco", "pr.7d": "Dorado del país, hecho a la parrilla con un acompañante a escoger.",
+    "pr.8n": "Pescado Entero", "pr.8d": "Pescado entero frito o al horno.", "pr.mp": "Precio del mercado",
+    "a.1": "Papas Fritas", "a.2": "Majado del Día", "a.3": "Arroz Blanco y Habichuelas", "a.4": "Arroz Mamposteado", "a.5": "Ensalada",
+    "k.1n": "Mini Hamburguesas", "k.1d": "Con queso y acompañadas de papas fritas.",
+    "k.2n": "Tiritas de Pollo con Papas", "k.2d": "Tiras de pollo con papas fritas.",
+    "c.1": "Amarillos", "c.2": "Tostones", "c.3": "Rissoto de Gandules", "c.4": "Mofongo", "c.5": "Papas Trufadas",
+    "d.1n": "Flan de Queso Manchego", "d.1d": "Flan de queso manchego, suave y cremoso.",
+    "d.2n": "Caramel Pecan Cheesecake", "d.2d": "Cheesecake con caramelo y nueces pecan.",
+    "d.3n": "Crema Catalana", "d.3d": "Crema catalana clásica con su capa de azúcar caramelizada.",
+    "d.4n": "Brownie con Mantecado", "d.4d": "Brownie tibio con bola de mantecado de vainilla y frutos rojos.",
+    "footer.tagline": "El sabor de dos culturas en una sola mesa. Toa Baja, Puerto Rico.",
+    "footer.explore": "Explora", "footer.contact": "Contacto", "footer.visit": "Visítanos",
+    "footer.address": "Carr #2 KM 20.1, Toa Baja, PR", "footer.address2": "Frente a la Holsum",
+    "footer.hours1": "Mié–Sáb · 11:00 AM – 10:00 PM", "footer.hours2": "Dom · 11:00 AM – 8:00 PM",
+    "footer.rights": "Todos los derechos reservados", "footer.by": "Diseñado por <a href='https://lizarditech.com' target='_blank' rel='noopener'>Lizardi Technologies</a>",
+    "popup.eyebrow": "Exclusivo · Miembros", "popup.titleA": "Promociones", "popup.titleB": "directo a ti.",
+    "popup.desc": "Regístrate para recibir nuestras ofertas exclusivas, especiales semanales y eventos privados directo en tu teléfono.",
+    "popup.name": "Nombre", "popup.phone": "Teléfono · (787) 555-1234",
+    "popup.submit": "Quiero las Promociones", "popup.skip": "No, gracias — ver el menú",
+    "popup.successTitle": "¡Bienvenido a PURO!", "popup.successDesc": "Te avisaremos de las próximas promociones y eventos. Disfruta el menú."
+  },
+  en: {
+    "menu.titleL1": "Plates you <span class=\'accent\'>won\u2019t</span>", "menu.titleL2": "forget.",
+    "mt.tapas": "Tapas <span class=\'accent\'>to share</span>", "mt.paellas": "Chef\u2019s <span class=\'accent\'>paellas</span>", "mt.entradas": "Starters", "mt.principales": "Main <span class=\'accent\'>Courses</span>", "mt.acomp": "Sides <span class=\'accent\'>to choose</span>", "mt.kids": "Kids <span class=\'accent\'>Menu</span>", "mt.comp": "Add-Ons", "mt.postres": "Desserts",
+    "nav.home": "Home", "nav.menu": "Menu", "nav.about": "About", "nav.visit": "Visit", "nav.reserve": "Reserve", "nav.cta": "Book a Table",
+    "menu.eyebrow": "Our Menu", "menu.lead": "Puerto Rican creole cuisine with Spanish soul. Every dish has a story. That's PURO.",
+    "menu.legend1": "House specialty", "menu.legend2": "Customer favorite",
+    "cat.tapas": "Tapas", "cat.paellas": "Paellas", "cat.entradas": "Starters", "cat.principales": "Mains",
+    "cat.acompanantes": "Sides", "cat.kids": "Kids", "cat.complementos": "Add-Ons", "cat.postres": "Desserts",
+    "cat.tapasSub": "The perfect start", "cat.paellasSub": "Minimum order for 2 people", "cat.entradasSub": "To begin right",
+    "cat.principalesSub": "Pick a side", "cat.acompSub": "Included with your main dish", "cat.kidsSub": "For the little ones",
+    "cat.compSub": "Additional cost", "cat.postresSub": "The sweet finish",
+    "t.1n": "Shrimp in Roasted Garlic Cream", "t.1d": "Battered shrimp in roasted garlic sauce, over our house majado with fried garlic. (5 units)",
+    "t.2n": "Malanga Tacos with Tuna Tartare", "t.2d": "Asian-style seasoned tuna, avocado cream and mango salsa. (3 units)",
+    "t.3n": "Mero Ceviche Infused with Passion Fruit", "t.3d": "Traditional ceviche in passion fruit tiger's milk, served with viandas chips (yuca, malanga and plantain).",
+    "t.4n": "Mediterranean Octopus", "t.4d": "Grilled Spanish octopus leg over house majado with Mediterranean sauté: cherry tomatoes, garlic, black olives, capers, olive oil, bell pepper and parsley.",
+    "t.5n": "Pernil Egg Roll", "t.5d": "Creole-style roasted pernil with vegetables, ponzu sauce and ginger aioli.",
+    "t.6n": "Carbonara Croquettes", "t.6d": "Carbonara béchamel and rotisserie chicken. Guava aioli and bacon jam. (5 units)",
+    "t.7n": "Filet Mignon Skewers", "t.7d": "Mignon marinated in teriyaki sauce, grilled with peppers. Topped with sesame seeds and tamarind sauce. (3 units)",
+    "t.8n": "Chorizo Wheel in Red Wine", "t.8d": "Grilled chorizo with our red wine sauce, grated manchego cheese and toasts.",
+    "t.9n": "Corn Beef Bites", "t.9d": "Bites filled with corn beef, cream cheese and sweet plantains. Over white rice and creole sauce. (4 units)",
+    "t.10n": "Puro Pecado Short Ribs", "t.10d": "Slow-roasted short ribs, finished on the grill with house teriyaki glaze.",
+    "p.1n": "Meat Paella", "p.1d": "Pork loin, beef tenderloin and chicken breast in Spanish sofrito with saffron and chicken stock.",
+    "p.2n": "Seafood Paella", "p.2d": "Mussels, clams, shrimp, scallops, squid and fish in Spanish sofrito with saffron and seafood stock.",
+    "p.3n": "Mixed Paella", "p.3d": "Pork, chicken, beef, clams, mussels, squid, scallops and shrimp in Spanish sofrito with saffron and seafood stock.",
+    "p.4n": "Black Paella", "p.4d": "Squid and shrimp in Spanish sofrito, squid ink and seafood stock.",
+    "e.1n": "Soup of the Day", "e.1d": "Chef's daily selection.",
+    "e.2n": "Caesar Salad", "e.2d": "Romaine lettuce, Caesar dressing, croutons and grated parmesan cheese.",
+    "e.3n": "PURO Salad", "e.3d": "Spring mix, manchego cheese, cherry tomatoes, carrots, red onion, bacon and tamarind vinaigrette.",
+    "e.addons": "Add to your salad:",
+    "pr.1n": "Risotto Puro Jíbaro", "pr.1d": "Pigeon pea risotto, crispy pork belly chicharrones, parmesan cheese and truffle oil.",
+    "pr.2n": "Chicken Breast Stuffed with Yuca Mojo", "pr.2d": "Chicken breast stuffed with yuca al mojo wrapped in bacon, finished with Manchego cheese sauce.",
+    "pr.3n": "Churrasco 10oz", "pr.3d": "10oz grilled Angus prime churrasco.",
+    "pr.4n": "Smoked Beef", "pr.4d": "Smoked beef with sautéed onions and fried garlic.",
+    "pr.5n": "Puro Burger", "pr.5d": "Mignon, churrasco and brisket meat with onion, sautéed mushrooms, muenster cheese, bacon, fried egg and puro sauce.",
+    "pr.6n": "Alfredo Pasta", "pr.6d": "Alfredo pasta with chicken. Swap chicken for shrimp or churrasco for a supplement.",
+    "pr.7n": "Fresh Mahi Mahi Fillet", "pr.7d": "Local mahi mahi, grilled with a side of your choice.",
+    "pr.8n": "Whole Fish", "pr.8d": "Whole fish fried or oven-baked.", "pr.mp": "Market price",
+    "a.1": "French Fries", "a.2": "Daily Majado", "a.3": "White Rice & Beans", "a.4": "Arroz Mamposteado", "a.5": "Salad",
+    "k.1n": "Mini Burgers", "k.1d": "With cheese and a side of fries.",
+    "k.2n": "Chicken Strips with Fries", "k.2d": "Chicken strips with French fries.",
+    "c.1": "Sweet Plantains", "c.2": "Tostones", "c.3": "Pigeon Pea Risotto", "c.4": "Mofongo", "c.5": "Truffle Fries",
+    "d.1n": "Manchego Cheese Flan", "d.1d": "Soft and creamy manchego cheese flan.",
+    "d.2n": "Caramel Pecan Cheesecake", "d.2d": "Cheesecake with caramel and pecan nuts.",
+    "d.3n": "Crema Catalana", "d.3d": "Classic crema catalana with its caramelized sugar crust.",
+    "d.4n": "Brownie with Ice Cream", "d.4d": "Warm brownie with vanilla ice cream and red berries.",
+    "footer.tagline": "The taste of two cultures at one table. Toa Baja, Puerto Rico.",
+    "footer.explore": "Explore", "footer.contact": "Contact", "footer.visit": "Visit",
+    "footer.address": "Carr #2 KM 20.1, Toa Baja, PR", "footer.address2": "Across from Holsum",
+    "footer.hours1": "Wed–Sat · 11:00 AM – 10:00 PM", "footer.hours2": "Sun · 11:00 AM – 8:00 PM",
+    "footer.rights": "All rights reserved", "footer.by": "Designed by <a href='https://lizarditech.com' target='_blank' rel='noopener'>Lizardi Technologies</a>",
+    "popup.eyebrow": "Exclusive · Members", "popup.titleA": "Promotions", "popup.titleB": "straight to you.",
+    "popup.desc": "Sign up to receive our exclusive offers, weekly specials and private events right on your phone.",
+    "popup.name": "Name", "popup.phone": "Phone · (787) 555-1234",
+    "popup.submit": "Get the Promotions", "popup.skip": "No thanks — view the menu",
+    "popup.successTitle": "Welcome to PURO!", "popup.successDesc": "We'll let you know about upcoming promotions and events. Enjoy the menu."
+  }
+};
+
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.lang = lang;
+  localStorage.setItem('puroLang', lang);
+  const dict = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n'); if (dict[k]) el.innerHTML = dict[k]; });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const k = el.getAttribute('data-i18n-placeholder'); if (dict[k]) el.setAttribute('placeholder', dict[k]); });
+  const toggle = document.getElementById('langToggle');
+  toggle.innerHTML = lang === 'es' ? '<span class="active-lang">ES</span><span class="inactive-lang">/ EN</span>' : '<span class="inactive-lang">ES /</span><span class="active-lang">EN</span>';
+}
+document.getElementById('langToggle').addEventListener('click', () => setLang(document.documentElement.getAttribute('data-lang') === 'es' ? 'en' : 'es'));
+setLang(localStorage.getItem('puroLang') || 'es');
+
+function pageHeroIntro() {
+  if (REDUCED) { gsap.set('.page-title .line > span, .page-lead span', { y: 0 }); return; }
+  gsap.set('.page-title .line > span, .page-lead span', { y: '110%' });
+  const tl = gsap.timeline();
+  tl.to('.page-eyebrow .line', { width: 40, duration: 0.7, ease: 'expo.out' })
+    .from('.page-eyebrow span:not(.line)', { opacity: 0, duration: 0.6 }, '-=0.4')
+    .to('.page-title .line > span', { y: 0, duration: 1.1, ease: 'expo.out', stagger: 0.12 }, '-=0.3')
+    .to('.page-lead span', { y: 0, duration: 0.9, ease: 'expo.out' }, '-=0.6')
+    .from('#pageLegend', { opacity: 0, y: 20, duration: 0.7 }, '-=0.4');
+}
+
+const sectionIds = ['tapas','paellas','entradas','principales','acompanantes','kids','complementos','postres'];
+
+function init() {
+  gsap.registerPlugin(ScrollTrigger);
+  pageHeroIntro();
+
+  const progress = document.getElementById('scrollProgress');
+  ScrollTrigger.create({ start: 0, end: 'max', onUpdate: (self) => progress.style.transform = `scaleX(${self.progress})` });
+
+  const nav = document.getElementById('nav');
+  ScrollTrigger.create({ start: 0, end: 'max', onUpdate: (self) => nav.classList.toggle('scrolled', self.scroll() > 50) });
+
+  if (REDUCED) {
+    document.querySelectorAll('[data-item], .menu-section-title .line-in').forEach(el => gsap.set(el, { opacity: 1, y: 0 }));
+  } else {
+    // section title line reveals
+    gsap.utils.toArray('.menu-section-title .line-in').forEach(el => {
+      gsap.set(el, { y: '110%' });
+      ScrollTrigger.create({ trigger: el, start: 'top 88%', onEnter: () => gsap.to(el, { y: 0, duration: 1, ease: 'expo.out' }) });
+    });
+    // menu items batch stagger
+    gsap.set('[data-item]', { y: 40, opacity: 0 });
+    ScrollTrigger.batch('[data-item]', { start: 'top 90%', onEnter: (batch) => gsap.to(batch, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out', stagger: 0.06 }) });
+    // blobs drift
+    document.querySelectorAll('[data-blob]').forEach((b, i) => gsap.to(b, { x: 'random(-40,40)', y: 'random(-40,40)', duration: 'random(8,12)', repeat: -1, yoyo: true, ease: 'sine.inOut', delay: i * 0.4 }));
+  }
+
+  // Category nav -> smooth scroll
+  document.querySelectorAll('.category-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.getAttribute('data-target'));
+      if (!target) return;
+      const top = target.offsetTop - 130;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  // Active category tracking — highlight pill + center it within the nav's own
+  // horizontal strip. Never calls scrollIntoView (which would yank the page).
+  const sections = sectionIds.map(id => document.getElementById(id));
+  const catNav = document.getElementById('categoryNav');
+  let lastActive = null;
+  ScrollTrigger.create({
+    start: 0, end: 'max',
+    onUpdate: (self) => {
+      const scrollPos = self.scroll() + 200;
+      let active = sections[0];
+      sections.forEach(s => { if (s.offsetTop <= scrollPos) active = s; });
+      if (active.id === lastActive) return; // only act when it actually changes
+      lastActive = active.id;
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        const on = btn.getAttribute('data-target') === active.id;
+        btn.classList.toggle('active', on);
+        if (on && catNav) {
+          const left = btn.offsetLeft - (catNav.clientWidth / 2) + (btn.offsetWidth / 2);
+          catNav.scrollTo({ left: Math.max(0, left), behavior: 'smooth' });
+        }
+      });
+    }
+  });
+
+  ScrollTrigger.refresh();
+}
+
+/* CURSOR */
+function initCursor() {
+  if (IS_TOUCH || REDUCED) return;
+  document.body.classList.add('cursor-active');
+  const dot = document.getElementById('cursorDot'); const ring = document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', (e)=>{ mx=e.clientX; my=e.clientY; dot.style.transform=`translate(${mx}px,${my}px)`; });
+  (function loop(){ rx+=(mx-rx)*0.18; ry+=(my-ry)*0.18; ring.style.transform=`translate(${rx}px,${ry}px)`; requestAnimationFrame(loop); })();
+  document.querySelectorAll('[data-cursor]').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+  });
+}
+
+/* MOBILE MENU */
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+menuToggle.addEventListener('click', () => {
+  menuToggle.classList.toggle('open'); navMenu.classList.toggle('open');
+  document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+});
+document.querySelectorAll('.nav-menu a').forEach(link => link.addEventListener('click', () => {
+  menuToggle.classList.remove('open'); navMenu.classList.remove('open'); document.body.style.overflow = '';
+}));
+
+/* POPUP — Menu page: aggressive (3s) or instant on QR scan (800ms) */
+const popup = document.getElementById('popup');
+const leadForm = document.getElementById('leadForm');
+const popupSuccess = document.getElementById('popupSuccess');
+const popupFormDiv = document.getElementById('popupForm');
+const POPUP_KEY = 'puroLeadCaptured', POPUP_MENU_SEEN_KEY = 'puroLeadMenuSeen';
+function showPopup() { popup.classList.add('active'); popup.setAttribute('aria-hidden','false'); localStorage.setItem(POPUP_MENU_SEEN_KEY,'1'); }
+function hidePopup() { popup.classList.remove('active'); popup.setAttribute('aria-hidden','true'); }
+document.getElementById('popupClose').addEventListener('click', hidePopup);
+document.getElementById('popupSkip').addEventListener('click', hidePopup);
+popup.addEventListener('click', (e) => { if (e.target === popup) hidePopup(); });
+leadForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const submitBtn = document.getElementById('leadSubmit');
+  const lang = document.documentElement.getAttribute('data-lang');
+  submitBtn.disabled = true; submitBtn.innerHTML = lang === 'es' ? 'Enviando...' : 'Sending...';
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(leadForm) });
+    if (res.ok) { popupFormDiv.style.display='none'; popupSuccess.style.display='block'; localStorage.setItem(POPUP_KEY,'1'); setTimeout(hidePopup, 2800); }
+    else throw new Error();
+  } catch (err) {
+    submitBtn.disabled = false; submitBtn.innerHTML = lang === 'es' ? 'Quiero las Promociones' : 'Get the Promotions';
+    alert(lang === 'es' ? 'Hubo un error. Intenta de nuevo.' : 'There was an error. Please try again.');
+  }
+});
+const urlParams = new URLSearchParams(window.location.search);
+const isFromQR = urlParams.get('qr') === '1' || urlParams.get('source') === 'qr';
+if (isFromQR) document.getElementById('leadSource').value = 'qr-code-menu';
+function schedulePopup() {
+  const captured = localStorage.getItem(POPUP_KEY), seen = localStorage.getItem(POPUP_MENU_SEEN_KEY);
+  if (isFromQR && !captured) setTimeout(showPopup, 800);
+  else if (!captured && !seen) setTimeout(showPopup, 3000);
+}
+
+/* BOOT */
+function boot(){ try { init(); initCursor(); schedulePopup(); } catch(e){ console.error(e); } }
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+window.addEventListener('load', () => { try { ScrollTrigger.refresh(); } catch(e){} });
+</script>
+</body>
+</html>

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservar · PURO Sin Fondo — Toa Baja, Puerto Rico</title>
+<meta name="description" content="Reserva tu mesa en PURO Sin Fondo, Toa Baja. Llama al (787) 995-3774 o escríbenos por WhatsApp. Eventos privados y grupos disponibles.">
+
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180x180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --rojo: #C0272D; --rojo-dark: #8B1C20; --gold: #D4A847; --gold-soft: #B8923D;
+  --negro: #0A0A0A; --negro-soft: #131313; --negro-card: #1A1A1A; --gris: #2A2A2A;
+  --crema: #F5F1EA; --blanco: #FFFFFF; --whatsapp: #25D366;
+  --text-dim: rgba(245, 241, 234, 0.65); --text-muted: rgba(245, 241, 234, 0.45);
+  --font-display: 'Playfair Display', serif; --font-body: 'Barlow', sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; max-width: 100vw; }
+body { font-family: var(--font-body); background: var(--negro); color: var(--crema); line-height: 1.6; overflow-x: hidden; max-width: 100vw; position: relative; }
+::selection { background: var(--rojo); color: var(--blanco); }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+/* PRELOADER */
+
+/* SCROLL PROGRESS + CURSOR */
+.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: linear-gradient(90deg, var(--rojo), var(--gold)); transform: scaleX(0); transform-origin: left; z-index: 1001; }
+.cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 9000; mix-blend-mode: difference; will-change: transform; }
+.cursor-dot { width: 8px; height: 8px; background: var(--crema); margin: -4px 0 0 -4px; }
+.cursor-ring { width: 44px; height: 44px; border: 1px solid rgba(245,241,234,0.5); margin: -22px 0 0 -22px; transition: width .3s var(--ease-out), height .3s var(--ease-out), border-color .3s, background .3s; display: flex; align-items: center; justify-content: center; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: transparent; }
+.cursor-ring.hover { width: 64px; height: 64px; border-color: var(--gold); }
+body.cursor-active { cursor: none; }
+body.cursor-active a, body.cursor-active button { cursor: none; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; transition: all 0.5s var(--ease-out); background: linear-gradient(180deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0) 100%); }
+.nav.scrolled { background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 14px 48px; border-bottom: 1px solid rgba(212, 168, 71, 0.1); }
+.nav.hide { transform: translateY(-100%); }
+.nav-logo { display: flex; align-items: center; gap: 12px; transition: transform 0.4s var(--ease-out); }
+.nav-logo:hover { transform: scale(1.04); }
+.nav-logo img { height: 44px; width: auto; }
+.nav-menu { display: flex; align-items: center; gap: 38px; list-style: none; }
+.nav-menu a { font-size: 13px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; position: relative; padding: 6px 0; transition: color 0.3s ease; }
+.nav-menu > li > a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform 0.4s var(--ease-out); }
+.nav-menu > li > a:hover { color: var(--gold); } .nav-menu > li > a:hover::after { transform: scaleX(1); transform-origin: left; }
+.nav-menu a.active { color: var(--gold); } .nav-menu a.active::after { transform: scaleX(1); }
+.lang-toggle { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 2px; padding: 8px 14px; border: 1px solid rgba(212, 168, 71, 0.3); border-radius: 50px; transition: all 0.3s ease; }
+.lang-toggle:hover { border-color: var(--gold); background: rgba(212, 168, 71, 0.05); }
+.lang-toggle .active-lang { color: var(--gold); } .lang-toggle .inactive-lang { color: var(--text-muted); }
+.nav-cta { background: var(--rojo); color: var(--blanco); padding: 12px 24px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: all 0.4s var(--ease-out); border: 1px solid var(--rojo); }
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(192, 39, 45, 0.35); }
+.menu-toggle { display: none; flex-direction: column; gap: 5px; z-index: 1001; padding: 8px; }
+.menu-toggle span { width: 26px; height: 2px; background: var(--crema); transition: all 0.3s var(--ease-out); }
+.menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: var(--gold); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--gold); }
+
+/* HERO — reservar specific, with background image */
+.res-hero { position: relative; min-height: 92vh; min-height: 92svh; display: flex; align-items: center; justify-content: center; text-align: center; overflow: hidden; padding: 200px 48px 100px; }
+.res-hero-bg { position: absolute; inset: 0; z-index: 0; }
+.res-hero-bg img { width: 100%; height: 110%; object-fit: cover; opacity: 0.32; will-change: transform; }
+.res-hero-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 40%, rgba(10,10,10,0.4) 0%, var(--negro) 75%); }
+.res-hero-blobs { position: absolute; inset: 0; z-index: 1; filter: blur(80px); opacity: 0.5; }
+.blob { position: absolute; border-radius: 50%; will-change: transform; }
+.blob-1 { width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(192,39,45,0.45), transparent 70%); top: -10%; left: 50%; transform: translateX(-50%); }
+.res-hero-content { position: relative; z-index: 2; max-width: 1000px; margin: 0 auto; }
+.page-eyebrow { display: inline-flex; align-items: center; gap: 16px; font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 28px; }
+.page-eyebrow .line { width: 0; height: 1px; background: var(--gold); }
+.res-title { font-family: var(--font-display); font-size: clamp(3.5rem, 10vw, 8rem); font-weight: 900; line-height: 0.9; letter-spacing: -0.04em; margin-bottom: 28px; }
+.res-title .line { display: block; overflow: hidden; }
+.res-title .line > span { display: inline-block; will-change: transform; }
+.res-title .accent { color: var(--rojo); font-style: italic; }
+.res-lead { font-family: var(--font-display); font-style: italic; font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--text-dim); margin: 0 auto 48px; max-width: 680px; overflow: hidden; }
+.res-lead span { display: inline-block; will-change: transform; }
+
+/* CONTACT METHODS — big buttons */
+.res-methods { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+.res-method { display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 44px 52px; border-radius: 8px; border: 1px solid rgba(212, 168, 71, 0.2); background: linear-gradient(180deg, rgba(26,26,26,0.6), rgba(19,19,19,0.6)); backdrop-filter: blur(10px); transition: all 0.5s var(--ease-out); min-width: 280px; position: relative; overflow: hidden; }
+.res-method::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; transform: scaleX(0); transform-origin: left; transition: transform 0.6s var(--ease-out); }
+.res-method.call::before { background: var(--rojo); }
+.res-method.wa::before { background: var(--whatsapp); }
+.res-method:hover { transform: translateY(-8px); border-color: rgba(212, 168, 71, 0.5); box-shadow: 0 30px 60px rgba(0,0,0,0.4); }
+.res-method:hover::before { transform: scaleX(1); }
+.res-method-icon { width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+.res-method.call .res-method-icon { background: rgba(192,39,45,0.15); color: var(--rojo); }
+.res-method.wa .res-method-icon { background: rgba(37,211,102,0.15); color: var(--whatsapp); }
+.res-method-icon svg { width: 28px; height: 28px; }
+.res-method-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-muted); }
+.res-method-value { font-family: var(--font-display); font-size: 1.7rem; font-weight: 700; letter-spacing: -0.01em; }
+.res-method-sub { font-size: 13px; color: var(--text-dim); }
+
+/* SECTION BASE */
+.section { padding: 120px 48px; position: relative; }
+.section-inner { max-width: 1400px; margin: 0 auto; }
+.section-eyebrow { display: inline-flex; align-items: center; gap: 16px; font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+.section-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+.section-title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1; letter-spacing: -0.03em; margin-bottom: 32px; }
+.section-title .accent { color: var(--rojo); font-style: italic; }
+.anim-line { display: block; overflow: hidden; }
+.anim-line > * { display: inline-block; will-change: transform; }
+
+/* KNOW BEFORE — info strip */
+.know { background: var(--negro-soft); }
+.know-header { text-align: center; max-width: 720px; margin: 0 auto 72px; }
+.know-header .section-eyebrow { justify-content: center; }
+.know-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.know-card { padding: 44px 36px; border: 1px solid rgba(212, 168, 71, 0.12); border-radius: 4px; background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0)); transition: all 0.5s var(--ease-out); }
+.know-card:hover { border-color: var(--gold); transform: translateY(-6px); background: linear-gradient(135deg, rgba(212,168,71,0.05), rgba(212,168,71,0)); }
+.know-icon { width: 44px; height: 44px; color: var(--rojo); margin-bottom: 24px; }
+.know-card h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; margin-bottom: 14px; line-height: 1.2; }
+.know-card p { color: var(--text-dim); font-size: 15px; line-height: 1.65; }
+
+/* HOURS strip */
+.hours { background: var(--negro); }
+.hours-wrap { max-width: 900px; margin: 0 auto; border: 1px solid rgba(212, 168, 71, 0.15); border-radius: 8px; overflow: hidden; }
+.hours-row { display: flex; justify-content: space-between; align-items: center; padding: 22px 36px; border-bottom: 1px solid rgba(212, 168, 71, 0.08); transition: background 0.3s ease; }
+.hours-row:last-child { border-bottom: none; }
+.hours-row:hover { background: rgba(212,168,71,0.03); }
+.hours-row.closed { opacity: 0.55; }
+.hours-day { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; }
+.hours-time { font-size: 15px; letter-spacing: 1px; color: var(--gold); font-weight: 500; }
+.hours-row.closed .hours-time { color: var(--rojo); }
+.hours-note { text-align: center; margin-top: 32px; font-size: 14px; color: var(--text-muted); }
+.hours-note strong { color: var(--gold); }
+
+/* EVENTS callout */
+.events { background: var(--negro-soft); position: relative; overflow: hidden; }
+.events-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.events-image { position: relative; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; }
+.events-image-inner { position: absolute; inset: 0; will-change: transform; }
+.events-image img { width: 100%; height: 120%; object-fit: cover; }
+.events-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(192,39,45,0.15), rgba(10,10,10,0.3)); }
+.events-text p { color: var(--text-dim); font-size: 17px; line-height: 1.75; margin-bottom: 28px; }
+.events-list { list-style: none; margin-bottom: 36px; }
+.events-list li { display: flex; align-items: center; gap: 12px; padding: 10px 0; font-size: 15px; color: var(--crema); }
+.events-list li svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
+
+/* FINAL CTA */
+.final-cta { padding: 180px 48px; background: var(--negro); position: relative; overflow: hidden; text-align: center; }
+.final-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(192, 39, 45, 0.15) 0%, transparent 60%); }
+.final-cta-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+.final-cta h2 { font-family: var(--font-display); font-size: clamp(3rem, 7vw, 6rem); font-weight: 700; line-height: 0.95; margin-bottom: 32px; letter-spacing: -0.03em; }
+.final-cta h2 .accent { color: var(--rojo); font-style: italic; }
+.final-cta p { font-family: var(--font-display); font-style: italic; font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--text-dim); margin-bottom: 48px; }
+.final-cta-actions { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+.btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; font-size: 13px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; border-radius: 50px; transition: all 0.4s var(--ease-out); position: relative; overflow: hidden; border: 1px solid transparent; will-change: transform; }
+.btn span, .btn svg { position: relative; z-index: 1; }
+.btn svg { transition: transform 0.3s ease; } .btn:hover svg { transform: translateX(4px); }
+.btn-primary { background: var(--rojo); color: var(--blanco); border-color: var(--rojo); }
+.btn-primary::before { content:''; position:absolute; inset:0; background: var(--gold); z-index:0; transform: translateY(101%); transition: transform 0.5s var(--ease-out); }
+.btn-primary:hover::before { transform: translateY(0); }
+.btn-primary:hover { color: var(--negro); box-shadow: 0 15px 40px rgba(212,168,71,0.3); }
+.btn-outline { background: transparent; color: var(--crema); border-color: rgba(245, 241, 234, 0.25); }
+.btn-outline::before { content:''; position:absolute; inset:0; background: var(--crema); z-index:0; transform: translateY(101%); transition: transform 0.5s var(--ease-out); }
+.btn-outline:hover::before { transform: translateY(0); }
+.btn-outline:hover { color: var(--negro); border-color: var(--crema); }
+.btn-wa { background: var(--whatsapp); color: #07301a; border-color: var(--whatsapp); }
+.btn-wa::before { content:''; position:absolute; inset:0; background: #1eb858; z-index:0; transform: translateY(101%); transition: transform 0.5s var(--ease-out); }
+.btn-wa:hover::before { transform: translateY(0); }
+.btn-wa:hover { box-shadow: 0 15px 40px rgba(37,211,102,0.3); }
+
+/* FOOTER */
+.footer { background: #050505; padding: 80px 48px 32px; border-top: 1px solid rgba(212, 168, 71, 0.1); }
+.footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-brand img { height: 60px; margin-bottom: 24px; }
+.footer-brand p { color: var(--text-muted); font-size: 14px; line-height: 1.6; max-width: 280px; }
+.footer-col h4 { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+.footer-col ul { list-style: none; } .footer-col li { margin-bottom: 12px; }
+.footer-col a { font-size: 14px; color: var(--text-dim); transition: color 0.3s ease; } .footer-col a:hover { color: var(--gold); }
+.footer-social { display: flex; gap: 12px; margin-top: 24px; }
+.footer-social a { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(212, 168, 71, 0.2); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+.footer-social a:hover { border-color: var(--gold); background: var(--gold); color: var(--negro); transform: translateY(-2px); }
+.footer-social svg { width: 18px; height: 18px; }
+.footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--text-muted); }
+.footer-bottom a { color: var(--gold); }
+
+/* POPUP */
+.popup-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 9500; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; visibility: hidden; transition: all 0.5s var(--ease-out); }
+.popup-overlay.active { opacity: 1; visibility: visible; }
+.popup { background: linear-gradient(180deg, var(--negro-card) 0%, var(--negro-soft) 100%); border: 1px solid rgba(212, 168, 71, 0.25); border-radius: 8px; max-width: 500px; width: 100%; padding: 48px 40px; position: relative; transform: scale(0.9) translateY(20px); transition: all 0.6s var(--ease-bounce); box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(192, 39, 45, 0.15); }
+.popup-overlay.active .popup { transform: scale(1) translateY(0); }
+.popup-close { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: all 0.3s ease; }
+.popup-close:hover { color: var(--gold); background: rgba(255,255,255,0.05); }
+.popup-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.popup-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+.popup h3 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.1; margin-bottom: 16px; letter-spacing: -0.02em; }
+.popup h3 .accent { color: var(--rojo); font-style: italic; }
+.popup p { color: var(--text-dim); font-size: 15px; line-height: 1.6; margin-bottom: 28px; }
+.popup form { display: flex; flex-direction: column; gap: 14px; }
+.popup input { width: 100%; padding: 16px 20px; background: rgba(0,0,0,0.4); border: 1px solid rgba(212, 168, 71, 0.2); border-radius: 4px; color: var(--crema); font-family: var(--font-body); font-size: 15px; transition: all 0.3s ease; }
+.popup input::placeholder { color: var(--text-muted); }
+.popup input:focus { outline: none; border-color: var(--gold); background: rgba(212, 168, 71, 0.05); }
+.popup button[type="submit"] { width: 100%; padding: 16px; background: var(--rojo); color: white; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; transition: all 0.3s var(--ease-out); margin-top: 4px; }
+.popup button[type="submit"]:hover { background: var(--rojo-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(192, 39, 45, 0.3); }
+.popup button[type="submit"]:disabled { opacity: 0.5; cursor: not-allowed; }
+.popup-skip { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 16px; text-decoration: underline; cursor: pointer; transition: color 0.3s ease; }
+.popup-skip:hover { color: var(--gold); }
+.popup-success { text-align: center; padding: 24px 0; }
+.popup-success svg { width: 64px; height: 64px; color: var(--gold); margin: 0 auto 24px; }
+.popup-success h3 { margin-bottom: 12px; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .nav { padding: 20px 32px; } .nav.scrolled { padding: 14px 32px; }
+  .res-hero { padding: 170px 32px 80px; }
+  .section { padding: 90px 32px; } .final-cta { padding: 130px 32px; }
+  .know-grid { grid-template-columns: 1fr; max-width: 540px; margin: 0 auto; }
+  .events-inner { grid-template-columns: 1fr; gap: 48px; }
+  .events-image { max-width: 520px; margin: 0 auto; width: 100%; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 768px) {
+  .nav { padding: 16px 20px; } .nav.scrolled { padding: 12px 20px; }
+  .nav-logo img { height: 36px; }
+  .nav-menu { position: fixed; top: 0; right: 0; width: 85%; max-width: 360px; height: 100vh; height: 100svh; background: var(--negro); flex-direction: column; justify-content: center; gap: 32px; padding: 80px 32px 32px; transform: translateX(100%); transition: transform 0.5s var(--ease-out); border-left: 1px solid rgba(212, 168, 71, 0.1); }
+  .nav-menu.open { transform: translateX(0); }
+  .nav-menu a { font-size: 18px; }
+  .nav-cta { display: none; }
+  .menu-toggle { display: flex; }
+  .lang-toggle { padding: 6px 10px; font-size: 10px; }
+  .res-hero { padding: 140px 20px 70px; }
+  .res-method { min-width: 0; width: 100%; padding: 36px 32px; }
+  .res-methods { gap: 16px; }
+  .section { padding: 70px 20px; } .final-cta { padding: 110px 20px; }
+  .hours-row { padding: 18px 24px; flex-wrap: wrap; gap: 4px; }
+  .hours-day { font-size: 1.1rem; }
+  .footer { padding: 60px 20px 24px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .popup { padding: 36px 24px; }
+  .popup h3 { font-size: 1.6rem; }
+}
+
+/* SAFETY */
+* { min-width: 0; }
+h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; word-break: break-word; hyphens: auto; }
+img, svg, video, iframe { max-width: 100%; }
+.res-methods > *, .know-grid > * { flex-shrink: 0; }
+@media (max-width: 480px) { h1 { font-size: clamp(2.5rem, 12vw, 4rem) !important; } }
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .cursor-dot, .cursor-ring { display: none !important; }
+}
+.js .res-title .line > span, .js .res-lead span { transform: translateY(110%); }
+html:not(.js) .res-title .line > span, html:not(.js) .res-lead span { transform: none; }
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo" data-cursor="hover" aria-label="PURO Inicio"><img src="images/logo-nav.png" alt="PURO"></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+    <li><a href="menu.html" data-i18n="nav.menu">Menú</a></li>
+    <li><a href="nosotros.html" data-i18n="nav.about">Nosotros</a></li>
+    <li><a href="visitanos.html" data-i18n="nav.visit">Visítanos</a></li>
+    <li><a href="reservar.html" class="active" data-i18n="nav.reserve">Reservar</a></li>
+    <li><button class="lang-toggle" id="langToggle" data-cursor="hover" aria-label="Cambiar idioma"><span class="active-lang">ES</span><span class="inactive-lang">/ EN</span></button></li>
+    <li><a href="reservar.html" class="nav-cta" data-cursor="hover" data-i18n="nav.cta">Reservar Mesa</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="res-hero">
+  <div class="res-hero-bg"><img src="images/gallery/multi-plates.jpg" alt="" data-hero-bg loading="eager"></div>
+  <div class="res-hero-blobs"><div class="blob blob-1" data-blob></div></div>
+  <div class="res-hero-content">
+    <div class="page-eyebrow" id="pageEyebrow"><span class="line"></span><span data-i18n="res.eyebrow">Reservaciones</span><span class="line"></span></div>
+    <h1 class="res-title">
+      <span class="line"><span data-i18n="rs.titleL1">Aparta tu</span></span>
+      <span class="line"><span data-i18n="rs.titleL2"><span class="accent">mesa.</span></span></span>
+    </h1>
+    <p class="res-lead"><span data-i18n="res.lead">Llámanos o escríbenos por WhatsApp para reservar. Te confirmamos en minutos.</span></p>
+
+    <div class="res-methods">
+      <a href="tel:+17879953774" class="res-method call" data-cursor="hover">
+        <div class="res-method-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <div class="res-method-label" data-i18n="res.callLabel">Llámanos</div>
+        <div class="res-method-value">(787) 995-3774</div>
+        <div class="res-method-sub" data-i18n="res.callSub">Durante horas de servicio</div>
+      </a>
+
+      <a href="https://wa.me/17875261368?text=Hola%20PURO%2C%20quiero%20reservar%20una%20mesa" target="_blank" rel="noopener" class="res-method wa" data-cursor="hover">
+        <div class="res-method-icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.5-.3zM12 2a10 10 0 00-8.5 15.3L2 22l4.8-1.5A10 10 0 1012 2zm0 18a8 8 0 01-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1112 20z"/></svg></div>
+        <div class="res-method-label" data-i18n="res.waLabel">WhatsApp</div>
+        <div class="res-method-value">(787) 526-1368</div>
+        <div class="res-method-sub" data-i18n="res.waSub">Respuesta rápida</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- KNOW BEFORE -->
+<section class="section know" id="know">
+  <div class="section-inner">
+    <div class="know-header">
+      <div class="section-eyebrow" data-reveal><span data-i18n="res.knowEyebrow">Antes de Reservar</span></div>
+      <h2 class="section-title" data-reveal>
+        <span class="anim-line"><span data-i18n="rs.knowTitle">Lo que debes <span class="accent">saber.</span></span></span>
+      </h2>
+    </div>
+    <div class="know-grid">
+      <div class="know-card" data-reveal>
+        <svg class="know-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        <h3 data-i18n="res.k1t">Grupos grandes</h3>
+        <p data-i18n="res.k1d">¿Vienen más de 6 personas? Mejor reservar con anticipación para acomodarlos como se merecen.</p>
+      </div>
+      <div class="know-card" data-reveal>
+        <svg class="know-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <h3 data-i18n="res.k2t">Fines de semana</h3>
+        <p data-i18n="res.k2d">Viernes, sábado y el brunch dominical se llenan rápido. Llama temprano para asegurar tu espacio.</p>
+      </div>
+      <div class="know-card" data-reveal>
+        <svg class="know-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>
+        <h3 data-i18n="res.k3t">Ocasiones especiales</h3>
+        <p data-i18n="res.k3d">¿Cumpleaños o celebración? Avísanos al reservar y lo preparamos todo para que sea memorable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOURS -->
+<section class="section hours" id="hours">
+  <div class="section-inner">
+    <div class="know-header">
+      <div class="section-eyebrow" data-reveal style="justify-content:center;"><span data-i18n="res.hoursEyebrow">Horario</span></div>
+      <h2 class="section-title" data-reveal>
+        <span class="anim-line"><span data-i18n="rs.hoursTitle2">Cuándo <span class="accent">visitarnos.</span></span></span>
+      </h2>
+    </div>
+    <div class="hours-wrap" data-reveal>
+      <div class="hours-row"><span class="hours-day" data-i18n="res.hWed">Miércoles</span><span class="hours-time">11:00 AM – 10:00 PM</span></div>
+      <div class="hours-row"><span class="hours-day" data-i18n="res.hThu">Jueves</span><span class="hours-time">11:00 AM – 10:00 PM</span></div>
+      <div class="hours-row"><span class="hours-day" data-i18n="res.hFri">Viernes</span><span class="hours-time">11:00 AM – 10:00 PM</span></div>
+      <div class="hours-row"><span class="hours-day" data-i18n="res.hSat">Sábado</span><span class="hours-time">11:00 AM – 10:00 PM</span></div>
+      <div class="hours-row"><span class="hours-day" data-i18n="res.hSun">Domingo</span><span class="hours-time">11:00 AM – 8:00 PM</span></div>
+      <div class="hours-row closed"><span class="hours-day" data-i18n="res.hMon">Lunes</span><span class="hours-time" data-i18n="res.closed">Cerrado</span></div>
+      <div class="hours-row closed"><span class="hours-day" data-i18n="res.hTue">Martes</span><span class="hours-time" data-i18n="res.closed">Cerrado</span></div>
+    </div>
+    <p class="hours-note" data-reveal><strong data-i18n="res.brunchLabel">Brunch</strong> <span data-i18n="res.brunchNote">sábado y domingo de 11:00 AM a 3:00 PM</span></p>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="section events" id="events">
+  <div class="events-inner">
+    <div class="events-image" data-reveal data-cursor="hover">
+      <div class="events-image-inner" data-parallax-img><img src="images/gallery/trio-composition.jpg" alt="Eventos privados en PURO" loading="lazy"></div>
+    </div>
+    <div class="events-text">
+      <div class="section-eyebrow" data-reveal><span data-i18n="res.evEyebrow">Eventos Privados</span></div>
+      <h2 class="section-title" data-reveal>
+        <span class="anim-line"><span data-i18n="rs.evL1">¿Algo más</span></span>
+        <span class="anim-line"><span data-i18n="rs.evL2"><span class="accent">grande?</span></span></span>
+      </h2>
+      <div data-reveal>
+        <p data-i18n="res.evP">Tenemos espacios para cumpleaños, celebraciones, reuniones corporativas y eventos especiales. Cuéntanos qué tienes en mente y lo hacemos realidad.</p>
+        <ul class="events-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="res.ev1">Cumpleaños y celebraciones</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="res.ev2">Reuniones corporativas</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="res.ev3">Recaudaciones y eventos especiales</span></li>
+        </ul>
+      </div>
+      <div data-reveal>
+        <a href="https://wa.me/17875261368?text=Hola%20PURO%2C%20quiero%20informaci%C3%B3n%20sobre%20eventos%20privados" target="_blank" rel="noopener" class="btn btn-wa" data-magnetic data-cursor="hover">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.5-.3z"/></svg>
+          <span data-i18n="res.evCta">Consultar por WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="finalCta">
+  <div class="final-cta-content">
+    <h2 data-reveal>
+      <span class="anim-line"><span data-i18n="res.ctaTitleA">Nos vemos</span></span>
+      <span class="anim-line"><span class="accent" data-i18n="res.ctaTitleB">en la mesa.</span></span>
+    </h2>
+    <p data-reveal data-i18n="res.ctaLead">Una llamada o un mensaje es todo lo que necesitas.</p>
+    <div class="final-cta-actions" data-reveal>
+      <a href="tel:+17879953774" class="btn btn-primary" data-magnetic data-cursor="hover">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        <span data-i18n="res.cta1">Llamar Ahora</span>
+      </a>
+      <a href="https://wa.me/17875261368?text=Hola%20PURO%2C%20quiero%20reservar%20una%20mesa" target="_blank" rel="noopener" class="btn btn-outline" data-magnetic data-cursor="hover">
+        <span data-i18n="res.cta2">Escribir por WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="PURO">
+      <p data-i18n="footer.tagline">El sabor de dos culturas en una sola mesa. Toa Baja, Puerto Rico.</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/purofonda" target="_blank" rel="noopener" data-cursor="hover" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"/></svg></a>
+        <a href="https://facebook.com/purofonda" target="_blank" rel="noopener" data-cursor="hover" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4 data-i18n="footer.explore">Explora</h4><ul>
+      <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="menu.html" data-i18n="nav.menu">Menú</a></li>
+      <li><a href="nosotros.html" data-i18n="nav.about">Nosotros</a></li>
+      <li><a href="visitanos.html" data-i18n="nav.visit">Visítanos</a></li>
+      <li><a href="reservar.html" data-i18n="nav.reserve">Reservar</a></li>
+    </ul></div>
+    <div class="footer-col"><h4 data-i18n="footer.contact">Contacto</h4><ul>
+      <li><a href="tel:+17879953774">(787) 995-3774</a></li>
+      <li><a href="https://wa.me/17875261368">WhatsApp · 787-526-1368</a></li>
+      <li><a href="https://instagram.com/purofonda">@purofonda</a></li>
+    </ul></div>
+    <div class="footer-col"><h4 data-i18n="footer.visit">Visítanos</h4><ul>
+      <li><span data-i18n="footer.address">Carr #2 KM 20.1, Toa Baja, PR</span></li>
+      <li><span data-i18n="footer.address2">Frente a la Holsum</span></li>
+      <li><span data-i18n="footer.hours1">Mié–Sáb · 11:00 AM – 10:00 PM</span></li>
+      <li><span data-i18n="footer.hours2">Dom · 11:00 AM – 8:00 PM</span></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 PURO Sin Fondo · <span data-i18n="footer.rights">Todos los derechos reservados</span></div>
+    <div data-i18n="footer.by">Diseñado por <a href="https://lizarditech.com" target="_blank" rel="noopener">Lizardi Technologies</a></div>
+  </div>
+</footer>
+
+<!-- POPUP -->
+<div class="popup-overlay" id="popup" role="dialog" aria-labelledby="popupTitle" aria-hidden="true">
+  <div class="popup">
+    <button class="popup-close" id="popupClose" aria-label="Cerrar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div id="popupForm">
+      <div class="popup-eyebrow"><span data-i18n="popup.eyebrow">Exclusivo · Miembros</span></div>
+      <h3 id="popupTitle"><span data-i18n="popup.titleA">Promociones</span> <span class="accent" data-i18n="popup.titleB">directo a ti.</span></h3>
+      <p data-i18n="popup.desc">Regístrate para recibir nuestras ofertas exclusivas, especiales semanales y eventos privados directo en tu teléfono.</p>
+      <form id="leadForm" novalidate>
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="Nuevo Lead PURO">
+        <input type="hidden" name="from_name" value="PURO Sin Fondo Website">
+        <input type="hidden" name="source" id="leadSource" value="reservar-page">
+        <input type="text" name="nombre" placeholder="Nombre" required autocomplete="given-name" data-i18n-placeholder="popup.name">
+        <input type="tel" name="telefono" placeholder="Teléfono · (787) 555-1234" required autocomplete="tel" data-i18n-placeholder="popup.phone">
+        <button type="submit" id="leadSubmit"><span data-i18n="popup.submit">Quiero las Promociones</span></button>
+      </form>
+      <div class="popup-skip" id="popupSkip" data-i18n="popup.skip">No, gracias — seguir explorando</div>
+    </div>
+    <div id="popupSuccess" class="popup-success" style="display: none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
+      <h3 data-i18n="popup.successTitle">¡Bienvenido a PURO!</h3>
+      <p data-i18n="popup.successDesc">Te avisaremos de las próximas promociones y eventos.</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const IS_TOUCH = window.matchMedia('(hover: none)').matches || 'ontouchstart' in window;
+
+const translations = {
+  es: {
+    "rs.titleL1": "Aparta tu", "rs.titleL2": "<span class=\'accent\'>mesa.</span>",
+    "rs.knowTitle": "Lo que debes <span class=\'accent\'>saber.</span>",
+    "rs.hoursTitle2": "Cu\u00e1ndo <span class=\'accent\'>visitarnos.</span>",
+    "rs.evL1": "\u00bfAlgo m\u00e1s", "rs.evL2": "<span class=\'accent\'>grande?</span>",
+    "nav.home": "Inicio", "nav.menu": "Menú", "nav.about": "Nosotros", "nav.visit": "Visítanos", "nav.reserve": "Reservar", "nav.cta": "Reservar Mesa",
+    "res.eyebrow": "Reservaciones", "res.lead": "Llámanos o escríbenos por WhatsApp para reservar. Te confirmamos en minutos.",
+    "res.callLabel": "Llámanos", "res.callSub": "Durante horas de servicio",
+    "res.waLabel": "WhatsApp", "res.waSub": "Respuesta rápida",
+    "res.knowEyebrow": "Antes de Reservar",
+    "res.k1t": "Grupos grandes", "res.k1d": "¿Vienen más de 6 personas? Mejor reservar con anticipación para acomodarlos como se merecen.",
+    "res.k2t": "Fines de semana", "res.k2d": "Viernes, sábado y el brunch dominical se llenan rápido. Llama temprano para asegurar tu espacio.",
+    "res.k3t": "Ocasiones especiales", "res.k3d": "¿Cumpleaños o celebración? Avísanos al reservar y lo preparamos todo para que sea memorable.",
+    "res.hoursEyebrow": "Horario",
+    "res.hWed": "Miércoles", "res.hThu": "Jueves", "res.hFri": "Viernes", "res.hSat": "Sábado", "res.hSun": "Domingo", "res.hMon": "Lunes", "res.hTue": "Martes", "res.closed": "Cerrado",
+    "res.brunchLabel": "Brunch", "res.brunchNote": "sábado y domingo de 11:00 AM a 3:00 PM",
+    "res.evEyebrow": "Eventos Privados",
+    "res.evP": "Tenemos espacios para cumpleaños, celebraciones, reuniones corporativas y eventos especiales. Cuéntanos qué tienes en mente y lo hacemos realidad.",
+    "res.ev1": "Cumpleaños y celebraciones", "res.ev2": "Reuniones corporativas", "res.ev3": "Recaudaciones y eventos especiales",
+    "res.evCta": "Consultar por WhatsApp",
+    "res.ctaTitleA": "Nos vemos", "res.ctaTitleB": "en la mesa.", "res.ctaLead": "Una llamada o un mensaje es todo lo que necesitas.",
+    "res.cta1": "Llamar Ahora", "res.cta2": "Escribir por WhatsApp",
+    "footer.tagline": "El sabor de dos culturas en una sola mesa. Toa Baja, Puerto Rico.",
+    "footer.explore": "Explora", "footer.contact": "Contacto", "footer.visit": "Visítanos",
+    "footer.address": "Carr #2 KM 20.1, Toa Baja, PR", "footer.address2": "Frente a la Holsum",
+    "footer.hours1": "Mié–Sáb · 11:00 AM – 10:00 PM", "footer.hours2": "Dom · 11:00 AM – 8:00 PM",
+    "footer.rights": "Todos los derechos reservados", "footer.by": "Diseñado por <a href='https://lizarditech.com' target='_blank' rel='noopener'>Lizardi Technologies</a>",
+    "popup.eyebrow": "Exclusivo · Miembros", "popup.titleA": "Promociones", "popup.titleB": "directo a ti.",
+    "popup.desc": "Regístrate para recibir nuestras ofertas exclusivas, especiales semanales y eventos privados directo en tu teléfono.",
+    "popup.name": "Nombre", "popup.phone": "Teléfono · (787) 555-1234",
+    "popup.submit": "Quiero las Promociones", "popup.skip": "No, gracias — seguir explorando",
+    "popup.successTitle": "¡Bienvenido a PURO!", "popup.successDesc": "Te avisaremos de las próximas promociones y eventos."
+  },
+  en: {
+    "rs.titleL1": "Reserve your", "rs.titleL2": "<span class=\'accent\'>table.</span>",
+    "rs.knowTitle": "What you should <span class=\'accent\'>know.</span>",
+    "rs.hoursTitle2": "When to <span class=\'accent\'>visit us.</span>",
+    "rs.evL1": "Something", "rs.evL2": "<span class=\'accent\'>bigger?</span>",
+    "nav.home": "Home", "nav.menu": "Menu", "nav.about": "About", "nav.visit": "Visit", "nav.reserve": "Reserve", "nav.cta": "Book a Table",
+    "res.eyebrow": "Reservations", "res.lead": "Call us or message us on WhatsApp to reserve. We'll confirm in minutes.",
+    "res.callLabel": "Call Us", "res.callSub": "During service hours",
+    "res.waLabel": "WhatsApp", "res.waSub": "Fast response",
+    "res.knowEyebrow": "Before You Book",
+    "res.k1t": "Large groups", "res.k1d": "More than 6 people coming? Better to reserve ahead so we can seat you the way you deserve.",
+    "res.k2t": "Weekends", "res.k2d": "Friday, Saturday and Sunday brunch fill up fast. Call early to secure your spot.",
+    "res.k3t": "Special occasions", "res.k3d": "Birthday or celebration? Let us know when you book and we'll set everything up to make it memorable.",
+    "res.hoursEyebrow": "Hours",
+    "res.hWed": "Wednesday", "res.hThu": "Thursday", "res.hFri": "Friday", "res.hSat": "Saturday", "res.hSun": "Sunday", "res.hMon": "Monday", "res.hTue": "Tuesday", "res.closed": "Closed",
+    "res.brunchLabel": "Brunch", "res.brunchNote": "Saturday and Sunday from 11:00 AM to 3:00 PM",
+    "res.evEyebrow": "Private Events",
+    "res.evP": "We have spaces for birthdays, celebrations, corporate gatherings and special events. Tell us what you have in mind and we'll make it happen.",
+    "res.ev1": "Birthdays and celebrations", "res.ev2": "Corporate gatherings", "res.ev3": "Fundraisers and special events",
+    "res.evCta": "Ask via WhatsApp",
+    "res.ctaTitleA": "See you", "res.ctaTitleB": "at the table.", "res.ctaLead": "A call or a message is all it takes.",
+    "res.cta1": "Call Now", "res.cta2": "Message on WhatsApp",
+    "footer.tagline": "The taste of two cultures at one table. Toa Baja, Puerto Rico.",
+    "footer.explore": "Explore", "footer.contact": "Contact", "footer.visit": "Visit",
+    "footer.address": "Carr #2 KM 20.1, Toa Baja, PR", "footer.address2": "Across from Holsum",
+    "footer.hours1": "Wed–Sat · 11:00 AM – 10:00 PM", "footer.hours2": "Sun · 11:00 AM – 8:00 PM",
+    "footer.rights": "All rights reserved", "footer.by": "Designed by <a href='https://lizarditech.com' target='_blank' rel='noopener'>Lizardi Technologies</a>",
+    "popup.eyebrow": "Exclusive · Members", "popup.titleA": "Promotions", "popup.titleB": "straight to you.",
+    "popup.desc": "Sign up to receive our exclusive offers, weekly specials and private events right on your phone.",
+    "popup.name": "Name", "popup.phone": "Phone · (787) 555-1234",
+    "popup.submit": "Get the Promotions", "popup.skip": "No thanks — keep exploring",
+    "popup.successTitle": "Welcome to PURO!", "popup.successDesc": "We'll let you know about upcoming promotions and events."
+  }
+};
+
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.lang = lang;
+  localStorage.setItem('puroLang', lang);
+  const dict = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n'); if (dict[k]) el.innerHTML = dict[k]; });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const k = el.getAttribute('data-i18n-placeholder'); if (dict[k]) el.setAttribute('placeholder', dict[k]); });
+  const toggle = document.getElementById('langToggle');
+  toggle.innerHTML = lang === 'es' ? '<span class="active-lang">ES</span><span class="inactive-lang">/ EN</span>' : '<span class="inactive-lang">ES /</span><span class="active-lang">EN</span>';
+}
+document.getElementById('langToggle').addEventListener('click', () => setLang(document.documentElement.getAttribute('data-lang') === 'es' ? 'en' : 'es'));
+setLang(localStorage.getItem('puroLang') || 'es');
+
+function pageHeroIntro() {
+  if (REDUCED) { gsap.set('.res-title .line > span, .res-lead span, .res-methods', { y: 0, opacity: 1 }); return; }
+  gsap.set('.res-title .line > span, .res-lead span', { y: '110%' });
+  const tl = gsap.timeline();
+  tl.to('.page-eyebrow .line', { width: 40, duration: 0.7, ease: 'expo.out' })
+    .from('.page-eyebrow span:not(.line)', { opacity: 0, duration: 0.6 }, '-=0.4')
+    .to('.res-title .line > span', { y: 0, duration: 1.1, ease: 'expo.out', stagger: 0.12 }, '-=0.3')
+    .to('.res-lead span', { y: 0, duration: 0.9, ease: 'expo.out' }, '-=0.6')
+    .from('.res-method', { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out', stagger: 0.15 }, '-=0.5');
+}
+
+function init() {
+  gsap.registerPlugin(ScrollTrigger);
+  pageHeroIntro();
+
+  const progress = document.getElementById('scrollProgress');
+  ScrollTrigger.create({ start: 0, end: 'max', onUpdate: (self) => progress.style.transform = `scaleX(${self.progress})` });
+
+  const nav = document.getElementById('nav');
+  let lastY = 0;
+  ScrollTrigger.create({ start: 0, end: 'max', onUpdate: (self) => {
+    const y = self.scroll();
+    nav.classList.toggle('scrolled', y > 50);
+    if (y > lastY && y > 400) nav.classList.add('hide'); else nav.classList.remove('hide');
+    lastY = y;
+  }});
+
+  if (REDUCED) {
+    document.querySelectorAll('[data-reveal]').forEach(el => gsap.set(el, { opacity: 1, y: 0 }));
+  } else {
+    gsap.utils.toArray('[data-reveal]').forEach(el => {
+      const lines = el.querySelectorAll('.anim-line > *');
+      if (lines.length) {
+        gsap.set(lines, { y: '110%' });
+        ScrollTrigger.create({ trigger: el, start: 'top 85%', onEnter: () => gsap.to(lines, { y: 0, duration: 1, ease: 'expo.out', stagger: 0.1 }) });
+      } else {
+        gsap.set(el, { y: 40, opacity: 0 });
+        ScrollTrigger.create({ trigger: el, start: 'top 88%', onEnter: () => gsap.to(el, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }) });
+      }
+    });
+    // hero bg parallax
+    const heroBg = document.querySelector('[data-hero-bg]');
+    if (heroBg) gsap.to(heroBg, { yPercent: 12, ease: 'none', scrollTrigger: { trigger: '.res-hero', start: 'top top', end: 'bottom top', scrub: true } });
+    // events image parallax
+    gsap.utils.toArray('[data-parallax-img]').forEach(img => gsap.fromTo(img, { yPercent: -10 }, { yPercent: 10, ease: 'none', scrollTrigger: { trigger: img, start: 'top bottom', end: 'bottom top', scrub: true } }));
+    // blobs
+    document.querySelectorAll('[data-blob]').forEach((b, i) => gsap.to(b, { x: 'random(-40,40)', y: 'random(-40,40)', duration: 'random(8,12)', repeat: -1, yoyo: true, ease: 'sine.inOut', delay: i * 0.4 }));
+  }
+  ScrollTrigger.refresh();
+}
+
+function initCursor() {
+  if (IS_TOUCH || REDUCED) return;
+  document.body.classList.add('cursor-active');
+  const dot = document.getElementById('cursorDot'); const ring = document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', (e)=>{ mx=e.clientX; my=e.clientY; dot.style.transform=`translate(${mx}px,${my}px)`; });
+  (function loop(){ rx+=(mx-rx)*0.18; ry+=(my-ry)*0.18; ring.style.transform=`translate(${rx}px,${ry}px)`; requestAnimationFrame(loop); })();
+  document.querySelectorAll('[data-cursor]').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+  });
+}
+
+function initMagnetic() {
+  if (IS_TOUCH || REDUCED) return;
+  document.querySelectorAll('[data-magnetic]').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => { const r = btn.getBoundingClientRect(); gsap.to(btn, { x: (e.clientX-r.left-r.width/2)*0.4, y: (e.clientY-r.top-r.height/2)*0.5, duration: 0.6, ease: 'power3.out' }); });
+    btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1,0.4)' }));
+  });
+}
+
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+menuToggle.addEventListener('click', () => { menuToggle.classList.toggle('open'); navMenu.classList.toggle('open'); document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : ''; });
+document.querySelectorAll('.nav-menu a').forEach(link => link.addEventListener('click', () => { menuToggle.classList.remove('open'); navMenu.classList.remove('open'); document.body.style.overflow = ''; }));
+
+/* POPUP — 25s */
+const popup = document.getElementById('popup');
+const leadForm = document.getElementById('leadForm');
+const popupSuccess = document.getElementById('popupSuccess');
+const popupFormDiv = document.getElementById('popupForm');
+const POPUP_KEY = 'puroLeadCaptured', POPUP_SEEN_KEY = 'puroLeadSeen';
+function showPopup() { popup.classList.add('active'); popup.setAttribute('aria-hidden','false'); localStorage.setItem(POPUP_SEEN_KEY,'1'); }
+function hidePopup() { popup.classList.remove('active'); popup.setAttribute('aria-hidden','true'); }
+document.getElementById('popupClose').addEventListener('click', hidePopup);
+document.getElementById('popupSkip').addEventListener('click', hidePopup);
+popup.addEventListener('click', (e) => { if (e.target === popup) hidePopup(); });
+leadForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const submitBtn = document.getElementById('leadSubmit');
+  const lang = document.documentElement.getAttribute('data-lang');
+  submitBtn.disabled = true; submitBtn.innerHTML = lang === 'es' ? 'Enviando...' : 'Sending...';
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(leadForm) });
+    if (res.ok) { popupFormDiv.style.display='none'; popupSuccess.style.display='block'; localStorage.setItem(POPUP_KEY,'1'); setTimeout(hidePopup, 2800); }
+    else throw new Error();
+  } catch (err) {
+    submitBtn.disabled = false; submitBtn.innerHTML = lang === 'es' ? 'Quiero las Promociones' : 'Get the Promotions';
+    alert(lang === 'es' ? 'Hubo un error. Intenta de nuevo.' : 'There was an error. Please try again.');
+  }
+});
+const urlParams = new URLSearchParams(window.location.search);
+const isFromQR = urlParams.get('qr') === '1' || urlParams.get('source') === 'qr';
+if (isFromQR) document.getElementById('leadSource').value = 'qr-code-reservar';
+function schedulePopup() {
+  const captured = localStorage.getItem(POPUP_KEY), seen = localStorage.getItem(POPUP_SEEN_KEY);
+  if (isFromQR && !captured) setTimeout(showPopup, 1500);
+  else if (!seen && !captured) setTimeout(showPopup, 25000);
+}
+
+function boot(){ try { init(); initCursor(); initMagnetic(); schedulePopup(); } catch(e){ console.error(e); } }
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+window.addEventListener('load', () => { try { ScrollTrigger.refresh(); } catch(e){} });
+</script>
+</body>
+</html>

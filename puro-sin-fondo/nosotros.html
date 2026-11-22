@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nosotros · PURO Sin Fondo — Toa Baja, Puerto Rico</title>
+<meta name="description" content="La historia de PURO Sin Fondo. Una herencia familiar en Toa Baja, la visión de Joshua y Kamila, y la cocina del chef Armando Rodríguez.">
+
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180x180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --rojo: #C0272D; --rojo-dark: #8B1C20; --gold: #D4A847; --gold-soft: #B8923D;
+  --negro: #0A0A0A; --negro-soft: #131313; --negro-card: #1A1A1A; --gris: #2A2A2A;
+  --crema: #F5F1EA; --blanco: #FFFFFF;
+  --text-dim: rgba(245, 241, 234, 0.65); --text-muted: rgba(245, 241, 234, 0.45);
+  --font-display: 'Playfair Display', serif; --font-body: 'Barlow', sans-serif;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-expo: cubic-bezier(0.19, 1, 0.22, 1);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; max-width: 100vw; }
+body { font-family: var(--font-body); background: var(--negro); color: var(--crema); line-height: 1.6; overflow-x: hidden; max-width: 100vw; position: relative; }
+::selection { background: var(--rojo); color: var(--blanco); }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+/* PRELOADER */
+
+/* SCROLL PROGRESS + CURSOR */
+.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: linear-gradient(90deg, var(--rojo), var(--gold)); transform: scaleX(0); transform-origin: left; z-index: 1001; }
+.cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 9000; mix-blend-mode: difference; will-change: transform; }
+.cursor-dot { width: 8px; height: 8px; background: var(--crema); margin: -4px 0 0 -4px; }
+.cursor-ring { width: 44px; height: 44px; border: 1px solid rgba(245,241,234,0.5); margin: -22px 0 0 -22px; transition: width .3s var(--ease-out), height .3s var(--ease-out), border-color .3s, background .3s; display: flex; align-items: center; justify-content: center; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: transparent; }
+.cursor-ring.hover { width: 64px; height: 64px; border-color: var(--gold); }
+.cursor-ring.view { width: 84px; height: 84px; background: rgba(192,39,45,0.9); border-color: transparent; color: var(--blanco); mix-blend-mode: normal; }
+body.cursor-active { cursor: none; }
+body.cursor-active a, body.cursor-active button { cursor: none; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; transition: all 0.5s var(--ease-out); background: linear-gradient(180deg, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0) 100%); }
+.nav.scrolled { background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 14px 48px; border-bottom: 1px solid rgba(212, 168, 71, 0.1); }
+.nav.hide { transform: translateY(-100%); }
+.nav-logo { display: flex; align-items: center; gap: 12px; transition: transform 0.4s var(--ease-out); }
+.nav-logo:hover { transform: scale(1.04); }
+.nav-logo img { height: 44px; width: auto; }
+.nav-menu { display: flex; align-items: center; gap: 38px; list-style: none; }
+.nav-menu a { font-size: 13px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; position: relative; padding: 6px 0; transition: color 0.3s ease; }
+.nav-menu > li > a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: right; transition: transform 0.4s var(--ease-out); }
+.nav-menu > li > a:hover { color: var(--gold); } .nav-menu > li > a:hover::after { transform: scaleX(1); transform-origin: left; }
+.nav-menu a.active { color: var(--gold); } .nav-menu a.active::after { transform: scaleX(1); }
+.lang-toggle { display: flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 2px; padding: 8px 14px; border: 1px solid rgba(212, 168, 71, 0.3); border-radius: 50px; transition: all 0.3s ease; }
+.lang-toggle:hover { border-color: var(--gold); background: rgba(212, 168, 71, 0.05); }
+.lang-toggle .active-lang { color: var(--gold); } .lang-toggle .inactive-lang { color: var(--text-muted); }
+.nav-cta { background: var(--rojo); color: var(--blanco); padding: 12px 24px; border-radius: 50px; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; transition: all 0.4s var(--ease-out); border: 1px solid var(--rojo); }
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(192, 39, 45, 0.35); }
+.menu-toggle { display: none; flex-direction: column; gap: 5px; z-index: 1001; padding: 8px; }
+.menu-toggle span { width: 26px; height: 2px; background: var(--crema); transition: all 0.3s var(--ease-out); }
+.menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: var(--gold); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--gold); }
+
+/* PAGE HERO */
+.page-hero { position: relative; padding: 220px 48px 100px; text-align: center; overflow: hidden; }
+.page-hero-blobs { position: absolute; inset: 0; z-index: 0; filter: blur(70px); opacity: 0.6; }
+.blob { position: absolute; border-radius: 50%; will-change: transform; }
+.blob-1 { width: 40vw; height: 40vw; background: radial-gradient(circle, rgba(192,39,45,0.5), transparent 70%); top: -15%; left: 50%; transform: translateX(-50%); }
+.blob-2 { width: 30vw; height: 30vw; background: radial-gradient(circle, rgba(212,168,71,0.25), transparent 70%); top: 10%; right: 5%; }
+.page-hero-content { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; }
+.page-eyebrow { display: inline-flex; align-items: center; gap: 16px; font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+.page-eyebrow .line { width: 0; height: 1px; background: var(--gold); }
+.page-title { font-family: var(--font-display); font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 900; line-height: 0.92; letter-spacing: -0.04em; margin-bottom: 28px; }
+.page-title .line { display: block; overflow: hidden; }
+.page-title .line > span { display: inline-block; will-change: transform; }
+.page-title .accent { color: var(--rojo); font-style: italic; }
+.page-lead { font-family: var(--font-display); font-style: italic; font-size: clamp(1.1rem, 1.8vw, 1.5rem); color: var(--text-dim); margin: 0 auto; max-width: 700px; overflow: hidden; }
+.page-lead span { display: inline-block; will-change: transform; }
+
+/* SECTION BASE */
+.section { padding: 140px 48px; position: relative; }
+.section-inner { max-width: 1400px; margin: 0 auto; }
+.section-eyebrow { display: inline-flex; align-items: center; gap: 16px; font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+.section-eyebrow::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+.section-title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1; letter-spacing: -0.03em; margin-bottom: 32px; }
+.section-title .accent { color: var(--rojo); font-style: italic; }
+.anim-line { display: block; overflow: hidden; }
+.anim-line > * { display: inline-block; will-change: transform; }
+
+/* STORY (founders) */
+.story { background: var(--negro-soft); position: relative; overflow: hidden; }
+.story::before { content: 'HERENCIA'; position: absolute; font-family: var(--font-display); font-size: clamp(12rem, 26vw, 24rem); font-weight: 900; color: rgba(192, 39, 45, 0.03); top: 50%; left: -5%; transform: translateY(-50%); letter-spacing: -0.05em; pointer-events: none; font-style: italic; z-index: 0; white-space: nowrap; }
+.story-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 90px; align-items: center; position: relative; z-index: 1; }
+.story-paragraphs { font-size: 18px; line-height: 1.8; color: var(--text-dim); }
+.story-paragraphs p { margin-bottom: 24px; }
+.story-paragraphs p:first-of-type:first-letter { font-family: var(--font-display); font-size: 4em; float: left; line-height: 0.8; margin: 8px 14px 0 0; color: var(--rojo); font-weight: 900; }
+.story-image-wrap { position: relative; aspect-ratio: 4/5; overflow: hidden; border-radius: 4px; }
+.story-image-inner { position: absolute; inset: 0; will-change: transform; }
+.story-image-wrap img { width: 100%; height: 120%; object-fit: cover; }
+.story-image-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(192, 39, 45, 0.12), rgba(10,10,10,0.2)); pointer-events: none; }
+
+/* NAME MEANING — big statement */
+.meaning { background: var(--negro); text-align: center; position: relative; overflow: hidden; }
+.meaning-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; }
+.meaning-word { font-family: var(--font-display); font-size: clamp(3rem, 10vw, 8rem); font-weight: 900; line-height: 1; letter-spacing: -0.04em; margin-bottom: 48px; }
+.meaning-word .accent { color: var(--rojo); font-style: italic; }
+.meaning-defs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 56px; }
+.meaning-def { padding: 40px 28px; border: 1px solid rgba(212, 168, 71, 0.15); border-radius: 4px; transition: all 0.4s var(--ease-out); background: rgba(255,255,255,0.01); }
+.meaning-def:hover { border-color: var(--gold); background: rgba(212, 168, 71, 0.04); transform: translateY(-6px); }
+.meaning-def-word { font-family: var(--font-display); font-style: italic; font-size: 1.8rem; color: var(--gold); margin-bottom: 12px; }
+.meaning-def-text { font-size: 15px; color: var(--text-dim); line-height: 1.6; }
+
+/* CHEF */
+.chef { background: var(--negro-soft); position: relative; overflow: hidden; }
+.chef-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 90px; align-items: center; position: relative; z-index: 1; }
+.chef-image-wrap { position: relative; aspect-ratio: 4/5; overflow: hidden; border-radius: 4px; }
+.chef-image-inner { position: absolute; inset: 0; will-change: transform; }
+.chef-image-wrap img { width: 100%; height: 120%; object-fit: cover; }
+.chef-image-tag { position: absolute; bottom: 24px; left: 24px; z-index: 2; padding: 12px 20px; background: rgba(10, 10, 10, 0.85); backdrop-filter: blur(10px); border-radius: 50px; border: 1px solid rgba(212, 168, 71, 0.3); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+.chef-text p { font-size: 18px; line-height: 1.8; color: var(--text-dim); margin-bottom: 24px; }
+.chef-cv { margin-top: 40px; display: flex; flex-direction: column; gap: 16px; }
+.chef-cv-item { display: flex; gap: 16px; align-items: flex-start; padding: 18px 0; border-top: 1px solid rgba(212, 168, 71, 0.12); }
+.chef-cv-item:last-child { border-bottom: 1px solid rgba(212, 168, 71, 0.12); }
+.chef-cv-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); flex-shrink: 0; width: 130px; padding-top: 3px; }
+.chef-cv-value { font-size: 15px; color: var(--crema); line-height: 1.5; }
+
+/* PHILOSOPHY values */
+.philosophy { background: var(--negro); text-align: center; }
+.phil-header { max-width: 760px; margin: 0 auto 80px; }
+.phil-header .section-eyebrow { justify-content: center; }
+.phil-lead { font-family: var(--font-display); font-style: italic; font-size: clamp(1.1rem, 1.5vw, 1.4rem); color: var(--text-dim); line-height: 1.5; }
+.phil-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1200px; margin: 0 auto; }
+.phil-card { padding: 48px 36px; text-align: left; border: 1px solid rgba(212, 168, 71, 0.12); border-radius: 4px; background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(255,255,255,0)); transition: all 0.5s var(--ease-out); position: relative; overflow: hidden; }
+.phil-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.6s var(--ease-out); }
+.phil-card:hover { border-color: var(--gold); transform: translateY(-6px); background: linear-gradient(135deg, rgba(212,168,71,0.05), rgba(212,168,71,0)); }
+.phil-card:hover::before { transform: scaleX(1); }
+.phil-num { font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--gold); letter-spacing: 2px; margin-bottom: 20px; }
+.phil-card h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; margin-bottom: 16px; line-height: 1.15; }
+.phil-card p { color: var(--text-dim); font-size: 15px; line-height: 1.65; }
+
+/* FINAL CTA */
+.final-cta { padding: 180px 48px; background: var(--negro-soft); position: relative; overflow: hidden; text-align: center; }
+.final-cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(192, 39, 45, 0.15) 0%, transparent 60%); }
+.final-cta-content { position: relative; z-index: 1; max-width: 900px; margin: 0 auto; }
+.final-cta h2 { font-family: var(--font-display); font-size: clamp(3rem, 7vw, 6rem); font-weight: 700; line-height: 0.95; margin-bottom: 32px; letter-spacing: -0.03em; }
+.final-cta h2 .accent { color: var(--rojo); font-style: italic; }
+.final-cta p { font-family: var(--font-display); font-style: italic; font-size: clamp(1.2rem, 2vw, 1.6rem); color: var(--text-dim); margin-bottom: 48px; }
+.final-cta-actions { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 12px; padding: 18px 36px; font-size: 13px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; border-radius: 50px; transition: all 0.4s var(--ease-out); position: relative; overflow: hidden; border: 1px solid transparent; will-change: transform; }
+.btn span, .btn svg { position: relative; z-index: 1; }
+.btn svg { transition: transform 0.3s ease; } .btn:hover svg { transform: translateX(4px); }
+.btn-primary { background: var(--rojo); color: var(--blanco); border-color: var(--rojo); }
+.btn-primary::before { content:''; position:absolute; inset:0; background: var(--gold); z-index:0; transform: translateY(101%); transition: transform 0.5s var(--ease-out); }
+.btn-primary:hover::before { transform: translateY(0); }
+.btn-primary:hover { color: var(--negro); box-shadow: 0 15px 40px rgba(212,168,71,0.3); }
+.btn-outline { background: transparent; color: var(--crema); border-color: rgba(245, 241, 234, 0.25); }
+.btn-outline::before { content:''; position:absolute; inset:0; background: var(--crema); z-index:0; transform: translateY(101%); transition: transform 0.5s var(--ease-out); }
+.btn-outline:hover::before { transform: translateY(0); }
+.btn-outline:hover { color: var(--negro); border-color: var(--crema); }
+
+/* FOOTER */
+.footer { background: #050505; padding: 80px 48px 32px; border-top: 1px solid rgba(212, 168, 71, 0.1); }
+.footer-inner { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+.footer-brand img { height: 60px; margin-bottom: 24px; }
+.footer-brand p { color: var(--text-muted); font-size: 14px; line-height: 1.6; max-width: 280px; }
+.footer-col h4 { font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+.footer-col ul { list-style: none; } .footer-col li { margin-bottom: 12px; }
+.footer-col a { font-size: 14px; color: var(--text-dim); transition: color 0.3s ease; } .footer-col a:hover { color: var(--gold); }
+.footer-social { display: flex; gap: 12px; margin-top: 24px; }
+.footer-social a { width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(212, 168, 71, 0.2); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; }
+.footer-social a:hover { border-color: var(--gold); background: var(--gold); color: var(--negro); transform: translateY(-2px); }
+.footer-social svg { width: 18px; height: 18px; }
+.footer-bottom { max-width: 1400px; margin: 0 auto; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 12px; color: var(--text-muted); }
+.footer-bottom a { color: var(--gold); }
+
+/* POPUP */
+.popup-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); z-index: 9500; display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; visibility: hidden; transition: all 0.5s var(--ease-out); }
+.popup-overlay.active { opacity: 1; visibility: visible; }
+.popup { background: linear-gradient(180deg, var(--negro-card) 0%, var(--negro-soft) 100%); border: 1px solid rgba(212, 168, 71, 0.25); border-radius: 8px; max-width: 500px; width: 100%; padding: 48px 40px; position: relative; transform: scale(0.9) translateY(20px); transition: all 0.6s var(--ease-bounce); box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(192, 39, 45, 0.15); }
+.popup-overlay.active .popup { transform: scale(1) translateY(0); }
+.popup-close { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: all 0.3s ease; }
+.popup-close:hover { color: var(--gold); background: rgba(255,255,255,0.05); }
+.popup-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+.popup-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+.popup h3 { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1.1; margin-bottom: 16px; letter-spacing: -0.02em; }
+.popup h3 .accent { color: var(--rojo); font-style: italic; }
+.popup p { color: var(--text-dim); font-size: 15px; line-height: 1.6; margin-bottom: 28px; }
+.popup form { display: flex; flex-direction: column; gap: 14px; }
+.popup input { width: 100%; padding: 16px 20px; background: rgba(0,0,0,0.4); border: 1px solid rgba(212, 168, 71, 0.2); border-radius: 4px; color: var(--crema); font-family: var(--font-body); font-size: 15px; transition: all 0.3s ease; }
+.popup input::placeholder { color: var(--text-muted); }
+.popup input:focus { outline: none; border-color: var(--gold); background: rgba(212, 168, 71, 0.05); }
+.popup button[type="submit"] { width: 100%; padding: 16px; background: var(--rojo); color: white; font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px; transition: all 0.3s var(--ease-out); margin-top: 4px; }
+.popup button[type="submit"]:hover { background: var(--rojo-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(192, 39, 45, 0.3); }
+.popup button[type="submit"]:disabled { opacity: 0.5; cursor: not-allowed; }
+.popup-skip { font-size: 12px; color: var(--text-muted); text-align: center; margin-top: 16px; text-decoration: underline; cursor: pointer; transition: color 0.3s ease; }
+.popup-skip:hover { color: var(--gold); }
+.popup-success { text-align: center; padding: 24px 0; }
+.popup-success svg { width: 64px; height: 64px; color: var(--gold); margin: 0 auto 24px; }
+.popup-success h3 { margin-bottom: 12px; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .nav { padding: 20px 32px; } .nav.scrolled { padding: 14px 32px; }
+  .page-hero { padding: 180px 32px 80px; }
+  .section { padding: 100px 32px; } .final-cta { padding: 130px 32px; }
+  .story-grid, .chef-grid { grid-template-columns: 1fr; gap: 56px; }
+  .chef-grid { direction: ltr; }
+  .chef-image-wrap { max-width: 480px; margin: 0 auto; width: 100%; }
+  .story-image-wrap { max-width: 480px; margin: 0 auto; width: 100%; }
+  .meaning-defs, .phil-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .phil-grid { gap: 20px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+}
+@media (max-width: 768px) {
+  .nav { padding: 16px 20px; } .nav.scrolled { padding: 12px 20px; }
+  .nav-logo img { height: 36px; }
+  .nav-menu { position: fixed; top: 0; right: 0; width: 85%; max-width: 360px; height: 100vh; height: 100svh; background: var(--negro); flex-direction: column; justify-content: center; gap: 32px; padding: 80px 32px 32px; transform: translateX(100%); transition: transform 0.5s var(--ease-out); border-left: 1px solid rgba(212, 168, 71, 0.1); }
+  .nav-menu.open { transform: translateX(0); }
+  .nav-menu a { font-size: 18px; }
+  .nav-cta { display: none; }
+  .menu-toggle { display: flex; }
+  .lang-toggle { padding: 6px 10px; font-size: 10px; }
+  .page-hero { padding: 140px 20px 60px; }
+  .section { padding: 80px 20px; } .final-cta { padding: 110px 20px; }
+  .chef-cv-item { flex-direction: column; gap: 4px; }
+  .chef-cv-label { width: auto; }
+  .footer { padding: 60px 20px 24px; }
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .popup { padding: 36px 24px; }
+  .popup h3 { font-size: 1.6rem; }
+  .story-paragraphs p:first-of-type:first-letter { font-size: 3em; }
+}
+
+/* SAFETY */
+* { min-width: 0; }
+h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; word-break: break-word; hyphens: auto; }
+img, svg, video, iframe { max-width: 100%; }
+.meaning-defs > *, .phil-grid > * { flex-shrink: 0; }
+@media (max-width: 480px) { h1 { font-size: clamp(2.5rem, 12vw, 4rem) !important; } }
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .cursor-dot, .cursor-ring { display: none !important; }
+}
+.js .page-title .line > span, .js .page-lead span { transform: translateY(110%); }
+html:not(.js) .page-title .line > span, html:not(.js) .page-lead span { transform: none; }
+</style>
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="index.html" class="nav-logo" data-cursor="hover" aria-label="PURO Inicio"><img src="images/logo-nav.png" alt="PURO"></a>
+  <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-menu" id="navMenu">
+    <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+    <li><a href="menu.html" data-i18n="nav.menu">Menú</a></li>
+    <li><a href="nosotros.html" class="active" data-i18n="nav.about">Nosotros</a></li>
+    <li><a href="visitanos.html" data-i18n="nav.visit">Visítanos</a></li>
+    <li><a href="reservar.html" data-i18n="nav.reserve">Reservar</a></li>
+    <li><button class="lang-toggle" id="langToggle" data-cursor="hover" aria-label="Cambiar idioma"><span class="active-lang">ES</span><span class="inactive-lang">/ EN</span></button></li>
+    <li><a href="reservar.html" class="nav-cta" data-cursor="hover" data-i18n="nav.cta">Reservar Mesa</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-blobs"><div class="blob blob-1" data-blob></div><div class="blob blob-2" data-blob></div></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow" id="pageEyebrow"><span class="line"></span><span data-i18n="about.eyebrow">Quiénes Somos</span><span class="line"></span></div>
+    <h1 class="page-title">
+      <span class="line"><span data-i18n="ab.titleL1">Una herencia.</span></span>
+      <span class="line"><span data-i18n="ab.titleL2">Un <span class="accent">sueño.</span></span></span>
+    </h1>
+    <p class="page-lead"><span data-i18n="about.lead">PURO no se inventó. Se heredó. Esta es la historia de una familia, una cocina y dos culturas que se encontraron en Toa Baja.</span></p>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section story" id="story">
+  <div class="section-inner">
+    <div class="story-grid">
+      <div class="story-text">
+        <div class="section-eyebrow" data-reveal><span data-i18n="about.storyEyebrow">El Origen</span></div>
+        <h2 class="section-title" data-reveal>
+          <span class="anim-line"><span data-i18n="ab.storyL1">De padre</span></span>
+          <span class="anim-line"><span data-i18n="ab.storyL2">a <span class="accent">hijos.</span></span></span>
+        </h2>
+        <div class="story-paragraphs" data-reveal>
+          <p data-i18n="about.p1">Todo comenzó con un padre que construyó un legado en Toa Baja. Joshua y Kamila crecieron entre cocinas, sabores y el ejemplo de alguien que entendía que un plato bien hecho podía unir a una comunidad.</p>
+          <p data-i18n="about.p2">Cuando ese capítulo familiar cerró, los hermanos no olvidaron lo que habían vivido. Kamila guardó cada ahorro y cada visión. Joshua afinó el rumbo del negocio. Y en el 2026, juntos, abrieron las puertas de PURO.</p>
+          <p data-i18n="about.p3">Hoy Joshua dirige la visión y el crecimiento del restaurante, mientras Kamila lidera las operaciones del día a día. Dos roles, una misma misión: honrar de dónde vienen, sin dejar de mirar hacia adelante.</p>
+        </div>
+      </div>
+      <div class="story-image-wrap" data-reveal>
+        <div class="story-image-inner" data-parallax-img><img src="images/gallery/multi-plates.jpg" alt="La mesa de PURO" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NAME MEANING -->
+<section class="section meaning" id="meaning">
+  <div class="meaning-inner">
+    <div class="section-eyebrow" data-reveal style="justify-content:center;"><span data-i18n="about.nameEyebrow">El Nombre</span></div>
+    <h2 class="meaning-word" data-reveal>
+      <span class="anim-line"><span data-i18n="ab.meaning">¿Por qué <span class="accent">PURO?</span></span></span>
+    </h2>
+    <p class="phil-lead" data-reveal data-i18n="about.nameLead">Porque la comida no necesita disfraces. Lo bueno se defiende solo. PURO significa tres promesas que se cumplen en cada plato:</p>
+    <div class="meaning-defs">
+      <div class="meaning-def" data-reveal>
+        <div class="meaning-def-word" data-i18n="about.def1w">Sin relleno</div>
+        <div class="meaning-def-text" data-i18n="about.def1t">Ingredientes reales, porciones honestas. Nada que ocupe espacio sin tener una razón de estar ahí.</div>
+      </div>
+      <div class="meaning-def" data-reveal>
+        <div class="meaning-def-word" data-i18n="about.def2w">Sin atajos</div>
+        <div class="meaning-def-text" data-i18n="about.def2t">Procesos hechos como se deben hacer. El tiempo que toma es el tiempo que toma. El sabor lo agradece.</div>
+      </div>
+      <div class="meaning-def" data-reveal>
+        <div class="meaning-def-word" data-i18n="about.def3w">Sin pretensiones</div>
+        <div class="meaning-def-text" data-i18n="about.def3t">Cocina seria sin actitud. Te sientas, te atienden bien y comes algo que recuerdas. Así de simple.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHEF -->
+<section class="section chef" id="chef">
+  <div class="section-inner">
+    <div class="chef-grid">
+      <div class="chef-image-wrap" data-reveal>
+        <div class="chef-image-inner" data-parallax-img><img src="images/gallery/pulpo-mediterranea.jpg" alt="La cocina del chef" loading="lazy"></div>
+        <div class="chef-image-tag" data-i18n="about.chefTag">Cocina de Autor</div>
+      </div>
+      <div class="chef-text">
+        <div class="section-eyebrow" data-reveal><span data-i18n="about.chefEyebrow">La Cocina</span></div>
+        <h2 class="section-title" data-reveal>
+          <span class="anim-line"><span data-i18n="ab.chefL1">Chef Armando</span></span>
+          <span class="anim-line"><span data-i18n="ab.chefL2"><span class="accent">Rodríguez</span></span></span>
+        </h2>
+        <div data-reveal>
+          <p data-i18n="about.chefP1">Detrás de cada plato de PURO está la mano del chef Armando Rodríguez, formado entre dos mundos: la Escuela Hotelera de San Juan y la Escuela de Hostelería de Sevilla, España.</p>
+          <p data-i18n="about.chefP2">Es esa doble formación —el fogón puertorriqueño y la técnica española— la que define la cocina de PURO. No es fusión por moda. Es la historia real de un chef que aprendió a cocinar en dos idiomas.</p>
+        </div>
+        <div class="chef-cv" data-reveal>
+          <div class="chef-cv-item">
+            <div class="chef-cv-label" data-i18n="about.cvFormation">Formación</div>
+            <div class="chef-cv-value" data-i18n="about.cvFormationV">Escuela Hotelera de San Juan · Escuela de Hostelería de Sevilla, España</div>
+          </div>
+          <div class="chef-cv-item">
+            <div class="chef-cv-label" data-i18n="about.cvPR">Puerto Rico</div>
+            <div class="chef-cv-value" data-i18n="about.cvPRV">El Conquistador Resort · Hierbabuena</div>
+          </div>
+          <div class="chef-cv-item">
+            <div class="chef-cv-label" data-i18n="about.cvSpain">Sevilla, España</div>
+            <div class="chef-cv-value" data-i18n="about.cvSpainV">Taberna Alabardero · Gastrobar Las Ninfas · El Descorche · La Pérgola</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="section philosophy" id="philosophy">
+  <div class="phil-header">
+    <div class="section-eyebrow" data-reveal style="justify-content:center;"><span data-i18n="about.philEyebrow">Lo Que Nos Mueve</span></div>
+    <h2 class="section-title" data-reveal>
+      <span class="anim-line"><span data-i18n="ab.philL1">Dos culturas.</span></span>
+      <span class="anim-line"><span data-i18n="ab.philL2">Una <span class="accent">sola mesa.</span></span></span>
+    </h2>
+    <p class="phil-lead" data-reveal data-i18n="about.philLead">No escogemos entre lo de aquí y lo de allá. Los juntamos. Eso es lo que somos.</p>
+  </div>
+  <div class="phil-grid">
+    <div class="phil-card" data-reveal>
+      <div class="phil-num">— 01</div>
+      <h3 data-i18n="about.phil1t">El sabor manda</h3>
+      <p data-i18n="about.phil1d">Cada decisión empieza y termina en el plato. Si no sabe increíble, no sale de la cocina. Punto.</p>
+    </div>
+    <div class="phil-card" data-reveal>
+      <div class="phil-num">— 02</div>
+      <h3 data-i18n="about.phil2t">Raíz y técnica</h3>
+      <p data-i18n="about.phil2d">El corazón criollo de Puerto Rico, ejecutado con la disciplina y precisión de la cocina española.</p>
+    </div>
+    <div class="phil-card" data-reveal>
+      <div class="phil-num">— 03</div>
+      <h3 data-i18n="about.phil3t">Como en casa</h3>
+      <p data-i18n="about.phil3d">Un lugar donde te sientes bienvenido, celebrado y cuidado. Eso no se improvisa: se siente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="finalCta">
+  <div class="final-cta-content">
+    <h2 data-reveal>
+      <span class="anim-line"><span data-i18n="about.ctaTitleA">Ahora te toca</span></span>
+      <span class="anim-line"><span class="accent" data-i18n="about.ctaTitleB">vivirlo a ti.</span></span>
+    </h2>
+    <p data-reveal data-i18n="about.ctaLead">La mejor forma de conocer PURO es sentándote en nuestra mesa.</p>
+    <div class="final-cta-actions" data-reveal>
+      <a href="reservar.html" class="btn btn-primary" data-magnetic data-cursor="hover">
+        <span data-i18n="about.cta1">Reservar Mesa</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <a href="menu.html" class="btn btn-outline" data-magnetic data-cursor="hover">
+        <span data-i18n="about.cta2">Ver el Menú</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="PURO">
+      <p data-i18n="footer.tagline">El sabor de dos culturas en una sola mesa. Toa Baja, Puerto Rico.</p>
+      <div class="footer-social">
+        <a href="https://instagram.com/purofonda" target="_blank" rel="noopener" data-cursor="hover" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01"/></svg></a>
+        <a href="https://facebook.com/purofonda" target="_blank" rel="noopener" data-cursor="hover" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col"><h4 data-i18n="footer.explore">Explora</h4><ul>
+      <li><a href="index.html" data-i18n="nav.home">Inicio</a></li>
+      <li><a href="menu.html" data-i18n="nav.menu">Menú</a></li>
+      <li><a href="nosotros.html" data-i18n="nav.about">Nosotros</a></li>
+      <li><a href="visitanos.html" data-i18n="nav.visit">Visítanos</a></li>
+      <li><a href="reservar.html" data-i18n="nav.reserve">Reservar</a></li>
+    </ul></div>
+    <div class="footer-col"><h4 data-i18n="footer.contact">Contacto</h4><ul>
+      <li><a href="tel:+17879953774">(787) 995-3774</a></li>
+      <li><a href="https://wa.me/17875261368">WhatsApp · 787-526-1368</a></li>
+      <li><a href="https://instagram.com/purofonda">@purofonda</a></li>
+    </ul></div>
+    <div class="footer-col"><h4 data-i18n="footer.visit">Visítanos</h4><ul>
+      <li><span data-i18n="footer.address">Carr #2 KM 20.1, Toa Baja, PR</span></li>
+      <li><span data-i18n="footer.address2">Frente a la Holsum</span></li>
+      <li><span data-i18n="footer.hours1">Mié–Sáb · 11:00 AM – 10:00 PM</span></li>
+      <li><span data-i18n="footer.hours2">Dom · 11:00 AM – 8:00 PM</span></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 PURO Sin Fondo · <span data-i18n="footer.rights">Todos los derechos reservados</span></div>
+    <div data-i18n="footer.by">Diseñado por <a href="https://lizarditech.com" target="_blank" rel="noopener">Lizardi Technologies</a></div>
+  </div>
+</footer>
+
+<!-- POPUP -->
+<div class="popup-overlay" id="popup" role="dialog" aria-labelledby="popupTitle" aria-hidden="true">
+  <div class="popup">
+    <button class="popup-close" id="popupClose" aria-label="Cerrar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div id="popupForm">
+      <div class="popup-eyebrow"><span data-i18n="popup.eyebrow">Exclusivo · Miembros</span></div>
+      <h3 id="popupTitle"><span data-i18n="popup.titleA">Promociones</span> <span class="accent" data-i18n="popup.titleB">directo a ti.</span></h3>
+      <p data-i18n="popup.desc">Regístrate para recibir nuestras ofertas exclusivas, especiales semanales y eventos privados directo en tu teléfono.</p>
+      <form id="leadForm" novalidate>
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+        <input type="hidden" name="subject" value="Nuevo Lead PURO">
+        <input type="hidden" name="from_name" value="PURO Sin Fondo Website">
+        <input type="hidden" name="source" id="leadSource" value="nosotros-page">
+        <input type="text" name="nombre" placeholder="Nombre" required autocomplete="given-name" data-i18n-placeholder="popup.name">
+        <input type="tel" name="telefono" placeholder="Teléfono · (787) 555-1234" required autocomplete="tel" data-i18n-placeholder="popup.phone">
+        <button type="submit" id="leadSubmit"><span data-i18n="popup.submit">Quiero las Promociones</span></button>
+      </form>
+      <div class="popup-skip" id="popupSkip" data-i18n="popup.skip">No, gracias — seguir explorando</div>
+    </div>
+    <div id="popupSuccess" class="popup-success" style="display: none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14M22 4L12 14.01l-3-3"/></svg>
+      <h3 data-i18n="popup.successTitle">¡Bienvenido a PURO!</h3>
+      <p data-i18n="popup.successDesc">Te avisaremos de las próximas promociones y eventos.</p>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const IS_TOUCH = window.matchMedia('(hover: none)').matches || 'ontouchstart' in window;
+
+const translations = {
+  es: {
+    "ab.titleL1": "Una herencia.", "ab.titleL2": "Un <span class=\'accent\'>sueño.</span>",
+    "ab.storyL1": "De padre", "ab.storyL2": "a <span class=\'accent\'>hijos.</span>",
+    "ab.meaning": "\u00bfPor qu\u00e9 <span class=\'accent\'>PURO?</span>",
+    "ab.chefL1": "Chef Armando", "ab.chefL2": "<span class=\'accent\'>Rodríguez</span>",
+    "ab.philL1": "Dos culturas.", "ab.philL2": "Una <span class=\'accent\'>sola mesa.</span>",
+    "nav.home": "Inicio", "nav.menu": "Menú", "nav.about": "Nosotros", "nav.visit": "Visítanos", "nav.reserve": "Reservar", "nav.cta": "Reservar Mesa",
+    "about.eyebrow": "Quiénes Somos",
+    "about.lead": "PURO no se inventó. Se heredó. Esta es la historia de una familia, una cocina y dos culturas que se encontraron en Toa Baja.",
+    "about.storyEyebrow": "El Origen",
+    "about.p1": "Todo comenzó con un padre que construyó un legado en Toa Baja. Joshua y Kamila crecieron entre cocinas, sabores y el ejemplo de alguien que entendía que un plato bien hecho podía unir a una comunidad.",
+    "about.p2": "Cuando ese capítulo familiar cerró, los hermanos no olvidaron lo que habían vivido. Kamila guardó cada ahorro y cada visión. Joshua afinó el rumbo del negocio. Y en el 2026, juntos, abrieron las puertas de PURO.",
+    "about.p3": "Hoy Joshua dirige la visión y el crecimiento del restaurante, mientras Kamila lidera las operaciones del día a día. Dos roles, una misma misión: honrar de dónde vienen, sin dejar de mirar hacia adelante.",
+    "about.nameEyebrow": "El Nombre", "about.nameLead": "Porque la comida no necesita disfraces. Lo bueno se defiende solo. PURO significa tres promesas que se cumplen en cada plato:",
+    "about.def1w": "Sin relleno", "about.def1t": "Ingredientes reales, porciones honestas. Nada que ocupe espacio sin tener una razón de estar ahí.",
+    "about.def2w": "Sin atajos", "about.def2t": "Procesos hechos como se deben hacer. El tiempo que toma es el tiempo que toma. El sabor lo agradece.",
+    "about.def3w": "Sin pretensiones", "about.def3t": "Cocina seria sin actitud. Te sientas, te atienden bien y comes algo que recuerdas. Así de simple.",
+    "about.chefTag": "Cocina de Autor", "about.chefEyebrow": "La Cocina",
+    "about.chefP1": "Detrás de cada plato de PURO está la mano del chef Armando Rodríguez, formado entre dos mundos: la Escuela Hotelera de San Juan y la Escuela de Hostelería de Sevilla, España.",
+    "about.chefP2": "Es esa doble formación —el fogón puertorriqueño y la técnica española— la que define la cocina de PURO. No es fusión por moda. Es la historia real de un chef que aprendió a cocinar en dos idiomas.",
+    "about.cvFormation": "Formación", "about.cvFormationV": "Escuela Hotelera de San Juan · Escuela de Hostelería de Sevilla, España",
+    "about.cvPR": "Puerto Rico", "about.cvPRV": "El Conquistador Resort · Hierbabuena",
+    "about.cvSpain": "Sevilla, España", "about.cvSpainV": "Taberna Alabardero · Gastrobar Las Ninfas · El Descorche · La Pérgola",
+    "about.philEyebrow": "Lo Que Nos Mueve", "about.philLead": "No escogemos entre lo de aquí y lo de allá. Los juntamos. Eso es lo que somos.",
+    "about.phil1t": "El sabor manda", "about.phil1d": "Cada decisión empieza y termina en el plato. Si no sabe increíble, no sale de la cocina. Punto.",
+    "about.phil2t": "Raíz y técnica", "about.phil2d": "El corazón criollo de Puerto Rico, ejecutado con la disciplina y precisión de la cocina española.",
+    "about.phil3t": "Como en casa", "about.phil3d": "Un lugar donde te sientes bienvenido, celebrado y cuidado. Eso no se improvisa: se siente.",
+    "about.ctaTitleA": "Ahora te toca", "about.ctaTitleB": "vivirlo a ti.", "about.ctaLead": "La mejor forma de conocer PURO es sentándote en nuestra mesa.",
+    "about.cta1": "Reservar Mesa", "about.cta2": "Ver el Menú",
+    "footer.tagline": "El sabor de dos culturas en una sola mesa. Toa Baja, Puerto Rico.",
+    "footer.explore": "Explora", "footer.contact": "Contacto", "footer.visit": "Visítanos",
+    "footer.address": "Carr #2 KM 20.1, Toa Baja, PR", "footer.address2": "Frente a la Holsum",
+    "footer.hours1": "Mié–Sáb · 11:00 AM – 10:00 PM", "footer.hours2": "Dom · 11:00 AM – 8:00 PM",
+    "footer.rights": "Todos los derechos reservados", "footer.by": "Diseñado por <a href='https://lizarditech.com' target='_blank' rel='noopener'>Lizardi Technologies</a>",
+    "popup.eyebrow": "Exclusivo · Miembros", "popup.titleA": "Promociones", "popup.titleB": "directo a ti.",
+    "popup.desc": "Regístrate para recibir nuestras ofertas exclusivas, especiales semanales y eventos privados directo en tu teléfono.",
+    "popup.name": "Nombre", "popup.phone": "Teléfono · (787) 555-1234",
+    "popup.submit": "Quiero las Promociones", "popup.skip": "No, gracias — seguir explorando",
+    "popup.successTitle": "¡Bienvenido a PURO!", "popup.successDesc": "Te avisaremos de las próximas promociones y eventos."
+  },
+  en: {
+    "ab.titleL1": "A heritage.", "ab.titleL2": "A <span class=\'accent\'>dream.</span>",
+    "ab.storyL1": "From father", "ab.storyL2": "to <span class=\'accent\'>children.</span>",
+    "ab.meaning": "Why <span class=\'accent\'>PURO?</span>",
+    "ab.chefL1": "Chef Armando", "ab.chefL2": "<span class=\'accent\'>Rodríguez</span>",
+    "ab.philL1": "Two cultures.", "ab.philL2": "One <span class=\'accent\'>table.</span>",
+    "nav.home": "Home", "nav.menu": "Menu", "nav.about": "About", "nav.visit": "Visit", "nav.reserve": "Reserve", "nav.cta": "Book a Table",
+    "about.eyebrow": "Who We Are",
+    "about.lead": "PURO wasn't invented. It was inherited. This is the story of a family, a kitchen, and two cultures that met in Toa Baja.",
+    "about.storyEyebrow": "The Origin",
+    "about.p1": "It all began with a father who built a legacy in Toa Baja. Joshua and Kamila grew up surrounded by kitchens, flavors, and the example of someone who understood that a well-made dish could bring a community together.",
+    "about.p2": "When that family chapter closed, the siblings didn't forget what they had lived. Kamila saved every dollar and every bit of vision. Joshua sharpened the direction of the business. And in 2026, together, they opened the doors of PURO.",
+    "about.p3": "Today Joshua leads the restaurant's vision and growth, while Kamila runs day-to-day operations. Two roles, one mission: to honor where they come from, while always looking ahead.",
+    "about.nameEyebrow": "The Name", "about.nameLead": "Because good food needs no disguises. Quality speaks for itself. PURO means three promises kept in every dish:",
+    "about.def1w": "No filler", "about.def1t": "Real ingredients, honest portions. Nothing takes up space without a reason to be there.",
+    "about.def2w": "No shortcuts", "about.def2t": "Processes done the way they should be done. The time it takes is the time it takes. The flavor is grateful for it.",
+    "about.def3w": "No pretension", "about.def3t": "Serious cooking without attitude. You sit, you're taken care of, and you eat something you'll remember. Simple as that.",
+    "about.chefTag": "Signature Cuisine", "about.chefEyebrow": "The Kitchen",
+    "about.chefP1": "Behind every PURO dish is the hand of Chef Armando Rodríguez, trained between two worlds: the San Juan Hospitality School and the Seville School of Hospitality in Spain.",
+    "about.chefP2": "It's that dual training —the Puerto Rican stove and Spanish technique— that defines PURO's kitchen. This isn't fusion for fashion. It's the real story of a chef who learned to cook in two languages.",
+    "about.cvFormation": "Training", "about.cvFormationV": "San Juan Hospitality School · Seville School of Hospitality, Spain",
+    "about.cvPR": "Puerto Rico", "about.cvPRV": "El Conquistador Resort · Hierbabuena",
+    "about.cvSpain": "Seville, Spain", "about.cvSpainV": "Taberna Alabardero · Gastrobar Las Ninfas · El Descorche · La Pérgola",
+    "about.philEyebrow": "What Drives Us", "about.philLead": "We don't choose between what's from here and what's from there. We bring them together. That's who we are.",
+    "about.phil1t": "Flavor leads", "about.phil1d": "Every decision begins and ends on the plate. If it doesn't taste incredible, it doesn't leave the kitchen. Period.",
+    "about.phil2t": "Roots and technique", "about.phil2d": "The creole heart of Puerto Rico, executed with the discipline and precision of Spanish cuisine.",
+    "about.phil3t": "Like home", "about.phil3d": "A place where you feel welcomed, celebrated and cared for. That can't be improvised: it's felt.",
+    "about.ctaTitleA": "Now it's your turn", "about.ctaTitleB": "to live it.", "about.ctaLead": "The best way to know PURO is to sit at our table.",
+    "about.cta1": "Book a Table", "about.cta2": "View the Menu",
+    "footer.tagline": "The taste of two cultures at one table. Toa Baja, Puerto Rico.",
+    "footer.explore": "Explore", "footer.contact": "Contact", "footer.visit": "Visit",
+    "footer.address": "Carr #2 KM 20.1, Toa Baja, PR", "footer.address2": "Across from Holsum",
+    "footer.hours1": "Wed–Sat · 11:00 AM – 10:00 PM", "footer.hours2": "Sun · 11:00 AM – 8:00 PM",
+    "footer.rights": "All rights reserved", "footer.by": "Designed by <a href='https://lizarditech.com' target='_blank' rel='noopener'>Lizardi Technologies</a>",
+    "popup.eyebrow": "Exclusive · Members", "popup.titleA": "Promotions", "popup.titleB": "straight to you.",
+    "popup.desc": "Sign up to receive our exclusive offers, weekly specials and private events right on your phone.",
+    "popup.name": "Name", "popup.phone": "Phone · (787) 555-1234",
+    "popup.submit": "Get the Promotions", "popup.skip": "No thanks — keep exploring",
+    "popup.successTitle": "Welcome to PURO!", "popup.successDesc": "We'll let you know about upcoming promotions and events."
+  }
+};
+
+function setLang(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.documentElement.lang = lang;
+  localStorage.setItem('puroLang', lang);
+  const dict = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => { const k = el.getAttribute('data-i18n'); if (dict[k]) el.innerHTML = dict[k]; });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => { const k = el.getAttribute('data-i18n-placeholder'); if (dict[k]) el.setAttribute('placeholder', dict[k]); });
+  const toggle = document.getElementById('langToggle');
+  toggle.innerHTML = lang === 'es' ? '<span class="active-lang">ES</span><span class="inactive-lang">/ EN</span>' : '<span class="inactive-lang">ES /</span><span class="active-lang">EN</span>';
+}
+document.getElementById('langToggle').addEventListener('click', () => setLang(document.documentElement.getAttribute('data-lang') === 'es' ? 'en' : 'es'));
+setLang(localStorage.getItem('puroLang') || 'es');
+
+function pageHeroIntro() {
+  if (REDUCED) { gsap.set('.page-title .line > span, .page-lead span', { y: 0 }); return; }
+  gsap.set('.page-title .line > span, .page-lead span', { y: '110%' });
+  const tl = gsap.timeline();
+  tl.to('.page-eyebrow .line', { width: 40, duration: 0.7, ease: 'expo.out' })
+    .from('.page-eyebrow span:not(.line)', { opacity: 0, duration: 0.6 }, '-=0.4')
+    .to('.page-title .line > span', { y: 0, duration: 1.1, ease: 'expo.out', stagger: 0.12 }, '-=0.3')
+    .to('.page-lead span', { y: 0, duration: 0.9, ease: 'expo.out' }, '-=0.6');
+}
+
+function init() {
+  gsap.registerPlugin(ScrollTrigger);
+  pageHeroIntro();
+
+  const progress = document.getElementById('scrollProgress');
+  ScrollTrigger.create({ start: 0, end: 'max', onUpdate: (self) => progress.style.transform = `scaleX(${self.progress})` });
+
+  const nav = document.getElementById('nav');
+  let lastY = 0;
+  ScrollTrigger.create({ start: 0, end: 'max', onUpdate: (self) => {
+    const y = self.scroll();
+    nav.classList.toggle('scrolled', y > 50);
+    if (y > lastY && y > 400) nav.classList.add('hide'); else nav.classList.remove('hide');
+    lastY = y;
+  }});
+
+  if (REDUCED) {
+    document.querySelectorAll('[data-reveal]').forEach(el => gsap.set(el, { opacity: 1, y: 0 }));
+  } else {
+    gsap.utils.toArray('[data-reveal]').forEach(el => {
+      const lines = el.querySelectorAll('.anim-line > *');
+      if (lines.length) {
+        gsap.set(lines, { y: '110%' });
+        ScrollTrigger.create({ trigger: el, start: 'top 85%', onEnter: () => gsap.to(lines, { y: 0, duration: 1, ease: 'expo.out', stagger: 0.1 }) });
+      } else {
+        gsap.set(el, { y: 40, opacity: 0 });
+        ScrollTrigger.create({ trigger: el, start: 'top 88%', onEnter: () => gsap.to(el, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }) });
+      }
+    });
+    // parallax images
+    gsap.utils.toArray('[data-parallax-img]').forEach(img => {
+      gsap.fromTo(img, { yPercent: -10 }, { yPercent: 10, ease: 'none', scrollTrigger: { trigger: img, start: 'top bottom', end: 'bottom top', scrub: true } });
+    });
+    // blobs
+    document.querySelectorAll('[data-blob]').forEach((b, i) => gsap.to(b, { x: 'random(-40,40)', y: 'random(-40,40)', duration: 'random(8,12)', repeat: -1, yoyo: true, ease: 'sine.inOut', delay: i * 0.4 }));
+  }
+  ScrollTrigger.refresh();
+}
+
+function initCursor() {
+  if (IS_TOUCH || REDUCED) return;
+  document.body.classList.add('cursor-active');
+  const dot = document.getElementById('cursorDot'); const ring = document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove', (e)=>{ mx=e.clientX; my=e.clientY; dot.style.transform=`translate(${mx}px,${my}px)`; });
+  (function loop(){ rx+=(mx-rx)*0.18; ry+=(my-ry)*0.18; ring.style.transform=`translate(${rx}px,${ry}px)`; requestAnimationFrame(loop); })();
+  document.querySelectorAll('[data-cursor]').forEach(el => {
+    const type = el.getAttribute('data-cursor');
+    el.addEventListener('mouseenter', () => { if (type==='view'){ ring.classList.add('view'); ring.textContent = document.documentElement.getAttribute('data-lang')==='es'?'Ver':'View'; } else ring.classList.add('hover'); });
+    el.addEventListener('mouseleave', () => { ring.classList.remove('hover','view'); ring.textContent=''; });
+  });
+}
+
+function initMagnetic() {
+  if (IS_TOUCH || REDUCED) return;
+  document.querySelectorAll('[data-magnetic]').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => { const r = btn.getBoundingClientRect(); gsap.to(btn, { x: (e.clientX-r.left-r.width/2)*0.4, y: (e.clientY-r.top-r.height/2)*0.5, duration: 0.6, ease: 'power3.out' }); });
+    btn.addEventListener('mouseleave', () => gsap.to(btn, { x: 0, y: 0, duration: 0.6, ease: 'elastic.out(1,0.4)' }));
+  });
+}
+
+const menuToggle = document.getElementById('menuToggle');
+const navMenu = document.getElementById('navMenu');
+menuToggle.addEventListener('click', () => { menuToggle.classList.toggle('open'); navMenu.classList.toggle('open'); document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : ''; });
+document.querySelectorAll('.nav-menu a').forEach(link => link.addEventListener('click', () => { menuToggle.classList.remove('open'); navMenu.classList.remove('open'); document.body.style.overflow = ''; }));
+
+/* POPUP — 25s like home */
+const popup = document.getElementById('popup');
+const leadForm = document.getElementById('leadForm');
+const popupSuccess = document.getElementById('popupSuccess');
+const popupFormDiv = document.getElementById('popupForm');
+const POPUP_KEY = 'puroLeadCaptured', POPUP_SEEN_KEY = 'puroLeadSeen';
+function showPopup() { popup.classList.add('active'); popup.setAttribute('aria-hidden','false'); localStorage.setItem(POPUP_SEEN_KEY,'1'); }
+function hidePopup() { popup.classList.remove('active'); popup.setAttribute('aria-hidden','true'); }
+document.getElementById('popupClose').addEventListener('click', hidePopup);
+document.getElementById('popupSkip').addEventListener('click', hidePopup);
+popup.addEventListener('click', (e) => { if (e.target === popup) hidePopup(); });
+leadForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const submitBtn = document.getElementById('leadSubmit');
+  const lang = document.documentElement.getAttribute('data-lang');
+  submitBtn.disabled = true; submitBtn.innerHTML = lang === 'es' ? 'Enviando...' : 'Sending...';
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(leadForm) });
+    if (res.ok) { popupFormDiv.style.display='none'; popupSuccess.style.display='block'; localStorage.setItem(POPUP_KEY,'1'); setTimeout(hidePopup, 2800); }
+    else throw new Error();
+  } catch (err) {
+    submitBtn.disabled = false; submitBtn.innerHTML = lang === 'es' ? 'Quiero las Promociones' : 'Get the Promotions';
+    alert(lang === 'es' ? 'Hubo un error. Intenta de nuevo.' : 'There was an error. Please try again.');
+  }
+});
+const urlParams = new URLSearchParams(window.location.search);
+const isFromQR = urlParams.get('qr') === '1' || urlParams.get('source') === 'qr';
+if (isFromQR) document.getElementById('leadSource').value = 'qr-code-nosotros';
+function schedulePopup() {
+  const captured = localStorage.getItem(POPUP_KEY), seen = localStorage.getItem(POPUP_SEEN_KEY);
+  if (isFromQR && !captured) setTimeout(showPopup, 1500);
+  else if (!seen && !captured) setTimeout(showPopup, 25000);
+}
+
+function boot(){ try { init(); initCursor(); initMagnetic(); schedulePopup(); } catch(e){ console.error(e); } }
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
+window.addEventListener('load', () => { try { ScrollTrigger.refresh(); } catch(e){} });
+</script>
+</body>
+</html>
