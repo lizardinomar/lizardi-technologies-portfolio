@@ -14,6 +14,6 @@ By **Nomar Lizardi Vargas** · [Lizardi Technologies](https://lizarditech.com)
 | [Tropical Research Labs](./tropical-research-labs) | E-commerce, Puerto Rico | HTML, CSS, JavaScript, Cloudflare Workers + D1, PlacetoPay | [trlpr.com](https://trlpr.com) | Bilingual storefront with certified card payments, order ledger and affiliate program. Original build. Client has since moved to a different agency and website. |
 | [REIS Real Estate Brokers](./reis-real-estate-brokers) | Real estate, Puerto Rico | HTML, CSS, JavaScript | [reisreb.org](https://reisreb.org) | Bilingual ES/EN, mortgage calculator, custom motion layer. Active client. |
 | [Central Air Services](./central-air-services) | HVAC, Puerto Rico | HTML, CSS, JavaScript, GSAP, Stripe | [centralairservicespr.com](https://www.centralairservicespr.com) | Service cart, 16-item unit catalog, Stripe checkout, WhatsApp handoff. Active client. |
-| [Salud Natural Wellness & Learning Center](./salud-natural-wellness) | Wellness and training, Caguas PR | HTML, CSS, JavaScript | | Bilingual EN/ES, 6 courses, 20+ services, branded intake PDFs. Replaces a Wix site. |
+| [Salud Natural Wellness & Learning Center](./salud-natural-wellness) | Wellness and training, Caguas PR | HTML, CSS, JavaScript | [saludnaturallearning.com](https://saludnaturallearning.com) | Bilingual EN/ES, 6 courses, 20+ services, branded intake PDFs. Replaces a Wix site. |
 
 More projects are added as they are documented.

@@ -2,6 +2,7 @@
 
 Five-page bilingual (EN/ES) website for a naturopathic wellness practice and training center in Caguas, Puerto Rico. It replaces the client's previous Wix site and puts the practice's therapeutic services and its certification courses under one brand.
 
+- **Live site:** [saludnaturallearning.com](https://saludnaturallearning.com)
 - **Year:** 2026
 - **Role:** Designer and developer (Lizardi Technologies)
 - **Stack:** HTML5, CSS3, vanilla JavaScript (ES6+), inline SVG
