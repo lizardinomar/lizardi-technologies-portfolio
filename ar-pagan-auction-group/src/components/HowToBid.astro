@@ -1,0 +1,33 @@
+---
+import BidSpotterButton from './BidSpotterButton.astro';
+import { site } from '@/lib/site';
+interface Props { href?: string }
+const { href = site.bidspotter } = Astro.props;
+const steps = [
+  { n: '01', t: 'Register', d: 'Register in person at the auction site. For online auctions, create your account and register on our BidSpotter page. A good faith deposit is required.' },
+  { n: '02', t: 'Review the catalog', d: 'Browse every lot, photo and description. Preview is by appointment, so call us to inspect in person.' },
+  { n: '03', t: 'Place your bids', d: "Bid live or online. A buyer's premium is added to the hammered price." },
+  { n: '04', t: 'Pay & remove', d: 'Full payment is due before removal. Buyers arrange their own pickup and shipping.' },
+];
+---
+<section class="relative overflow-hidden bg-forest py-24 md:py-32">
+  <div class="absolute -left-20 top-0 h-[420px] w-[420px] rounded-full bg-brand/25 blur-[130px]"></div>
+  <div class="wrap relative">
+    <div class="mb-14 flex flex-wrap items-end justify-between gap-8">
+      <div>
+        <p class="eyebrow reveal mb-4">How bidding works</p>
+        <h2 class="reveal text-5xl md:text-7xl">Four steps to <span class="italic text-grad">winning a lot.</span></h2>
+      </div>
+      <div class="reveal"><BidSpotterButton href={href} label="Register" /></div>
+    </div>
+    <ol class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      {steps.map((s, i) => (
+        <li class="reveal group rounded-3xl border border-white/10 bg-night/60 p-7 transition hover:-translate-y-1 hover:border-brass/50" data-delay={i * 0.08}>
+          <span class="font-display text-6xl text-grad">{s.n}</span>
+          <h3 class="mt-5 text-3xl">{s.t}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-white/65">{s.d}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

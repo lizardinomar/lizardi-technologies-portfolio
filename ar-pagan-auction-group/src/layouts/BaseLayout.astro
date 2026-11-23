@@ -1,0 +1,57 @@
+---
+import '@/styles/global.css';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { site } from '@/lib/site';
+
+interface Props { title?: string; description?: string; noindex?: boolean; image?: string }
+const {
+  title,
+  description = 'Live and online commercial auctions, appraisals and asset liquidations across Puerto Rico, the U.S. and the Caribbean. 4,000+ sales since 1977.',
+  noindex = false,
+  image = '/og.jpg',
+} = Astro.props;
+const full = title ? `${title} | ${site.name}` : `${site.name} — Auctions, Appraisals & Liquidations Since 1977`;
+const canonical = new URL(Astro.url.pathname, site.url).href;
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name,
+  url: site.url,
+  logo: `${site.url}/logo.svg`,
+  foundingDate: String(site.founded),
+  email: site.contact.email,
+  telephone: `+1-${site.contact.phonePR}`,
+  address: { '@type': 'PostalAddress', postOfficeBoxNumber: '1736', addressLocality: 'Bayamón', addressRegion: 'PR', postalCode: '00960', addressCountry: 'US' },
+  sameAs: [site.social.facebook, site.social.instagram],
+};
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{full}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#06120c" />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={full} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(image, site.url).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script is:inline>document.documentElement.classList.add('js')</script>
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+  </head>
+  <body class="bg-night text-[#edefe9]">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded focus:bg-brass focus:px-4 focus:py-2 focus:text-night">Skip to content</a>
+    <Header />
+    <main id="main"><slot /></main>
+    <Footer />
+    <script>import '@/scripts/motion';</script>
+  </body>
+</html>

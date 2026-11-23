@@ -1,0 +1,32 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import { site } from '@/lib/site';
+
+const terms = [
+  { t: 'Registration', d: 'Register in person at the auction site. For online auctions, create your account and register on our BidSpotter page. A good faith deposit is required.' },
+  { t: "Buyer's premium", d: `${site.buyersPremium} It is added to the hammered price.` },
+  { t: 'Condition of items', d: 'All items are sold AS IS, WHERE IS, with all faults and without warranty. Bidders are responsible for inspecting items before bidding.' },
+  { t: 'Preview', d: `Previews are by appointment. Call ${site.contact.phonePR} to schedule an inspection.` },
+  { t: 'Payment', d: 'Full payment is due before removal. Accepted: cash, wire transfer, cashier\'s check, ATH Móvil and Zelle' + (site.forms.stripe ? ', or card through our secure online payment link.' : '.') },
+  { t: 'Removal & shipping', d: 'Buyers are responsible for removal, pickup and shipping of purchased items.' },
+  { t: 'Final sale', d: 'All sales are final.' },
+];
+---
+<BaseLayout title="Bidder Terms" description="Key bidder terms for A.R. Pagán Auction Group auctions.">
+  <PageHero eyebrow="Bidder terms" title="The" accent="fine print." sub="A summary of the key terms for our auctions. See each auction's catalog for complete terms." />
+  <section class="on-light bg-paper py-20 text-ink md:py-28">
+    <div class="wrap max-w-4xl">
+      <dl class="divide-y divide-ink/15">
+        {terms.map((s, i) => (
+          <div class="reveal grid gap-3 py-8 md:grid-cols-12">
+            <dt class="font-display text-3xl md:col-span-4"><span class="mr-3 font-mono text-xs text-brand-deep">{String(i + 1).padStart(2, '0')}</span>{s.t}</dt>
+            <dd class="text-lg leading-relaxed text-ink/75 md:col-span-8">{s.d}</dd>
+          </div>
+        ))}
+      </dl>
+      {site.forms.stripe && <div class="reveal mt-10"><a href={site.forms.stripe} target="_blank" rel="noopener" class="btn btn-green">Pay an invoice online</a></div>}
+      <p class="reveal mt-10 text-sm text-ink/50">{site.name} · Questions? <a class="link-u text-brand-deep" href={`mailto:${site.contact.email}`}>{site.contact.email}</a></p>
+    </div>
+  </section>
+</BaseLayout>

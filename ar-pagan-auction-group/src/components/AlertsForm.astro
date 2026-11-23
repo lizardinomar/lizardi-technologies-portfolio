@@ -1,0 +1,20 @@
+---
+import { site } from '@/lib/site';
+const cc = site.forms.constantContact;
+const action = site.forms.formspree ? `https://formspree.io/f/${site.forms.formspree}` : '#';
+---
+{cc ? (
+  <a href={cc} target="_blank" rel="noopener" data-magnetic class="btn btn-brass">Join auction alerts</a>
+) : (
+  <form action={action} method="POST" data-ajax data-ok="You're on the list. See you at the next sale." class="w-full max-w-md">
+    <input type="hidden" name="_subject" value="Auction alerts signup — arpagan.com" />
+    <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+    <label for="alerts-email" class="sr-only">Email address</label>
+    <div class="flex flex-col gap-3 sm:flex-row">
+      <input id="alerts-email" type="email" name="email" required autocomplete="email" placeholder="your@email.com"
+        class="min-w-0 flex-1 rounded-full border border-white/25 bg-white/10 px-6 py-4 text-sm text-white placeholder:text-white/50 backdrop-blur focus:border-brass focus:outline-none" />
+      <button type="submit" class="btn btn-brass disabled:opacity-60">Notify me</button>
+    </div>
+    <p data-status role="status" aria-live="polite" class="mt-3 min-h-5 text-sm"></p>
+  </form>
+)}

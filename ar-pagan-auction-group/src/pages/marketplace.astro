@@ -1,0 +1,11 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import BidSpotterButton from '@/components/BidSpotterButton.astro';
+---
+<BaseLayout title="Marketplace" noindex>
+  <PageHero eyebrow="Coming soon" title="Marketplace" accent="opening soon." sub="Browse our BidSpotter auctions from one place." />
+  <section class="bg-night py-20 text-center">
+    <BidSpotterButton label="Browse auctions on" />
+  </section>
+</BaseLayout>

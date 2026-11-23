@@ -1,0 +1,75 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import { site, countries } from '@/lib/site';
+import { featuredSuccession } from '@/data/auctions';
+
+const sectors = ['Industrial equipment', 'Complete manufacturing facilities', 'Vehicles', 'Office assets', 'Marine equipment & vessels', 'Aircraft', 'Art', 'Medical facilities', 'Dental equipment', 'Commercial inventory', 'Restaurants', 'Supermarkets & food businesses', 'Real estate'];
+---
+<BaseLayout title="About" description="Since 1977, A.R. Pagán Auction Group has conducted 4,000+ auctions and liquidations across Puerto Rico, the U.S. and the Caribbean.">
+  <PageHero eyebrow="About us" title="Nearly fifty years" accent="on the block." sub="A worldwide leader in auctions, appraisals and asset liquidations, operating continuously since 1977." />
+
+  <section class="on-light bg-paper py-20 text-ink md:py-32">
+    <div class="wrap grid gap-14 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <p class="eyebrow reveal mb-4">Our story</p>
+        <h2 class="reveal text-5xl md:text-7xl">We can sell what is <span class="italic text-brand-deep">difficult for others.</span></h2>
+      </div>
+      <div class="space-y-6 text-lg leading-relaxed text-ink/80 lg:col-span-7">
+        <p class="reveal">Since 1977, A.R. Pagán Auction Group has been a worldwide leader in the sale of industrial equipment, complete manufacturing facilities, vehicles, office assets, marine equipment and vessels, aircraft, art, medical facilities, dental equipment, commercial inventory, restaurants, supermarkets and food businesses, and an important participant in real estate sales in the U.S. and Puerto Rico. We have conducted over <strong class="text-brand-deep">{site.stats.sales.toLocaleString()} liquidation and auction sales</strong>.</p>
+        <p class="reveal">Our work has taken us across Puerto Rico, California and 40 other U.S. states, the U.S. Virgin Islands, Canada, Brazil, Uruguay, Bolivia, Panama, Costa Rica, El Salvador, Jamaica and Mexico.</p>
+        <p class="reveal">We have worked with Fortune 500 firms, government agencies, bankruptcy courts and financial institutions. In 1999 we conducted the single multi-location sale of 250 Boston Market units across 33 states.</p>
+        <p class="reveal">We have been in Puerto Rico since 1992, and in that time we have become the most prolific and successful liquidation company on the island. We conduct auctions in the language of the countries we serve, and we also provide appraisal and evaluation services.</p>
+        <p class="reveal">We are the longest continuous commercial liquidator and auctioneer serving the Caribbean market.</p>
+        <ul class="reveal flex flex-wrap gap-2 pt-4">
+          {sectors.map((s) => (<li class="rounded-full border border-ink/20 px-4 py-2 text-sm">{s}</li>))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden bg-night py-24 md:py-36 grain">
+    <div class="absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-brand/25 blur-[150px]"></div>
+    <div class="wrap relative">
+      <p class="eyebrow reveal mb-4">Corporate succession</p>
+      <h2 class="reveal mb-16 max-w-3xl text-5xl md:text-7xl">One continuous practice, <span class="italic text-grad">four chapters.</span></h2>
+      <div class="relative">
+        <div class="absolute left-3 top-2 bottom-2 w-px bg-white/15 md:hidden"></div>
+        <div data-progress class="absolute left-3 top-2 bottom-2 w-px origin-top bg-gradient-to-b from-brand-bright to-brass md:hidden"></div>
+        <ol class="grid gap-10 pl-10 md:grid-cols-4 md:gap-6 md:pl-0">
+          {featuredSuccession.map((s, i) => (
+            <li class="reveal relative md:border-t md:border-white/20 md:pt-8" data-delay={i * 0.1}>
+              <span class="absolute -left-[2.35rem] top-2 h-3 w-3 rounded-full bg-brass ring-4 ring-night md:-top-[6.5px] md:left-0"></span>
+              <div class="font-display text-7xl text-grad md:text-8xl">{s.year}</div>
+              <div class="mt-3 font-display text-3xl">{s.entity}</div>
+              <div class="eyebrow mt-2">{s.city}</div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-deep via-forest-2 to-night py-24 md:py-32">
+    <div class="wrap grid gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <p class="eyebrow reveal mb-4">En español</p>
+        <h2 class="reveal text-5xl md:text-6xl">Los subastadores con más experiencia <span class="italic text-grad">del Caribe.</span></h2>
+      </div>
+      <div class="reveal space-y-5 text-lg leading-relaxed text-white/80 lg:col-span-7">
+        <p>A través de más de cuatro décadas, A.R. Pagán Auction Group se ha destacado mundialmente en la venta de mobiliario, equipo industrial, instalaciones de manufactura, vehículos, oficinas, restaurantes, hoteles, centros comerciales, fincas e instituciones educativas.</p>
+        <p>Hemos conducido más de 4,000 subastas y liquidaciones en Puerto Rico, los Estados Unidos, Canadá, St. Thomas, Jamaica, Brasil, Centroamérica y México. Somos los subastadores y liquidadores con más experiencia y conocimiento en el mercado del Caribe.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-night py-20 md:py-28">
+    <div class="wrap text-center">
+      <p class="eyebrow reveal mb-6">Where we've worked</p>
+      <div class="reveal mx-auto flex max-w-4xl flex-wrap justify-center gap-3">
+        {countries.map((c, i) => (<span class:list={['rounded-full border px-5 py-2.5 text-sm', i % 2 ? 'border-brand/60 text-brand-bright' : 'border-brass/50 text-brass-soft']}>{c}</span>))}
+      </div>
+      <a href="/contact" data-magnetic class="btn btn-brass reveal mt-14">Work with us</a>
+    </div>
+  </section>
+</BaseLayout>

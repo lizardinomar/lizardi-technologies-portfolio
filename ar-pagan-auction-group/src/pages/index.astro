@@ -1,0 +1,265 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Marquee from '@/components/Marquee.astro';
+import Triangle from '@/components/Triangle.astro';
+import AlertsForm from '@/components/AlertsForm.astro';
+import BidSpotterButton from '@/components/BidSpotterButton.astro';
+import { getAuctions, fmtDate, fmtTime, bidUrl, cover, img } from '@/lib/auctions';
+import { site, countries } from '@/lib/site';
+import { pastAuctionsIndex, featuredSuccession } from '@/data/auctions';
+
+const all = await getAuctions();
+const current = all.filter((a) => a.status !== 'past').sort((a, b) => +a.dateObj - +b.dateObj);
+const next = current[0];
+const names = [...pastAuctionsIndex.majorPRIndustrial, ...pastAuctionsIndex.international, ...pastAuctionsIndex.majorPRRetail];
+const names2 = [...pastAuctionsIndex.majorPRRetail, ...pastAuctionsIndex.prLocal];
+
+const services = [
+  { n: '01', t: 'Live & Online Auctions', d: 'Catalog-driven sales of industrial, restaurant, hospitality and commercial assets, with bidding open to the world through BidSpotter.', href: '/services#auctions' },
+  { n: '02', t: 'Appraisals', d: 'Appraisal and evaluation services for lenders, bankruptcy court trustees and owners who need the number to hold up.', href: '/services#appraisals' },
+  { n: '03', t: 'Liquidations', d: 'Full-service asset recovery for closures, relocations and transitions, from a single location to multi-site portfolios.', href: '/services#liquidations' },
+];
+---
+<BaseLayout>
+  <!-- ═════════ HERO ═════════ -->
+  <section class="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-night pb-20 pt-32 grain">
+    <div class="absolute -left-40 top-0 -z-10 h-[700px] w-[700px] rounded-full bg-brand/35 blur-[160px]"></div>
+    <div class="absolute -right-32 bottom-0 -z-10 h-[560px] w-[560px] rounded-full bg-brass/20 blur-[150px]"></div>
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(90%_60%_at_50%_110%,rgb(54_154_108/.35),transparent)]"></div>
+    <div class="absolute inset-x-0 bottom-0 -z-10 translate-y-[38%]" data-parallax="-.1">
+      <Triangle class="mx-auto w-[1500px] max-w-none opacity-45" id="hero" />
+    </div>
+    <span class="float absolute left-[57%] top-[17%] -z-10 h-2 w-2 rounded-full bg-brass"></span>
+    <span class="float absolute right-[14%] top-[18%] -z-10 h-3 w-3 rounded-full bg-brand-bright" style="animation-delay:-3s"></span>
+    <span class="float absolute bottom-[26%] left-[46%] -z-10 h-1.5 w-1.5 rounded-full bg-brass-soft" style="animation-delay:-6s"></span>
+
+    <div class="wrap grid items-center gap-14 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <p class="eyebrow fade-in mb-8" style="--i:0">Since 1977 · Puerto Rico · San Francisco</p>
+        <h1 class="text-[clamp(3rem,8.4vw,8rem)]">
+          <span class="line" style="--i:0"><span>A.R. Pagán</span></span>
+          <span class="line" style="--i:1"><span><em class="text-grad pr-2">Auction Group</em></span></span>
+        </h1>
+        <p class="fade-in mt-6 font-display text-3xl italic text-brass-soft md:text-4xl" style="--i:2">Where Assets find their worth.</p>
+        <p class="fade-in mt-9 max-w-xl text-lg leading-relaxed text-white/70 md:text-xl" style="--i:3">
+          Auctions, appraisals and asset liquidations across Puerto Rico, the U.S. and the Caribbean. Live and online, for nearly fifty years.
+        </p>
+        <div class="fade-in mt-10 flex flex-wrap items-center gap-4" style="--i:4">
+          <a href="/auctions" data-magnetic class="btn btn-brass">View live auctions
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 6h8m0 0L6.5 2.5M10 6l-3.5 3.5" stroke="currentColor" stroke-width="1.6"/></svg>
+          </a>
+          <BidSpotterButton />
+        </div>
+      </div>
+
+      <!-- Next-auction card -->
+      <div class="fade-in lg:col-span-5" style="--i:5">
+        <div class="glass relative overflow-hidden rounded-[2rem] p-7 md:p-9">
+          <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-brass/30 blur-3xl"></div>
+          {next ? (
+            <>
+              <p class="eyebrow flex items-center gap-2">
+                <span class="relative flex h-2 w-2"><span class="absolute h-full w-full rounded-full bg-brand-bright" style="animation:pulse-ring 1.6s infinite"></span><span class="relative h-2 w-2 rounded-full bg-brand-bright"></span></span>
+                {next.status === 'live' ? 'Bidding open now' : 'Next auction'}
+              </p>
+              <h2 class="mt-4 text-5xl md:text-6xl">{next.title}</h2>
+              <p class="mt-3 text-sm text-white/70">{fmtDate(next.dateObj, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })} · {fmtTime(next.dateObj)}{next.city ? ` · ${next.city}` : ''}</p>
+              {next.status === 'upcoming' && (
+                <div data-countdown={next.dateObj.toISOString()} data-done="Bidding is open" class="mt-7 grid grid-cols-4 gap-2 text-center">
+                  {[['d', 'Days'], ['h', 'Hrs'], ['m', 'Min'], ['s', 'Sec']].map(([k, l]) => (
+                    <div class="rounded-2xl bg-night/50 py-4"><div class="font-display text-4xl tabular-nums" {...{ [`data-${k}`]: '' }}>00</div><div class="mt-1 font-mono text-[9px] uppercase tracking-[.2em] text-white/50">{l}</div></div>
+                  ))}
+                </div>
+              )}
+              <div class="mt-7 flex flex-wrap gap-3">
+                <a href={`/auctions/${next.slug}`} class="btn btn-green !px-6">View lots</a>
+                <a href={bidUrl(next)} target="_blank" rel="noopener" class="btn btn-line !px-6">Register to bid</a>
+              </div>
+            </>
+          ) : (
+            <>
+              <p class="eyebrow">Next auction</p>
+              <h2 class="mt-4 text-5xl md:text-6xl">Announced soon.</h2>
+              <p class="mt-4 text-sm leading-relaxed text-white/70">Get an email the day a new sale opens, with the catalog and preview details.</p>
+              <div class="mt-7"><AlertsForm /></div>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ MARQUEE ═════════ -->
+  <section class="relative overflow-hidden border-y border-white/10 bg-gradient-to-r from-brand-deep via-forest-2 to-brand-deep py-10" aria-label="A partial list of past clients">
+    <p class="eyebrow mb-7 text-center text-white/70">A partial list of clients over 49 years</p>
+    <Marquee items={names} dur={140} />
+    <div class="h-4"></div>
+    <Marquee items={names2} dur={160} reverse />
+  </section>
+
+  <!-- ═════════ UPCOMING AUCTIONS BANNER ═════════ -->
+  <section id="upcoming" class="on-light relative overflow-hidden bg-paper py-24 text-ink md:py-36">
+    <div class="absolute -left-32 top-10 h-[420px] w-[420px] rounded-full bg-brand/20 blur-[120px]"></div>
+    <div class="absolute -right-24 bottom-0 h-[360px] w-[360px] rounded-full bg-brass/25 blur-[120px]"></div>
+    <div class="wrap relative">
+      <div class="reveal mb-12 flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p class="eyebrow mb-4">Próximas subastas · Upcoming auctions</p>
+          <h2 class="text-6xl md:text-8xl">Pick your <span class="italic text-brand-deep">sale.</span></h2>
+        </div>
+        <a href="/auctions" class="btn btn-line">All auctions</a>
+      </div>
+      {current.length ? (
+        <ul class="divide-y divide-ink/15 border-y border-ink/15">
+          {current.map((a) => (
+            <li class="reveal">
+              <a href={`/auctions/${a.slug}`} class="group grid grid-cols-[auto_1fr_auto] items-center gap-5 py-6 transition md:gap-10 md:py-8">
+                <div class="w-20 text-center md:w-28">
+                  <div class="font-mono text-[11px] uppercase tracking-[.2em] text-brand-deep">{fmtDate(a.dateObj, { month: 'short' })}</div>
+                  <div class="font-display text-6xl leading-none md:text-8xl">{fmtDate(a.dateObj, { day: 'numeric' })}</div>
+                  <div class="font-mono text-[11px] tracking-[.2em] text-ink/50">{fmtDate(a.dateObj, { year: 'numeric' })}</div>
+                </div>
+                <div class="min-w-0">
+                  <div class="flex flex-wrap items-center gap-3">
+                    <h3 class="font-display text-4xl leading-none transition group-hover:text-brand-deep md:text-6xl">{a.title}</h3>
+                    {a.status === 'live' && <span class="rounded-full bg-brand px-3 py-1 font-mono text-[10px] uppercase tracking-[.18em] text-white">Live</span>}
+                  </div>
+                  {a.subtitle && <p class="mt-2 font-mono text-[11px] uppercase tracking-[.16em] text-ink/55">{a.subtitle}</p>}
+                  <p class="mt-2 text-sm text-ink/65 md:text-base">{fmtTime(a.dateObj)}{a.venue || a.city ? ` · ${[a.venue, a.city].filter(Boolean).join(' · ')}` : ''}</p>
+                </div>
+                {cover(a)
+                  ? <img src={img(cover(a)!, 500)} alt="" loading="lazy" decoding="async" class="hidden h-28 w-40 rounded-2xl object-cover transition duration-500 group-hover:scale-105 sm:block md:h-36 md:w-56" />
+                  : <span class="grid h-12 w-12 place-items-center rounded-full border border-ink/25 transition group-hover:border-brand-deep group-hover:bg-brand-deep group-hover:text-white" aria-hidden="true">→</span>}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <div class="reveal relative overflow-hidden rounded-[2rem] bg-night p-10 text-white md:p-16">
+          <Triangle class="absolute inset-x-0 bottom-0 w-full opacity-70" draw={false} id="empty" />
+          <div class="relative max-w-xl">
+            <p class="eyebrow mb-4">Between sales</p>
+            <h3 class="text-5xl md:text-6xl">The next auction is being prepared.</h3>
+            <p class="mt-5 text-white/70">Join the list and we'll email you the day it opens.</p>
+            <div class="mt-8"><AlertsForm /></div>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- ═════════ BY THE NUMBERS ═════════ -->
+  <section class="relative overflow-hidden bg-night py-24 md:py-36 grain">
+    <div class="absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-brand/25 blur-[150px]"></div>
+    <div class="wrap relative">
+      <p class="eyebrow reveal mb-4">By the numbers</p>
+      <h2 class="reveal max-w-4xl text-5xl md:text-7xl">Nearly five decades of <span class="italic text-grad">continuous practice.</span></h2>
+      <div class="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-3xl bg-white/10 md:grid-cols-4">
+        {[
+          { v: site.stats.years, s: '', l: 'Years in business' },
+          { v: site.stats.sales, s: '+', l: 'Sales conducted' },
+          { v: site.stats.states, s: '+', l: 'U.S. states' },
+          { v: site.stats.countries, s: '+', l: 'Countries abroad' },
+        ].map((s) => (
+          <div class="reveal bg-night/90 p-7 md:p-10">
+            <div class="font-display text-6xl leading-none text-grad md:text-8xl"><span data-count={s.v} data-suffix={s.s}>{s.v.toLocaleString('en-US')}{s.s}</span></div>
+            <div class="eyebrow mt-4 !text-white/60">{s.l}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ BOSTON MARKET ═════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand-deep via-forest-2 to-night py-24 md:py-32">
+    <div class="pointer-events-none absolute -right-10 top-1/2 -translate-y-1/2 select-none font-display text-[22vw] leading-none text-white/[.04]" aria-hidden="true">1999</div>
+    <div class="wrap relative grid items-center gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <p class="eyebrow reveal mb-5">A landmark sale</p>
+        <h2 class="reveal text-5xl md:text-8xl">250 restaurants. 33 states. <span class="italic text-grad">One sale.</span></h2>
+      </div>
+      <p class="reveal text-lg leading-relaxed text-white/75 lg:col-span-5">In 1999 we conducted the single multi-location liquidation of 250 Boston Market units across 33 states. Our clients have included U.S. and Puerto Rico bankruptcy courts, Fortune 500 companies and thousands of small businesses.</p>
+    </div>
+  </section>
+
+  <!-- ═════════ SERVICES ═════════ -->
+  <section class="relative bg-night py-24 md:py-36">
+    <div class="wrap">
+      <div class="mb-14 flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <p class="eyebrow reveal mb-4">What we do</p>
+          <h2 class="reveal text-6xl md:text-8xl">Three disciplines.<br /><span class="italic text-grad">One practice.</span></h2>
+        </div>
+      </div>
+      <div class="grid gap-5 md:grid-cols-3">
+        {services.map((s, i) => (
+          <a href={s.href} class="reveal group relative isolate flex min-h-[380px] flex-col justify-between overflow-hidden rounded-3xl border border-white/10 p-8 transition duration-500 hover:-translate-y-2 hover:border-brass/60" data-delay={i * 0.1}>
+            <div class="absolute inset-0 -z-10 bg-gradient-to-br from-forest-2 to-night transition duration-700 group-hover:from-brand-deep"></div>
+            <div class="absolute -right-10 -top-10 -z-10 h-48 w-48 rounded-full bg-brass/0 blur-3xl transition duration-700 group-hover:bg-brass/30"></div>
+            <span class="font-mono text-xs tracking-[.2em] text-brass">{s.n}</span>
+            <div>
+              <h3 class="text-4xl md:text-5xl">{s.t}</h3>
+              <p class="mt-5 text-sm leading-relaxed text-white/65 transition group-hover:text-white/85">{s.d}</p>
+              <span class="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[.14em] text-brass transition-all group-hover:gap-4">Learn more →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ TIMELINE ═════════ -->
+  <section class="on-light relative overflow-hidden bg-paper py-24 text-ink md:py-36">
+    <div class="absolute -right-20 top-20 h-[420px] w-[420px] rounded-full bg-brass/25 blur-[120px]"></div>
+    <div class="wrap relative grid gap-14 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <p class="eyebrow reveal mb-4">One continuous practice</p>
+        <h2 class="reveal text-5xl md:text-7xl">From San Francisco to <span class="italic text-brand-deep">the Caribbean.</span></h2>
+        <p class="reveal mt-6 max-w-md text-lg leading-relaxed text-ink/70">The longest continuous commercial liquidator and auctioneer serving the Caribbean market, with the same practice and the same standards since 1977.</p>
+        <a href="/about" class="btn btn-line reveal mt-8">Our story</a>
+      </div>
+      <div class="relative lg:col-span-7 lg:pl-10">
+        <div class="absolute bottom-2 left-3 top-2 w-px bg-ink/15 lg:left-13"></div>
+        <div data-progress class="absolute bottom-2 left-3 top-2 w-px origin-top bg-gradient-to-b from-brand to-brass lg:left-13"></div>
+        <ol class="space-y-10 pl-10 lg:pl-12">
+          {featuredSuccession.map((s) => (
+            <li class="reveal relative">
+              <span class="absolute -left-[2.35rem] top-3 h-3 w-3 rounded-full bg-brass ring-4 ring-paper lg:-left-[2.85rem]"></span>
+              <div class="font-mono text-sm tracking-[.2em] text-brand-deep">{s.year}</div>
+              <div class="font-display text-4xl md:text-5xl">{s.entity}</div>
+              <div class="eyebrow mt-1">{s.city}</div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════ COUNTRIES ═════════ -->
+  <section class="relative overflow-hidden bg-night py-20 md:py-28">
+    <div class="wrap text-center">
+      <p class="eyebrow reveal mb-6">Where we've conducted sales</p>
+      <div class="reveal mx-auto flex max-w-4xl flex-wrap justify-center gap-3">
+        {countries.map((c, i) => (
+          <span class:list={['rounded-full border px-5 py-2.5 text-sm transition hover:-translate-y-1', i % 3 === 0 ? 'border-brass/50 text-brass-soft hover:bg-brass hover:text-night' : i % 3 === 1 ? 'border-brand/60 text-brand-bright hover:bg-brand hover:text-white' : 'border-white/20 text-white/80 hover:bg-white hover:text-night']}>{c}</span>
+        ))}
+      </div>
+      <p class="reveal mt-6 text-sm text-white/50">Plus 40 U.S. states.</p>
+    </div>
+  </section>
+
+  <!-- ═════════ ALERTS CTA ═════════ -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand via-brand-deep to-forest py-24 md:py-32 grain">
+    <div class="pointer-events-none absolute -bottom-20 -right-10 select-none font-display text-[26vw] leading-none text-white/[.06]" aria-hidden="true">1977</div>
+    <div class="wrap relative grid items-end gap-10 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <p class="eyebrow reveal mb-5 !text-brass-soft">Auction alerts</p>
+        <h2 class="reveal text-5xl text-white md:text-8xl">Be first to see <span class="italic text-brass-soft">what hits the block.</span></h2>
+      </div>
+      <div class="reveal lg:col-span-5">
+        <p class="mb-6 text-white/80">New auctions, catalogs and preview dates, straight to your inbox.</p>
+        <AlertsForm />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

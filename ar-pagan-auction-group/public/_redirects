@@ -1,0 +1,13 @@
+# 301s from the old arpagan.com. Verify against the old sitemap before launch.
+/auctions/flordeharina        /auctions/flor-de-harina  301
+/auctions/flordeharina/       /auctions/flor-de-harina  301
+/past-auctions                /past                     301
+/past-auctions/               /past                     301
+/auction-calendar             /auctions                 301
+/auction-calendar/            /auctions                 301
+/about-us                     /about                    301
+/about-us/                    /about                    301
+/contact-us                   /contact                  301
+/contact-us/                  /contact                  301
+/marketplace/                 /marketplace              301
+/index.php                    /                         301

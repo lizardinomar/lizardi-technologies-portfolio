@@ -1,0 +1,41 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import BidSpotterButton from '@/components/BidSpotterButton.astro';
+
+const items = [
+  { id: 'auctions', n: '01', t: 'Live & Online Auctions', d: 'Catalog-driven public sales of industrial equipment, restaurants, hospitality, vehicles and commercial assets. Every lot is catalogued, and bidding is open to buyers worldwide through BidSpotter, live or online.', cta: true },
+  { id: 'appraisals', n: '02', t: 'Appraisals', d: 'Appraisal and evaluation services for lenders, bankruptcy court trustees and owners who need a number they can defend before they decide to sell, refinance or restructure.' },
+  { id: 'liquidations', n: '03', t: 'Liquidations', d: 'Full-service asset recovery for closures, relocations and transitions. From a single location to multi-site portfolios, we plan, market and sell so you recover the most from what you own.' },
+];
+---
+<BaseLayout title="Services" description="Live and online auctions, appraisals and asset liquidations for lenders, courts, businesses and owners in Puerto Rico and the Caribbean.">
+  <PageHero eyebrow="Services" title="Three disciplines," accent="one practice." sub="Whether you need to know what it's worth, or turn it into cash, we've done it thousands of times." />
+
+  {items.map((s, i) => (
+    <section id={s.id} class:list={['relative overflow-hidden py-24 md:py-32', i % 2 ? 'on-light bg-paper text-ink' : 'bg-night']}>
+      <div class:list={['absolute h-[420px] w-[420px] rounded-full blur-[130px]', i % 2 ? '-right-20 top-10 bg-brass/25' : '-left-20 top-10 bg-brand/30']}></div>
+      <div class="wrap relative grid items-start gap-10 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <span class:list={['reveal font-display text-8xl md:text-9xl', i % 2 ? 'text-brand-deep/30' : 'text-white/10']}>{s.n}</span>
+          <h2 class="reveal -mt-6 text-5xl md:text-7xl">{s.t}</h2>
+        </div>
+        <div class="lg:col-span-7">
+          <p class:list={['reveal text-xl leading-relaxed md:text-2xl', i % 2 ? 'text-ink/80' : 'text-white/80']}>{s.d}</p>
+          <div class="reveal mt-10 flex flex-wrap gap-4">
+            {s.cta && <><a href="/auctions" data-magnetic class="btn btn-brass">See live auctions</a><BidSpotterButton small /></>}
+            {!s.cta && <a href={s.id === 'liquidations' ? '/consign' : '/contact'} data-magnetic class:list={['btn', i % 2 ? 'btn-green' : 'btn-brass']}>{s.id === 'liquidations' ? 'Consign your assets' : 'Request a quote'}</a>}
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="relative overflow-hidden bg-gradient-to-br from-brand via-brand-deep to-forest py-24 md:py-28 grain">
+    <div class="wrap text-center">
+      <h2 class="reveal text-5xl text-white md:text-8xl">Have assets to <span class="italic text-brass-soft">sell?</span></h2>
+      <p class="reveal mx-auto mt-6 max-w-xl text-white/80">Tell us what you have and where it is. We inspect at no obligation and propose the most effective way to liquidate it.</p>
+      <a href="/consign" data-magnetic class="btn btn-brass reveal mt-10">Start the conversation</a>
+    </div>
+  </section>
+</BaseLayout>

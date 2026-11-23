@@ -1,0 +1,48 @@
+---
+import { nav, site } from '@/lib/site';
+import BidSpotterButton from './BidSpotterButton.astro';
+const year = new Date().getFullYear();
+---
+<footer class="relative overflow-hidden bg-night pt-24 pb-10 grain">
+  <div class="pointer-events-none absolute -bottom-40 left-1/2 h-[520px] w-[1100px] -translate-x-1/2 rounded-full bg-brand/25 blur-[140px]"></div>
+  <div class="wrap relative z-10">
+    <div class="grid gap-14 border-b border-white/10 pb-16 lg:grid-cols-12">
+      <div class="lg:col-span-6">
+        <p class="eyebrow mb-6">Since 1977</p>
+        <h2 class="text-[clamp(2.75rem,7vw,6.5rem)]">Trusted when the <span class="italic text-grad">numbers matter.</span></h2>
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <a href="/contact" data-magnetic class="btn btn-brass">Talk to us</a>
+          <BidSpotterButton small />
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-10 lg:col-span-6 lg:pl-10">
+        <div>
+          <p class="eyebrow mb-5">Navigate</p>
+          <ul class="space-y-3 text-sm text-white/80">
+            {nav.map((n) => (<li><a href={n.href} class="link-u hover:text-white">{n.label}</a></li>))}
+            <li><a href="/terms" class="link-u hover:text-white">Bidder Terms</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="eyebrow mb-5">Contact</p>
+          <ul class="space-y-3 text-sm text-white/80">
+            <li><a class="link-u hover:text-white" href={`tel:${site.contact.phonePR}`}>PR {site.contact.phonePR}</a></li>
+            <li><a class="link-u hover:text-white" href={`tel:${site.contact.phoneSF}`}>SF {site.contact.phoneSF}</a></li>
+            <li><a class="link-u hover:text-white" href={`mailto:${site.contact.email}`}>{site.contact.email}</a></li>
+            <li class="pt-2 text-xs text-white/50">PR: {site.contact.poBox}, {site.contact.poCity}<br />SF: {site.contact.sfPoBox}, {site.contact.sfPoCity}<br />{site.contact.hoursDays}<br />{site.contact.hours}</li>
+          </ul>
+          <a href={site.forms.constantContact} target="_blank" rel="noopener" class="btn btn-line mt-7 !py-3">Join our mailing list</a>
+          <ul class="mt-8 flex gap-5 text-sm text-white/80">
+            <li><a class="link-u hover:text-white" href={site.social.facebook} target="_blank" rel="noopener">Facebook</a></li>
+            <li><a class="link-u hover:text-white" href={site.social.instagram} target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-3 pt-8 text-xs text-white/45 md:flex-row md:items-center md:justify-between">
+      <p>© {year} {site.name}</p>
+      <p>Site by <a href="https://lizarditech.com" class="link-u hover:text-white" target="_blank" rel="noopener">Lizardi Technologies</a></p>
+    </div>
+  </div>
+</footer>

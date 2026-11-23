@@ -1,0 +1,11 @@
+---
+import { site } from '@/lib/site';
+interface Props { href?: string; small?: boolean; label?: string }
+const { href = site.bidspotter, small = false, label = 'Bid on' } = Astro.props;
+---
+<a href={href} target="_blank" rel="noopener" data-magnetic
+   class={`group inline-flex items-center gap-3 rounded-full bg-white text-night shadow-[0_10px_40px_-12px_rgb(255_255_255/.5)] transition hover:-translate-y-0.5 ${small ? 'py-2.5 pl-5 pr-4' : 'py-3.5 pl-7 pr-6'}`}>
+  <span class="text-[11px] font-semibold uppercase tracking-[.14em]">{label}</span>
+  <img src="/bidspotter-logo.png" alt="BidSpotter" width="3840" height="608" loading="lazy" class={small ? 'h-5 w-auto' : 'h-6 w-auto'} />
+  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" class="transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"><path d="M3 9l6-6m0 0H4m5 0v5" stroke="currentColor" stroke-width="1.6"/></svg>
+</a>

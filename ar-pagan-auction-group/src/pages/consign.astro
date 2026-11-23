@@ -1,0 +1,52 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import { site } from '@/lib/site';
+
+const action = site.forms.formspree ? `https://formspree.io/f/${site.forms.formspree}` : '#';
+const field = 'w-full rounded-2xl border border-white/15 bg-night/60 px-5 py-4 text-sm text-white placeholder:text-white/35 focus:border-brass focus:outline-none';
+const why = [
+  { t: 'No-obligation inspection', d: 'We visit your facility, assess what you have and tell you what it can bring.' },
+  { t: 'A written proposal', d: 'You get the most effective plan to liquidate your assets before you commit to anything.' },
+  { t: 'Live & online reach', d: 'Your assets are sold to buyers worldwide through BidSpotter, with auctions run in the language of your market.' },
+];
+---
+<BaseLayout title="Consign with Us" description="Consign your equipment, inventory or business assets with A.R. Pagán Auction Group. No-obligation inspection and a written proposal.">
+  <PageHero eyebrow="Consignment" title="Consign" accent="with us." sub="Auction or liquidation sale: assets are assessed to be sold in the most appropriate method to maximize the seller's return." />
+
+  <section class="relative overflow-hidden bg-forest py-20 md:py-28">
+    <div class="absolute -left-24 top-10 h-[420px] w-[420px] rounded-full bg-brand/25 blur-[130px]"></div>
+    <div class="wrap relative grid gap-14 lg:grid-cols-12">
+      <form action={action} method="POST" data-ajax data-ok="Thank you. We'll contact you shortly to schedule your inspection." class="reveal space-y-5 lg:col-span-7">
+        <input type="hidden" name="_subject" value="Consignment inquiry — arpagan.com" />
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+        <p class="eyebrow">Consignor contact &amp; account information</p>
+        <div class="grid gap-5 md:grid-cols-2">
+          <div><label for="name" class="eyebrow mb-2 block">Full name (first and last)</label><input id="name" name="name" required autocomplete="name" class={field} /></div>
+          <div><label for="business" class="eyebrow mb-2 block">Business name</label><input id="business" name="business" autocomplete="organization" class={field} /></div>
+          <div class="md:col-span-2"><label for="address" class="eyebrow mb-2 block">Mailing &amp; physical address (street, city, state, ZIP)</label><input id="address" name="address" autocomplete="street-address" class={field} /></div>
+          <div><label for="phone" class="eyebrow mb-2 block">Phone number</label><input id="phone" type="tel" name="phone" required autocomplete="tel" class={field} /></div>
+          <div><label for="email" class="eyebrow mb-2 block">Email address</label><input id="email" type="email" name="email" required autocomplete="email" class={field} /></div>
+        </div>
+        <div><label for="type" class="eyebrow mb-2 block">Type of business or equipment to sell</label><input id="type" name="type" required class={field} /></div>
+        <div><label for="inventory" class="eyebrow mb-2 block">Item inventory details</label><textarea id="inventory" name="inventory" rows="5" class={field}></textarea></div>
+        <div><label for="extra" class="eyebrow mb-2 block">Additional information or details</label><textarea id="extra" name="extra" rows="4" class={field}></textarea></div>
+        <div class="flex flex-wrap items-center gap-5">
+          <button type="submit" data-magnetic class="btn btn-brass disabled:opacity-60">Submit consignment inquiry</button>
+          <p data-status role="status" aria-live="polite" class="text-sm"></p>
+        </div>
+      </form>
+
+      <aside class="space-y-5 lg:col-span-5">
+        {why.map((w, i) => (
+          <div class="reveal rounded-3xl border border-white/10 bg-night/60 p-7" data-delay={i * 0.08}>
+            <span class="font-display text-5xl text-grad">0{i + 1}</span>
+            <h3 class="mt-3 text-3xl">{w.t}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-white/65">{w.d}</p>
+          </div>
+        ))}
+        <p class="reveal text-sm text-white/55">Prefer to talk? Call <a class="link-u text-brass" href={`tel:${site.contact.phonePR}`}>{site.contact.phonePR}</a>.</p>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>

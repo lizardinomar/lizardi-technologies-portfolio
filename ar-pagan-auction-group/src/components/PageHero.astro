@@ -1,0 +1,18 @@
+---
+import Triangle from './Triangle.astro';
+interface Props { eyebrow: string; title: string; accent?: string; sub?: string }
+const { eyebrow, title, accent, sub } = Astro.props;
+---
+<section class="relative isolate overflow-hidden bg-night pt-40 pb-20 md:pt-52 md:pb-28 grain">
+  <div class="absolute -top-40 left-1/2 -z-10 h-[620px] w-[900px] -translate-x-1/2 rounded-full bg-brand/30 blur-[150px]"></div>
+  <div class="absolute -right-20 top-1/2 -z-10 h-[420px] w-[420px] -translate-y-1/2 rounded-full bg-brass/15 blur-[130px]"></div>
+  <Triangle class="absolute -bottom-6 left-1/2 -z-10 w-[1300px] max-w-none -translate-x-1/2 opacity-50 float" id="ph" />
+  <div class="wrap">
+    <p class="eyebrow fade-in mb-6" style="--i:0">{eyebrow}</p>
+    <h1 class="text-[clamp(3.25rem,10vw,9rem)]">
+      <span class="line" style="--i:0"><span>{title}</span></span>
+      {accent && <span class="line" style="--i:1"><span class="italic text-grad">{accent}</span></span>}
+    </h1>
+    {sub && <p class="fade-in mt-8 max-w-2xl text-lg leading-relaxed text-white/70 md:text-xl" style="--i:3">{sub}</p>}
+  </div>
+</section>

@@ -1,0 +1,11 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+---
+<BaseLayout title="Page not found" noindex>
+  <PageHero eyebrow="Error 404" title="Lot not" accent="found." sub="That page has moved or never existed." />
+  <section class="bg-night py-16 text-center">
+    <a href="/" class="btn btn-brass">Back to home</a>
+    <a href="/auctions" class="btn btn-line ml-3">View auctions</a>
+  </section>
+</BaseLayout>

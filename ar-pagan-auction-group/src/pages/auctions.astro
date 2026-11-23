@@ -1,0 +1,33 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import PageHero from '@/components/PageHero.astro';
+import AuctionCard from '@/components/AuctionCard.astro';
+import HowToBid from '@/components/HowToBid.astro';
+import AlertsForm from '@/components/AlertsForm.astro';
+import { getAuctions } from '@/lib/auctions';
+
+const current = (await getAuctions()).filter((a) => a.status !== 'past').sort((a, b) => +a.dateObj - +b.dateObj);
+---
+<BaseLayout title="Live & Online Auctions and Sales" description="Live and online commercial auctions in Puerto Rico and the Caribbean. Browse catalogs, preview dates and register to bid on BidSpotter.">
+  <PageHero eyebrow="Auction calendar" title="Live & Online" accent="Auctions and Sales." sub="Every active sale, with its date, location, catalog and a direct line to bidding." />
+
+  <section class="on-light bg-paper py-20 text-ink md:py-28">
+    <div class="wrap">
+      {current.length ? (
+        <div class="grid gap-6 md:grid-cols-2">
+          {current.map((a, i) => (<div class:list={['reveal', i === 0 && current.length > 1 && 'md:col-span-2']}><AuctionCard a={a} featured={i === 0} /></div>))}
+        </div>
+      ) : (
+        <div class="reveal mx-auto max-w-2xl rounded-[2rem] bg-night p-10 text-center text-white md:p-16">
+          <p class="eyebrow mb-4">Between sales</p>
+          <h2 class="text-5xl md:text-6xl">No auctions are open right now.</h2>
+          <p class="mt-5 text-white/70">The next one is being prepared. Get an email the day it opens.</p>
+          <div class="mt-8 flex justify-center"><AlertsForm /></div>
+          <p class="mt-8 text-sm text-white/50">Looking for a past sale? <a class="link-u text-brass" href="/past">See past auctions</a></p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <HowToBid />
+</BaseLayout>

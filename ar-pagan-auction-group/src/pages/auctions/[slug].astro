@@ -1,0 +1,156 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Triangle from '@/components/Triangle.astro';
+import BidSpotterButton from '@/components/BidSpotterButton.astro';
+import HowToBid from '@/components/HowToBid.astro';
+import { getAuctions, fmtDate, fmtTime, bidUrl, mapSrc, mapLink, img } from '@/lib/auctions';
+import { site } from '@/lib/site';
+
+export async function getStaticPaths() {
+  return (await getAuctions()).map((a) => ({ params: { slug: a.slug }, props: { a } }));
+}
+const { a } = Astro.props;
+const closed = a.status === 'past';
+const label = { upcoming: 'Upcoming', live: 'Bidding open', past: 'Closed' }[a.status];
+const descEn = a.descriptionEn || a.description;
+const descEs = a.descriptionEs;
+const inspEn = a.inspectionEn || a.previewInfo || `By appointment: ${site.contact.phonePR}`;
+const inspEs = a.inspectionEs;
+const photos = a.photos ?? [];
+const facts = [
+  { k: 'Date', v: fmtDate(a.dateObj, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' }) },
+  { k: 'Time', v: fmtTime(a.dateObj) + ' AST' },
+  ...(a.venue || a.city ? [{ k: 'Location', v: [a.venue, a.address, a.city].filter(Boolean).join(', ') }] : []),
+  ...(a.lotCount ? [{ k: 'Lots', v: String(a.lotCount) }] : []),
+  { k: 'Preview · Inspección', v: inspEn, v2: inspEs },
+  { k: "Buyer's premium", v: "A buyer's premium will be charged.", v2: 'Se cobrará una prima al comprador.' },
+];
+const hlEn = a.highlightsEn?.length ? a.highlightsEn : a.highlights ?? [];
+const hlEs = a.highlightsEs ?? [];
+const hl = hlEn.length ? hlEn : hlEs;
+---
+<BaseLayout title={`${a.title} — Auction`} description={(descEn ?? descEs ?? `${a.title} auction by ${site.name}.`).slice(0, 160)}>
+  <!-- HERO -->
+  <section class="relative isolate overflow-hidden bg-night pb-16 pt-40 md:pb-24 md:pt-52 grain">
+    <div class="absolute -left-32 top-0 -z-10 h-[560px] w-[560px] rounded-full bg-brand/35 blur-[150px]"></div>
+    <div class="absolute -right-24 bottom-0 -z-10 h-[420px] w-[420px] rounded-full bg-brass/20 blur-[140px]"></div>
+    <Triangle class="absolute -bottom-4 left-1/2 -z-10 w-[1300px] max-w-none -translate-x-1/2 opacity-50 float" id="ad" />
+    <div class="wrap">
+      <nav aria-label="Breadcrumb" class="fade-in mb-8 font-mono text-xs uppercase tracking-[.16em] text-white/50" style="--i:0">
+        <a href="/auctions" class="link-u hover:text-white">Auctions</a> <span class="mx-2">/</span> <span class="text-white/80">{a.title}</span>
+      </nav>
+      <span class:list={['fade-in mb-6 inline-flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-[10px] uppercase tracking-[.18em]', a.status === 'live' ? 'bg-brand text-white' : a.status === 'upcoming' ? 'bg-brass text-night' : 'bg-white/15 text-white/80']} style="--i:1">{label}</span>
+      <h1 class="text-[clamp(3.5rem,11vw,10rem)]"><span class="line" style="--i:1"><span>{a.title}</span></span></h1>
+      <p class="fade-in mt-6 max-w-2xl text-lg text-white/75 md:text-xl" style="--i:3">
+        {fmtDate(a.dateObj, { month: 'long', day: 'numeric', year: 'numeric' })} · {fmtTime(a.dateObj)}{a.city ? ` · ${a.city}` : ''}
+      </p>
+      <div class="fade-in mt-10 flex flex-wrap items-center gap-4" style="--i:4">
+        {!closed && <BidSpotterButton href={bidUrl(a)} label="Register & bid on" />}
+        {a.catalogUrl && <a href={a.catalogUrl} target="_blank" rel="noopener" data-magnetic class="btn btn-brass">View catalog · Ver catálogo</a>}
+        {a.address && <a href={mapLink(a)} target="_blank" rel="noopener" class="btn btn-line">Directions</a>}
+      </div>
+      {a.status === 'upcoming' && (
+        <div data-countdown={a.dateObj.toISOString()} data-done="Bidding is open" class="fade-in mt-12 grid max-w-md grid-cols-4 gap-2 text-center" style="--i:5">
+          {[['d', 'Days'], ['h', 'Hrs'], ['m', 'Min'], ['s', 'Sec']].map(([k, l]) => (
+            <div class="glass rounded-2xl py-4"><div class="font-display text-4xl tabular-nums" {...{ [`data-${k}`]: '' }}>00</div><div class="mt-1 font-mono text-[9px] uppercase tracking-[.2em] text-white/50">{l}</div></div>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- PHOTOS -->
+  {photos.length > 0 && (
+    <section class="bg-night py-14 md:py-20" aria-label="Auction photos">
+      <div class="wrap">
+        <div class:list={['grid gap-3 md:gap-4', photos.length === 1 ? 'grid-cols-1' : 'grid-cols-2 md:grid-cols-4']}>
+          {photos.map((p, i) => (
+            <a href={img(p.url, 2200)} target="_blank" rel="noopener" class:list={['reveal group relative block overflow-hidden rounded-2xl bg-forest', i === 0 && photos.length > 1 ? 'col-span-2 row-span-2' : '', photos.length === 1 ? 'aspect-[16/9]' : 'aspect-square']} data-delay={(i % 4) * 0.05}>
+              <img src={img(p.url, i === 0 ? 1600 : 800)} alt={p.alt || `${a.title} — photo ${i + 1}`} loading={i < 2 ? 'eager' : 'lazy'} decoding="async" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- FACTS + DESCRIPTION -->
+  <section class="on-light relative overflow-hidden bg-paper py-20 text-ink md:py-28">
+    <div class="absolute -right-24 top-10 h-[380px] w-[380px] rounded-full bg-brass/25 blur-[120px]"></div>
+    <div class="wrap relative grid gap-14 lg:grid-cols-12">
+      <div class="lg:col-span-7">
+        <p class="eyebrow reveal mb-4">About this sale</p>
+        {a.subtitle && <p class="reveal mb-4 font-mono text-xs uppercase tracking-[.18em] text-brand-deep">{a.subtitle}</p>}
+        <p class="reveal font-display text-3xl leading-snug md:text-5xl">{descEn ?? descEs ?? 'Full details for this sale are in the catalog.'}</p>
+        {descEn && descEs && <p class="reveal mt-6 font-display text-2xl italic leading-snug text-ink/65 md:text-3xl" lang="es">{descEs}</p>}
+        {closed && <p class="reveal mt-8 rounded-2xl bg-ink/5 p-5 text-sm text-ink/70">This auction has closed. <a href="/auctions" class="link-u font-semibold text-brand-deep">See current auctions</a>.</p>}
+        {a.customTerms && (
+          <div class="reveal mt-10">
+            <p class="eyebrow mb-3">Terms for this sale</p>
+            <p class="whitespace-pre-line text-ink/75">{a.customTerms}</p>
+          </div>
+        )}
+      </div>
+      <dl class="reveal grid gap-px self-start overflow-hidden rounded-3xl bg-ink/10 lg:col-span-5">
+        {facts.map((f) => (
+          <div class="bg-paper-2 px-6 py-5">
+            <dt class="eyebrow">{f.k}</dt>
+            <dd class="mt-1 text-lg">{f.v}</dd>
+            {f.v2 && <dd class="mt-1 text-base italic text-ink/60" lang="es">{f.v2}</dd>}
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <!-- WHAT'S BEING SOLD -->
+  {hl.length > 0 && (
+    <section class="relative overflow-hidden bg-night py-20 md:py-28 grain">
+      <div class="absolute left-1/2 top-0 h-[420px] w-[800px] -translate-x-1/2 rounded-full bg-brand/25 blur-[140px]"></div>
+      <div class="wrap relative">
+        <p class="eyebrow reveal mb-4">On the block</p>
+        <h2 class="reveal mb-12 text-5xl md:text-7xl">What's being <span class="italic text-grad">sold</span></h2>
+        <ul class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {hl.map((h, i) => (
+            <li class="reveal group flex items-start gap-4 rounded-3xl border border-white/10 bg-forest p-7 transition hover:-translate-y-1 hover:border-brass/50" data-delay={(i % 3) * 0.08}>
+              <span class:list={['mt-1 text-xl', i % 2 ? 'text-brand-bright' : 'text-brass']}>✦</span>
+              <span class="font-display text-3xl leading-tight">{h}{hlEn.length && hlEs[i] ? <span class="mt-1 block text-xl italic text-white/55" lang="es">{hlEs[i]}</span> : null}</span>
+            </li>
+          ))}
+        </ul>
+        {a.catalogUrl && <div class="reveal mt-12"><a href={a.catalogUrl} target="_blank" rel="noopener" data-magnetic class="btn btn-brass">See every lot in the catalog</a><p class="mt-4 text-sm text-white/55">The list and photos are updated until the moment the auction starts. · El listado y las fotos se actualizan hasta justo antes de comenzar la subasta.</p></div>}
+      </div>
+    </section>
+  )}
+
+  <!-- MAP -->
+  {a.address && (
+    <section class="bg-forest py-20 md:py-28">
+      <div class="wrap grid items-center gap-10 lg:grid-cols-12">
+        <div class="lg:col-span-4">
+          <p class="eyebrow reveal mb-4">Location</p>
+          <h2 class="reveal text-5xl md:text-6xl">{a.venue ?? 'Auction site'}</h2>
+          <p class="reveal mt-4 text-white/70">{a.address}<br />{a.city}</p>
+          <a href={mapLink(a)} target="_blank" rel="noopener" class="btn btn-line reveal mt-8">Open in Maps</a>
+        </div>
+        <div class="reveal overflow-hidden rounded-3xl border border-white/10 lg:col-span-8">
+          <iframe title={`Map of ${a.venue ?? a.address}`} src={mapSrc(a)} loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="h-[380px] w-full [filter:grayscale(1)_invert(.92)_contrast(.9)]"></iframe>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {!closed && <HowToBid href={bidUrl(a)} />}
+
+  {site.forms.stripe && !closed && (
+    <section class="relative overflow-hidden bg-gradient-to-br from-brand via-brand-deep to-forest py-16 md:py-20">
+      <div class="wrap flex flex-wrap items-center justify-between gap-6">
+        <div>
+          <p class="eyebrow mb-2 !text-brass-soft">Won a lot?</p>
+          <h2 class="text-4xl text-white md:text-5xl">Pay your invoice online.</h2>
+        </div>
+        <a href={site.forms.stripe} target="_blank" rel="noopener" data-magnetic class="btn btn-brass">Pay securely</a>
+      </div>
+    </section>
+  )}
+</BaseLayout>
