@@ -15,5 +15,6 @@ By **Nomar Lizardi Vargas** · [Lizardi Technologies](https://lizarditech.com)
 | [REIS Real Estate Brokers](./reis-real-estate-brokers) | Real estate, Puerto Rico | HTML, CSS, JavaScript | [reisreb.org](https://reisreb.org) | Bilingual ES/EN, mortgage calculator, custom motion layer. Active client. |
 | [Central Air Services](./central-air-services) | HVAC, Puerto Rico | HTML, CSS, JavaScript, GSAP, Stripe | [centralairservicespr.com](https://www.centralairservicespr.com) | Service cart, 16-item unit catalog, Stripe checkout, WhatsApp handoff. Active client. |
 | [Salud Natural Wellness & Learning Center](./salud-natural-wellness) | Wellness and training, Caguas PR | HTML, CSS, JavaScript | [saludnaturallearning.com](https://saludnaturallearning.com) | Bilingual EN/ES, 6 courses, 20+ services, branded intake PDFs. Replaces a Wix site. |
+| [Balandras Luxury Stays](./balandras-luxury-stays) | Vacation rentals, Cerro Gordo PR | HTML, CSS, JavaScript, Guesty, Stripe | | Bilingual ES/EN, wraps the client's Guesty booking engine, per-unit add-on cart with Stripe checkout. Active client. |
 
 More projects are added as they are documented.

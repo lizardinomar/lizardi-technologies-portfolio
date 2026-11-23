@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Servicios — Balandras Luxury Stays</title>
+<meta name="description" content="Servicios adicionales para su estadía en Balandras Luxury Stays: chef privado, transporte, paella, niñera, masaje y más. Seleccione su unidad y reserve en línea.">
+<link rel="icon" href="assets/images/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+<link rel="manifest" href="assets/images/site.webmanifest">
+<meta name="theme-color" content="#9E4A44">
+<meta property="og:title" content="Servicios — Balandras Luxury Stays">
+<meta property="og:description" content="Complejo privado de cuatro unidades frente a la playa en Cerro Gordo, Puerto Rico.">
+<meta property="og:image" content="assets/images/views/views-01-property-aerial.jpg">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<script>document.documentElement.className='js';</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LodgingBusiness","name":"Balandras Luxury Stays",
+"description":"Complejo privado de cuatro unidades frente a la playa en Cerro Gordo, Puerto Rico.",
+"address":{"@type":"PostalAddress","streetAddress":"Calle Paseo de la Balandra","addressLocality":"Cerro Gordo","addressRegion":"PR","postalCode":"00692","addressCountry":"US"},
+"telephone":"+1-689-680-7909","url":"https://balandrasluxurystays.com",
+"checkinTime":"16:00","checkoutTime":"11:00",
+"amenityFeature":[
+{"@type":"LocationFeatureSpecification","name":"Acceso directo a la playa"},
+{"@type":"LocationFeatureSpecification","name":"Piscina compartida"},
+{"@type":"LocationFeatureSpecification","name":"Cocina exterior con BBQ"},
+{"@type":"LocationFeatureSpecification","name":"Lavadora y secadora compartidas"}]}
+</script>
+
+<style>
+/* ─────────── TOKENS ─────────── */
+:root{
+  --cream:#F4F0E2; --cream-2:#EDE7D5; --cream-3:#E2DAC4;
+  --terra:#9E4A44; --terra-dim:#8A3F3A;
+  --olive:#6B6F51; --olive-dim:#565941;
+  --ink:#23211C; --ink-soft:#5A5449;
+  --sand:#C9BFA6;
+  --shell:clamp(1.25rem,5vw,5.5rem);
+  --rule:1px solid rgba(35,33,28,.14);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;min-width:0}
+html,body{overflow-x:hidden}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--cream);color:var(--ink);
+  font-family:'Jost',system-ui,sans-serif;font-weight:300;
+  font-size:clamp(.95rem,.85rem + .3vw,1.05rem);line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+h1,h2,h3,h4{margin:0;font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;line-height:1.04;letter-spacing:-.012em;overflow-wrap:anywhere}
+p{margin:0}
+:focus-visible{outline:2px solid var(--terra);outline-offset:4px}
+::selection{background:var(--terra);color:var(--cream)}
+
+/* ─────────── BILINGUAL ─────────── */
+body [data-en]{display:none}
+body.is-en [data-es]{display:none}
+body.is-en [data-en]{display:inline}
+body.is-en [data-en].blk{display:block}
+
+/* ─────────── TYPE ─────────── */
+.eyebrow{font-size:.63rem;font-weight:400;letter-spacing:.34em;text-transform:uppercase;color:var(--olive)}
+.display{font-size:clamp(2.5rem,1.4rem + 4.8vw,5.8rem)}
+.display-sm{font-size:clamp(1.95rem,1.2rem + 3.2vw,3.8rem)}
+.lede{font-family:'Cormorant Garamond',Georgia,serif;font-weight:300;
+  font-size:clamp(1.28rem,1.05rem + 1.05vw,1.95rem);line-height:1.45;color:var(--ink-soft)}
+
+/* ─────────── REVEAL ─────────── */
+.js .rv{opacity:0;transform:translateY(28px)}
+.rv.in{opacity:1;transform:none;transition:opacity 1.15s var(--ease),transform 1.15s var(--ease)}
+.js .rv-img{opacity:0;transform:scale(1.015)}
+.rv-img.in{opacity:1;transform:none;transition:opacity 1.1s var(--ease),transform 1.4s var(--ease)}
+
+/* ─────────── HEADER ─────────── */
+.hdr{
+  position:fixed;inset:0 0 auto 0;z-index:80;
+  display:flex;align-items:center;gap:1.5rem;
+  padding:1.15rem var(--shell);color:var(--cream);
+  transition:background .55s var(--ease),color .55s var(--ease),padding .55s var(--ease),box-shadow .55s var(--ease);
+}
+.hdr.solid{background:var(--cream);color:var(--ink);padding:.8rem var(--shell);box-shadow:0 1px 0 rgba(35,33,28,.12)}
+.brand{display:flex;flex-direction:column;line-height:.9;margin-right:auto}
+.brand b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.32rem;letter-spacing:.1em}
+.brand span{font-size:.5rem;letter-spacing:.42em;opacity:.72;margin-top:.28rem}
+.nav{display:flex;gap:1.5rem;align-items:center}
+.nav a{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;position:relative;padding-bottom:2px}
+.nav a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:currentColor;transition:width .5s var(--ease)}
+.nav a:hover::after{width:100%}
+.lang{display:flex;align-items:center;gap:.45rem;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+.lang button{opacity:.48;transition:opacity .3s;padding-bottom:2px;border-bottom:1px solid transparent}
+.lang button.on{opacity:1;border-bottom-color:currentColor}
+.lang i{opacity:.32;font-style:normal}
+.book-btn{
+  border:1px solid currentColor;padding:.62rem 1.5rem;
+  font-size:.63rem;letter-spacing:.26em;text-transform:uppercase;
+  transition:background .45s var(--ease),color .45s var(--ease),border-color .45s var(--ease);
+}
+.book-btn:hover{background:var(--terra);border-color:var(--terra);color:var(--cream)}
+.burger{display:none;width:26px;height:12px;position:relative}
+.burger i{position:absolute;left:0;width:100%;height:1px;background:currentColor;transition:transform .5s var(--ease)}
+.burger i:first-child{top:0}.burger i:last-child{bottom:0}
+.burger.x i:first-child{transform:translateY(5.5px) rotate(45deg)}
+.burger.x i:last-child{transform:translateY(-5.5px) rotate(-45deg)}
+
+/* ─────────── HERO ─────────── */
+.hero{position:relative;height:100svh;min-height:600px;overflow:hidden;background:var(--ink)}
+.hero-img{position:absolute;inset:0}
+.hero-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.1);animation:kb 26s var(--ease) forwards}
+@keyframes kb{to{transform:scale(1)}}
+.hero::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(20,18,15,.46) 0%,rgba(20,18,15,.1) 30%,rgba(20,18,15,.2) 58%,rgba(20,18,15,.74) 100%)}
+.hero-in{position:absolute;inset:auto 0 0 0;z-index:3;
+  padding:0 var(--shell) clamp(3rem,7vh,6rem);color:var(--cream)}
+.hero-in .eyebrow{color:rgba(244,240,226,.74)}
+.hero-logo{width:clamp(220px,30vw,420px);margin:1.5rem 0 1.6rem;opacity:0;animation:logoIn 1.5s var(--ease) .25s forwards}
+@keyframes logoIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero-sub{max-width:38ch;color:rgba(244,240,226,.85);font-size:clamp(.95rem,.9rem + .3vw,1.12rem)}
+.scroll-cue{position:absolute;left:50%;bottom:1.5rem;z-index:4;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  color:rgba(244,240,226,.6);font-size:.55rem;letter-spacing:.3em;text-transform:uppercase}
+.scroll-cue s{display:block;width:1px;height:44px;background:currentColor;text-decoration:none;transform-origin:top;animation:drop 2.6s var(--ease) infinite}
+@keyframes drop{0%{transform:scaleY(0)}45%{transform:scaleY(1)}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ─────────── BOOKING ─────────── */
+.booking{background:var(--cream);padding:clamp(1.6rem,3vw,2.4rem) var(--shell) clamp(1.4rem,2.5vw,2rem);border-bottom:var(--rule)}
+.booking-head{display:flex;flex-wrap:wrap;gap:.6rem 1.6rem;align-items:baseline;margin-bottom:1.1rem}
+.booking-head p:not(.eyebrow){font-size:.82rem;color:var(--ink-soft)}
+#guesty-mount{min-height:64px}
+.gsty-fallback{display:flex;flex-wrap:wrap;gap:.9rem;align-items:center}
+.gsty-fallback a{background:var(--terra);color:var(--cream);padding:.9rem 2rem;
+  font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;transition:background .45s var(--ease)}
+.gsty-fallback a:hover{background:var(--terra-dim)}
+.gsty-fallback small{font-size:.74rem;color:var(--ink-soft)}
+
+/* ─────────── EXPLORE ─────────── */
+.explore{border-bottom:var(--rule);background:var(--cream)}
+.explore-list{margin:0;padding:0;list-style:none}
+.explore-list li{border-top:var(--rule)}
+.explore-list li:first-child{border-top:0}
+.xrow{display:flex;align-items:center;gap:1.2rem;padding:clamp(1.15rem,2.4vw,1.9rem) var(--shell);
+  transition:background .5s var(--ease)}
+.xrow .xnum{font-size:.6rem;letter-spacing:.2em;color:var(--sand);width:2.2rem;flex-shrink:0}
+.xrow .xname{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,1.1rem + 2vw,2.9rem);font-weight:300;line-height:1;transition:transform .6s var(--ease)}
+.xrow .xdesc{margin-left:auto;font-size:.73rem;color:var(--ink-soft);text-align:right;max-width:32ch;display:none}
+.xrow .xarrow{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--sand);transition:transform .6s var(--ease),color .5s}
+.xrow:hover{background:var(--cream-2)}
+.xrow:hover .xname{transform:translateX(.55rem)}
+.xrow:hover .xarrow{transform:translateX(.5rem);color:var(--terra)}
+@media(min-width:900px){.xrow .xdesc{display:block}}
+
+/* ─────────── SECTIONS ─────────── */
+.sec{padding:clamp(4.5rem,9vw,9rem) var(--shell)}
+.sec-tight{padding:clamp(3rem,6vw,6rem) var(--shell)}
+
+.manifesto{max-width:60rem}
+.manifesto h2{margin:1.4rem 0 0}
+.manifesto .lede{margin-top:2rem;max-width:48ch}
+.stats{display:flex;flex-wrap:wrap;gap:clamp(2rem,5vw,4.5rem);margin-top:clamp(2.8rem,5vw,4rem);padding-top:2rem;border-top:var(--rule)}
+.stat b{display:block;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2rem,1.4rem + 1.8vw,3rem);line-height:1}
+.stat span{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--olive)}
+
+/* ─────────── UNIT NAVIGATOR ─────────── */
+.units{position:relative;background:var(--ink);color:var(--cream);overflow:hidden}
+.units-stage{position:absolute;inset:0}
+.units-stage figure{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1.2s var(--ease)}
+.units-stage figure.on{opacity:1}
+.units-stage img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 7s var(--ease)}
+.units-stage figure.on img{transform:scale(1)}
+.units::before{content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,rgba(18,16,14,.88) 0%,rgba(18,16,14,.6) 45%,rgba(18,16,14,.26) 100%)}
+.units-in{position:relative;z-index:2;padding:clamp(4.5rem,9vw,9rem) var(--shell)}
+.units-in .eyebrow{color:rgba(244,240,226,.62)}
+.units-in > h2{margin:1rem 0 clamp(2.2rem,4vw,3.4rem);color:var(--cream)}
+.ulist{margin:0;padding:0;list-style:none;max-width:44rem}
+.ulist li{border-top:1px solid rgba(244,240,226,.17)}
+.ulist li:last-child{border-bottom:1px solid rgba(244,240,226,.17)}
+.ulink{display:flex;align-items:baseline;gap:1rem;width:100%;text-align:left;
+  padding:clamp(1rem,2.2vw,1.6rem) 0;color:rgba(244,240,226,.62);
+  transition:color .55s var(--ease),padding-left .55s var(--ease)}
+.ulink .uname{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1.7rem,1.1rem + 2.4vw,3.4rem);line-height:1}
+.ulink .umeta{margin-left:auto;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;opacity:.75}
+.ulink.on,.ulink:hover{color:var(--cream);padding-left:clamp(.5rem,1.4vw,1.2rem)}
+.ulink.on .uname{font-style:italic}
+.ulink::after{content:"\2192";margin-left:.6rem;opacity:0;transform:translateX(-6px);transition:opacity .45s var(--ease),transform .45s var(--ease);font-family:'Cormorant Garamond',serif;font-size:1.4rem}
+.ulink.on::after,.ulink:hover::after{opacity:.85;transform:none}
+.ucap{margin-top:clamp(2rem,4vw,3rem);max-width:44ch;color:rgba(244,240,226,.8);min-height:5.4em}
+.ucap p{display:none}.ucap p.on{display:block}
+.ucta{display:inline-flex;align-items:center;gap:.7rem;margin-top:1.8rem;
+  border-bottom:1px solid rgba(244,240,226,.4);padding-bottom:.4rem;
+  font-size:.65rem;letter-spacing:.26em;text-transform:uppercase;color:var(--cream);
+  transition:border-color .45s,gap .45s var(--ease)}
+.ucta:hover{border-color:var(--cream);gap:1.1rem}
+
+/* ─────────── SPREADS ─────────── */
+.spread{display:grid;gap:clamp(1.5rem,3vw,2.6rem)}
+@media(min-width:900px){
+  .spread{grid-template-columns:repeat(12,1fr);align-items:center}
+  .sp-txt{grid-column:1/span 4}
+  .sp-img{grid-column:6/span 7}
+  .spread.flip .sp-txt{grid-column:9/span 4}
+  .spread.flip .sp-img{grid-column:1/span 7;grid-row:1}
+}
+.sp-txt h2{margin:1.1rem 0 1.4rem}
+.sp-txt p{color:var(--ink-soft);max-width:42ch}
+.sp-img img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.sp-cap{margin-top:.7rem;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sand)}
+
+.amen{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:1px;background:rgba(35,33,28,.14);margin-top:clamp(2.6rem,5vw,4rem)}
+.amen figure{margin:0;background:var(--cream);overflow:hidden}
+.amen img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.6s var(--ease)}
+.amen figure:hover img{transform:scale(1.05)}
+.amen figcaption{padding:1.1rem 1.3rem 1.4rem}
+.amen figcaption b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.35rem;line-height:1.15}
+.amen figcaption span{font-size:.74rem;color:var(--ink-soft)}
+
+/* ─────────── BLEED ─────────── */
+.bleed{position:relative;min-height:78svh;display:grid;place-items:center;text-align:center;overflow:hidden;background:var(--ink)}
+.bleed > img,.bleed > picture > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bleed::after{content:'';position:absolute;inset:0;background:rgba(20,18,15,.52)}
+.bleed-in{position:relative;z-index:2;padding:clamp(3rem,8vw,6rem) var(--shell);color:var(--cream);max-width:46rem}
+.bleed-in h2{color:var(--cream)}
+.bleed-in .eyebrow{color:rgba(244,240,226,.64)}
+.bleed-in p{margin-top:1.6rem;color:rgba(244,240,226,.82)}
+.bleed-mark{width:clamp(90px,11vw,130px);margin:0 auto 1.8rem;opacity:.9}
+
+/* ─────────── SERVICES ─────────── */
+.svc{background:var(--cream-2)}
+.svc-grid{display:grid;gap:clamp(1.4rem,3vw,2.4rem);margin-top:clamp(2.4rem,4vw,3.4rem)}
+@media(min-width:820px){.svc-grid{grid-template-columns:1.1fr 1fr;align-items:stretch}}
+.svc-tags{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.8rem}
+.svc-tags span{border:var(--rule);padding:.45rem 1rem;font-size:.68rem;color:var(--ink-soft)}
+.svc-img img{width:100%;aspect-ratio:5/4;object-fit:cover}
+
+/* ─────────── REVIEWS ─────────── */
+.revs{display:grid;gap:clamp(1.6rem,3vw,2.6rem);margin-top:clamp(2.2rem,4vw,3rem)}
+@media(min-width:760px){.revs{grid-template-columns:repeat(4,1fr)}}
+.rev{border-top:var(--rule);padding-top:1.2rem}
+.rev b{display:block;font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2.4rem;line-height:1}
+.rev span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--olive)}
+
+/* ─────────── CTA ─────────── */
+.cta{text-align:center;background:var(--cream)}
+.cta-mark{width:clamp(110px,13vw,160px);margin:0 auto 2rem}
+.cta h2{margin:1.2rem auto 1.6rem;max-width:16ch}
+.cta .lede{margin:0 auto;max-width:46ch}
+.cta-row{display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center;margin-top:2.6rem}
+.btn-solid,.btn-line{padding:1rem 2.4rem;font-size:.65rem;letter-spacing:.26em;text-transform:uppercase;
+  transition:background .45s var(--ease),color .45s var(--ease),border-color .45s var(--ease)}
+.btn-solid{background:var(--terra);color:var(--cream)}
+.btn-solid:hover{background:var(--ink)}
+.btn-line{border:1px solid rgba(35,33,28,.4)}
+.btn-line:hover{background:var(--olive);border-color:var(--olive);color:var(--cream)}
+
+/* ─────────── FOOTER ─────────── */
+.ftr{background:var(--ink);color:rgba(244,240,226,.72);padding:clamp(3.5rem,7vw,6rem) var(--shell) 2rem}
+.ftr-grid{display:grid;gap:2.4rem}
+@media(min-width:820px){.ftr-grid{grid-template-columns:1.4fr 1fr 1fr 1fr}}
+.ftr h4{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(244,240,226,.5);font-family:'Jost',sans-serif;font-weight:400;margin-bottom:1rem}
+.ftr a:hover{color:var(--cream)}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:.55rem;font-size:.86rem}
+.ftr-mark{width:clamp(120px,14vw,170px);margin-bottom:1.4rem}
+.ftr-brand p{max-width:34ch;font-size:.86rem}
+.ftr-btm{margin-top:clamp(2.5rem,5vw,4rem);padding-top:1.4rem;border-top:1px solid rgba(244,240,226,.14);
+  display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;font-size:.68rem;color:rgba(244,240,226,.45)}
+.ftr-btm p:last-child{margin-left:auto}
+
+/* ─────────── WHATSAPP ─────────── */
+.wa{position:fixed;right:1.1rem;bottom:1.1rem;z-index:70;width:52px;height:52px;border-radius:50%;
+  background:var(--olive);display:grid;place-items:center;box-shadow:0 6px 22px rgba(35,33,28,.24);
+  transition:transform .45s var(--ease),background .45s}
+.wa:hover{transform:scale(1.07);background:var(--olive-dim)}
+.wa svg{width:24px;height:24px;fill:var(--cream)}
+
+/* ─────────── THE COMPLEX (dense) ─────────── */
+.cx-intro{max-width:56rem}
+.cx-intro h2{margin:1.2rem 0}
+.cx-intro .lede{max-width:50ch}
+.cx-band{display:grid;gap:1px;background:rgba(35,33,28,.14);margin-top:1px}
+@media(min-width:820px){.cx-band{grid-template-columns:1.5fr 1fr;align-items:stretch}}
+.cx-band-img{overflow:hidden}
+.cx-band-img img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2;transition:transform 1.6s var(--ease)}
+.cx-band-img:hover img{transform:scale(1.04)}
+.cx-band-txt{display:flex;flex-direction:column;justify-content:center;background:var(--cream-2);padding:clamp(1.8rem,4vw,3rem)}
+.cx-band-txt h3{margin:1rem 0 1.1rem;font-size:clamp(1.7rem,1.2rem + 1.8vw,2.6rem)}
+.cx-band-txt p{color:var(--ink-soft)}
+
+/* services image stack */
+.svc-stack{display:grid;gap:1px;background:rgba(35,33,28,.14)}
+.svc-stack img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform 1.6s var(--ease)}
+.svc-stack a{display:block;overflow:hidden}
+.svc-stack a:hover img{transform:scale(1.04)}
+
+/* ─────────── MOBILE ─────────── */
+@media(max-width:880px){
+  .nav,.hdr .book-btn{display:none}
+  .burger{display:block}
+  .hdr{gap:.9rem}
+  .nav.open{display:flex;position:fixed;inset:0;background:var(--cream);color:var(--ink);
+    flex-direction:column;justify-content:center;align-items:center;gap:2rem;z-index:90}
+  .nav.open a{font-family:'Cormorant Garamond',serif;font-size:2rem;letter-spacing:.02em;text-transform:none}
+  .ulink .umeta{display:none}
+  .ftr-btm p:last-child{margin-left:0}
+}
+
+/* ── PHONES: no hero photography — warm dark ground only (matches index) ── */
+@media(max-width:860px){
+  .phero{display:block;min-height:0;background:var(--ink);
+    padding:clamp(7rem,20vh,9rem) 0 clamp(2.4rem,7vh,3.4rem)}
+  .phero > img,.phero > picture > img{display:none}
+  .phero::after{display:none}
+  .phero-in{position:static;padding:0 var(--shell)}
+
+  .bleed{min-height:0;background:var(--ink);padding:clamp(3.5rem,10vh,5rem) 0}
+  .bleed > img,.bleed > picture > img{display:none}
+  .bleed::after{display:none}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .js .rv,.js .rv-img{opacity:1;transform:none}
+  .hero-img img{animation:none;transform:none}
+  .hero-logo{opacity:1;animation:none}
+}
+
+/* ── COMPLEX (compact, dense) ── */
+.cx2{padding:clamp(3rem,6vw,5.5rem) var(--shell)}
+.cx2-intro{display:grid;gap:.8rem 3rem;margin-bottom:clamp(1.4rem,3vw,2rem)}
+@media(min-width:860px){.cx2-intro{grid-template-columns:auto 1fr;align-items:end}}
+.cx2-intro h2{margin:.6rem 0 0}
+.cx2-intro .lede{max-width:52ch}
+.cxg{display:grid;gap:6px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:820px){.cxg{grid-template-columns:repeat(3,1fr)}}
+.cxg figure{position:relative;margin:0;overflow:hidden;background:var(--ink)}
+.cxg img{background:var(--cream-3);width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.6s var(--ease)}
+.cxg figure:hover img{transform:scale(1.05)}
+.cxg figure::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(20,18,15,.62))}
+.cxg figcaption{position:absolute;left:0;bottom:0;z-index:2;padding:.85rem 1rem;color:var(--cream)}
+.cxg figcaption b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.12rem;line-height:1.1}
+.cxg figcaption span{font-size:.57rem;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+
+
+/* ── PAGE HERO ── */
+.phero{position:relative;min-height:52svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--ink)}
+.phero>img,.phero>picture>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.phero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,18,15,.46),rgba(20,18,15,.14) 42%,rgba(20,18,15,.72))}
+.phero-in{position:relative;z-index:2;width:100%;padding:0 var(--shell) clamp(2.2rem,5vh,3.6rem);color:var(--cream)}
+.phero-in .eyebrow{color:rgba(244,240,226,.74)}
+.phero-in h1{margin:.7rem 0;font-size:clamp(2.3rem,1.4rem + 4vw,4.6rem);color:var(--cream)}
+.phero-in p{max-width:48ch;color:rgba(244,240,226,.85)}
+
+/* ── STEPS ── */
+.step{padding:clamp(2.6rem,5vw,4.5rem) var(--shell)}
+.step-n{display:flex;align-items:baseline;gap:.9rem;margin-bottom:1.4rem}
+.step-n b{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1.5rem;color:var(--terra);line-height:1}
+.step-n h2{font-size:clamp(1.6rem,1.2rem + 1.6vw,2.4rem)}
+.step-n .req{margin-left:auto;font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--terra)}
+
+/* unit picker */
+.units-pick{display:grid;gap:8px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:900px){.units-pick{grid-template-columns:repeat(4,1fr)}}
+.upick{position:relative;overflow:hidden;background:var(--ink);border:2px solid transparent;
+  text-align:left;transition:border-color .4s var(--ease),transform .4s var(--ease)}
+.upick img{width:100%;aspect-ratio:4/3;object-fit:cover;opacity:.72;transition:opacity .5s var(--ease),transform 1.4s var(--ease)}
+.upick:hover img{opacity:.9;transform:scale(1.04)}
+.upick .ucap2{position:absolute;left:0;right:0;bottom:0;padding:.8rem .9rem;color:var(--cream);z-index:2;
+  background:linear-gradient(180deg,transparent,rgba(20,18,15,.78))}
+.upick .ucap2 b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.15rem;line-height:1.1}
+.upick .ucap2 span{font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;opacity:.85}
+.upick.on{border-color:var(--terra)}
+.upick.on img{opacity:1}
+.upick .tick{position:absolute;top:.6rem;right:.6rem;z-index:3;width:26px;height:26px;border-radius:50%;
+  background:var(--terra);color:var(--cream);display:none;place-items:center;font-size:.8rem}
+.upick.on .tick{display:grid}
+
+/* locked state */
+.locked{opacity:.34;pointer-events:none;filter:grayscale(.4)}
+.lock-note{margin-top:1rem;font-size:.84rem;color:var(--terra)}
+
+/* service groups */
+.grp{margin-top:clamp(1.8rem,3vw,2.6rem)}
+.grp h3{font-family:'Jost',sans-serif;font-weight:400;font-size:.6rem;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--olive);margin:0 0 .3rem;padding-bottom:.7rem;border-bottom:var(--rule)}
+.srow{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1rem;padding:1.05rem 0;border-bottom:var(--rule)}
+.srow.hide{display:none}
+.s-main{flex:1 1 15rem;min-width:0}
+.s-name{font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,1rem + .5vw,1.45rem);font-weight:300;line-height:1.2}
+.s-note{display:block;font-size:.74rem;color:var(--ink-soft);margin-top:.15rem}
+.s-price{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:300;white-space:nowrap;min-width:5.5rem;text-align:right}
+.s-price em{font-style:normal;display:block;font-family:'Jost',sans-serif;font-size:.6rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--olive);margin-top:.1rem}
+.s-quote{color:var(--terra);font-family:'Jost',sans-serif;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase}
+@keyframes priceFlash{0%{color:var(--terra);transform:translateY(-4px)}100%{color:inherit;transform:none}}
+.s-price.flash{animation:priceFlash .95s var(--ease)}
+.unit-chip{display:inline-flex;align-items:center;gap:.55rem;margin-left:auto;
+  border:1px solid var(--terra);color:var(--terra);padding:.4rem 1rem;
+  font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
+.unit-chip b{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;letter-spacing:0;text-transform:none}
+.drop-note{margin-top:.9rem;font-size:.82rem;color:var(--terra)}
+.stepper{display:flex;align-items:center;border:1px solid rgba(35,33,28,.26)}
+.stepper button{width:34px;height:34px;line-height:1;font-size:1rem;color:var(--ink-soft);transition:background .3s,color .3s}
+.stepper button:hover{background:var(--terra);color:var(--cream)}
+.stepper input{width:40px;height:34px;text-align:center;border:0;background:transparent;
+  font-family:'Jost',sans-serif;font-size:.9rem;color:var(--ink);-moz-appearance:textfield}
+.stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.s-add{border:1px solid var(--ink);padding:.6rem 1.3rem;font-size:.6rem;letter-spacing:.22em;
+  text-transform:uppercase;white-space:nowrap;transition:background .4s var(--ease),color .4s var(--ease),border-color .4s}
+.s-add:hover{background:var(--terra);border-color:var(--terra);color:var(--cream)}
+.s-add.added{background:var(--olive);border-color:var(--olive);color:var(--cream)}
+.s-wa{border:1px solid var(--terra);color:var(--terra);padding:.6rem 1.3rem;font-size:.6rem;
+  letter-spacing:.22em;text-transform:uppercase;white-space:nowrap;transition:background .4s,color .4s}
+.s-wa:hover{background:var(--terra);color:var(--cream)}
+
+/* sticky bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:75;background:var(--ink);color:var(--cream);
+  display:flex;align-items:center;gap:1rem;padding:.85rem var(--shell);transform:translateY(110%);
+  transition:transform .5s var(--ease);box-shadow:0 -6px 26px rgba(20,18,15,.24)}
+.bar.on{transform:none}
+.bar .b-unit{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;opacity:.66;display:block}
+.bar .b-sum{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;line-height:1.1}
+.bar .b-go{margin-left:auto;background:var(--terra);color:var(--cream);padding:.85rem 1.8rem;
+  font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;transition:background .4s}
+.bar .b-go:hover{background:var(--cream);color:var(--ink)}
+
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(20,18,15,.55);opacity:0;visibility:hidden;
+  transition:opacity .45s var(--ease),visibility .45s;z-index:88}
+.scrim.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(30rem,100%);background:var(--cream);z-index:89;
+  transform:translateX(101%);transition:transform .5s var(--ease);display:flex;flex-direction:column}
+.drawer.on{transform:none}
+.dr-top{display:flex;align-items:center;gap:1rem;padding:1.2rem var(--shell) 1rem;border-bottom:var(--rule)}
+.dr-top h3{font-size:1.5rem}
+.dr-x{margin-left:auto;font-size:1.4rem;line-height:1;color:var(--ink-soft)}
+.dr-body{flex:1;overflow-y:auto;padding:1.2rem var(--shell)}
+.dr-unit{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--olive);
+  padding-bottom:.9rem;border-bottom:var(--rule);margin-bottom:.9rem}
+.dr-unit b{display:block;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;
+  letter-spacing:0;text-transform:none;color:var(--ink);margin-top:.2rem}
+.ci{display:flex;align-items:flex-start;gap:.8rem;padding:.85rem 0;border-bottom:var(--rule)}
+.ci-n{flex:1;min-width:0}
+.ci-n b{display:block;font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.05rem;line-height:1.2}
+.ci-n span{font-size:.72rem;color:var(--ink-soft)}
+.ci-p{font-family:'Cormorant Garamond',serif;font-size:1.05rem;white-space:nowrap}
+.ci-x{color:var(--ink-soft);font-size:1rem;line-height:1;padding:0 .2rem}
+.ci-x:hover{color:var(--terra)}
+.dr-empty{color:var(--ink-soft);font-size:.9rem;padding:1.4rem 0}
+.tot{display:flex;align-items:baseline;gap:1rem;padding:1rem 0;border-top:1px solid rgba(35,33,28,.3);margin-top:.4rem}
+.tot span{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--olive)}
+.tot b{margin-left:auto;font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;line-height:1}
+.qnote{font-size:.76rem;color:var(--terra);margin-top:.4rem}
+.gform{display:grid;gap:.9rem;margin-top:1.2rem}
+.gform .fld{display:grid;gap:.2rem}
+.gform label{font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--olive)}
+.gform input{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(35,33,28,.28);
+  padding:.7rem 0;font-family:'Jost',sans-serif;font-weight:300;font-size:.95rem;color:var(--ink);border-radius:0}
+.gform input:focus{outline:0;border-bottom-color:var(--terra)}
+.dr-foot{padding:1rem var(--shell) 1.4rem;border-top:var(--rule);display:grid;gap:.6rem}
+.pay{background:var(--terra);color:var(--cream);padding:1rem;font-size:.64rem;letter-spacing:.24em;
+  text-transform:uppercase;text-align:center;transition:background .4s}
+.pay:hover{background:var(--ink)}
+.pay[disabled]{opacity:.45;pointer-events:none}
+.wa2{border:1px solid rgba(35,33,28,.4);padding:.95rem;font-size:.62rem;letter-spacing:.24em;
+  text-transform:uppercase;text-align:center;transition:background .4s,color .4s}
+.wa2:hover{background:var(--olive);border-color:var(--olive);color:var(--cream)}
+.fine{font-size:.7rem;color:var(--ink-soft);text-align:center;line-height:1.5}
+body.locked-scroll{overflow:hidden}
+@media(max-width:600px){
+  .s-price{min-width:auto;text-align:left}
+  .bar{gap:.7rem;padding:.75rem 1rem}
+  .bar .b-go{padding:.8rem 1.2rem;font-size:.58rem}
+}
+
+
+/* ── RULES MODAL ── */
+.rscrim{position:fixed;inset:0;background:rgba(20,18,15,.6);opacity:0;visibility:hidden;
+  transition:opacity .4s var(--ease),visibility .4s;z-index:95}
+.rscrim.on{opacity:1;visibility:visible}
+.rmodal{position:fixed;left:50%;top:50%;transform:translate(-50%,-48%) scale(.98);
+  width:min(34rem,calc(100% - 2rem));max-height:88svh;background:var(--cream);z-index:96;
+  display:flex;flex-direction:column;opacity:0;visibility:hidden;
+  transition:opacity .4s var(--ease),transform .45s var(--ease),visibility .4s}
+.rmodal.on{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}
+.rm-top{padding:1.3rem 1.5rem 1rem;border-bottom:var(--rule)}
+.rm-top .eyebrow{color:var(--olive)}
+.rm-top h3{font-size:clamp(1.4rem,1.2rem + .8vw,1.9rem);margin-top:.4rem}
+.rm-body{padding:1.2rem 1.5rem;overflow-y:auto}
+.rm-body ul{list-style:none;margin:0;padding:0;display:grid;gap:.55rem;font-size:.9rem;color:var(--ink-soft)}
+.rm-body li{padding-left:1.1rem;position:relative}
+.rm-body li::before{content:'—';position:absolute;left:0;color:var(--sand)}
+.rm-pdf{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  margin-top:1.2rem;padding:.9rem 1.1rem;border:1px solid rgba(35,33,28,.22);
+  font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;
+  transition:background .4s var(--ease),color .4s var(--ease),border-color .4s}
+.rm-pdf b{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.05rem;
+  letter-spacing:0;text-transform:none}
+.rm-pdf:hover{background:var(--terra);border-color:var(--terra);color:var(--cream)}
+.rm-foot{padding:1.1rem 1.5rem 1.4rem;border-top:var(--rule);display:grid;gap:.9rem}
+.rm-check{display:flex;align-items:flex-start;gap:.7rem;cursor:pointer;font-size:.88rem;color:var(--ink)}
+.rm-check input{width:19px;height:19px;flex-shrink:0;margin-top:.12rem;accent-color:var(--terra)}
+.rm-go{background:var(--terra);color:var(--cream);padding:.95rem;font-size:.63rem;
+  letter-spacing:.24em;text-transform:uppercase;transition:background .4s}
+.rm-go:hover{background:var(--ink)}
+.rm-go[disabled]{opacity:.4;pointer-events:none}
+.rm-x{position:absolute;top:.8rem;right:1rem;font-size:1.2rem;line-height:1;color:var(--ink-soft)}
+.rm-x:hover{color:var(--terra)}
+.rules-flag{display:inline-flex;align-items:center;gap:.4rem;margin-left:.6rem;
+  font-size:.56rem;letter-spacing:.18em;text-transform:uppercase;color:var(--olive)}
+
+</style>
+</head>
+<body class="is-es">
+
+<!-- ══════════ HEADER ══════════ -->
+<header class="hdr" id="hdr">
+  <a class="brand" href="index.html" aria-label="Balandras Luxury Stays">
+    <b>BALANDRAS</b><span>LUXURY STAYS</span>
+  </a>
+
+  <nav class="nav" id="nav">
+    <a href="index.html"><span data-es>Inicio</span><span data-en>Home</span></a>
+    <a href="unidades.html"><span data-es>Unidades</span><span data-en>Units</span></a>
+    <a href="servicios.html"><span data-es>Servicios</span><span data-en>Services</span></a>
+    <a href="reglas.html"><span data-es>Reglas</span><span data-en>Rules</span></a>
+    <a href="nosotros.html"><span data-es>Nosotros</span><span data-en>About</span></a>
+    <a href="contacto.html"><span data-es>Contacto</span><span data-en>Contact</span></a>
+  </nav>
+
+  <div class="lang">
+    <button id="es" class="on" lang="es">Español</button><i>/</i><button id="en" lang="en">English</button>
+  </div>
+
+  <a class="book-btn" href="#reservar"><span data-es>Reservar</span><span data-en>Book</span></a>
+
+  <button class="burger" id="burger" aria-label="Menú" aria-expanded="false"><i></i><i></i></button>
+</header>
+
+<section class="phero">
+  <img src="assets/images/units/balandras-4/balandras-4-03-hot-tub-terrace.jpg" alt="Jacuzzi en la terraza frente al mar">
+  <div class="phero-in">
+    <p class="eyebrow"><span data-es>Servicios adicionales</span><span data-en>Add-on services</span></p>
+    <h1><span data-es>Servicios</span><span data-en>Services</span></h1>
+    <p><span data-es>Permítanos atenderle durante toda su estadía. Seleccione su unidad, escoja los servicios y complete su solicitud en línea.</span><span data-en>Allow us to treat you throughout your stay. Select your unit, choose your services and complete your request online.</span></p>
+  </div>
+</section>
+
+<!-- STEP 1 — UNIT (required gate) -->
+<section class="step" id="paso1">
+  <div class="step-n">
+    <b>01</b>
+    <h2><span data-es>Seleccione su unidad</span><span data-en>Select your unit</span></h2>
+    <span class="req"><span data-es>Requerido</span><span data-en>Required</span></span>
+  </div>
+  <p class="lede" style="max-width:52ch;margin-bottom:1.6rem"><span data-es>Los precios y la disponibilidad de cada servicio varían según la unidad reservada.</span><span data-en>Pricing and availability for each service vary by the unit you booked.</span></p>
+
+  <div class="units-pick">
+    <button class="upick" data-unit="b1" data-label="Balandras 1">
+      <span class="tick">&#10003;</span>
+      <img src="assets/images/units/balandras-1/balandras-1-01-exterior-patio.jpg" alt="Balandras 1" loading="lazy">
+      <span class="ucap2"><b>Balandras 1</b><span data-es>2 habitaciones · 5 huéspedes</span><span data-en>2 bedrooms · 5 guests</span></span>
+    </button>
+    <button class="upick" data-unit="b2" data-label="Balandras 2">
+      <span class="tick">&#10003;</span>
+      <img src="assets/images/units/balandras-2/balandras-2-03-studio-suite.jpg" alt="Balandras 2" loading="lazy">
+      <span class="ucap2"><b>Balandras 2</b><span data-es>Estudio · 2 huéspedes</span><span data-en>Studio · 2 guests</span></span>
+    </button>
+    <button class="upick" data-unit="b3" data-label="Balandras 3">
+      <span class="tick">&#10003;</span>
+      <img src="assets/images/units/balandras-3/balandras-3-03-living-area.jpg" alt="Balandras 3" loading="lazy">
+      <span class="ucap2"><b>Balandras 3</b><span data-es>1 habitación · 4 huéspedes</span><span data-en>1 bedroom · 4 guests</span></span>
+    </button>
+    <button class="upick" data-unit="bh" data-label="Beach House">
+      <span class="tick">&#10003;</span>
+      <img src="assets/images/units/balandras-4/balandras-4-02-living-oceanview.jpg" alt="Beach House" loading="lazy">
+      <span class="ucap2"><b>Beach House</b><span data-es>4 habitaciones · 10 huéspedes</span><span data-en>4 bedrooms · 10 guests</span></span>
+    </button>
+  </div>
+</section>
+
+<!-- STEP 2 — SERVICES -->
+<section class="step" id="paso2" style="padding-top:0">
+  <div class="step-n">
+    <b>02</b>
+    <h2><span data-es>Escoja sus servicios</span><span data-en>Choose your services</span></h2>
+    <span class="unit-chip" id="unitChip" style="display:none"><span data-es>Precios para</span><span data-en>Pricing for</span> <b id="unitChipName"></b></span>
+  </div>
+  <p class="lock-note" id="locknote"><span data-es>Seleccione una unidad para ver los precios.</span><span data-en>Select a unit to see pricing.</span></p>
+  <div id="svcwrap" class="locked"></div>
+  <p class="drop-note" id="dropNote" style="display:none"></p>
+</section>
+
+<!-- STICKY BAR -->
+<div class="bar" id="bar">
+  <div>
+    <span class="b-unit" id="barUnit"></span>
+    <span class="b-sum" id="barSum">$0</span>
+  </div>
+  <button class="b-go" id="barGo"><span data-es>Ver carrito</span><span data-en>View cart</span></button>
+</div>
+
+
+<!-- RULES / PDF MODAL -->
+<div class="rscrim" id="rscrim"></div>
+<div class="rmodal" id="rmodal" role="dialog" aria-modal="true" aria-labelledby="rmTitle">
+  <button class="rm-x" id="rmX" aria-label="Cerrar">&#10005;</button>
+  <div class="rm-top">
+    <p class="eyebrow"><span data-es>Normas de la unidad</span><span data-en>Unit rules</span></p>
+    <h3 id="rmTitle">—</h3>
+  </div>
+  <div class="rm-body">
+    <ul>
+      <li><span data-es>No se permite fumar en la propiedad — cargo de $500.</span><span data-en>No smoking on the property — $500 fee.</span></li>
+      <li><span data-es>No se permiten mascotas — multa de $300.</span><span data-en>No pets — $300 fine.</span></li>
+      <li><span data-es>Horas de silencio de 10:00 PM a 8:00 AM.</span><span data-en>Quiet hours from 10:00 PM to 8:00 AM.</span></li>
+      <li><span data-es>Piscina de 9:00 AM a 9:00 PM. Menores de 10 años acompañados por un adulto.</span><span data-en>Pool 9:00 AM to 9:00 PM. Children under 10 accompanied by an adult.</span></li>
+      <li><span data-es>No se permiten eventos ni reuniones grandes.</span><span data-en>No events or large gatherings.</span></li>
+      <li><span data-es>Los límites de ocupación se aplican estrictamente e incluyen visitantes.</span><span data-en>Occupancy limits are strictly enforced and include visitors.</span></li>
+    </ul>
+    <a class="rm-pdf" id="rmPdf" href="#" target="_blank" rel="noopener">
+      <b><span data-es>Guía completa de la unidad</span><span data-en>Full unit guide</span></b>
+      <span><span data-es>PDF</span><span data-en>PDF</span> ↓</span>
+    </a>
+  </div>
+  <div class="rm-foot">
+    <label class="rm-check">
+      <input type="checkbox" id="rmAccept">
+      <span><span data-es>He leído y acepto las normas de la casa.</span><span data-en>I have read and accept the house rules.</span></span>
+    </label>
+    <button class="rm-go" id="rmGo" disabled><span data-es>Continuar</span><span data-en>Continue</span></button>
+  </div>
+</div>
+
+<!-- DRAWER -->
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Carrito">
+  <div class="dr-top">
+    <h3><span data-es>Su solicitud</span><span data-en>Your request</span></h3>
+    <button class="dr-x" id="drX" aria-label="Cerrar">&#10005;</button>
+  </div>
+
+  <div class="dr-body">
+    <p class="dr-unit"><span data-es>Unidad seleccionada</span><span data-en>Selected unit</span><b id="drUnit">—</b></p>
+    <div id="drItems"></div>
+    <div class="tot">
+      <span data-es>Total a pagar</span><span data-en>Total due</span>
+      <b id="drTotal">$0</b>
+    </div>
+    <p class="qnote" id="qnote" style="display:none"><span data-es>Los servicios marcados “Cotizar” no se incluyen en el total y se coordinan por WhatsApp.</span><span data-en>Items marked “On request” are not included in the total and are arranged over WhatsApp.</span></p>
+
+    <div class="gform">
+      <div class="fld"><label for="gN"><span data-es>Nombre</span><span data-en>Name</span></label><input id="gN" type="text" autocomplete="name" required></div>
+      <div class="fld"><label for="gE"><span data-es>Correo electrónico</span><span data-en>Email</span></label><input id="gE" type="email" autocomplete="email" required></div>
+      <div class="fld"><label for="gP"><span data-es>Teléfono</span><span data-en>Phone</span></label><input id="gP" type="tel" autocomplete="tel"></div>
+      <div class="fld"><label for="gD"><span data-es>Fecha de check-in</span><span data-en>Check-in date</span></label><input id="gD" type="date" required></div>
+    </div>
+  </div>
+
+  <div class="dr-foot">
+    <button class="pay" id="payBtn"><span data-es>Pagar con Stripe</span><span data-en>Pay with Stripe</span></button>
+    <a class="wa2" id="waBtn" href="#"><span data-es>Coordinar por WhatsApp</span><span data-en>Arrange on WhatsApp</span></a>
+    <p class="fine"><span data-es>Su solicitud se envía a Balandras al confirmar. El pago se procesa de forma segura en Stripe.</span><span data-en>Your request is sent to Balandras on confirm. Payment is processed securely on Stripe.</span></p>
+  </div>
+</aside>
+
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="ftr">
+  <div class="ftr-grid">
+    <div class="ftr-brand">
+      <img class="ftr-mark" src="assets/images/logo-cream.png" alt="Balandras Luxury Stays">
+      <p><span data-es>Complejo privado de cuatro unidades frente a la playa en Cerro Gordo, Puerto Rico. Ideal para familias y grupos.</span><span data-en>A private four-unit beachfront complex in Cerro Gordo, Puerto Rico. Perfect for families and groups.</span></p>
+    </div>
+
+    <div>
+      <h4><span data-es>Navegar</span><span data-en>Explore</span></h4>
+      <ul>
+        <li><a href="index.html"><span data-es>Inicio</span><span data-en>Home</span></a></li>
+        <li><a href="unidades.html"><span data-es>Unidades</span><span data-en>Units</span></a></li>
+        <li><a href="servicios.html"><span data-es>Servicios</span><span data-en>Services</span></a></li>
+        <li><a href="reglas.html"><span data-es>Reglas</span><span data-en>Rules</span></a></li>
+        <li><a href="nosotros.html"><span data-es>Nosotros</span><span data-en>About</span></a></li>
+        <li><a href="contacto.html"><span data-es>Contacto</span><span data-en>Contact</span></a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4><span data-es>Contacto</span><span data-en>Contact</span></h4>
+      <ul>
+        <li><a href="https://wa.me/16896807909" target="_blank" rel="noopener">WhatsApp · 689-680-7909</a></li>
+        <li><a href="tel:+16896807909">689-680-7909</a></li>
+        <li><a href="https://instagram.com/balandrastayspr" target="_blank" rel="noopener">@balandrastayspr</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4><span data-es>Dirección</span><span data-en>Address</span></h4>
+      <ul>
+        <li>Calle Paseo de la Balandra<br>Cerro Gordo, PR 00692</li>
+        <li><span data-es>Check-in: 4:00 PM</span><span data-en>Check-in: 4:00 PM</span></li>
+        <li><span data-es>Check-out: 11:00 AM</span><span data-en>Check-out: 11:00 AM</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ftr-btm">
+    <p>© <span id="yr">2026</span> Balandras Luxury Stays</p>
+    <p><span data-es>No se permiten mascotas · No fumar · No se permiten eventos</span><span data-en>No pets · No smoking · No events</span></p>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/16896807909" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15c-1.53 0-3.03-.41-4.34-1.19l-.31-.18-3.22.84.86-3.14-.2-.32a8.2 8.2 0 01-1.26-4.39c0-4.54 3.7-8.23 8.24-8.23 4.54 0 8.23 3.69 8.23 8.23s-3.69 8.24-8.23 8.24z"/></svg>
+</a>
+
+<script>
+(function(){
+  'use strict';
+
+  /* LANGUAGE */
+  var body=document.body, esBtn=document.getElementById('es'), enBtn=document.getElementById('en');
+  function setLang(l){
+    if(l==='en'){body.classList.add('is-en');body.classList.remove('is-es');document.documentElement.lang='en';
+      enBtn.classList.add('on');esBtn.classList.remove('on');}
+    else{body.classList.add('is-es');body.classList.remove('is-en');document.documentElement.lang='es';
+      esBtn.classList.add('on');enBtn.classList.remove('on');}
+    try{localStorage.setItem('bls_lang',l);}catch(e){}
+  }
+  var saved='es';
+  try{saved=localStorage.getItem('bls_lang')||'es';}catch(e){}
+  setLang(saved);
+  esBtn.addEventListener('click',function(){setLang('es');});
+  enBtn.addEventListener('click',function(){setLang('en');});
+
+  /* HEADER */
+  var hdr=document.getElementById('hdr');
+  function onScroll(){
+    if(window.scrollY>window.innerHeight*0.86){hdr.classList.add('solid');}
+    else{hdr.classList.remove('solid');}
+  }
+  onScroll();
+  window.addEventListener('scroll',onScroll,{passive:true});
+
+  /* MOBILE MENU */
+  var burger=document.getElementById('burger'), nav=document.getElementById('nav');
+  burger.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    burger.classList.toggle('x',open);
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.closest('a')){nav.classList.remove('open');burger.classList.remove('x');burger.setAttribute('aria-expanded','false');}
+  });
+
+  /* UNIT NAVIGATOR */
+  var links=document.querySelectorAll('.ulink'),
+      figs=document.querySelectorAll('.units-stage figure'),
+      caps=document.querySelectorAll('.ucap p');
+  function showUnit(u){
+    var i;
+    for(i=0;i<links.length;i++){links[i].classList.toggle('on',links[i].getAttribute('data-u')===u);}
+    for(i=0;i<figs.length;i++){figs[i].classList.toggle('on',figs[i].getAttribute('data-u')===u);}
+    for(i=0;i<caps.length;i++){caps[i].classList.toggle('on',caps[i].getAttribute('data-u')===u);}
+  }
+  for(var k=0;k<links.length;k++){
+    (function(btn){
+      var u=btn.getAttribute('data-u');
+      btn.addEventListener('mouseenter',function(){showUnit(u);});
+      btn.addEventListener('focus',function(){showUnit(u);});
+      btn.addEventListener('click',function(){showUnit(u);});
+    })(links[k]);
+  }
+
+  /* REVEALS */
+  var targets=document.querySelectorAll('.rv,.rv-img'), t;
+  function revealAll(){for(var i=0;i<targets.length;i++){targets[i].classList.add('in');}}
+  if('IntersectionObserver' in window){
+    /* threshold:0 + generous rootMargin: a lazy image that has not loaded yet has
+       ~0 height, and a 0-height element can never satisfy a % threshold. That
+       deadlocked the reveal and the images never became visible. */
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}
+      });
+    },{rootMargin:'300px 0px 300px 0px',threshold:0});
+    for(t=0;t<targets.length;t++){io.observe(targets[t]);}
+    /* fail-open: content must never stay hidden because an animation didn't fire */
+    window.addEventListener('load',function(){setTimeout(revealAll,900);});
+    setTimeout(revealAll,2500);
+  }else{
+    for(t=0;t<targets.length;t++){targets[t].classList.add('in');}
+  }
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+<script>
+(function(){
+'use strict';
+
+/* ── CONFIG ─────────────────────────────────────────────── */
+var STRIPE_LINK = 'https://buy.stripe.com/YOUR_PAYMENT_LINK';
+var WEB3FORMS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY';   /* Balandras Web3Forms key */
+var WA_NUMBER = '16896807909';                      /* Balandras — reservaciones */
+
+/* ── PRICE TABLE (Services_and_Costs_La_Balandra.xlsx) ──
+   null = not offered in that unit · 'q' = cotizar / on request        */
+var SERVICES = [
+ {g:'food', id:'chef3',  es:'Chef privado · 3 tiempos', en:'Private chef · 3-course',
+   p:{bh:90,b1:90,b2:90,b3:90},   per:'guest', max:12},
+ {g:'food', id:'chef5',  es:'Chef privado · 5 tiempos', en:'Private chef · 5-course',
+   p:{bh:120,b1:120,b2:120,b3:120}, per:'guest', max:12},
+ {g:'food', id:'chef7',  es:'Chef privado · 7 tiempos', en:'Private chef · 7-course',
+   p:{bh:150,b1:150,b2:150,b3:150}, per:'guest', max:12},
+ {g:'food', id:'paella', es:'Cena de paella', en:'Paella dinner',
+   p:{bh:75,b1:75,b2:75,b3:75}, per:'pair', max:6,
+   nes:'Para 2 personas. Ordene por pares.', nen:'For 2 people. Order in pairs.'},
+ {g:'food', id:'bbq',    es:'BBQ privado', en:'Private BBQ dinner',
+   p:{bh:'q',b1:'q',b2:'q',b3:'q'}},
+ {g:'food', id:'stock',  es:'Compra de víveres', en:'Grocery shopping',
+   p:{bh:100,b1:75,b2:50,b3:50},
+   nes:'El costo de los víveres se factura aparte.', nen:'Cost of groceries billed separately.'},
+
+ {g:'well', id:'massage',es:'Masaje frente al mar', en:'Beachfront massage',
+   p:{bh:175,b1:null,b2:null,b3:null}, per:'qty', max:4, nes:'Una sesión.', nen:'One session.'},
+ {g:'well', id:'refresh',es:'Refresco de estadía', en:'Mid-stay refresh',
+   p:{bh:105,b1:75,b2:30,b3:50}},
+ {g:'well', id:'laundry',es:'Lavandería', en:'Laundry service',
+   p:{bh:25,b1:25,b2:25,b3:25}, per:'load', max:10},
+
+ {g:'fam',  id:'nanny',  es:'Niñera', en:'Nanny service',
+   p:{bh:50,b1:50,b2:50,b3:50}, per:'hour', max:12},
+ {g:'fam',  id:'nannyN', es:'Niñera nocturna', en:'Overnight nanny',
+   p:{bh:200,b1:200,b2:null,b3:null}, per:'qty', max:7},
+ {g:'fam',  id:'mattress',es:'Colchón de aire', en:'Air mattress',
+   p:{bh:60,b1:60,b2:60,b3:60}, per:'qty', max:2, nes:'Tamaño twin.', nen:'Twin size.'},
+ {g:'fam',  id:'guest',  es:'Huésped adicional', en:'Additional guest',
+   p:{bh:75,b1:75,b2:null,b3:75}, per:'qty', max:4},
+
+ {g:'cel',  id:'romance',es:'Paquete romántico', en:'Romance package',
+   p:{bh:100,b1:100,b2:75,b3:75}},
+ {g:'cel',  id:'honey',  es:'Paquete de luna de miel', en:'Honeymoon package',
+   p:{bh:100,b1:100,b2:75,b3:75}},
+ {g:'cel',  id:'bday',   es:'Kit de cumpleaños', en:'Birthday kit',
+   p:{bh:150,b1:150,b2:150,b3:150}},
+ {g:'cel',  id:'event',  es:'Evento privado', en:'Private event',
+   p:{bh:'q',b1:'q',b2:'q',b3:'q'},
+   nes:'Requiere reservar las cuatro unidades.', nen:'Requires booking all four units.'},
+
+ {g:'move', id:'airport',es:'Transporte del aeropuerto', en:'Airport transportation',
+   p:{bh:140,b1:140,b2:140,b3:140}, per:'qty', max:4,
+   nes:'Hasta 6 pasajeros, SUV. Por trayecto.', nen:'Up to 6 passengers, SUV. Per trip.'}
+];
+
+var GROUPS=[
+ {k:'food', es:'Gastronomía', en:'Dining'},
+ {k:'well', es:'Bienestar y limpieza', en:'Wellness & housekeeping'},
+ {k:'fam',  es:'Familia y comodidades', en:'Family & comfort'},
+ {k:'cel',  es:'Celebraciones', en:'Celebrations'},
+ {k:'move', es:'Traslados', en:'Transport'}
+];
+
+var PER={
+ guest:{es:'por huésped',en:'per guest'}, hour:{es:'por hora',en:'per hour'},
+ pair:{es:'por 2 personas',en:'per 2 people'}, load:{es:'por carga',en:'per load'},
+ qty:{es:'c/u',en:'each'}
+};
+
+/* ── STATE ── */
+var unit=null, unitLabel='', cart=[];
+var isEN=function(){return document.body.classList.contains('is-en');};
+var money=function(n){return '$'+n.toLocaleString('en-US');};
+
+/* ── RENDER SERVICE LIST ── */
+var wrap=document.getElementById('svcwrap');
+function buildList(){
+  var html='';
+  GROUPS.forEach(function(g){
+    var rows=SERVICES.filter(function(s){return s.g===g.k;});
+    if(!rows.length) return;
+    html+='<div class="grp" data-g="'+g.k+'"><h3><span data-es>'+g.es+'</span><span data-en>'+g.en+'</span></h3>';
+    rows.forEach(function(s){
+      var note = s.nes ? '<span class="s-note"><span data-es>'+s.nes+'</span><span data-en>'+s.nen+'</span></span>' : '';
+      var stepper = s.per ? '<div class="stepper" data-for="'+s.id+'">'+
+          '<button type="button" data-d="-1" aria-label="menos">&minus;</button>'+
+          '<input type="number" value="1" min="1" max="'+(s.max||9)+'" data-q="'+s.id+'" aria-label="cantidad">'+
+          '<button type="button" data-d="1" aria-label="mas">+</button></div>' : '';
+      html+='<div class="srow" data-id="'+s.id+'">'+
+        '<span class="s-main"><span class="s-name"><span data-es>'+s.es+'</span><span data-en>'+s.en+'</span></span>'+note+'</span>'+
+        '<span class="s-price" data-price="'+s.id+'"></span>'+
+        stepper+
+        '<button class="s-add" data-add="'+s.id+'"><span data-es>Añadir</span><span data-en>Add</span></button>'+
+        '</div>';
+    });
+    html+='</div>';
+  });
+  wrap.innerHTML=html;
+}
+buildList();
+
+function svc(id){for(var i=0;i<SERVICES.length;i++){if(SERVICES[i].id===id)return SERVICES[i];}return null;}
+
+/* price for current unit; null = unavailable, 'q' = quote */
+function priceOf(s){ return unit ? s.p[unit] : undefined; }
+
+function renderPrices(flash){
+  var en=isEN();
+  SERVICES.forEach(function(s){
+    var row=wrap.querySelector('.srow[data-id="'+s.id+'"]'); if(!row) return;
+    var el=row.querySelector('.s-price');
+    var st=row.querySelector('.stepper');
+    var ab=row.querySelector('[data-add]');
+    var v=priceOf(s);
+    var prev=el.getAttribute('data-v');
+
+    /* RESET every row each render — otherwise a row that was "Cotizar"
+       keeps that button/hidden stepper when you switch units. */
+    if(st) st.style.display='';
+    ab.className='s-add';
+    ab.innerHTML='<span data-es>Añadir</span><span data-en>Add</span>';
+
+    if(!unit){ row.classList.remove('hide'); el.textContent='—'; el.removeAttribute('data-v'); return; }
+    if(v===null||v===undefined){ row.classList.add('hide'); el.removeAttribute('data-v'); return; }
+    row.classList.remove('hide');
+
+    if(v==='q'){
+      el.innerHTML='<span class="s-quote">'+(en?'On request':'Cotizar')+'</span>';
+      if(st) st.style.display='none';
+      ab.className='s-wa';
+      ab.innerHTML='<span data-es>Cotizar</span><span data-en>Request</span>';
+      el.setAttribute('data-v','q');
+    }else{
+      var per = s.per ? '<em>'+PER[s.per][en?'en':'es']+'</em>' : '';
+      el.innerHTML=money(v)+per;
+      el.setAttribute('data-v',String(v));
+    }
+    /* flash only the values that actually changed */
+    if(flash && prev && prev!==el.getAttribute('data-v')){
+      el.classList.remove('flash'); void el.offsetWidth; el.classList.add('flash');
+    }
+  });
+  wrap.querySelectorAll('.grp').forEach(function(g){
+    g.style.display = g.querySelectorAll('.srow:not(.hide)').length ? '' : 'none';
+  });
+}
+
+/* ── UNIT SELECT ── */
+document.querySelectorAll('.upick').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var u=btn.getAttribute('data-unit');
+    if(u===unit) return;
+    unit=u; unitLabel=btn.getAttribute('data-label');
+
+    /* Re-price anything already in the cart to the NEW unit, and drop
+       services that unit doesn't offer. Prices can never go stale. */
+    var dropped=[], en=isEN();
+    cart=cart.filter(function(it){
+      var s=svc(it.id); if(!s) return false;
+      var v=s.p[u];
+      if(v===null||v===undefined){ dropped.push(en?s.en:s.es); return false; }
+      if(v==='q'){ it.quote=true; it.price=0; return true; }
+      it.quote=false; it.price=v;
+      if(s.max && it.qty>s.max) it.qty=s.max;
+      return true;
+    });
+
+    document.querySelectorAll('.upick').forEach(function(b2){b2.classList.toggle('on',b2===btn);});
+    wrap.classList.remove('locked');
+    document.getElementById('locknote').style.display='none';
+    var chip=document.getElementById('unitChip');
+    chip.style.display=''; document.getElementById('unitChipName').textContent=unitLabel;
+
+    renderPrices(true); renderCart();
+    if(!rulesOK[u]) openRules();          /* show that unit's rules + PDF */
+
+    var dn=document.getElementById('dropNote');
+    if(dropped.length){
+      dn.textContent=(en?'Removed — not available in '+unitLabel+': ':'Removidos — no disponibles en '+unitLabel+': ')+dropped.join(', ');
+      dn.style.display='';
+    }else{ dn.style.display='none'; }
+  });
+});
+
+/* ── STEPPERS ── */
+wrap.addEventListener('click',function(e){
+  var b=e.target.closest('.stepper button'); if(!b) return;
+  var st=b.parentNode, inp=st.querySelector('input');
+  var v=parseInt(inp.value,10)||1, mx=parseInt(inp.max,10)||9;
+  v+= parseInt(b.getAttribute('data-d'),10);
+  inp.value=Math.max(1,Math.min(mx,v));
+});
+
+/* ── ADD ── */
+wrap.addEventListener('click',function(e){
+  var b=e.target.closest('[data-add]'); if(!b) return;
+  if(!unit) return;
+  var s=svc(b.getAttribute('data-add')); if(!s) return;
+  var v=priceOf(s);
+  if(v==='q'){ sendWhatsAppQuote(s); return; }
+  var qi=wrap.querySelector('[data-q="'+s.id+'"]');
+  var qty = qi ? Math.max(1,parseInt(qi.value,10)||1) : 1;
+  var found=null;
+  for(var i=0;i<cart.length;i++){ if(cart[i].id===s.id){found=cart[i];break;} }
+  if(found){ found.qty=Math.min((s.max||9), found.qty+qty); }
+  else{ cart.push({id:s.id, es:s.es, en:s.en, price:v, qty:qty, per:s.per||null, quote:false}); }
+  b.classList.add('added');
+  b.innerHTML='<span data-es>Añadido &#10003;</span><span data-en>Added &#10003;</span>';
+  setTimeout(function(){ b.classList.remove('added');
+    b.innerHTML='<span data-es>Añadir</span><span data-en>Add</span>'; },1400);
+  renderCart(); openDrawer();
+});
+
+/* ── CART ── */
+var bar=document.getElementById('bar'), barSum=document.getElementById('barSum'),
+    barUnit=document.getElementById('barUnit'), drItems=document.getElementById('drItems'),
+    drTotal=document.getElementById('drTotal'), drUnit=document.getElementById('drUnit'),
+    payBtn=document.getElementById('payBtn'), qnote=document.getElementById('qnote');
+
+function total(){ return cart.reduce(function(s,it){ return s + (it.quote?0:it.price*it.qty); },0); }
+
+function renderCart(){
+  var en=isEN(), t=total();
+  barUnit.textContent = unitLabel || '';
+  barSum.textContent = money(t);
+  drUnit.textContent = unitLabel || '—';
+  drTotal.textContent = money(t);
+  bar.classList.toggle('on', cart.length>0);
+  payBtn.disabled = !(cart.length>0 && t>0);
+
+  if(!cart.length){
+    drItems.innerHTML='<p class="dr-empty">'+(en?'Your request is empty.':'Su solicitud está vacía.')+'</p>';
+    qnote.style.display='none'; return;
+  }
+  var html='';
+  cart.forEach(function(it,i){
+    var sub = it.price*it.qty;
+    var perTxt = it.per ? ' · '+it.qty+' '+(PER[it.per][en?'en':'es']) : (it.qty>1?' · x'+it.qty:'');
+    html+='<div class="ci"><span class="ci-n"><b>'+(en?it.en:it.es)+'</b>'+
+          '<span>'+money(it.price)+perTxt+'</span></span>'+
+          '<span class="ci-p">'+money(sub)+'</span>'+
+          '<button class="ci-x" data-rm="'+i+'" aria-label="quitar">&#10005;</button></div>';
+  });
+  drItems.innerHTML=html;
+  qnote.style.display='none';
+}
+drItems.addEventListener('click',function(e){
+  var b=e.target.closest('[data-rm]'); if(!b) return;
+  cart.splice(parseInt(b.getAttribute('data-rm'),10),1); renderCart();
+});
+
+/* ── DRAWER ── */
+var scrim=document.getElementById('scrim'), drawer=document.getElementById('drawer');
+function openDrawer(){ drawer.classList.add('on'); scrim.classList.add('on'); document.body.classList.add('locked-scroll'); }
+function closeDrawer(){ drawer.classList.remove('on'); scrim.classList.remove('on'); document.body.classList.remove('locked-scroll'); }
+document.getElementById('barGo').addEventListener('click',openDrawer);
+document.getElementById('drX').addEventListener('click',closeDrawer);
+scrim.addEventListener('click',closeDrawer);
+
+/* ── SUMMARY TEXT (shared by Web3Forms + WhatsApp) ── */
+function summary(){
+  var en=isEN(), lines=[];
+  cart.forEach(function(it){
+    var perTxt = it.per ? ' ('+it.qty+' '+PER[it.per][en?'en':'es']+')' : (it.qty>1?' x'+it.qty:'');
+    lines.push('• '+(en?it.en:it.es)+perTxt+' — '+money(it.price*it.qty));
+  });
+  return lines.join('\n');
+}
+function guest(){
+  return {n:document.getElementById('gN').value.trim(),
+          e:document.getElementById('gE').value.trim(),
+          p:document.getElementById('gP').value.trim(),
+          d:document.getElementById('gD').value};
+}
+
+
+/* ── RULES MODAL: per-unit PDF + acceptance (required before checkout) ── */
+var PDFS={b1:'assets/docs/balandras-1-guia.pdf',b2:'assets/docs/balandras-2-guia.pdf',
+          b3:'assets/docs/balandras-3-guia.pdf',bh:'assets/docs/balandras-4-guia.pdf'};
+var rulesOK={}, rulesAt={};
+var rscrim=document.getElementById('rscrim'), rmodal=document.getElementById('rmodal'),
+    rmAccept=document.getElementById('rmAccept'), rmGo=document.getElementById('rmGo');
+
+function openRules(){
+  document.getElementById('rmTitle').textContent=unitLabel||'—';
+  document.getElementById('rmPdf').href=PDFS[unit]||'#';
+  rmAccept.checked=!!rulesOK[unit];
+  rmGo.disabled=!rmAccept.checked;
+  rscrim.classList.add('on'); rmodal.classList.add('on');
+  document.body.classList.add('locked-scroll');
+}
+function closeRules(){
+  rscrim.classList.remove('on'); rmodal.classList.remove('on');
+  if(!drawer.classList.contains('on')) document.body.classList.remove('locked-scroll');
+}
+rmAccept.addEventListener('change',function(){ rmGo.disabled=!rmAccept.checked; });
+rmGo.addEventListener('click',function(){
+  if(!rmAccept.checked) return;
+  rulesOK[unit]=true;
+  rulesAt[unit]=new Date().toISOString().slice(0,16).replace('T',' ');
+  closeRules();
+});
+document.getElementById('rmX').addEventListener('click',closeRules);
+rscrim.addEventListener('click',closeRules);
+
+/* ── PAY: Web3Forms first (itemised record), then Stripe ── */
+payBtn.addEventListener('click',function(){
+  var en=isEN(), g=guest(), t=total();
+  if(!unit){ alert(en?'Please select a unit.':'Seleccione una unidad.'); return; }
+  if(!cart.length || t<=0) return;
+  if(!g.n||!g.e||!g.d){
+    alert(en?'Please complete name, email and check-in date.'
+            :'Complete su nombre, correo y fecha de check-in.'); return;
+  }
+  if(!rulesOK[unit]){ openRules(); return; }   /* rules must be accepted to pay */
+  payBtn.disabled=true;
+  var payload={
+    access_key: WEB3FORMS_KEY,
+    subject: 'Servicios adicionales — '+unitLabel+' — '+g.n,
+    from_name: 'balandrasluxurystays.com',
+    Unidad: unitLabel,
+    Huesped: g.n, Email: g.e, Telefono: g.p||'—', CheckIn: g.d,
+    Servicios: summary(),
+    Total: money(t),
+    Reglas: 'Aceptadas — '+unitLabel+' — '+(rulesAt[unit]||''),
+    Idioma: en?'EN':'ES'
+  };
+  var go=function(){ window.location.href = STRIPE_LINK+'?__prefilled_amount='+Math.round(t*100); };
+  fetch('https://api.web3forms.com/submit',{
+    method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body: JSON.stringify(payload)
+  }).then(go).catch(go);   /* never block checkout on the notification */
+});
+
+/* ── WHATSAPP ── */
+function waText(){
+  var en=isEN(), g=guest();
+  var head = en ? 'Hello Balandras, I would like to request add-on services.'
+                : 'Hola Balandras, quisiera solicitar servicios adicionales.';
+  var txt = head+'\n\n'+(en?'Unit':'Unidad')+': '+(unitLabel||'—');
+  if(g.n) txt+='\n'+(en?'Name':'Nombre')+': '+g.n;
+  if(g.d) txt+='\n'+(en?'Check-in':'Check-in')+': '+g.d;
+  if(cart.length) txt+='\n\n'+summary()+'\n\n'+(en?'Total':'Total')+': '+money(total());
+  return txt;
+}
+document.getElementById('waBtn').addEventListener('click',function(e){
+  e.preventDefault();
+  window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(waText()),'_blank','noopener');
+});
+function sendWhatsAppQuote(s){
+  var en=isEN();
+  var t=(en?'Hello Balandras, I would like a quote for: ':'Hola Balandras, quisiera cotizar: ')+
+        (en?s.en:s.es)+'\n'+(en?'Unit':'Unidad')+': '+(unitLabel||'—');
+  window.open('https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(t),'_blank','noopener');
+}
+
+/* re-render on language switch */
+document.getElementById('es').addEventListener('click',function(){renderPrices(false);renderCart();});
+document.getElementById('en').addEventListener('click',function(){renderPrices(false);renderCart();});
+
+renderPrices(false); renderCart();
+})();
+</script>
+</body>
+</html>
