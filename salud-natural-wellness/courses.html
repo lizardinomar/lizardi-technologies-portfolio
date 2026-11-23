@@ -1,0 +1,2069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Cpath d=%27M20 5 C 20 14, 13 17, 13 25 C 13 30, 16.5 34, 20 34 C 23.5 34, 27 30, 27 25 C 27 17, 20 14, 20 5 Z%27 fill=%27none%27 stroke=%27%23C9A961%27 stroke-width=%272%27/%3E%3Ccircle cx=%2720%27 cy=%2724%27 r=%271.5%27 fill=%27%23C9A961%27/%3E%3C/svg%3E">
+<title>Courses — Salud Natural Wellness & Learning Center</title>
+<meta name="description" content="Six bilingual certification programs in holistic healing — Colon Hydrotherapy, Gut Health, Biomagnetic Therapy, Womb Steaming, Ion Detox. GPACT-eligible. Caguas, Puerto Rico.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --onyx: #0E0F0C;
+  --onyx-deep: #07080A;
+  --onyx-soft: #1A1C18;
+  --ivory: #F5F0E6;
+  --ivory-deep: #ECE5D5;
+  --ivory-bright: #FBF8F0;
+  --emerald: #1A3A2E;
+  --emerald-deep: #0F2620;
+  --emerald-soft: #2A5044;
+  --gold: #C9A961;
+  --gold-bright: #E5C77A;
+  --gold-dark: #9A7F40;
+  --hairline-light: rgba(26, 58, 46, 0.15);
+  --hairline-dark: rgba(245, 240, 230, 0.12);
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --container: 1440px;
+  --gutter: clamp(1.5rem, 4vw, 5rem);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+*::selection { background: var(--gold); color: var(--onyx); }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; max-width: 100vw; }
+body { font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 1.55; color: var(--onyx); background: var(--ivory); overflow-x: hidden; max-width: 100vw; position: relative; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }
+ul, ol { list-style: none; }
+em { font-style: italic; font-family: var(--font-display); font-weight: 400; }
+
+/* LOADER */
+.loader { position: fixed; inset: 0; z-index: 1000; background: var(--onyx); color: var(--ivory); display: flex; align-items: center; justify-content: center; transition: clip-path 1.1s cubic-bezier(0.76, 0, 0.24, 1); clip-path: inset(0 0 0 0); }
+.loader.is-hidden { clip-path: inset(0 0 100% 0); pointer-events: none; }
+.loader-inner { text-align: center; max-width: 320px; }
+.loader-mark { width: 80px; height: 80px; margin: 0 auto 2rem; animation: loaderRise 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both; }
+.loader-mark svg { width: 100%; height: 100%; color: var(--gold); }
+@keyframes loaderRise { from { opacity: 0; transform: translateY(20px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.loader-text { font-family: var(--font-display); font-size: 1.8rem; font-weight: 300; letter-spacing: 0.02em; margin-bottom: 2rem; animation: loaderFade 0.9s ease-out 0.5s both; }
+.loader-text em { font-style: italic; color: var(--gold); }
+@keyframes loaderFade { from { opacity: 0; } to { opacity: 1; } }
+.loader-bar { width: 100%; height: 1px; background: rgba(245, 240, 230, 0.15); overflow: hidden; }
+.loader-bar-fill { height: 100%; background: linear-gradient(90deg, transparent, var(--gold), transparent); background-size: 200% 100%; transform-origin: left; transform: scaleX(0); animation: loaderBar 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s forwards, loaderShimmer 1.4s linear infinite; }
+@keyframes loaderBar { to { transform: scaleX(1); } }
+@keyframes loaderShimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.loader-caption { margin-top: 1.5rem; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); animation: loaderFade 0.9s ease-out 1.4s both; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem var(--gutter); transition: background 0.5s, padding 0.5s, border-color 0.5s; border-bottom: 1px solid transparent; color: var(--ivory); }
+.nav.is-light { color: var(--onyx); }
+.nav.is-scrolled { background: rgba(14, 15, 12, 0.85); backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); padding: 1rem var(--gutter); border-bottom-color: var(--hairline-dark); color: var(--ivory); }
+.nav-inner { max-width: var(--container); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+.nav-mark { width: 32px; height: 32px; color: var(--gold); transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1); }
+.nav-logo:hover .nav-mark { transform: rotate(180deg); }
+.nav-wordmark { display: flex; flex-direction: column; line-height: 1; }
+.nav-wordmark-line { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; letter-spacing: 0.01em; }
+.nav-wordmark-sub { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-top: 0.3rem; font-weight: 500; }
+.nav-links { display: flex; gap: 2.5rem; font-size: 0.82rem; letter-spacing: 0.04em; }
+.nav-links a { position: relative; padding: 0.5rem 0; transition: color 0.3s; }
+.nav-links a::before { content: ''; position: absolute; left: -0.5rem; top: 50%; width: 4px; height: 4px; background: var(--gold); border-radius: 50%; opacity: 0; transform: translate(-100%, -50%) scale(0.5); transition: all 0.4s cubic-bezier(0.7, 0, 0.3, 1); }
+.nav-links a:hover::before, .nav-links a.active::before { opacity: 1; transform: translate(-100%, -50%) scale(1); }
+.nav-links a.active { color: var(--gold); }
+.nav-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.4rem; border: 1px solid var(--gold); border-radius: 999px; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; color: var(--gold); transition: all 0.4s; position: relative; overflow: hidden; }
+.nav-cta::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateY(101%); transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1); }
+.nav-cta:hover { color: var(--onyx); }
+.nav-cta:hover::before { transform: translateY(0); }
+.nav-cta span, .nav-cta svg { position: relative; z-index: 1; }
+.nav-cta svg { transition: transform 0.4s; }
+.nav-cta:hover svg { transform: translateX(3px); }
+.nav-burger { display: none; flex-direction: column; gap: 6px; width: 28px; padding: 8px 0; }
+.nav-burger span { display: block; height: 1.5px; background: currentColor; transition: transform 0.4s; }
+.nav-burger.is-open span:nth-child(1) { transform: translateY(3.5px) rotate(45deg); }
+.nav-burger.is-open span:nth-child(2) { transform: translateY(-3px) rotate(-45deg); }
+
+.mobile-menu { position: fixed; inset: 0; z-index: 90; background: var(--onyx); color: var(--ivory); padding: 8rem var(--gutter) 3rem; display: flex; flex-direction: column; justify-content: space-between; clip-path: inset(0 0 100% 0); transition: clip-path 0.8s cubic-bezier(0.76, 0, 0.24, 1); pointer-events: none; }
+.mobile-menu.is-open { clip-path: inset(0 0 0 0); pointer-events: auto; }
+.mobile-menu ul { display: flex; flex-direction: column; gap: 1.5rem; }
+.mobile-menu ul a { font-family: var(--font-display); font-size: clamp(2.5rem, 10vw, 5rem); font-weight: 300; line-height: 1; display: block; }
+.mobile-menu ul em { color: var(--gold); }
+.mobile-menu-footer { font-size: 0.75rem; letter-spacing: 0.1em; opacity: 0.6; display: flex; justify-content: space-between; gap: 2rem; text-transform: uppercase; }
+
+/* BILINGUAL */
+[data-lang="es"] { display: none; }
+body.is-es [data-lang="es"] { display: revert; }
+body.is-es [data-lang="en"] { display: none; }
+.page-hero-word[data-lang="en"], .page-hero-word[data-lang="es"] { display: inline-block; }
+body.is-es .page-hero-word[data-lang="en"] { display: none; }
+body:not(.is-es) .page-hero-word[data-lang="es"] { display: none; }
+
+.lang-toggle { display: inline-flex; align-items: center; border: 1px solid rgba(201, 169, 97, 0.4); border-radius: 999px; padding: 0.35rem; margin-right: 1rem; }
+.lang-toggle button { background: transparent; border: none; font-family: var(--font-body); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; color: currentColor; padding: 0.35rem 0.8rem; border-radius: 999px; cursor: pointer; transition: background 0.4s, color 0.4s; opacity: 0.6; }
+.lang-toggle button.is-active { background: var(--gold); color: var(--onyx); opacity: 1; }
+.lang-toggle button:not(.is-active):hover { opacity: 1; color: var(--gold); }
+@media (max-width: 600px) { .lang-toggle { display: none; } }
+.mobile-lang-toggle { display: none; margin-top: 2rem; align-items: center; border: 1px solid rgba(201, 169, 97, 0.4); border-radius: 999px; padding: 0.4rem; width: fit-content; }
+@media (max-width: 600px) { .mobile-lang-toggle { display: inline-flex; } }
+.mobile-lang-toggle button { background: transparent; border: none; font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--ivory); padding: 0.5rem 1.2rem; border-radius: 999px; cursor: pointer; transition: background 0.4s, color 0.4s; opacity: 0.6; }
+.mobile-lang-toggle button.is-active { background: var(--gold); color: var(--onyx); opacity: 1; }
+
+/* PAGE HERO */
+.page-hero { position: relative; background: var(--onyx); color: var(--ivory); padding: 10rem var(--gutter) 5rem; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.page-hero-bg svg { position: absolute; opacity: 0.14; }
+.page-hero-bg .glyph { top: -15%; right: -5%; width: 55%; max-width: 700px; animation: glyphFloat 14s ease-in-out infinite; }
+@keyframes glyphFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(-3deg); } }
+.page-hero-bg .glow { position: absolute; top: 50%; left: 20%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 60%); transform: translate(-50%, -50%); animation: glowPulse 8s ease-in-out infinite; }
+@keyframes glowPulse { 0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); } }
+.page-hero-inner { position: relative; z-index: 2; max-width: var(--container); margin: 0 auto; }
+
+.crumb { display: flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 3rem; opacity: 0; animation: fadeUp 1s ease-out 1.4s forwards; }
+.crumb a { transition: color 0.3s; }
+.crumb a:hover { color: var(--gold-bright); }
+.crumb-sep { width: 30px; height: 1px; background: var(--gold); opacity: 0.5; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+.page-hero-title { font-family: var(--font-display); font-weight: 300; font-size: clamp(3.5rem, 10vw, 9rem); line-height: 0.9; letter-spacing: -0.03em; color: var(--ivory); max-width: 1100px; }
+.page-hero-title em { color: var(--gold); font-style: italic; position: relative; }
+.page-hero-title em::after { content: ''; position: absolute; bottom: 0.08em; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform: scaleX(0); transform-origin: left; animation: underline 1.5s cubic-bezier(0.2, 0.7, 0.2, 1) 2.5s forwards; }
+@keyframes underline { to { transform: scaleX(1); } }
+.page-hero-line { display: block; overflow: hidden; padding-bottom: 0.06em; }
+.page-hero-word { display: inline-block; transform: translateY(110%); opacity: 0; animation: heroWord 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+.page-hero-line:nth-child(1) .page-hero-word { animation-delay: 1.8s; }
+.page-hero-line:nth-child(2) .page-hero-word { animation-delay: 1.95s; }
+@keyframes heroWord { to { transform: translateY(0); opacity: 1; } }
+
+.page-hero-subtitle { font-family: var(--font-display); font-style: italic; font-size: clamp(1.2rem, 1.6vw, 1.5rem); line-height: 1.5; color: var(--ivory); opacity: 0.85; max-width: 640px; margin-top: 3rem; opacity: 0; animation: fadeUp 1s ease-out 2.5s forwards; }
+.page-hero-subtitle em { color: var(--gold); font-style: italic; }
+
+/* JUMP NAV — anchor links to courses */
+.jump-nav { padding: 2.5rem var(--gutter); background: var(--onyx-deep); border-top: 1px solid var(--hairline-dark); border-bottom: 1px solid var(--hairline-dark); position: sticky; top: 0; z-index: 50; transition: padding 0.4s; }
+.jump-nav.is-compact { padding: 1rem var(--gutter); }
+.jump-nav-inner { max-width: var(--container); margin: 0 auto; display: flex; align-items: center; gap: 2.5rem; }
+.jump-nav-label { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; white-space: nowrap; }
+.jump-nav-list { display: flex; gap: 0.5rem; overflow-x: auto; overflow-y: hidden; flex: 1 1 auto; min-width: 0; padding: 0.3rem 0; scrollbar-width: thin; scrollbar-color: rgba(201,169,97,0.3) transparent; -webkit-overflow-scrolling: touch; }
+.jump-nav-list::-webkit-scrollbar { height: 4px; }
+.jump-nav-list::-webkit-scrollbar-thumb { background: rgba(201,169,97,0.3); border-radius: 2px; }
+.jump-nav-list a { padding: 0.5rem 1rem; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; color: var(--ivory); opacity: 0.65; white-space: nowrap; border-radius: 999px; border: 1px solid transparent; transition: all 0.3s; flex-shrink: 0; }
+.jump-nav-list a:hover { opacity: 1; color: var(--gold); border-color: rgba(201,169,97,0.3); }
+.jump-nav-list a.is-active { background: var(--gold); color: var(--onyx); opacity: 1; border-color: var(--gold); }
+@media (max-width: 768px) { .jump-nav-label { display: none; } .jump-nav-inner { gap: 0; } }
+
+/* COURSE SECTION */
+.course { padding: clamp(5rem, 9vw, 9rem) var(--gutter); position: relative; overflow: hidden; scroll-margin-top: 8rem; }
+.course.is-dark { background: var(--onyx); color: var(--ivory); }
+.course.is-light { background: var(--ivory); color: var(--emerald); }
+.course-inner { max-width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
+.course-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
+@media (max-width: 900px) { .course-grid { grid-template-columns: 1fr; gap: 3rem; } }
+.course.is-reversed .course-grid { direction: rtl; }
+.course.is-reversed .course-grid > * { direction: ltr; }
+@media (max-width: 900px) { .course.is-reversed .course-grid { direction: ltr; } }
+
+.course-bg-glow { position: absolute; pointer-events: none; }
+.course.is-dark .course-bg-glow { top: 50%; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(201, 169, 97, 0.08) 0%, transparent 60%); transform: translateY(-50%); }
+.course.is-light .course-bg-glow { top: -200px; left: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(26, 58, 46, 0.04) 0%, transparent 60%); }
+
+/* COURSE EMBLEM (sticky on desktop) */
+.course-emblem-wrap { position: sticky; top: 10rem; aspect-ratio: 1 / 1; border-radius: 2px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+@media (max-width: 900px) { .course-emblem-wrap { position: relative; top: 0; max-width: 480px; } }
+.course.is-dark .course-emblem-wrap { background: linear-gradient(135deg, var(--emerald-deep) 0%, var(--emerald) 100%); border: 1px solid var(--hairline-dark); }
+.course.is-light .course-emblem-wrap { background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-deep) 100%); border: 1px solid var(--hairline-light); }
+.course-emblem-wrap::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(201,169,97,0.25) 0%, transparent 65%), radial-gradient(ellipse at 30% 80%, rgba(201,169,97,0.12) 0%, transparent 50%); }
+.course-emblem-wrap::after { content: ''; position: absolute; top: 1.2rem; left: 1.2rem; right: 1.2rem; bottom: 1.2rem; border: 1px solid rgba(201, 169, 97, 0.25); pointer-events: none; }
+.course-emblem { position: relative; z-index: 1; width: 75%; max-width: 380px; color: var(--gold); }
+.course-emblem svg { width: 100%; height: 100%; display: block; }
+.course-emblem .rotate-slow { transform-origin: center; animation: emblemRotate 90s linear infinite; }
+@keyframes emblemRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.course-emblem .rotate-reverse { transform-origin: center; animation: emblemRotateRev 120s linear infinite; }
+@keyframes emblemRotateRev { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+.course-emblem .pulse { animation: emblemPulse 4s ease-in-out infinite; transform-origin: center; }
+@keyframes emblemPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+.course-emblem-num { position: absolute; bottom: 2rem; left: 2rem; font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--gold); z-index: 2; letter-spacing: 0.05em; }
+.course-emblem-tag { position: absolute; top: 2rem; right: 2rem; display: inline-flex; padding: 0.4rem 0.9rem; background: rgba(245, 240, 230, 0.95); color: var(--emerald); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; border-radius: 999px; z-index: 2; }
+.course-emblem-vertical { position: absolute; bottom: 2rem; right: -2.5rem; transform-origin: right top; transform: rotate(-90deg) translateY(100%); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); white-space: nowrap; z-index: 2; opacity: 0.8; }
+
+/* COURSE CONTENT */
+.course-eyebrow { display: flex; align-items: center; gap: 1.5rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; margin-bottom: 2rem; }
+.course.is-dark .course-eyebrow { color: var(--gold); }
+.course.is-light .course-eyebrow { color: var(--gold-dark); }
+.course-eyebrow-num { font-family: var(--font-display); font-style: italic; font-size: 1rem; letter-spacing: 0; }
+.course.is-dark .course-eyebrow-num { color: var(--gold); }
+.course.is-light .course-eyebrow-num { color: var(--emerald); }
+.course-eyebrow-line { width: 50px; height: 1px; background: currentColor; opacity: 0.6; }
+
+.course-title { font-family: var(--font-display); font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 300; line-height: 0.98; letter-spacing: -0.025em; margin-bottom: 1.5rem; }
+.course.is-dark .course-title { color: var(--ivory); }
+.course.is-light .course-title { color: var(--emerald); }
+.course-title em { font-style: italic; }
+.course.is-dark .course-title em { color: var(--gold); }
+.course.is-light .course-title em { color: var(--gold-dark); }
+
+.course-tagline { font-family: var(--font-display); font-style: italic; font-size: clamp(1.2rem, 1.6vw, 1.5rem); line-height: 1.45; margin-bottom: 2.5rem; max-width: 600px; }
+.course.is-dark .course-tagline { color: var(--ivory); opacity: 0.85; }
+.course.is-light .course-tagline { color: var(--emerald-soft); }
+.course-tagline em { font-style: italic; }
+.course.is-dark .course-tagline em { color: var(--gold); }
+.course.is-light .course-tagline em { color: var(--gold-dark); }
+
+.course-desc { font-size: 1rem; line-height: 1.75; max-width: 620px; margin-bottom: 3rem; }
+.course.is-dark .course-desc { color: var(--ivory); opacity: 0.85; }
+.course.is-light .course-desc { color: var(--emerald-soft); }
+.course-desc em { font-style: italic; }
+.course.is-dark .course-desc em { color: var(--gold); }
+.course.is-light .course-desc em { color: var(--gold-dark); }
+.course-desc p + p { margin-top: 1.2rem; }
+
+/* META BLOCKS */
+.course-meta { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-bottom: 3rem; max-width: 620px; }
+.course.is-dark .course-meta { background: var(--hairline-dark); border: 1px solid var(--hairline-dark); }
+.course.is-light .course-meta { background: var(--hairline-light); border: 1px solid var(--hairline-light); }
+.meta-block { padding: 1.5rem 1.6rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.course.is-dark .meta-block { background: var(--onyx); }
+.course.is-light .meta-block { background: var(--ivory); }
+.meta-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; }
+.course.is-dark .meta-label { color: var(--gold); }
+.course.is-light .meta-label { color: var(--gold-dark); }
+.meta-value { font-family: var(--font-display); font-size: 1.7rem; font-weight: 500; line-height: 1; letter-spacing: -0.01em; }
+.course.is-dark .meta-value { color: var(--ivory); }
+.course.is-light .meta-value { color: var(--emerald); }
+.meta-value em { font-style: italic; font-size: 0.7em; vertical-align: 0.2em; margin-left: 0.05em; }
+.course.is-dark .meta-value em { color: var(--gold); }
+.course.is-light .meta-value em { color: var(--gold-dark); }
+.meta-note { font-size: 0.78rem; line-height: 1.4; }
+.course.is-dark .meta-note { color: var(--ivory); opacity: 0.6; }
+.course.is-light .meta-note { color: var(--emerald-soft); opacity: 0.8; }
+
+/* CURRICULUM */
+.curriculum-eyebrow { display: flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; margin-bottom: 2rem; padding-top: 2rem; border-top: 1px solid; max-width: 620px; }
+.course.is-dark .curriculum-eyebrow { color: var(--gold); border-top-color: var(--hairline-dark); }
+.course.is-light .curriculum-eyebrow { color: var(--gold-dark); border-top-color: var(--hairline-light); }
+
+.curriculum-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 3rem; max-width: 620px; }
+.curriculum-item { display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: baseline; padding: 1.1rem 0; border-bottom: 1px solid; transition: padding-left 0.5s cubic-bezier(0.7, 0, 0.3, 1); position: relative; }
+.course.is-dark .curriculum-item { border-bottom-color: var(--hairline-dark); }
+.course.is-light .curriculum-item { border-bottom-color: var(--hairline-light); }
+.curriculum-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--gold); transition: width 0.5s cubic-bezier(0.7, 0, 0.3, 1); }
+.curriculum-item:hover { padding-left: 1rem; }
+.curriculum-item:hover::before { width: 2px; }
+.curriculum-num { font-family: var(--font-display); font-style: italic; font-size: 0.95rem; line-height: 1; min-width: 2.2rem; }
+.course.is-dark .curriculum-num { color: var(--gold); }
+.course.is-light .curriculum-num { color: var(--gold-dark); }
+.curriculum-text { font-size: 0.95rem; line-height: 1.55; }
+.course.is-dark .curriculum-text { color: var(--ivory); opacity: 0.88; }
+.course.is-light .curriculum-text { color: var(--emerald); }
+.curriculum-text em { font-style: italic; }
+.course.is-dark .curriculum-text em { color: var(--gold); }
+.course.is-light .curriculum-text em { color: var(--gold-dark); }
+
+.course-includes { padding: 1.5rem 0; max-width: 620px; }
+.course-includes-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; margin-bottom: 1rem; }
+.course.is-dark .course-includes-label { color: var(--gold); }
+.course.is-light .course-includes-label { color: var(--gold-dark); }
+.course-includes-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem 1.5rem; }
+@media (max-width: 600px) { .course-includes-grid { grid-template-columns: 1fr; } }
+.course-includes-item { font-size: 0.85rem; line-height: 1.5; padding-left: 1rem; position: relative; }
+.course-includes-item::before { content: '✦'; position: absolute; left: 0; color: var(--gold); font-size: 0.7em; }
+.course.is-dark .course-includes-item { color: var(--ivory); opacity: 0.78; }
+.course.is-light .course-includes-item { color: var(--emerald-soft); }
+
+/* COURSE ACTIONS */
+.course-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+
+/* BUTTONS */
+.btn-gold, .btn-outline-gold, .btn-outline-ink, .btn-ink { display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1.1rem 1.8rem; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; border-radius: 999px; transition: color 0.5s, border-color 0.5s; position: relative; overflow: hidden; cursor: pointer; }
+.btn-gold { background: var(--gold); color: var(--onyx); border: 1px solid var(--gold); }
+.btn-gold::before { content: ''; position: absolute; inset: 0; background: var(--gold-bright); transform: translateY(101%); transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1); }
+.btn-gold:hover::before { transform: translateY(0); }
+.btn-gold > * { position: relative; z-index: 1; }
+.btn-outline-gold { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+.btn-outline-gold::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateY(101%); transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1); }
+.btn-outline-gold:hover { color: var(--onyx); }
+.btn-outline-gold:hover::before { transform: translateY(0); }
+.btn-outline-gold > * { position: relative; z-index: 1; }
+.btn-ink { background: var(--emerald); color: var(--ivory); border: 1px solid var(--emerald); }
+.btn-ink::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateY(101%); transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1); }
+.btn-ink:hover { color: var(--onyx); border-color: var(--gold); }
+.btn-ink:hover::before { transform: translateY(0); }
+.btn-ink > * { position: relative; z-index: 1; }
+.btn-outline-ink { background: transparent; color: var(--emerald); border: 1px solid var(--emerald); }
+.btn-outline-ink::before { content: ''; position: absolute; inset: 0; background: var(--emerald); transform: translateY(101%); transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1); }
+.btn-outline-ink:hover { color: var(--ivory); }
+.btn-outline-ink:hover::before { transform: translateY(0); }
+.btn-outline-ink > * { position: relative; z-index: 1; }
+.btn-arrow svg { transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1); }
+.btn-gold:hover .btn-arrow svg, .btn-outline-gold:hover .btn-arrow svg, .btn-ink:hover .btn-arrow svg, .btn-outline-ink:hover .btn-arrow svg { transform: translateX(4px); }
+
+/* COMPARE TABLE */
+.compare { padding: 8rem var(--gutter); background: var(--onyx-deep); color: var(--ivory); position: relative; overflow: hidden; }
+.compare::before { content: ''; position: absolute; top: 0; left: 50%; width: 1px; height: 100px; background: linear-gradient(180deg, transparent, var(--gold), transparent); transform: translateX(-50%); }
+.compare-inner { max-width: var(--container); margin: 0 auto; }
+.compare-header { margin-bottom: 4rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto; }
+.compare-eyebrow { display: inline-flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 2rem; }
+.compare-eyebrow::before, .compare-eyebrow::after { content: ''; width: 30px; height: 1px; background: var(--gold); }
+.compare-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; line-height: 1; letter-spacing: -0.025em; color: var(--ivory); }
+.compare-title em { color: var(--gold); font-style: italic; }
+
+.compare-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+.compare-table th, .compare-table td { padding: 1.3rem 1rem; text-align: left; border-bottom: 1px solid var(--hairline-dark); font-size: 0.9rem; }
+.compare-table thead th { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 500; padding-bottom: 1.5rem; }
+.compare-table tbody tr { transition: background 0.3s; }
+.compare-table tbody tr:hover { background: rgba(201, 169, 97, 0.04); }
+.compare-table .course-name { font-family: var(--font-display); font-size: 1.15rem; color: var(--ivory); letter-spacing: -0.005em; }
+.compare-table .course-name em { color: var(--gold); font-style: italic; }
+.compare-table .course-price { font-family: var(--font-display); font-style: italic; color: var(--gold); font-size: 1.1rem; }
+.compare-table .compare-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 500; transition: gap 0.4s; }
+.compare-table .compare-link:hover { gap: 0.8rem; }
+.compare-table .compare-link svg { transition: transform 0.4s; }
+.compare-tag-gpact { display: inline-flex; padding: 0.25rem 0.7rem; background: rgba(201, 169, 97, 0.15); color: var(--gold); font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; border-radius: 999px; font-weight: 500; }
+@media (max-width: 768px) { .compare-table { font-size: 0.8rem; } .compare-table th, .compare-table td { padding: 1rem 0.6rem; } .compare-table .course-name { font-size: 0.95rem; } .compare-hide-mobile { display: none; } }
+
+/* =========================================================
+   IMMERSION — hands-on stay package
+   ========================================================= */
+.immersion {
+  padding: 9rem var(--gutter);
+  background: var(--ivory);
+  color: var(--emerald);
+  position: relative;
+  overflow: hidden;
+}
+.immersion::before {
+  content: '';
+  position: absolute;
+  top: -200px; left: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(26, 58, 46, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+}
+.immersion-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.immersion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .immersion-grid { grid-template-columns: 1fr; gap: 3rem; }
+}
+
+.immersion-photo {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background: var(--emerald);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.immersion-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  transition: transform 1.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.immersion-photo:hover img { transform: scale(1.04); }
+.immersion-photo::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(14, 15, 12, 0) 0%, rgba(14, 15, 12, 0) 55%, rgba(14, 15, 12, 0.4) 80%, rgba(14, 15, 12, 0.85) 100%);
+  pointer-events: none;
+}
+.immersion-photo::after {
+  content: '';
+  position: absolute; top: 1rem; left: 1rem; right: 1rem; bottom: 1rem;
+  border: 1px solid rgba(201, 169, 97, 0.3);
+  z-index: 2;
+  pointer-events: none;
+}
+.immersion-photo-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 3;
+  padding: 2rem;
+  color: var(--ivory);
+  display: flex; align-items: end; justify-content: space-between; gap: 1rem;
+}
+.immersion-photo-caption-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  line-height: 1.15;
+  color: var(--ivory);
+  letter-spacing: -0.005em;
+}
+.immersion-photo-caption-title em { color: var(--gold); font-style: italic; }
+.immersion-photo-caption-meta {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--gold);
+}
+.immersion-photo-num {
+  position: absolute;
+  top: 2rem; right: 2rem;
+  z-index: 3;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+.immersion-photo-tag {
+  position: absolute;
+  top: 2rem; left: 2rem;
+  z-index: 3;
+  display: inline-flex;
+  padding: 0.4rem 0.9rem;
+  background: rgba(245, 240, 230, 0.95);
+  color: var(--emerald);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 999px;
+}
+
+.immersion-content { max-width: 600px; }
+.immersion-eyebrow {
+  display: flex; align-items: center; gap: 1.5rem;
+  font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold-dark); font-weight: 500;
+  margin-bottom: 2rem;
+}
+.immersion-eyebrow-num {
+  font-family: var(--font-display); font-style: italic;
+  font-size: 1rem; letter-spacing: 0; color: var(--emerald);
+}
+.immersion-eyebrow-line { width: 50px; height: 1px; background: var(--gold); opacity: 0.6; }
+
+.immersion-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--emerald);
+  margin-bottom: 1.5rem;
+}
+.immersion-title em { color: var(--gold-dark); font-style: italic; }
+
+.immersion-tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+  line-height: 1.45;
+  color: var(--emerald-soft);
+  margin-bottom: 2rem;
+}
+.immersion-tagline em { color: var(--gold-dark); font-style: italic; }
+
+.immersion-desc {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--emerald-soft);
+  margin-bottom: 2.5rem;
+}
+.immersion-desc em { color: var(--gold-dark); font-style: italic; }
+
+.immersion-features {
+  display: flex; flex-direction: column;
+  gap: 0;
+  margin-bottom: 2.5rem;
+  border-top: 1px solid var(--hairline-light);
+}
+.immersion-feature {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--hairline-light);
+  transition: padding-left 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+  position: relative;
+}
+.immersion-feature::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 0; background: var(--gold);
+  transition: width 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.immersion-feature:hover { padding-left: 1rem; }
+.immersion-feature:hover::before { width: 2px; }
+.immersion-feature-icon {
+  width: 44px; height: 44px;
+  border: 1px solid var(--hairline-light);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold-dark);
+  transition: border-color 0.4s, background 0.4s;
+  flex-shrink: 0;
+}
+.immersion-feature:hover .immersion-feature-icon { border-color: var(--gold); background: rgba(201, 169, 97, 0.08); }
+.immersion-feature-icon svg { width: 18px; height: 18px; }
+.immersion-feature-body { display: flex; flex-direction: column; gap: 0.2rem; }
+.immersion-feature-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: var(--emerald);
+  letter-spacing: -0.005em;
+}
+.immersion-feature-title em { color: var(--gold-dark); font-style: italic; }
+.immersion-feature-desc {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--emerald-soft);
+}
+.immersion-feature-meta {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--gold-dark);
+  white-space: nowrap;
+}
+
+.immersion-note {
+  padding: 1.6rem 1.8rem;
+  background: rgba(201, 169, 97, 0.08);
+  border-left: 2px solid var(--gold);
+  margin-bottom: 2rem;
+  border-radius: 0 2px 2px 0;
+}
+.immersion-note-label {
+  font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold-dark); font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.immersion-note p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--emerald);
+}
+.immersion-note em { color: var(--gold-dark); font-style: italic; }
+
+.immersion-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* CTA */
+.cta { background: var(--onyx); color: var(--ivory); padding: 10rem var(--gutter); text-align: center; position: relative; overflow: hidden; }
+.cta-bg-glow { position: absolute; top: 50%; left: 50%; width: 1000px; height: 1000px; background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 60%); transform: translate(-50%, -50%); pointer-events: none; animation: ctaGlow 8s ease-in-out infinite; }
+@keyframes ctaGlow { 0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); } }
+.cta-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-eyebrow { display: inline-flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 3rem; }
+.cta-eyebrow-line { width: 50px; height: 1px; background: var(--gold); }
+.cta-headline { font-family: var(--font-display); font-size: clamp(3.5rem, 10vw, 10rem); font-weight: 300; line-height: 0.92; letter-spacing: -0.04em; color: var(--ivory); margin-bottom: 4rem; }
+.cta-headline em { color: var(--gold); font-style: italic; position: relative; display: inline-block; }
+.cta-headline em::after { content: ''; position: absolute; bottom: 0.05em; left: 5%; right: 5%; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* FOOTER */
+.footer { background: var(--onyx-deep); color: var(--ivory); padding: 5rem var(--gutter) 2rem; position: relative; overflow: hidden; border-top: 1px solid var(--hairline-dark); }
+.footer-inner { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 4rem; position: relative; z-index: 1; }
+@media (max-width: 768px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+.footer-brand { display: flex; flex-direction: column; gap: 1.2rem; max-width: 320px; }
+.footer-mark { width: 48px; height: 48px; color: var(--gold); }
+.footer-name { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.2; color: var(--ivory); }
+.footer-name em { font-style: italic; font-size: 0.95rem; color: var(--gold); display: block; font-weight: 400; }
+.footer-tag { font-family: var(--font-display); font-style: italic; font-size: 0.95rem; line-height: 1.5; color: var(--ivory); opacity: 0.6; }
+.footer-col h4 { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; font-weight: 500; }
+.footer-col ul { display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col a, .footer-col p { font-size: 0.85rem; line-height: 1.6; color: var(--ivory); opacity: 0.7; transition: color 0.3s, opacity 0.3s; }
+.footer-col a:hover { color: var(--gold); opacity: 1; }
+.footer-bar { max-width: var(--container); margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--hairline-dark); display: flex; justify-content: space-between; font-size: 0.72rem; letter-spacing: 0.05em; color: var(--ivory); opacity: 0.5; position: relative; z-index: 1; flex-wrap: wrap; gap: 1rem; }
+.footer-credit a { color: var(--gold); opacity: 1; border-bottom: 1px solid var(--gold); padding-bottom: 1px; }
+.footer-large { position: absolute; bottom: -2rem; left: 0; right: 0; text-align: center; pointer-events: none; z-index: 0; overflow: hidden; }
+.footer-large span { font-family: var(--font-display); font-size: clamp(6rem, 22vw, 20rem); font-weight: 300; line-height: 0.8; letter-spacing: -0.04em; color: transparent; -webkit-text-stroke: 1px rgba(201, 169, 97, 0.15); font-style: italic; }
+.footer-disclaimer { max-width: var(--container); margin: 3rem auto 0; font-size: 0.68rem; line-height: 1.5; color: var(--ivory); opacity: 0.4; text-align: center; position: relative; z-index: 1; font-style: italic; }
+
+/* WhatsApp */
+.whatsapp-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background: var(--emerald); color: var(--gold); display: flex; align-items: center; justify-content: center; border-radius: 50%; z-index: 80; transition: background 0.4s, transform 0.5s cubic-bezier(0.7, 0, 0.3, 1), box-shadow 0.4s; box-shadow: 0 4px 24px rgba(14, 15, 12, 0.3); }
+.whatsapp-float::before { content: ''; position: absolute; inset: -4px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0; transform: scale(0.95); transition: all 0.4s; }
+.whatsapp-float:hover { background: var(--gold); color: var(--emerald); transform: scale(1.08); box-shadow: 0 8px 32px rgba(201, 169, 97, 0.4); }
+.whatsapp-float:hover::before { opacity: 1; transform: scale(1.15); }
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 1.1s cubic-bezier(0.2, 0.7, 0.2, 1), transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-stagger > * { opacity: 0; transform: translateY(32px); transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.07s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.14s; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.21s; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.28s; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.35s; }
+.reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 0.42s; }
+.reveal-stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) { .nav-wordmark-sub { display: none; } .nav-wordmark-line { font-size: 1.1rem; } }
+@media (max-width: 768px) { .nav-links, .nav-cta { display: none; } .nav-burger { display: flex; } .page-hero { padding-top: 7rem; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } .reveal, .reveal-stagger > * { opacity: 1; transform: none; } }
+
+
+/* ANDROID/FIREFOX SAFETY RULES */
+* { min-width: 0; }
+.hero-headline, .page-hero-title, .cta-headline, .course-title, .immersion-title, .programs-title, .featured-title, .compare-title, .credentials-title, .testimonials-title, .space-title, .story-title, .differ-quote, .form-side-title, .payments-title, .visit-title, .faq-title, .steps-title { overflow-wrap: anywhere; word-break: break-word; hyphens: auto; }
+img, svg, video, iframe { max-width: 100%; }
+@media (max-width: 480px) {
+  .hero-headline, .page-hero-title, .cta-headline { font-size: clamp(2.5rem, 12vw, 4rem) !important; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-mark">
+      <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="40" cy="40" r="38" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+        <path d="M40 10 C 40 28, 25 35, 25 50 C 25 60, 32 67, 40 67 C 48 67, 55 60, 55 50 C 55 35, 40 28, 40 10 Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="40" cy="48" r="3" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="loader-text"><span>Salud</span> <em>Natural</em></div>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    <div class="loader-caption" data-en="Six certifications" data-es="Seis certificaciones">Six certifications</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Salud Natural home">
+      <svg class="nav-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 5 C 20 14, 13 17, 13 25 C 13 30, 16.5 34, 20 34 C 23.5 34, 27 30, 27 25 C 27 17, 20 14, 20 5 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="20" cy="24" r="1.5" fill="currentColor"/>
+      </svg>
+      <span class="nav-wordmark">
+        <span class="nav-wordmark-line">Salud Natural</span>
+        <span class="nav-wordmark-sub">Wellness &amp; Learning Center</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="about.html" data-en="About" data-es="Sobre">About</a></li>
+      <li><a href="courses.html" class="active" data-en="Courses" data-es="Cursos">Courses</a></li>
+      <li><a href="services.html" data-en="Therapeutic Services" data-es="Servicios Terapéuticos">Therapeutic Services</a></li>
+      <li><a href="contact.html" data-en="Enroll" data-es="Inscríbete">Enroll</a></li>
+    </ul>
+    <div class="lang-toggle" role="group" aria-label="Language toggle">
+      <button type="button" data-lang-set="en" class="is-active">EN</button>
+      <button type="button" data-lang-set="es">ES</button>
+    </div>
+    <a href="https://wa.me/19394780105" target="_blank" rel="noopener" class="nav-cta">
+      <span>WhatsApp</span>
+      <svg viewBox="0 0 24 24" width="13" height="13"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+    <li><a href="about.html" data-en="About" data-es="Sobre">About</a></li>
+    <li><a href="courses.html"><em data-en="Courses" data-es="Cursos">Courses</em></a></li>
+    <li><a href="services.html" data-en="Therapeutic Services" data-es="Servicios Terapéuticos">Therapeutic Services</a></li>
+    <li><a href="contact.html" data-en="Enroll" data-es="Inscríbete">Enroll</a></li>
+    <li><a href="https://wa.me/19394780105" target="_blank" rel="noopener">WhatsApp →</a></li>
+  </ul>
+  <div class="mobile-lang-toggle" role="group" aria-label="Language toggle">
+    <button type="button" data-lang-set="en" class="is-active">English</button>
+    <button type="button" data-lang-set="es">Español</button>
+  </div>
+  <div class="mobile-menu-footer">
+    <p>Caguas · Puerto Rico</p>
+    <p>939-478-0105</p>
+  </div>
+</div>
+
+<main>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg" aria-hidden="true">
+    <div class="glow"></div>
+    <svg class="glyph" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#C9A961" stroke-width="0.6" opacity="0.9">
+        <circle cx="300" cy="300" r="290"/>
+        <circle cx="300" cy="300" r="240"/>
+        <circle cx="300" cy="300" r="190"/>
+        <circle cx="300" cy="300" r="140"/>
+        <path d="M300 60 L 300 540 M 60 300 L 540 300 M 130 130 L 470 470 M 470 130 L 130 470" stroke-dasharray="2 6"/>
+        <circle cx="300" cy="300" r="6" fill="#C9A961"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="page-hero-inner">
+    <div class="crumb">
+      <a href="index.html">Salud Natural</a>
+      <span class="crumb-sep"></span>
+      <span data-en="Courses" data-es="Cursos">Courses</span>
+    </div>
+
+    <h1 class="page-hero-title">
+      <span class="page-hero-line">
+        <span class="page-hero-word" data-lang="en">Six certifications.</span>
+        <span class="page-hero-word" data-lang="es">Seis certificaciones.</span>
+      </span>
+      <span class="page-hero-line">
+        <span class="page-hero-word" data-lang="en">One <em>lineage.</em></span>
+        <span class="page-hero-word" data-lang="es">Un <em>linaje.</em></span>
+      </span>
+    </h1>
+
+    <p class="page-hero-subtitle">
+      <span data-lang="en">From foundation training in <em>colon hydrotherapy</em> to specialty work in biomagnetism, womb steaming, and ion detox — six bilingual programs taught by Naturopath Tasha Maria Soto in Caguas, Puerto Rico.</span>
+      <span data-lang="es">Desde formación fundamental en <em>hidroterapia de colon</em> hasta trabajos especializados en biomagnetismo, vaporización del útero, y detox iónico — seis programas bilingües impartidos por la Naturópata Tasha Maria Soto en Caguas, Puerto Rico.</span>
+    </p>
+  </div>
+</section>
+
+<!-- JUMP NAV -->
+<nav class="jump-nav" id="jumpNav" aria-label="Course navigation">
+  <div class="jump-nav-inner">
+    <span class="jump-nav-label" data-en="Jump to" data-es="Ir a">Jump to</span>
+    <div class="jump-nav-list">
+      <a href="#foundation" data-en="Foundation Hydro" data-es="Hidro Fundamental">Foundation Hydro</a>
+      <a href="#advanced" data-en="Advanced Hydro" data-es="Hidro Avanzado">Advanced Hydro</a>
+      <a href="#gut" data-en="Gut Health" data-es="Salud Digestiva">Gut Health</a>
+      <a href="#biomagnetic" data-en="Biomagnetic" data-es="Biomagnética">Biomagnetic</a>
+      <a href="#yoni" data-en="Womb Steaming" data-es="Vaporización Útero">Womb Steaming</a>
+      <a href="#ion" data-en="Ion Detox" data-es="Detox Iónico">Ion Detox</a>
+    </div>
+  </div>
+</nav>
+
+<!-- COURSE 01 — FOUNDATION COLON HYDROTHERAPY -->
+<section class="course is-light" id="foundation">
+  <div class="course-bg-glow"></div>
+  <div class="course-inner">
+    <div class="course-grid">
+      <div class="course-content">
+        <p class="course-eyebrow reveal">
+          <span class="course-eyebrow-num">¶ 01</span>
+          <div class="course-eyebrow-line"></div>
+          <span data-en="Flagship certification" data-es="Certificación insignia">Flagship certification</span>
+        </p>
+        <h2 class="course-title reveal">
+          <span data-lang="en">Foundation Colon<br><em>Hydrotherapy.</em></span>
+          <span data-lang="es">Hidroterapia de Colon<br><em>Fundamental.</em></span>
+        </h2>
+        <p class="course-tagline reveal">
+          <span data-lang="en">Four weeks of immersive training — half remote, half hands-on. <em>The most enrolled program</em>, and the foundation for everything else.</span>
+          <span data-lang="es">Cuatro semanas de formación inmersiva — mitad remota, mitad práctica. <em>El programa más popular</em>, y la base de todo lo demás.</span>
+        </p>
+        <div class="course-desc reveal">
+          <p data-lang="en">This is where most students begin their journey into the sacred art of colon hydrotherapy. Over four weeks, you'll learn anatomy and physiology of the digestive system, master the open-system technique on professional equipment, and develop the energetic and trauma-aware practice that traditional programs leave out.</p>
+          <p data-lang="es">Aquí es donde la mayoría de estudiantes comienzan su camino en el arte sagrado de la hidroterapia de colon. Durante cuatro semanas, aprenderás la anatomía y fisiología del sistema digestivo, dominarás la técnica de sistema abierto con equipo profesional, y desarrollarás la práctica energética y consciente del trauma que los programas tradicionales dejan fuera.</p>
+          <p data-lang="en">Graduates qualify to join <em>GPACT</em> (Global Professional Association of Colon Therapists) and practice independently — fully prepared to open their own practice, work within an existing clinic, or integrate the modality into a broader healing offering.</p>
+          <p data-lang="es">Los graduados califican para unirse a <em>GPACT</em> (Global Professional Association of Colon Therapists) y ejercer de manera independiente — totalmente preparados para abrir su propia práctica, trabajar dentro de una clínica existente, o integrar la modalidad en una oferta más amplia de sanación.</p>
+        </div>
+
+        <div class="course-meta reveal">
+          <div class="meta-block">
+            <span class="meta-label" data-en="Investment" data-es="Inversión">Investment</span>
+            <span class="meta-value">$3,333<em>.33</em></span>
+            <span class="meta-note" data-en="50% deposit reserves your seat" data-es="50% de depósito reserva tu plaza">50% deposit reserves your seat</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Duration" data-es="Duración">Duration</span>
+            <span class="meta-value" data-en="4 weeks" data-es="4 semanas">4 weeks</span>
+            <span class="meta-note" data-en="2 sessions per week" data-es="2 sesiones por semana">2 sessions per week</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Format" data-es="Formato">Format</span>
+            <span class="meta-value" data-en="Hybrid" data-es="Híbrido">Hybrid</span>
+            <span class="meta-note" data-en="Zoom + in-person Caguas" data-es="Zoom + presencial Caguas">Zoom + in-person Caguas</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Cohort" data-es="Cohorte">Cohort</span>
+            <span class="meta-value">Max <em>6</em></span>
+            <span class="meta-note" data-en="Bilingual ES / EN" data-es="Bilingüe ES / EN">Bilingual ES / EN</span>
+          </div>
+        </div>
+
+        <p class="curriculum-eyebrow reveal" data-en="What you'll learn" data-es="Lo que aprenderás">What you'll learn</p>
+        <ol class="curriculum-list reveal-stagger">
+          <li class="curriculum-item">
+            <span class="curriculum-num">I.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Anatomy &amp; physiology</em> of the digestive system — from mouth to colon, with focus on the large intestine, ileocecal valve, and the enteric nervous system.</span>
+              <span data-lang="es"><em>Anatomía y fisiología</em> del sistema digestivo — desde la boca hasta el colon, con énfasis en el intestino grueso, la válvula ileocecal, y el sistema nervioso entérico.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">II.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Open-system technique</em> — equipment setup, water pressure, temperature, flow control, and step-by-step protocol for a full session.</span>
+              <span data-lang="es"><em>Técnica de sistema abierto</em> — montaje de equipo, presión de agua, temperatura, control de flujo, y protocolo paso a paso de una sesión completa.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">III.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Client intake &amp; contraindications</em> — health history, when to refer out, red flags, and how to hold a sovereign consultation.</span>
+              <span data-lang="es"><em>Admisión del cliente y contraindicaciones</em> — historial de salud, cuándo referir, señales de alarma, y cómo sostener una consulta soberana.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">IV.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Client energetics &amp; trauma-aware care</em> — creating a safe space, recognizing emotional release, language and presence during sessions.</span>
+              <span data-lang="es"><em>Energética del cliente y cuidado consciente del trauma</em> — crear un espacio seguro, reconocer la liberación emocional, lenguaje y presencia durante las sesiones.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">V.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Hands-on practice</em> — supervised sessions on real clients in the Caguas studio, with feedback and refinement from Tasha.</span>
+              <span data-lang="es"><em>Práctica supervisada</em> — sesiones con clientes reales en el estudio de Caguas, con retroalimentación y refinamiento de Tasha.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">VI.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Sanitation, safety &amp; equipment</em> — full disinfection protocols, single-use components, and how to maintain a professional treatment room.</span>
+              <span data-lang="es"><em>Sanitación, seguridad y equipo</em> — protocolos completos de desinfección, componentes desechables, y cómo mantener una sala de tratamiento profesional.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">VII.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Building your practice</em> — pricing, scheduling, ethics, and the business of being a hydrotherapist in Puerto Rico and beyond.</span>
+              <span data-lang="es"><em>Construyendo tu práctica</em> — precios, agenda, ética, y el negocio de ser hidroterapeuta en Puerto Rico y más allá.</span>
+            </div>
+          </li>
+        </ol>
+
+        <div class="course-includes reveal">
+          <p class="course-includes-label" data-en="Tuition includes" data-es="La matrícula incluye">Tuition includes</p>
+          <div class="course-includes-grid">
+            <div class="course-includes-item" data-en="Full digital training manual" data-es="Manual de formación digital">Full digital training manual</div>
+            <div class="course-includes-item" data-en="All live Zoom sessions" data-es="Todas las sesiones de Zoom">All live Zoom sessions</div>
+            <div class="course-includes-item" data-en="Hands-on practice in Caguas" data-es="Práctica presencial en Caguas">Hands-on practice in Caguas</div>
+            <div class="course-includes-item" data-en="Certificate of completion" data-es="Certificado de finalización">Certificate of completion</div>
+            <div class="course-includes-item" data-en="GPACT eligibility" data-es="Elegibilidad a GPACT">GPACT eligibility</div>
+            <div class="course-includes-item" data-en="Lifetime mentor access" data-es="Acceso de por vida a mentoría">Lifetime mentor access</div>
+          </div>
+        </div>
+
+        <div class="course-actions reveal">
+          <a href="contact.html#form" class="btn-ink btn-arrow">
+            <span data-en="Reserve your seat" data-es="Reserva tu plaza">Reserve your seat</span>
+            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27m%20interested%20in%20the%20Foundation%20Colon%20Hydrotherapy%20course." target="_blank" rel="noopener" class="btn-outline-ink" data-en="Ask Tasha" data-es="Pregunta a Tasha">Ask Tasha</a>
+        </div>
+      </div>
+
+      <div class="course-emblem-wrap reveal">
+        <span class="course-emblem-tag" data-en="GPACT Eligible" data-es="Avalado por GPACT">GPACT Eligible</span>
+        <div class="course-emblem">
+          <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g class="rotate-slow" fill="none" stroke="currentColor" stroke-width="0.6">
+              <circle cx="160" cy="160" r="155"/>
+              <circle cx="160" cy="160" r="125"/>
+            </g>
+            <g fill="none" stroke="currentColor" stroke-width="0.7">
+              <circle cx="160" cy="160" r="95"/>
+              <circle cx="160" cy="160" r="55"/>
+            </g>
+            <text x="160" y="35" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">FOUNDATION</text>
+            <text x="160" y="295" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">EST. 2016</text>
+            <g transform="translate(160 160)" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M0 -75 C 0 -38, -28 -23, -28 0 C -28 16, -13 30, 0 30 C 13 30, 28 16, 28 0 C 28 -23, 0 -38, 0 -75 Z"/>
+              <circle cx="0" cy="8" r="2.5" fill="currentColor"/>
+            </g>
+            <g class="pulse" transform="translate(160 160)">
+              <circle r="3" fill="currentColor"/>
+            </g>
+          </svg>
+        </div>
+        <span class="course-emblem-vertical">Caguas · 4 weeks</span>
+        <span class="course-emblem-num">№ 01</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE 02 — ADVANCED COLON HYDROTHERAPY -->
+<section class="course is-dark is-reversed" id="advanced">
+  <div class="course-bg-glow"></div>
+  <div class="course-inner">
+    <div class="course-grid">
+      <div class="course-content">
+        <p class="course-eyebrow reveal">
+          <span class="course-eyebrow-num">¶ 02</span>
+          <div class="course-eyebrow-line"></div>
+          <span data-en="For practicing therapists" data-es="Para terapeutas en práctica">For practicing therapists</span>
+        </p>
+        <h2 class="course-title reveal">
+          <span data-lang="en">Advanced Colon<br><em>Hydrotherapy.</em></span>
+          <span data-lang="es">Hidroterapia de Colon<br><em>Avanzada.</em></span>
+        </h2>
+        <p class="course-tagline reveal">
+          <span data-lang="en">For graduates and certified practitioners who want to <em>deepen the work</em> — refine technique, expand the energetic dimension, and integrate complementary modalities.</span>
+          <span data-lang="es">Para graduadas y profesionales certificadas que quieren <em>profundizar el trabajo</em> — refinar la técnica, expandir la dimensión energética, e integrar modalidades complementarias.</span>
+        </p>
+        <div class="course-desc reveal">
+          <p data-lang="en">A 40-hour intensive for hydrotherapists ready to move beyond the basics. We work with complex client cases, advanced energetic protocols, herbal and nutritional integration, and the subtle craft of holding deep emotional release in the treatment room.</p>
+          <p data-lang="es">Un intensivo de 40 horas para hidroterapeutas lista a ir más allá de lo fundamental. Trabajamos con casos complejos de clientes, protocolos energéticos avanzados, integración herbal y nutricional, y el arte sutil de sostener liberación emocional profunda en la sala de tratamiento.</p>
+          <p data-lang="en">Open to graduates of any accredited colon hydrotherapy program. Counts toward <em>continuing education hours</em> with GPACT and other certifying bodies.</p>
+          <p data-lang="es">Abierto a graduadas de cualquier programa acreditado de hidroterapia de colon. Cuenta como <em>horas de educación continua</em> con GPACT y otros cuerpos certificantes.</p>
+        </div>
+
+        <div class="course-meta reveal">
+          <div class="meta-block">
+            <span class="meta-label" data-en="Investment" data-es="Inversión">Investment</span>
+            <span class="meta-value">$2,222<em>.00</em></span>
+            <span class="meta-note" data-en="50% deposit reserves your seat" data-es="50% de depósito reserva tu plaza">50% deposit reserves your seat</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Duration" data-es="Duración">Duration</span>
+            <span class="meta-value" data-en="40 hours" data-es="40 horas">40 hours</span>
+            <span class="meta-note" data-en="Intensive · 2 weeks" data-es="Intensivo · 2 semanas">Intensive · 2 weeks</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Format" data-es="Formato">Format</span>
+            <span class="meta-value" data-en="Hybrid" data-es="Híbrido">Hybrid</span>
+            <span class="meta-note" data-en="Zoom + in-person Caguas" data-es="Zoom + presencial Caguas">Zoom + in-person Caguas</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Prerequisite" data-es="Prerequisito">Prerequisite</span>
+            <span class="meta-value" data-en="Foundation" data-es="Fundamental">Foundation</span>
+            <span class="meta-note" data-en="Or equivalent certification" data-es="O certificación equivalente">Or equivalent certification</span>
+          </div>
+        </div>
+
+        <p class="curriculum-eyebrow reveal" data-en="What you'll learn" data-es="Lo que aprenderás">What you'll learn</p>
+        <ol class="curriculum-list reveal-stagger">
+          <li class="curriculum-item">
+            <span class="curriculum-num">I.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Advanced case studies</em> — chronic constipation, post-cleanse protocols, IBS-D vs IBS-C, leaky gut, and clients on medications.</span>
+              <span data-lang="es"><em>Casos avanzados</em> — estreñimiento crónico, protocolos post-limpieza, SII-D vs SII-C, intestino permeable, y clientes con medicamentos.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">II.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Herbal &amp; nutritional integration</em> — implants, infusions, probiotic protocols, and personalized supplement plans for your clients.</span>
+              <span data-lang="es"><em>Integración herbal y nutricional</em> — implantes, infusiones, protocolos probióticos, y planes personalizados de suplementación para tus clientes.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">III.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Energetic protocols</em> — working with the chakra system, meridians, and emotional armor stored in the gut.</span>
+              <span data-lang="es"><em>Protocolos energéticos</em> — trabajando con el sistema de chakras, meridianos, y la armadura emocional almacenada en el intestino.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">IV.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Holding deep release</em> — what to do when emotional release happens mid-session, advanced trauma-aware language, and aftercare.</span>
+              <span data-lang="es"><em>Sosteniendo la liberación profunda</em> — qué hacer cuando ocurre liberación emocional durante la sesión, lenguaje avanzado consciente del trauma, y cuidado posterior.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">V.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Scaling your practice</em> — building a referral network, ethical pricing for advanced work, retreats, and one-to-many offerings.</span>
+              <span data-lang="es"><em>Escalando tu práctica</em> — construyendo una red de referidos, precios éticos para trabajo avanzado, retiros, y ofertas grupales.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">VI.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Mentorship hours</em> — supervised live sessions and one-on-one case review with Tasha.</span>
+              <span data-lang="es"><em>Horas de mentoría</em> — sesiones supervisadas en vivo y revisión de casos uno-a-uno con Tasha.</span>
+            </div>
+          </li>
+        </ol>
+
+        <div class="course-includes reveal">
+          <p class="course-includes-label" data-en="Tuition includes" data-es="La matrícula incluye">Tuition includes</p>
+          <div class="course-includes-grid">
+            <div class="course-includes-item" data-en="Advanced training manual" data-es="Manual de formación avanzada">Advanced training manual</div>
+            <div class="course-includes-item" data-en="40 hours of instruction" data-es="40 horas de instrucción">40 hours of instruction</div>
+            <div class="course-includes-item" data-en="Supervised case work" data-es="Trabajo de casos supervisado">Supervised case work</div>
+            <div class="course-includes-item" data-en="Certificate of advanced study" data-es="Certificado de estudios avanzados">Certificate of advanced study</div>
+            <div class="course-includes-item" data-en="GPACT CE hours" data-es="Horas de educación continua GPACT">GPACT CE hours</div>
+            <div class="course-includes-item" data-en="Lifetime mentor access" data-es="Acceso de por vida a mentoría">Lifetime mentor access</div>
+          </div>
+        </div>
+
+        <div class="course-actions reveal">
+          <a href="contact.html#form" class="btn-gold btn-arrow">
+            <span data-en="Reserve your seat" data-es="Reserva tu plaza">Reserve your seat</span>
+            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27m%20interested%20in%20the%20Advanced%20Colon%20Hydrotherapy%20course." target="_blank" rel="noopener" class="btn-outline-gold" data-en="Ask Tasha" data-es="Pregunta a Tasha">Ask Tasha</a>
+        </div>
+      </div>
+
+      <div class="course-emblem-wrap reveal">
+        <span class="course-emblem-tag" data-en="GPACT Eligible" data-es="Avalado por GPACT">GPACT Eligible</span>
+        <div class="course-emblem">
+          <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g class="rotate-reverse" fill="none" stroke="currentColor" stroke-width="0.6">
+              <circle cx="160" cy="160" r="155"/>
+              <polygon points="160,15 285,80 285,240 160,305 35,240 35,80" stroke-dasharray="2 6"/>
+            </g>
+            <g fill="none" stroke="currentColor" stroke-width="0.8">
+              <polygon points="160,55 245,105 245,215 160,265 75,215 75,105"/>
+              <polygon points="160,95 215,127 215,193 160,225 105,193 105,127"/>
+            </g>
+            <text x="160" y="35" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">ADVANCED</text>
+            <text x="160" y="295" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">40 HOURS</text>
+            <g transform="translate(160 160)" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M0 -50 L 25 -8 L 35 35 L 0 50 L -35 35 L -25 -8 Z"/>
+              <circle cx="0" cy="5" r="3" fill="currentColor"/>
+            </g>
+          </svg>
+        </div>
+        <span class="course-emblem-vertical">Mentor · 40 hrs</span>
+        <span class="course-emblem-num">№ 02</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE 03 — GUT HEALTH -->
+<section class="course is-light" id="gut">
+  <div class="course-bg-glow"></div>
+  <div class="course-inner">
+    <div class="course-grid">
+      <div class="course-content">
+        <p class="course-eyebrow reveal">
+          <span class="course-eyebrow-num">¶ 03</span>
+          <div class="course-eyebrow-line"></div>
+          <span data-en="Practitioner certification" data-es="Certificación profesional">Practitioner certification</span>
+        </p>
+        <h2 class="course-title reveal">
+          <span data-lang="en">Digestive Nutrition<br>&amp; <em>Gut Health.</em></span>
+          <span data-lang="es">Nutrición Digestiva<br>y <em>Salud Intestinal.</em></span>
+        </h2>
+        <p class="course-tagline reveal">
+          <span data-lang="en">Three days to understand the <em>second brain</em> — and how to guide clients toward true digestive vitality through food, herbs, and lifestyle.</span>
+          <span data-lang="es">Tres días para entender el <em>segundo cerebro</em> — y cómo guiar a clientes hacia verdadera vitalidad digestiva a través de comida, hierbas, y estilo de vida.</span>
+        </p>
+        <div class="course-desc reveal">
+          <p data-lang="en">Built for wellness coaches, nutritionists, hydrotherapists, and curious practitioners who want to add gut-health protocols to their toolbox. We cover the microbiome, food intolerances vs allergies, elimination protocols, healing herbs, and how to read the body's signals to design <em>personalized digestive care.</em></p>
+          <p data-lang="es">Diseñado para coaches de bienestar, nutricionistas, hidroterapeutas, y profesionales curiosas que quieren agregar protocolos de salud digestiva a su caja de herramientas. Cubrimos el microbioma, intolerancias vs alergias alimentarias, protocolos de eliminación, hierbas sanadoras, y cómo leer las señales del cuerpo para diseñar <em>cuidado digestivo personalizado.</em></p>
+        </div>
+
+        <div class="course-meta reveal">
+          <div class="meta-block">
+            <span class="meta-label" data-en="Investment" data-es="Inversión">Investment</span>
+            <span class="meta-value">$555<em>.00</em></span>
+            <span class="meta-note" data-en="Full payment or 50% deposit" data-es="Pago completo o 50% depósito">Full payment or 50% deposit</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Duration" data-es="Duración">Duration</span>
+            <span class="meta-value" data-en="3 days" data-es="3 días">3 days</span>
+            <span class="meta-note" data-en="Friday–Sunday intensive" data-es="Viernes–Domingo intensivo">Friday–Sunday intensive</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Format" data-es="Formato">Format</span>
+            <span class="meta-value" data-en="Hybrid" data-es="Híbrido">Hybrid</span>
+            <span class="meta-note" data-en="Zoom + optional in-person" data-es="Zoom + presencial opcional">Zoom + optional in-person</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Open to" data-es="Abierto a">Open to</span>
+            <span class="meta-value" data-en="All levels" data-es="Todos los niveles">All levels</span>
+            <span class="meta-note" data-en="No prerequisite" data-es="Sin prerequisito">No prerequisite</span>
+          </div>
+        </div>
+
+        <p class="curriculum-eyebrow reveal" data-en="What you'll learn" data-es="Lo que aprenderás">What you'll learn</p>
+        <ol class="curriculum-list reveal-stagger">
+          <li class="curriculum-item">
+            <span class="curriculum-num">I.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>The microbiome</em> — what it is, how it's built, and what destroys it. Probiotics, prebiotics, and postbiotics demystified.</span>
+              <span data-lang="es"><em>El microbioma</em> — qué es, cómo se construye, y qué lo destruye. Probióticos, prebióticos, y postbióticos desmitificados.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">II.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Reading the body</em> — tongue diagnosis, stool analysis (Bristol scale), bloating patterns, and what your client's symptoms are really saying.</span>
+              <span data-lang="es"><em>Leyendo el cuerpo</em> — diagnóstico de lengua, análisis de heces (escala de Bristol), patrones de inflamación, y lo que los síntomas de tu cliente realmente dicen.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">III.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Food intolerances &amp; elimination protocols</em> — gluten, dairy, nightshades, FODMAPs, and how to design an elimination plan without overwhelming the client.</span>
+              <span data-lang="es"><em>Intolerancias alimentarias y protocolos de eliminación</em> — gluten, lácteos, solanáceas, FODMAPs, y cómo diseñar un plan de eliminación sin abrumar al cliente.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">IV.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Healing herbs &amp; supplements</em> — slippery elm, marshmallow root, L-glutamine, digestive bitters, and Caribbean folk remedies.</span>
+              <span data-lang="es"><em>Hierbas y suplementos sanadores</em> — olmo resbaladizo, raíz de malvavisco, L-glutamina, amargos digestivos, y remedios populares caribeños.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">V.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Designing protocols</em> — building a 30/60/90-day plan, working with chronic conditions, and when to refer out.</span>
+              <span data-lang="es"><em>Diseñando protocolos</em> — construyendo un plan de 30/60/90 días, trabajando con condiciones crónicas, y cuándo referir.</span>
+            </div>
+          </li>
+        </ol>
+
+        <div class="course-includes reveal">
+          <p class="course-includes-label" data-en="Tuition includes" data-es="La matrícula incluye">Tuition includes</p>
+          <div class="course-includes-grid">
+            <div class="course-includes-item" data-en="Gut health protocol book" data-es="Libro de protocolos digestivos">Gut health protocol book</div>
+            <div class="course-includes-item" data-en="Recipe &amp; remedy library" data-es="Biblioteca de recetas y remedios">Recipe &amp; remedy library</div>
+            <div class="course-includes-item" data-en="Client intake templates" data-es="Plantillas de admisión">Client intake templates</div>
+            <div class="course-includes-item" data-en="Certificate of completion" data-es="Certificado de finalización">Certificate of completion</div>
+          </div>
+        </div>
+
+        <div class="course-actions reveal">
+          <a href="contact.html#form" class="btn-ink btn-arrow">
+            <span data-en="Reserve your seat" data-es="Reserva tu plaza">Reserve your seat</span>
+            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27m%20interested%20in%20the%20Gut%20Health%20course." target="_blank" rel="noopener" class="btn-outline-ink" data-en="Ask Tasha" data-es="Pregunta a Tasha">Ask Tasha</a>
+        </div>
+      </div>
+
+      <div class="course-emblem-wrap reveal">
+        <div class="course-emblem">
+          <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g class="rotate-slow" fill="none" stroke="currentColor" stroke-width="0.6">
+              <circle cx="160" cy="160" r="150"/>
+            </g>
+            <g fill="none" stroke="currentColor" stroke-width="0.8">
+              <path d="M160 50 C 100 80, 80 130, 110 160 C 140 190, 180 170, 200 190 C 220 210, 200 250, 160 260" stroke-linecap="round"/>
+              <path d="M160 50 C 220 80, 240 130, 210 160 C 180 190, 140 170, 120 190 C 100 210, 120 250, 160 260" stroke-linecap="round"/>
+              <circle cx="160" cy="50" r="4" fill="currentColor"/>
+              <circle cx="160" cy="260" r="4" fill="currentColor"/>
+              <circle cx="105" cy="155" r="3" fill="currentColor"/>
+              <circle cx="215" cy="155" r="3" fill="currentColor"/>
+              <circle cx="125" cy="195" r="3" fill="currentColor"/>
+              <circle cx="195" cy="195" r="3" fill="currentColor"/>
+            </g>
+            <text x="160" y="35" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">GUT HEALTH</text>
+            <text x="160" y="295" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">3 DAYS</text>
+          </svg>
+        </div>
+        <span class="course-emblem-vertical">The second brain</span>
+        <span class="course-emblem-num">№ 03</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE 04 — BIOMAGNETIC -->
+<section class="course is-dark is-reversed" id="biomagnetic">
+  <div class="course-bg-glow"></div>
+  <div class="course-inner">
+    <div class="course-grid">
+      <div class="course-content">
+        <p class="course-eyebrow reveal">
+          <span class="course-eyebrow-num">¶ 04</span>
+          <div class="course-eyebrow-line"></div>
+          <span data-en="Beginner certification" data-es="Certificación principiante">Beginner certification</span>
+        </p>
+        <h2 class="course-title reveal">
+          <span data-lang="en">Biomagnetic<br><em>Therapy.</em></span>
+          <span data-lang="es">Terapia<br><em>Biomagnética.</em></span>
+        </h2>
+        <p class="course-tagline reveal">
+          <span data-lang="en">Three to four days exploring the <em>therapeutic placement of magnets</em> on the body — a gentle, non-invasive modality with deep roots in integrative medicine.</span>
+          <span data-lang="es">De tres a cuatro días explorando la <em>colocación terapéutica de imanes</em> sobre el cuerpo — una modalidad gentil y no invasiva con raíces profundas en la medicina integrativa.</span>
+        </p>
+        <div class="course-desc reveal">
+          <p data-lang="en">Biomagnetic pair therapy works with the body's polarity to address inflammation, restore pH balance, and create the conditions for the immune system to do its work. You'll learn the foundational maps — where to place magnets and why — and how to integrate this modality into an existing practice.</p>
+          <p data-lang="es">La terapia biomagnética de pares trabaja con la polaridad del cuerpo para abordar inflamación, restaurar el balance de pH, y crear las condiciones para que el sistema inmunológico haga su trabajo. Aprenderás los mapas fundamentales — dónde colocar los imanes y por qué — y cómo integrar esta modalidad en una práctica existente.</p>
+          <p data-lang="en">Excellent as a <em>complementary modality</em> alongside hydrotherapy or as a standalone offering for clients seeking gentle, energetic-medicine approaches.</p>
+          <p data-lang="es">Excelente como <em>modalidad complementaria</em> junto a la hidroterapia o como oferta independiente para clientes que buscan enfoques gentiles de medicina energética.</p>
+        </div>
+
+        <div class="course-meta reveal">
+          <div class="meta-block">
+            <span class="meta-label" data-en="Investment" data-es="Inversión">Investment</span>
+            <span class="meta-value">$666<em>.00</em></span>
+            <span class="meta-note" data-en="Full payment or 50% deposit" data-es="Pago completo o 50% depósito">Full payment or 50% deposit</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Duration" data-es="Duración">Duration</span>
+            <span class="meta-value" data-en="3–4 days" data-es="3–4 días">3–4 days</span>
+            <span class="meta-note" data-en="Weekend intensive" data-es="Intensivo de fin de semana">Weekend intensive</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Format" data-es="Formato">Format</span>
+            <span class="meta-value" data-en="Hybrid" data-es="Híbrido">Hybrid</span>
+            <span class="meta-note" data-en="Zoom + in-person Caguas" data-es="Zoom + presencial Caguas">Zoom + in-person Caguas</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Open to" data-es="Abierto a">Open to</span>
+            <span class="meta-value" data-en="All levels" data-es="Todos los niveles">All levels</span>
+            <span class="meta-note" data-en="Beginner-friendly" data-es="Apto para principiantes">Beginner-friendly</span>
+          </div>
+        </div>
+
+        <p class="curriculum-eyebrow reveal" data-en="What you'll learn" data-es="Lo que aprenderás">What you'll learn</p>
+        <ol class="curriculum-list reveal-stagger">
+          <li class="curriculum-item">
+            <span class="curriculum-num">I.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>The history &amp; theory</em> — from Dr. Goiz Durán's foundational work to modern integrative applications.</span>
+              <span data-lang="es"><em>Historia y teoría</em> — desde el trabajo fundacional del Dr. Goiz Durán hasta aplicaciones integrativas modernas.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">II.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Biomagnetic pairs</em> — the body's pH map, polarity, and the foundational pairs every practitioner learns first.</span>
+              <span data-lang="es"><em>Pares biomagnéticos</em> — el mapa de pH del cuerpo, polaridad, y los pares fundamentales que toda profesional aprende primero.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">III.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Client assessment</em> — kinesiology basics, identifying imbalances, and pair selection.</span>
+              <span data-lang="es"><em>Evaluación del cliente</em> — fundamentos de kinesiología, identificación de desequilibrios, y selección de pares.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">IV.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Hands-on protocol</em> — full session structure, magnet placement, session length, and integration with other modalities.</span>
+              <span data-lang="es"><em>Protocolo práctico</em> — estructura completa de sesión, colocación de imanes, duración, e integración con otras modalidades.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">V.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Equipment &amp; setup</em> — choosing magnets, building your kit, and creating a professional treatment space.</span>
+              <span data-lang="es"><em>Equipo y montaje</em> — eligiendo imanes, construyendo tu kit, y creando un espacio de tratamiento profesional.</span>
+            </div>
+          </li>
+        </ol>
+
+        <div class="course-includes reveal">
+          <p class="course-includes-label" data-en="Tuition includes" data-es="La matrícula incluye">Tuition includes</p>
+          <div class="course-includes-grid">
+            <div class="course-includes-item" data-en="Biomagnetic pair atlas" data-es="Atlas de pares biomagnéticos">Biomagnetic pair atlas</div>
+            <div class="course-includes-item" data-en="Hands-on practice sessions" data-es="Sesiones de práctica supervisada">Hands-on practice sessions</div>
+            <div class="course-includes-item" data-en="Equipment sourcing guide" data-es="Guía para conseguir equipo">Equipment sourcing guide</div>
+            <div class="course-includes-item" data-en="Certificate of completion" data-es="Certificado de finalización">Certificate of completion</div>
+          </div>
+        </div>
+
+        <div class="course-actions reveal">
+          <a href="contact.html#form" class="btn-gold btn-arrow">
+            <span data-en="Reserve your seat" data-es="Reserva tu plaza">Reserve your seat</span>
+            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27m%20interested%20in%20the%20Biomagnetic%20Therapy%20course." target="_blank" rel="noopener" class="btn-outline-gold" data-en="Ask Tasha" data-es="Pregunta a Tasha">Ask Tasha</a>
+        </div>
+      </div>
+
+      <div class="course-emblem-wrap reveal">
+        <div class="course-emblem">
+          <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g class="rotate-slow" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.6">
+              <circle cx="160" cy="160" r="150"/>
+              <circle cx="160" cy="160" r="120" stroke-dasharray="3 7"/>
+            </g>
+            <!-- two magnetic poles arcs -->
+            <g fill="none" stroke="currentColor" stroke-width="1">
+              <path d="M160 60 Q 100 100, 100 160 Q 100 220, 160 260" />
+              <path d="M160 60 Q 220 100, 220 160 Q 220 220, 160 260" />
+              <path d="M160 90 Q 130 110, 130 160 Q 130 210, 160 230" stroke-dasharray="2 4"/>
+              <path d="M160 90 Q 190 110, 190 160 Q 190 210, 160 230" stroke-dasharray="2 4"/>
+            </g>
+            <g fill="currentColor">
+              <circle cx="160" cy="60" r="6"/>
+              <circle cx="160" cy="260" r="6"/>
+            </g>
+            <text x="100" y="165" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-style="italic" font-size="20">N</text>
+            <text x="220" y="165" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-style="italic" font-size="20">S</text>
+            <text x="160" y="35" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">BIOMAGNETIC</text>
+            <text x="160" y="295" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">POLARITY</text>
+          </svg>
+        </div>
+        <span class="course-emblem-vertical">Pair therapy</span>
+        <span class="course-emblem-num">№ 04</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE 05 — WOMB & YONI STEAMING -->
+<section class="course is-light" id="yoni">
+  <div class="course-bg-glow"></div>
+  <div class="course-inner">
+    <div class="course-grid">
+      <div class="course-content">
+        <p class="course-eyebrow reveal">
+          <span class="course-eyebrow-num">¶ 05</span>
+          <div class="course-eyebrow-line"></div>
+          <span data-en="Practitioner certification" data-es="Certificación profesional">Practitioner certification</span>
+        </p>
+        <h2 class="course-title reveal">
+          <span data-lang="en">Womb &amp; Yoni<br><em>Steaming.</em></span>
+          <span data-lang="es">Vaporización del<br>Útero y <em>Yoni.</em></span>
+        </h2>
+        <p class="course-tagline reveal">
+          <span data-lang="en">An ancient practice honored across cultures — taught here as a <em>sacred art</em> for women's wellness practitioners, doulas, and midwives.</span>
+          <span data-lang="es">Una práctica ancestral honrada por culturas alrededor del mundo — enseñada aquí como un <em>arte sagrado</em> para profesionales de bienestar femenino, doulas, y parteras.</span>
+        </p>
+        <div class="course-desc reveal">
+          <p data-lang="en">Yoni steaming, also called vaginal steaming or v-steam, is a traditional practice used in cultures from Korea to West Africa to the Caribbean to support menstrual health, postpartum recovery, hormonal balance, and fertility. This two-day certification teaches the practice with the reverence and clinical clarity it deserves.</p>
+          <p data-lang="es">La vaporización del yoni, también llamada vaporización vaginal o v-steam, es una práctica tradicional usada en culturas desde Corea hasta África Occidental y el Caribe para apoyar la salud menstrual, recuperación postparto, balance hormonal, y fertilidad. Esta certificación de dos días enseña la práctica con la reverencia y claridad clínica que merece.</p>
+          <p data-lang="en"><em>Open to all genders practicing women's health work</em>, with a focus on cultural respect, herbal literacy, and client safety.</p>
+          <p data-lang="es"><em>Abierto a profesionales de cualquier género que trabajan en salud femenina</em>, con énfasis en respeto cultural, alfabetización herbal, y seguridad del cliente.</p>
+        </div>
+
+        <div class="course-meta reveal">
+          <div class="meta-block">
+            <span class="meta-label" data-en="Investment" data-es="Inversión">Investment</span>
+            <span class="meta-value">$333<em>.00</em></span>
+            <span class="meta-note" data-en="Full payment or 50% deposit" data-es="Pago completo o 50% depósito">Full payment or 50% deposit</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Duration" data-es="Duración">Duration</span>
+            <span class="meta-value" data-en="2 days" data-es="2 días">2 days</span>
+            <span class="meta-note" data-en="Weekend intensive" data-es="Intensivo fin de semana">Weekend intensive</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Format" data-es="Formato">Format</span>
+            <span class="meta-value" data-en="Hybrid" data-es="Híbrido">Hybrid</span>
+            <span class="meta-note" data-en="Zoom + optional in-person" data-es="Zoom + presencial opcional">Zoom + optional in-person</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Open to" data-es="Abierto a">Open to</span>
+            <span class="meta-value" data-en="All levels" data-es="Todos los niveles">All levels</span>
+            <span class="meta-note" data-en="No prerequisite" data-es="Sin prerequisito">No prerequisite</span>
+          </div>
+        </div>
+
+        <p class="curriculum-eyebrow reveal" data-en="What you'll learn" data-es="Lo que aprenderás">What you'll learn</p>
+        <ol class="curriculum-list reveal-stagger">
+          <li class="curriculum-item">
+            <span class="curriculum-num">I.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Ancestral roots</em> — the cultural lineage of yoni steaming across Korea, West Africa, Latin America, and the Caribbean.</span>
+              <span data-lang="es"><em>Raíces ancestrales</em> — el linaje cultural de la vaporización del yoni en Corea, África Occidental, América Latina, y el Caribe.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">II.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Female reproductive anatomy</em> — uterus, cervix, ovaries, and the rhythms of the menstrual cycle.</span>
+              <span data-lang="es"><em>Anatomía reproductiva femenina</em> — útero, cérvix, ovarios, y los ritmos del ciclo menstrual.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">III.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Herbal formulations</em> — mugwort, rosemary, calendula, motherwort, and how to design a steam for menstrual health, postpartum, or fertility.</span>
+              <span data-lang="es"><em>Formulaciones herbales</em> — artemisa, romero, caléndula, agripalma, y cómo diseñar un baño para salud menstrual, postparto, o fertilidad.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">IV.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Contraindications &amp; safety</em> — pregnancy, IUDs, infections, sensitive tissue, and when to refer out.</span>
+              <span data-lang="es"><em>Contraindicaciones y seguridad</em> — embarazo, DIUs, infecciones, tejido sensible, y cuándo referir.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">V.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Holding the ritual</em> — creating sacred space, client communication, and the trauma-aware care this work requires.</span>
+              <span data-lang="es"><em>Sosteniendo el ritual</em> — creando espacio sagrado, comunicación con el cliente, y el cuidado consciente del trauma que requiere este trabajo.</span>
+            </div>
+          </li>
+        </ol>
+
+        <div class="course-includes reveal">
+          <p class="course-includes-label" data-en="Tuition includes" data-es="La matrícula incluye">Tuition includes</p>
+          <div class="course-includes-grid">
+            <div class="course-includes-item" data-en="Herbal formulation guide" data-es="Guía de formulación herbal">Herbal formulation guide</div>
+            <div class="course-includes-item" data-en="Client intake forms" data-es="Formularios de admisión">Client intake forms</div>
+            <div class="course-includes-item" data-en="Sacred ritual templates" data-es="Plantillas de ritual sagrado">Sacred ritual templates</div>
+            <div class="course-includes-item" data-en="Certificate of completion" data-es="Certificado de finalización">Certificate of completion</div>
+          </div>
+        </div>
+
+        <div class="course-actions reveal">
+          <a href="contact.html#form" class="btn-ink btn-arrow">
+            <span data-en="Reserve your seat" data-es="Reserva tu plaza">Reserve your seat</span>
+            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27m%20interested%20in%20the%20Womb%20%26%20Yoni%20Steaming%20course." target="_blank" rel="noopener" class="btn-outline-ink" data-en="Ask Tasha" data-es="Pregunta a Tasha">Ask Tasha</a>
+        </div>
+      </div>
+
+      <div class="course-emblem-wrap reveal">
+        <div class="course-emblem">
+          <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g class="rotate-slow" fill="none" stroke="currentColor" stroke-width="0.6" opacity="0.6">
+              <circle cx="160" cy="160" r="150" stroke-dasharray="2 5"/>
+            </g>
+            <!-- lotus petals -->
+            <g fill="none" stroke="currentColor" stroke-width="1" transform="translate(160 165)">
+              <path d="M0 -50 C -15 -30, -15 -10, 0 0 C 15 -10, 15 -30, 0 -50 Z"/>
+              <path d="M0 -50 C -15 -30, -15 -10, 0 0 C 15 -10, 15 -30, 0 -50 Z" transform="rotate(45)"/>
+              <path d="M0 -50 C -15 -30, -15 -10, 0 0 C 15 -10, 15 -30, 0 -50 Z" transform="rotate(90)"/>
+              <path d="M0 -50 C -15 -30, -15 -10, 0 0 C 15 -10, 15 -30, 0 -50 Z" transform="rotate(135)"/>
+              <path d="M0 -50 C -15 -30, -15 -10, 0 0 C 15 -10, 15 -30, 0 -50 Z" transform="rotate(180)"/>
+              <path d="M0 -50 C -15 -30, -15 -10, 0 0 C 15 -10, 15 -30, 0 -50 Z" transform="rotate(225)"/>
+              <path d="M0 -50 C -15 -30, -15 -10, 0 0 C 15 -10, 15 -30, 0 -50 Z" transform="rotate(270)"/>
+              <path d="M0 -50 C -15 -30, -15 -10, 0 0 C 15 -10, 15 -30, 0 -50 Z" transform="rotate(315)"/>
+              <circle r="8" fill="currentColor"/>
+              <circle r="20" stroke-dasharray="2 4"/>
+            </g>
+            <!-- steam wisps -->
+            <g fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.6">
+              <path class="pulse" d="M130 85 Q 135 70, 130 55 Q 125 40, 130 30"/>
+              <path class="pulse" d="M160 85 Q 165 70, 160 55 Q 155 40, 160 30" style="animation-delay: 0.5s"/>
+              <path class="pulse" d="M190 85 Q 195 70, 190 55 Q 185 40, 190 30" style="animation-delay: 1s"/>
+            </g>
+            <text x="160" y="295" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">SACRED STEAM</text>
+          </svg>
+        </div>
+        <span class="course-emblem-vertical">Sacred ritual</span>
+        <span class="course-emblem-num">№ 05</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE 06 — ION FOOT DETOX -->
+<section class="course is-dark is-reversed" id="ion">
+  <div class="course-bg-glow"></div>
+  <div class="course-inner">
+    <div class="course-grid">
+      <div class="course-content">
+        <p class="course-eyebrow reveal">
+          <span class="course-eyebrow-num">¶ 06</span>
+          <div class="course-eyebrow-line"></div>
+          <span data-en="Specialist certification" data-es="Certificación especialista">Specialist certification</span>
+        </p>
+        <h2 class="course-title reveal">
+          <span data-lang="en">Ion Foot Detox<br><em>Specialist.</em></span>
+          <span data-lang="es">Detox Iónico<br>de <em>Pies.</em></span>
+        </h2>
+        <p class="course-tagline reveal">
+          <span data-lang="en">An eight-hour intensive on the <em>gentlest entry point</em> to detox work — a complementary modality that pairs beautifully with hydrotherapy and gut health.</span>
+          <span data-lang="es">Un intensivo de ocho horas sobre el <em>punto de entrada más gentil</em> al trabajo de detoxificación — una modalidad complementaria que se empareja maravillosamente con hidroterapia y salud digestiva.</span>
+        </p>
+        <div class="course-desc reveal">
+          <p data-lang="en">Ion foot detox uses warm water, salt, and a low-voltage ionizing array to support the body's natural detoxification pathways through the feet — one of the body's most absorbent surface areas. It's a low-barrier service that clients can experience easily, making it ideal for first-time wellness visitors or as a complement to deeper protocols.</p>
+          <p data-lang="es">El detox iónico de pies usa agua tibia, sal, y un arreglo ionizante de bajo voltaje para apoyar las vías naturales de detoxificación del cuerpo a través de los pies — una de las superficies más absorbentes del cuerpo. Es un servicio de bajo umbral que los clientes pueden experimentar fácilmente, ideal para visitantes primerizos al bienestar o como complemento a protocolos más profundos.</p>
+        </div>
+
+        <div class="course-meta reveal">
+          <div class="meta-block">
+            <span class="meta-label" data-en="Investment" data-es="Inversión">Investment</span>
+            <span class="meta-value">$222<em>.00</em></span>
+            <span class="meta-note" data-en="Most accessible entry point" data-es="Punto de entrada más accesible">Most accessible entry point</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Duration" data-es="Duración">Duration</span>
+            <span class="meta-value" data-en="8 hours" data-es="8 horas">8 hours</span>
+            <span class="meta-note" data-en="One-day intensive" data-es="Intensivo de un día">One-day intensive</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Format" data-es="Formato">Format</span>
+            <span class="meta-value" data-en="Hybrid" data-es="Híbrido">Hybrid</span>
+            <span class="meta-note" data-en="Zoom + optional in-person" data-es="Zoom + presencial opcional">Zoom + optional in-person</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Open to" data-es="Abierto a">Open to</span>
+            <span class="meta-value" data-en="All levels" data-es="Todos los niveles">All levels</span>
+            <span class="meta-note" data-en="No prerequisite" data-es="Sin prerequisito">No prerequisite</span>
+          </div>
+        </div>
+
+        <p class="curriculum-eyebrow reveal" data-en="What you'll learn" data-es="Lo que aprenderás">What you'll learn</p>
+        <ol class="curriculum-list reveal-stagger">
+          <li class="curriculum-item">
+            <span class="curriculum-num">I.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>The science</em> — ionization, electrolytes, and what's actually happening in the water during a session.</span>
+              <span data-lang="es"><em>La ciencia</em> — ionización, electrolitos, y qué pasa realmente en el agua durante una sesión.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">II.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Equipment</em> — choosing a quality ion foot detox machine, maintenance, and array replacement.</span>
+              <span data-lang="es"><em>Equipo</em> — eligiendo una máquina de calidad, mantenimiento, y reemplazo del arreglo.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">III.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Session protocol</em> — client preparation, session duration, water observations, and how to interpret what you see.</span>
+              <span data-lang="es"><em>Protocolo de sesión</em> — preparación del cliente, duración, observaciones del agua, y cómo interpretar lo que ves.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">IV.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Integration</em> — adding ion foot detox to your menu, pairing with other services, and pricing.</span>
+              <span data-lang="es"><em>Integración</em> — agregando el detox iónico a tu menú, emparejando con otros servicios, y precios.</span>
+            </div>
+          </li>
+          <li class="curriculum-item">
+            <span class="curriculum-num">V.</span>
+            <div class="curriculum-text">
+              <span data-lang="en"><em>Marketing the modality</em> — how to talk about ion detox honestly, manage expectations, and build trust.</span>
+              <span data-lang="es"><em>Mercadeando la modalidad</em> — cómo hablar del detox iónico con honestidad, manejar expectativas, y construir confianza.</span>
+            </div>
+          </li>
+        </ol>
+
+        <div class="course-includes reveal">
+          <p class="course-includes-label" data-en="Tuition includes" data-es="La matrícula incluye">Tuition includes</p>
+          <div class="course-includes-grid">
+            <div class="course-includes-item" data-en="Specialist protocol manual" data-es="Manual de protocolo">Specialist protocol manual</div>
+            <div class="course-includes-item" data-en="Equipment sourcing guide" data-es="Guía para conseguir equipo">Equipment sourcing guide</div>
+            <div class="course-includes-item" data-en="Client communication scripts" data-es="Scripts de comunicación">Client communication scripts</div>
+            <div class="course-includes-item" data-en="Certificate of completion" data-es="Certificado de finalización">Certificate of completion</div>
+          </div>
+        </div>
+
+        <div class="course-actions reveal">
+          <a href="contact.html#form" class="btn-gold btn-arrow">
+            <span data-en="Reserve your seat" data-es="Reserva tu plaza">Reserve your seat</span>
+            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27m%20interested%20in%20the%20Ion%20Foot%20Detox%20course." target="_blank" rel="noopener" class="btn-outline-gold" data-en="Ask Tasha" data-es="Pregunta a Tasha">Ask Tasha</a>
+        </div>
+      </div>
+
+      <div class="course-emblem-wrap reveal">
+        <div class="course-emblem">
+          <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g class="rotate-slow" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5">
+              <circle cx="160" cy="160" r="150"/>
+              <circle cx="160" cy="160" r="120"/>
+            </g>
+            <!-- water ripple rings -->
+            <g fill="none" stroke="currentColor" stroke-width="0.7">
+              <circle cx="160" cy="170" r="90" class="pulse"/>
+              <circle cx="160" cy="170" r="70" class="pulse" style="animation-delay: 0.5s"/>
+              <circle cx="160" cy="170" r="50" class="pulse" style="animation-delay: 1s"/>
+              <circle cx="160" cy="170" r="30"/>
+            </g>
+            <!-- ion + and − signs -->
+            <g fill="currentColor" font-family="Cormorant Garamond" font-style="italic" font-size="18">
+              <text x="105" y="120" text-anchor="middle">+</text>
+              <text x="215" y="120" text-anchor="middle">−</text>
+              <text x="105" y="220" text-anchor="middle">−</text>
+              <text x="215" y="220" text-anchor="middle">+</text>
+            </g>
+            <circle cx="160" cy="170" r="4" fill="currentColor"/>
+            <text x="160" y="35" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">ION DETOX</text>
+            <text x="160" y="295" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">8 HOURS</text>
+          </svg>
+        </div>
+        <span class="course-emblem-vertical">Gentlest entry</span>
+        <span class="course-emblem-num">№ 06</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE TABLE -->
+<section class="compare">
+  <div class="compare-inner">
+    <div class="compare-header">
+      <p class="compare-eyebrow">
+        <span data-en="Quick reference" data-es="Referencia rápida">Quick reference</span>
+      </p>
+      <h2 class="compare-title">
+        <span data-lang="en">All six, <em>side by side.</em></span>
+        <span data-lang="es">Las seis, <em>lado a lado.</em></span>
+      </h2>
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th data-en="Certification" data-es="Certificación">Certification</th>
+          <th class="compare-hide-mobile" data-en="Duration" data-es="Duración">Duration</th>
+          <th data-en="Investment" data-es="Inversión">Investment</th>
+          <th class="compare-hide-mobile" data-en="GPACT" data-es="GPACT">GPACT</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <span class="course-name">
+              <span data-lang="en">Foundation Colon <em>Hydrotherapy</em></span>
+              <span data-lang="es">Hidroterapia de Colon <em>Fundamental</em></span>
+            </span>
+          </td>
+          <td class="compare-hide-mobile" data-en="4 weeks" data-es="4 semanas">4 weeks</td>
+          <td class="course-price">$3,333</td>
+          <td class="compare-hide-mobile"><span class="compare-tag-gpact" data-en="Eligible" data-es="Avalado">Eligible</span></td>
+          <td>
+            <a href="#foundation" class="compare-link">
+              <span data-en="Details" data-es="Detalles">Details</span>
+              <svg viewBox="0 0 24 24" width="12" height="12"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="course-name">
+              <span data-lang="en">Advanced Colon <em>Hydrotherapy</em></span>
+              <span data-lang="es">Hidroterapia de Colon <em>Avanzada</em></span>
+            </span>
+          </td>
+          <td class="compare-hide-mobile" data-en="40 hours" data-es="40 horas">40 hours</td>
+          <td class="course-price">$2,222</td>
+          <td class="compare-hide-mobile"><span class="compare-tag-gpact" data-en="CE Hours" data-es="Horas CE">CE Hours</span></td>
+          <td>
+            <a href="#advanced" class="compare-link">
+              <span data-en="Details" data-es="Detalles">Details</span>
+              <svg viewBox="0 0 24 24" width="12" height="12"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="course-name">
+              <span data-lang="en">Digestive Nutrition &amp; <em>Gut Health</em></span>
+              <span data-lang="es">Nutrición Digestiva y <em>Salud Intestinal</em></span>
+            </span>
+          </td>
+          <td class="compare-hide-mobile" data-en="3 days" data-es="3 días">3 days</td>
+          <td class="course-price">$555</td>
+          <td class="compare-hide-mobile" style="opacity: 0.4;">—</td>
+          <td>
+            <a href="#gut" class="compare-link">
+              <span data-en="Details" data-es="Detalles">Details</span>
+              <svg viewBox="0 0 24 24" width="12" height="12"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="course-name">
+              <span data-lang="en">Biomagnetic <em>Therapy</em></span>
+              <span data-lang="es">Terapia <em>Biomagnética</em></span>
+            </span>
+          </td>
+          <td class="compare-hide-mobile" data-en="3–4 days" data-es="3–4 días">3–4 days</td>
+          <td class="course-price">$666</td>
+          <td class="compare-hide-mobile" style="opacity: 0.4;">—</td>
+          <td>
+            <a href="#biomagnetic" class="compare-link">
+              <span data-en="Details" data-es="Detalles">Details</span>
+              <svg viewBox="0 0 24 24" width="12" height="12"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="course-name">
+              <span data-lang="en">Womb &amp; <em>Yoni Steaming</em></span>
+              <span data-lang="es">Vaporización del <em>Útero y Yoni</em></span>
+            </span>
+          </td>
+          <td class="compare-hide-mobile" data-en="2 days" data-es="2 días">2 days</td>
+          <td class="course-price">$333</td>
+          <td class="compare-hide-mobile" style="opacity: 0.4;">—</td>
+          <td>
+            <a href="#yoni" class="compare-link">
+              <span data-en="Details" data-es="Detalles">Details</span>
+              <svg viewBox="0 0 24 24" width="12" height="12"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <span class="course-name">
+              <span data-lang="en">Ion Foot Detox <em>Specialist</em></span>
+              <span data-lang="es">Especialista en <em>Detox Iónico</em></span>
+            </span>
+          </td>
+          <td class="compare-hide-mobile" data-en="8 hours" data-es="8 horas">8 hours</td>
+          <td class="course-price">$222</td>
+          <td class="compare-hide-mobile" style="opacity: 0.4;">—</td>
+          <td>
+            <a href="#ion" class="compare-link">
+              <span data-en="Details" data-es="Detalles">Details</span>
+              <svg viewBox="0 0 24 24" width="12" height="12"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- IMMERSION — hands-on stay package -->
+<section class="immersion">
+  <div class="immersion-inner">
+    <div class="immersion-grid">
+      <div class="immersion-photo reveal">
+        <span class="immersion-photo-tag" data-en="Add-on" data-es="Adicional">Add-on</span>
+        <img src="images/cohort.jpg" alt="Tasha Maria Soto with a graduating cohort of students at Salud Natural Wellness & Learning Center">
+        <div class="immersion-photo-num">№ 07</div>
+        <div class="immersion-photo-caption">
+          <div class="immersion-photo-caption-title">
+            <span data-lang="en">Cohort <em>VII.</em></span>
+            <span data-lang="es">Cohorte <em>VII.</em></span>
+          </div>
+          <div class="immersion-photo-caption-meta" data-en="Caguas · 2024" data-es="Caguas · 2024">Caguas · 2024</div>
+        </div>
+      </div>
+
+      <div class="immersion-content">
+        <p class="immersion-eyebrow reveal">
+          <span class="immersion-eyebrow-num">¶ 07</span>
+          <div class="immersion-eyebrow-line"></div>
+          <span data-en="The immersion package" data-es="El paquete inmersivo">The immersion package</span>
+        </p>
+        <h2 class="immersion-title reveal">
+          <span data-lang="en">Stay with <em>Tasha.</em></span>
+          <span data-lang="es">Quédate con <em>Tasha.</em></span>
+        </h2>
+        <p class="immersion-tagline reveal">
+          <span data-lang="en">For traveling students who want the <em>full immersion</em> — dorming, airport pickup, and four days of focused hands-on training.</span>
+          <span data-lang="es">Para estudiantes que viajan y quieren la <em>inmersión completa</em> — hospedaje, recogida en el aeropuerto, y cuatro días de práctica enfocada.</span>
+        </p>
+
+        <p class="immersion-desc reveal">
+          <span data-lang="en">An <em>optional add-on</em> for students enrolled in the hands-on portion of any certification. We pick you up from the airport, host you at the dorming space near the studio, and you train with Tasha daily for the duration of your in-person work.</span>
+          <span data-lang="es">Un <em>adicional opcional</em> para estudiantes inscritas en la porción práctica de cualquier certificación. Te recogemos en el aeropuerto, te hospedamos en el espacio de dorming cerca del estudio, y entrenas con Tasha diariamente durante tu trabajo presencial.</span>
+        </p>
+
+        <div class="immersion-features reveal-stagger">
+          <div class="immersion-feature">
+            <div class="immersion-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div class="immersion-feature-body">
+              <span class="immersion-feature-title">
+                <span data-lang="en">Dorming with <em>Tasha</em></span>
+                <span data-lang="es">Hospedaje con <em>Tasha</em></span>
+              </span>
+              <span class="immersion-feature-desc" data-en="A private room close to the studio in Caguas" data-es="Una habitación privada cerca del estudio en Caguas">A private room close to the studio in Caguas</span>
+            </div>
+            <span class="immersion-feature-meta" data-en="Included" data-es="Incluido">Included</span>
+          </div>
+
+          <div class="immersion-feature">
+            <div class="immersion-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2L16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+            </div>
+            <div class="immersion-feature-body">
+              <span class="immersion-feature-title">
+                <span data-lang="en">Airport <em>pickup</em></span>
+                <span data-lang="es">Recogida en <em>aeropuerto</em></span>
+              </span>
+              <span class="immersion-feature-desc" data-en="SJU to Caguas — door-to-door, both ways" data-es="SJU a Caguas — puerta a puerta, ida y vuelta">SJU to Caguas — door-to-door, both ways</span>
+            </div>
+            <span class="immersion-feature-meta" data-en="Included" data-es="Incluido">Included</span>
+          </div>
+
+          <div class="immersion-feature">
+            <div class="immersion-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><circle cx="17" cy="7" r="3"/><path d="M21 21v-2a3 3 0 00-2-2.8"/></svg>
+            </div>
+            <div class="immersion-feature-body">
+              <span class="immersion-feature-title">
+                <span data-lang="en">Up to <em>4 students</em> at a time</span>
+                <span data-lang="es">Hasta <em>4 estudiantes</em> a la vez</span>
+              </span>
+              <span class="immersion-feature-desc" data-en="Intimate, focused, never crowded" data-es="Íntimo, enfocado, nunca lleno">Intimate, focused, never crowded</span>
+            </div>
+            <span class="immersion-feature-meta" data-en="Capacity" data-es="Capacidad">Capacity</span>
+          </div>
+
+          <div class="immersion-feature">
+            <div class="immersion-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.2 16.2l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.2 7.8l2.8-2.8"/></svg>
+            </div>
+            <div class="immersion-feature-body">
+              <span class="immersion-feature-title">
+                <span data-lang="en">Hands-on <em>training</em> only</span>
+                <span data-lang="es">Solo formación <em>práctica</em></span>
+              </span>
+              <span class="immersion-feature-desc" data-en="Available with the in-person portion of any certification" data-es="Disponible con la porción presencial de cualquier certificación">Available with the in-person portion of any certification</span>
+            </div>
+            <span class="immersion-feature-meta" data-en="Add-on" data-es="Adicional">Add-on</span>
+          </div>
+        </div>
+
+        <div class="immersion-note reveal">
+          <p class="immersion-note-label" data-en="A note from Tasha" data-es="Una nota de Tasha">A note from Tasha</p>
+          <p>
+            <span data-lang="en">"This is for the students who want to be <em>fully immersed.</em> No commute, no distractions — just the training, the studio, and the work."</span>
+            <span data-lang="es">"Esto es para las estudiantes que quieren estar <em>totalmente inmersas.</em> Sin viaje, sin distracciones — solo la formación, el estudio, y el trabajo."</span>
+          </p>
+        </div>
+
+        <div class="immersion-actions reveal">
+          <a href="contact.html#form" class="btn-ink btn-arrow">
+            <span data-en="Ask about availability" data-es="Pregunta por disponibilidad">Ask about availability</span>
+            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20more%20info%20about%20the%20immersion%20package." target="_blank" rel="noopener" class="btn-outline-ink" data-en="Message Tasha" data-es="Mensaje a Tasha">Message Tasha</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-bg-glow"></div>
+  <div class="cta-inner">
+    <p class="cta-eyebrow reveal">
+      <span class="cta-eyebrow-line"></span>
+      <span data-en="Six paths. One door." data-es="Seis caminos. Una puerta.">Six paths. One door.</span>
+    </p>
+    <h2 class="cta-headline reveal">
+      <span data-lang="en">Begin<br><em>the work.</em></span>
+      <span data-lang="es">Comienza<br><em>el trabajo.</em></span>
+    </h2>
+    <div class="cta-actions reveal">
+      <a href="contact.html#form" class="btn-gold btn-arrow">
+        <span data-en="Reserve your seat" data-es="Reserva tu plaza">Reserve your seat</span>
+        <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20to%20enroll." target="_blank" rel="noopener" class="btn-outline-gold" data-en="Message Tasha" data-es="Mensaje a Tasha">Message Tasha</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg class="footer-mark" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M30 8 C 30 22, 18 28, 18 38 C 18 46, 23.5 52, 30 52 C 36.5 52, 42 46, 42 38 C 42 28, 30 22, 30 8 Z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <circle cx="30" cy="36" r="2" fill="currentColor"/>
+      </svg>
+      <p class="footer-name">Salud Natural<br><em>Wellness &amp; Learning Center</em></p>
+      <p class="footer-tag">
+        <span data-lang="en">The Caribbean's only naturopath-led holistic training center.</span>
+        <span data-lang="es">El único centro de formación holística del Caribe dirigido por una naturópata.</span>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Explore" data-es="Explorar">Explore</h4>
+      <ul>
+        <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a href="about.html" data-en="About Tasha" data-es="Sobre Tasha">About Tasha</a></li>
+        <li><a href="courses.html" data-en="All Courses" data-es="Todos los Cursos">All Courses</a></li>
+        <li><a href="services.html" data-en="Therapeutic Services" data-es="Servicios Terapéuticos">Therapeutic Services</a></li>
+        <li><a href="contact.html" data-en="Enroll" data-es="Inscríbete">Enroll</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Visit" data-es="Visita">Visit</h4>
+      <p>Bo Beatriz<br>Sector Las Piñas<br>Carr 1 KM .45<br>Caguas, PR 00725</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Connect" data-es="Conecta">Connect</h4>
+      <ul>
+        <li><a href="tel:+19394780105">939-478-0105</a></li>
+        <li><a href="mailto:saludnaturalwellnesscenter@gmail.com" data-en="Email" data-es="Correo">Email</a></li>
+        <li><a href="https://wa.me/19394780105" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://us.fullscript.com/welcome/tsoto" target="_blank" rel="noopener" data-en="Fullscript Dispensary" data-es="Dispensario Fullscript">Fullscript Dispensary</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <p data-lang="en">© 2025 Salud Natural Wellness &amp; Learning Center. A division of Salud Natural Wellness Center Inc.</p>
+    <p data-lang="es">© 2025 Salud Natural Wellness &amp; Learning Center. Una división de Salud Natural Wellness Center Inc.</p>
+    <p class="footer-credit">
+      <span data-en="Crafted by" data-es="Creado por">Crafted by</span>
+      <a href="#" target="_blank" rel="noopener">Lizardi Technologies</a>
+    </p>
+  </div>
+  <div class="footer-large" aria-hidden="true"><span>Salud Natural</span></div>
+  <p class="footer-disclaimer">
+    <span data-lang="en">The information contained on this website is not intended to diagnose, treat, cure or prevent any disease. Any statements have not been evaluated by the FDA.</span>
+    <span data-lang="es">La información contenida en este sitio web no tiene la intención de diagnosticar, tratar, curar o prevenir ninguna enfermedad. Las declaraciones no han sido evaluadas por la FDA.</span>
+  </p>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20to%20enroll%20in%20a%20certification%20program." target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp Tasha">
+  <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+(function() {
+  'use strict';
+
+  const loader = document.getElementById('loader');
+  function dismissLoader() { if (loader && !loader.classList.contains('is-hidden')) loader.classList.add('is-hidden'); }
+  window.addEventListener('load', () => setTimeout(dismissLoader, 2000));
+  setTimeout(dismissLoader, 3200);
+
+  // LANGUAGE TOGGLE
+  let langInitialized = false;
+  function applyLanguage(lang) {
+    const wasInitialized = langInitialized;
+    document.body.classList.toggle('is-es', lang === 'es');
+    document.documentElement.setAttribute('lang', lang);
+    const attrName = lang === 'es' ? 'data-es' : 'data-en';
+    document.querySelectorAll('[data-en][data-es]').forEach(el => {
+      const newText = el.getAttribute(attrName);
+      if (newText === null) return;
+      if (el.children.length === 0) {
+        el.textContent = newText;
+      } else {
+        for (const node of el.childNodes) {
+          if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+            node.textContent = newText;
+            return;
+          }
+        }
+      }
+    });
+    document.querySelectorAll('[data-lang-set]').forEach(btn => {
+      btn.classList.toggle('is-active', btn.getAttribute('data-lang-set') === lang);
+    });
+    if (wasInitialized) {
+      document.querySelectorAll('.page-hero-word[data-lang="' + lang + '"]').forEach(el => {
+        el.style.animation = 'none';
+        void el.offsetWidth;
+        el.style.animation = '';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    }
+    try { localStorage.setItem('snwlc-lang', lang); } catch (e) {}
+    langInitialized = true;
+  }
+  let initialLang = 'en';
+  try {
+    const stored = localStorage.getItem('snwlc-lang');
+    if (stored === 'es' || stored === 'en') initialLang = stored;
+  } catch (e) {}
+  applyLanguage(initialLang);
+  document.querySelectorAll('[data-lang-set]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      applyLanguage(btn.getAttribute('data-lang-set'));
+    });
+  });
+
+  // NAV SCROLL
+  const nav = document.getElementById('nav');
+  const jumpNav = document.getElementById('jumpNav');
+  const lightSections = document.querySelectorAll('.course.is-light, .compare-table');
+  function updateNav() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    if (scrollY > 80) nav.classList.add('is-scrolled');
+    else nav.classList.remove('is-scrolled');
+    if (scrollY > 200) jumpNav.classList.add('is-compact');
+    else jumpNav.classList.remove('is-compact');
+    if (!nav.classList.contains('is-scrolled')) {
+      let onLight = false;
+      lightSections.forEach(sec => {
+        const r = sec.getBoundingClientRect();
+        if (r.top < 60 && r.bottom > 60) onLight = true;
+      });
+      nav.classList.toggle('is-light', onLight);
+    } else { nav.classList.remove('is-light'); }
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+
+  // ACTIVE JUMP NAV LINK ON SCROLL
+  const courseSections = document.querySelectorAll('.course[id]');
+  const jumpLinks = document.querySelectorAll('.jump-nav-list a');
+  function updateActiveJump() {
+    let active = '';
+    const checkY = window.scrollY + 200;
+    courseSections.forEach(sec => {
+      if (sec.offsetTop <= checkY) active = sec.id;
+    });
+    jumpLinks.forEach(l => {
+      l.classList.toggle('is-active', l.getAttribute('href') === '#' + active);
+    });
+  }
+  window.addEventListener('scroll', updateActiveJump, { passive: true });
+  updateActiveJump();
+
+  // MOBILE MENU
+  const burger = document.getElementById('navBurger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('is-open');
+      mobileMenu.classList.toggle('is-open');
+      document.body.style.overflow = mobileMenu.classList.contains('is-open') ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.classList.remove('is-open');
+        mobileMenu.classList.remove('is-open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // REVEAL
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(el => obs.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
+
+  // Magnetic buttons
+  document.querySelectorAll('.btn-gold, .btn-outline-gold, .btn-ink, .btn-outline-ink, .nav-cta').forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      if (window.innerWidth < 1024) return;
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
+      const y = (e.clientY - rect.top - rect.height / 2) * 0.25;
+      el.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+  });
+})();
+</script>
+
+</body>
+</html>

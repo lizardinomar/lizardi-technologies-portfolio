@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Cpath d=%27M20 5 C 20 14, 13 17, 13 25 C 13 30, 16.5 34, 20 34 C 23.5 34, 27 30, 27 25 C 27 17, 20 14, 20 5 Z%27 fill=%27none%27 stroke=%27%23C9A961%27 stroke-width=%272%27/%3E%3Ccircle cx=%2720%27 cy=%2724%27 r=%271.5%27 fill=%27%23C9A961%27/%3E%3C/svg%3E">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Salud Natural Wellness &amp; Learning Center</title>
+<meta name="description" content="Wellness services with Naturopath Tasha Maria Soto — Frequency & Vibrational Wellness, AO Hub Mind Engagement, AO rTMS, AO Hydro2 Hydrogen. By appointment only. Caguas, Puerto Rico.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --onyx: #0E0F0C;
+  --onyx-deep: #07080A;
+  --onyx-soft: #1A1C18;
+  --ivory: #F5F0E6;
+  --ivory-deep: #ECE5D5;
+  --ivory-bright: #FBF8F0;
+  --emerald: #1A3A2E;
+  --emerald-deep: #0F2620;
+  --emerald-soft: #2A5044;
+  --gold: #C9A961;
+  --gold-bright: #E5C77A;
+  --gold-dark: #9A7F40;
+  --hairline-light: rgba(26, 58, 46, 0.15);
+  --hairline-dark: rgba(245, 240, 230, 0.12);
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --container: 1440px;
+  --gutter: clamp(1.5rem, 4vw, 5rem);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+*::selection { background: var(--gold); color: var(--onyx); }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; max-width: 100vw; }
+body { font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 1.55; color: var(--onyx); background: var(--ivory); overflow-x: hidden; max-width: 100vw; position: relative; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }
+ul, ol { list-style: none; }
+em { font-style: italic; font-family: var(--font-display); font-weight: 400; }
+
+/* LOADER */
+.loader { position: fixed; inset: 0; z-index: 1000; background: var(--onyx); color: var(--ivory); display: flex; align-items: center; justify-content: center; transition: clip-path 1.1s cubic-bezier(0.76, 0, 0.24, 1); clip-path: inset(0 0 0 0); }
+.loader.is-hidden { clip-path: inset(0 0 100% 0); pointer-events: none; }
+.loader-inner { text-align: center; max-width: 320px; }
+.loader-mark { width: 80px; height: 80px; margin: 0 auto 2rem; animation: loaderRise 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both; }
+.loader-mark svg { width: 100%; height: 100%; color: var(--gold); }
+@keyframes loaderRise { from { opacity: 0; transform: translateY(20px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.loader-text { font-family: var(--font-display); font-size: 1.8rem; font-weight: 300; letter-spacing: 0.02em; margin-bottom: 2rem; animation: loaderFade 0.9s ease-out 0.5s both; }
+.loader-text em { font-style: italic; color: var(--gold); }
+@keyframes loaderFade { from { opacity: 0; } to { opacity: 1; } }
+.loader-bar { width: 100%; height: 1px; background: rgba(245, 240, 230, 0.15); overflow: hidden; }
+.loader-bar-fill { height: 100%; background: linear-gradient(90deg, transparent, var(--gold), transparent); background-size: 200% 100%; transform-origin: left; transform: scaleX(0); animation: loaderBar 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s forwards, loaderShimmer 1.4s linear infinite; }
+@keyframes loaderBar { to { transform: scaleX(1); } }
+@keyframes loaderShimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.loader-caption { margin-top: 1.5rem; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); animation: loaderFade 0.9s ease-out 1.4s both; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem var(--gutter); transition: background 0.5s, padding 0.5s, border-color 0.5s; border-bottom: 1px solid transparent; color: var(--ivory); }
+.nav.is-light { color: var(--onyx); }
+.nav.is-scrolled { background: rgba(14, 15, 12, 0.85); backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); padding: 1rem var(--gutter); border-bottom-color: var(--hairline-dark); color: var(--ivory); }
+.nav-inner { max-width: var(--container); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+.nav-mark { width: 32px; height: 32px; color: var(--gold); transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1); }
+.nav-logo:hover .nav-mark { transform: rotate(180deg); }
+.nav-wordmark { display: flex; flex-direction: column; line-height: 1; }
+.nav-wordmark-line { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; letter-spacing: 0.01em; }
+.nav-wordmark-sub { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-top: 0.3rem; font-weight: 500; }
+.nav-links { display: flex; gap: 2rem; font-size: 0.82rem; letter-spacing: 0.04em; }
+.nav-links a { position: relative; padding: 0.5rem 0; transition: color 0.3s; }
+.nav-links a::before { content: ''; position: absolute; left: -0.5rem; top: 50%; width: 4px; height: 4px; background: var(--gold); border-radius: 50%; opacity: 0; transform: translate(-100%, -50%) scale(0.5); transition: all 0.4s cubic-bezier(0.7, 0, 0.3, 1); }
+.nav-links a:hover::before, .nav-links a.active::before { opacity: 1; transform: translate(-100%, -50%) scale(1); }
+.nav-links a.active { color: var(--gold); }
+.nav-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.4rem; border: 1px solid var(--gold); border-radius: 999px; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; color: var(--gold); transition: all 0.4s; position: relative; overflow: hidden; }
+.nav-cta::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateY(101%); transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1); }
+.nav-cta:hover { color: var(--onyx); }
+.nav-cta:hover::before { transform: translateY(0); }
+.nav-cta span, .nav-cta svg { position: relative; z-index: 1; }
+.nav-cta svg { transition: transform 0.4s; }
+.nav-cta:hover svg { transform: translateX(3px); }
+.nav-burger { display: none; flex-direction: column; gap: 6px; width: 28px; padding: 8px 0; }
+.nav-burger span { display: block; height: 1.5px; background: currentColor; transition: transform 0.4s; }
+.nav-burger.is-open span:nth-child(1) { transform: translateY(3.5px) rotate(45deg); }
+.nav-burger.is-open span:nth-child(2) { transform: translateY(-3px) rotate(-45deg); }
+
+.mobile-menu { position: fixed; inset: 0; z-index: 90; background: var(--onyx); color: var(--ivory); padding: 8rem var(--gutter) 3rem; display: flex; flex-direction: column; justify-content: space-between; clip-path: inset(0 0 100% 0); transition: clip-path 0.8s cubic-bezier(0.76, 0, 0.24, 1); pointer-events: none; }
+.mobile-menu.is-open { clip-path: inset(0 0 0 0); pointer-events: auto; }
+.mobile-menu ul { display: flex; flex-direction: column; gap: 1.5rem; }
+.mobile-menu ul a { font-family: var(--font-display); font-size: clamp(2.5rem, 10vw, 5rem); font-weight: 300; line-height: 1; display: block; }
+.mobile-menu ul em { color: var(--gold); }
+.mobile-menu-footer { font-size: 0.75rem; letter-spacing: 0.1em; opacity: 0.6; display: flex; justify-content: space-between; gap: 2rem; text-transform: uppercase; }
+
+/* BILINGUAL */
+[data-lang="es"] { display: none; }
+body.is-es [data-lang="es"] { display: revert; }
+body.is-es [data-lang="en"] { display: none; }
+.page-hero-word[data-lang="en"], .page-hero-word[data-lang="es"] { display: inline-block; }
+body.is-es .page-hero-word[data-lang="en"] { display: none; }
+body:not(.is-es) .page-hero-word[data-lang="es"] { display: none; }
+
+.lang-toggle { display: inline-flex; align-items: center; border: 1px solid rgba(201, 169, 97, 0.4); border-radius: 999px; padding: 0.35rem; margin-right: 1rem; }
+.lang-toggle button { background: transparent; border: none; font-family: var(--font-body); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; color: currentColor; padding: 0.35rem 0.8rem; border-radius: 999px; cursor: pointer; transition: background 0.4s, color 0.4s; opacity: 0.6; }
+.lang-toggle button.is-active { background: var(--gold); color: var(--onyx); opacity: 1; }
+.lang-toggle button:not(.is-active):hover { opacity: 1; color: var(--gold); }
+@media (max-width: 600px) { .lang-toggle { display: none; } }
+.mobile-lang-toggle { display: none; margin-top: 2rem; align-items: center; border: 1px solid rgba(201, 169, 97, 0.4); border-radius: 999px; padding: 0.4rem; width: fit-content; }
+@media (max-width: 600px) { .mobile-lang-toggle { display: inline-flex; } }
+.mobile-lang-toggle button { background: transparent; border: none; font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--ivory); padding: 0.5rem 1.2rem; border-radius: 999px; cursor: pointer; transition: background 0.4s, color 0.4s; opacity: 0.6; }
+.mobile-lang-toggle button.is-active { background: var(--gold); color: var(--onyx); opacity: 1; }
+
+/* PAGE HERO */
+.page-hero { position: relative; background: var(--onyx); color: var(--ivory); padding: 10rem var(--gutter) 5rem; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.page-hero-bg svg { position: absolute; opacity: 0.14; }
+.page-hero-bg .glyph { top: -15%; right: -5%; width: 55%; max-width: 700px; animation: glyphFloat 14s ease-in-out infinite; }
+@keyframes glyphFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(-3deg); } }
+.page-hero-bg .glow { position: absolute; top: 50%; left: 20%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 60%); transform: translate(-50%, -50%); animation: glowPulse 8s ease-in-out infinite; }
+@keyframes glowPulse { 0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); } }
+.page-hero-inner { position: relative; z-index: 2; max-width: var(--container); margin: 0 auto; }
+
+.crumb { display: flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 3rem; opacity: 0; animation: fadeUp 1s ease-out 1.4s forwards; }
+.crumb a { transition: color 0.3s; }
+.crumb a:hover { color: var(--gold-bright); }
+.crumb-sep { width: 30px; height: 1px; background: var(--gold); opacity: 0.5; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+.page-hero-title { font-family: var(--font-display); font-weight: 300; font-size: clamp(3.5rem, 10vw, 9rem); line-height: 0.9; letter-spacing: -0.03em; color: var(--ivory); max-width: 1100px; }
+.page-hero-title em { color: var(--gold); font-style: italic; position: relative; }
+.page-hero-title em::after { content: ''; position: absolute; bottom: 0.08em; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform: scaleX(0); transform-origin: left; animation: underline 1.5s cubic-bezier(0.2, 0.7, 0.2, 1) 2.5s forwards; }
+@keyframes underline { to { transform: scaleX(1); } }
+.page-hero-line { display: block; overflow: hidden; padding-bottom: 0.06em; }
+.page-hero-word { display: inline-block; transform: translateY(110%); opacity: 0; animation: heroWord 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+.page-hero-line:nth-child(1) .page-hero-word { animation-delay: 1.8s; }
+.page-hero-line:nth-child(2) .page-hero-word { animation-delay: 1.95s; }
+@keyframes heroWord { to { transform: translateY(0); opacity: 1; } }
+
+.page-hero-subtitle { font-family: var(--font-display); font-style: italic; font-size: clamp(1.2rem, 1.6vw, 1.5rem); line-height: 1.5; color: var(--ivory); opacity: 0.85; max-width: 640px; margin-top: 3rem; opacity: 0; animation: fadeUp 1s ease-out 2.5s forwards; }
+.page-hero-subtitle em { color: var(--gold); font-style: italic; }
+
+/* HERO ACTIONS */
+.page-hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 3rem; opacity: 0; animation: fadeUp 1s ease-out 2.8s forwards; }
+
+/* JUMP NAV */
+.jump-nav { padding: 2.5rem var(--gutter); background: var(--onyx-deep); border-top: 1px solid var(--hairline-dark); border-bottom: 1px solid var(--hairline-dark); position: sticky; top: 0; z-index: 50; transition: padding 0.4s; }
+.jump-nav.is-compact { padding: 1rem var(--gutter); }
+.jump-nav-inner { max-width: var(--container); margin: 0 auto; display: flex; align-items: center; gap: 2.5rem; }
+.jump-nav-label { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; white-space: nowrap; }
+.jump-nav-list { display: flex; gap: 0.5rem; overflow-x: auto; overflow-y: hidden; flex: 1 1 auto; min-width: 0; padding: 0.3rem 0; scrollbar-width: thin; scrollbar-color: rgba(201,169,97,0.3) transparent; -webkit-overflow-scrolling: touch; }
+.jump-nav-list::-webkit-scrollbar { height: 4px; }
+.jump-nav-list::-webkit-scrollbar-thumb { background: rgba(201,169,97,0.3); border-radius: 2px; }
+.jump-nav-list a { padding: 0.5rem 1rem; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; color: var(--ivory); opacity: 0.65; white-space: nowrap; border-radius: 999px; border: 1px solid transparent; transition: all 0.3s; flex-shrink: 0; }
+.jump-nav-list a:hover { opacity: 1; color: var(--gold); border-color: rgba(201,169,97,0.3); }
+.jump-nav-list a.is-active { background: var(--gold); color: var(--onyx); opacity: 1; border-color: var(--gold); }
+@media (max-width: 768px) { .jump-nav-label { display: none; } .jump-nav-inner { gap: 0; } }
+
+/* SERVICE SECTION */
+.service { padding: clamp(5rem, 9vw, 9rem) var(--gutter); position: relative; overflow: hidden; scroll-margin-top: 8rem; }
+.service.is-dark { background: var(--onyx); color: var(--ivory); }
+.service.is-light { background: var(--ivory); color: var(--emerald); }
+.service-inner { max-width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
+.service-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
+@media (max-width: 900px) { .service-grid { grid-template-columns: 1fr; gap: 3rem; } }
+.service.is-reversed .service-grid { direction: rtl; }
+.service.is-reversed .service-grid > * { direction: ltr; }
+@media (max-width: 900px) { .service.is-reversed .service-grid { direction: ltr; } }
+
+.service-bg-glow { position: absolute; pointer-events: none; }
+.service.is-dark .service-bg-glow { top: 50%; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(201, 169, 97, 0.08) 0%, transparent 60%); transform: translateY(-50%); }
+.service.is-light .service-bg-glow { top: -200px; left: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(26, 58, 46, 0.04) 0%, transparent 60%); }
+
+/* SERVICE EMBLEM */
+.service-emblem-wrap { position: sticky; top: 10rem; aspect-ratio: 1 / 1; border-radius: 2px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+@media (max-width: 900px) { .service-emblem-wrap { position: relative; top: 0; max-width: 480px; } }
+.service.is-dark .service-emblem-wrap { background: linear-gradient(135deg, var(--emerald-deep) 0%, var(--emerald) 100%); border: 1px solid var(--hairline-dark); }
+.service.is-light .service-emblem-wrap { background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-deep) 100%); border: 1px solid var(--hairline-light); }
+.service-emblem-wrap::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(201,169,97,0.25) 0%, transparent 65%), radial-gradient(ellipse at 30% 80%, rgba(201,169,97,0.12) 0%, transparent 50%); }
+.service-emblem-wrap::after { content: ''; position: absolute; top: 1.2rem; left: 1.2rem; right: 1.2rem; bottom: 1.2rem; border: 1px solid rgba(201, 169, 97, 0.25); pointer-events: none; }
+.service-emblem { position: relative; z-index: 1; width: 75%; max-width: 380px; color: var(--gold); }
+.service-emblem svg { width: 100%; height: 100%; display: block; }
+.service-emblem .rotate-slow { transform-origin: center; animation: emblemRotate 90s linear infinite; }
+@keyframes emblemRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.service-emblem .rotate-reverse { transform-origin: center; animation: emblemRotateRev 120s linear infinite; }
+@keyframes emblemRotateRev { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+.service-emblem .pulse { animation: emblemPulse 4s ease-in-out infinite; transform-origin: center; }
+@keyframes emblemPulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+.service-emblem .wave { animation: emblemWave 3s ease-in-out infinite; transform-origin: center; }
+@keyframes emblemWave { 0%, 100% { opacity: 0.3; transform: scale(1); } 50% { opacity: 1; transform: scale(1.05); } }
+
+.service-emblem-num { position: absolute; bottom: 2rem; left: 2rem; font-family: var(--font-display); font-style: italic; font-size: 1rem; color: var(--gold); z-index: 2; letter-spacing: 0.05em; }
+.service-emblem-tag { position: absolute; top: 2rem; right: 2rem; display: inline-flex; padding: 0.4rem 0.9rem; background: rgba(245, 240, 230, 0.95); color: var(--emerald); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; border-radius: 999px; z-index: 2; }
+.service-emblem-vertical { position: absolute; bottom: 2rem; right: -2.5rem; transform-origin: right top; transform: rotate(-90deg) translateY(100%); font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); white-space: nowrap; z-index: 2; opacity: 0.8; }
+
+/* SERVICE CONTENT */
+.service-eyebrow { display: flex; align-items: center; gap: 1.5rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; margin-bottom: 2rem; }
+.service.is-dark .service-eyebrow { color: var(--gold); }
+.service.is-light .service-eyebrow { color: var(--gold-dark); }
+.service-eyebrow-num { font-family: var(--font-display); font-style: italic; font-size: 1rem; letter-spacing: 0; }
+.service.is-dark .service-eyebrow-num { color: var(--gold); }
+.service.is-light .service-eyebrow-num { color: var(--emerald); }
+.service-eyebrow-line { width: 50px; height: 1px; background: currentColor; opacity: 0.6; }
+
+.service-title { font-family: var(--font-display); font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 300; line-height: 0.98; letter-spacing: -0.025em; margin-bottom: 1.5rem; }
+.service.is-dark .service-title { color: var(--ivory); }
+.service.is-light .service-title { color: var(--emerald); }
+.service-title em { font-style: italic; }
+.service.is-dark .service-title em { color: var(--gold); }
+.service.is-light .service-title em { color: var(--gold-dark); }
+
+.service-tagline { font-family: var(--font-display); font-style: italic; font-size: clamp(1.2rem, 1.6vw, 1.5rem); line-height: 1.45; margin-bottom: 2.5rem; max-width: 600px; }
+.service.is-dark .service-tagline { color: var(--ivory); opacity: 0.85; }
+.service.is-light .service-tagline { color: var(--emerald-soft); }
+.service-tagline em { font-style: italic; }
+.service.is-dark .service-tagline em { color: var(--gold); }
+.service.is-light .service-tagline em { color: var(--gold-dark); }
+
+.service-desc { font-size: 1rem; line-height: 1.75; max-width: 620px; margin-bottom: 3rem; }
+.service.is-dark .service-desc { color: var(--ivory); opacity: 0.85; }
+.service.is-light .service-desc { color: var(--emerald-soft); }
+.service-desc em { font-style: italic; }
+.service.is-dark .service-desc em { color: var(--gold); }
+.service.is-light .service-desc em { color: var(--gold-dark); }
+.service-desc p + p { margin-top: 1.2rem; }
+
+/* PRICING */
+.service-pricing { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-bottom: 3rem; max-width: 620px; }
+.service.is-dark .service-pricing { background: var(--hairline-dark); border: 1px solid var(--hairline-dark); }
+.service.is-light .service-pricing { background: var(--hairline-light); border: 1px solid var(--hairline-light); }
+.price-block { padding: 1.5rem 1.6rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.service.is-dark .price-block { background: var(--onyx); }
+.service.is-light .price-block { background: var(--ivory); }
+.price-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; }
+.service.is-dark .price-label { color: var(--gold); }
+.service.is-light .price-label { color: var(--gold-dark); }
+.price-value { font-family: var(--font-display); font-size: 2rem; font-weight: 500; line-height: 1; letter-spacing: -0.01em; }
+.service.is-dark .price-value { color: var(--ivory); }
+.service.is-light .price-value { color: var(--emerald); }
+.price-value em { font-style: italic; font-size: 0.7em; vertical-align: 0.2em; margin-left: 0.05em; }
+.service.is-dark .price-value em { color: var(--gold); }
+.service.is-light .price-value em { color: var(--gold-dark); }
+.price-note { font-size: 0.78rem; line-height: 1.4; }
+.service.is-dark .price-note { color: var(--ivory); opacity: 0.6; }
+.service.is-light .price-note { color: var(--emerald-soft); opacity: 0.8; }
+
+/* BENEFITS LIST */
+.benefits-eyebrow { display: flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; margin-bottom: 2rem; padding-top: 2rem; border-top: 1px solid; max-width: 620px; }
+.service.is-dark .benefits-eyebrow { color: var(--gold); border-top-color: var(--hairline-dark); }
+.service.is-light .benefits-eyebrow { color: var(--gold-dark); border-top-color: var(--hairline-light); }
+
+.benefits-list { display: flex; flex-direction: column; gap: 0; margin-bottom: 3rem; max-width: 620px; }
+.benefit-item { display: grid; grid-template-columns: auto 1fr; gap: 1.5rem; align-items: baseline; padding: 1.1rem 0; border-bottom: 1px solid; transition: padding-left 0.5s cubic-bezier(0.7, 0, 0.3, 1); position: relative; }
+.service.is-dark .benefit-item { border-bottom-color: var(--hairline-dark); }
+.service.is-light .benefit-item { border-bottom-color: var(--hairline-light); }
+.benefit-item::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--gold); transition: width 0.5s cubic-bezier(0.7, 0, 0.3, 1); }
+.benefit-item:hover { padding-left: 1rem; }
+.benefit-item:hover::before { width: 2px; }
+.benefit-mark { font-family: var(--font-display); font-style: italic; font-size: 0.95rem; line-height: 1; min-width: 2.2rem; }
+.service.is-dark .benefit-mark { color: var(--gold); }
+.service.is-light .benefit-mark { color: var(--gold-dark); }
+.benefit-text { font-size: 0.95rem; line-height: 1.55; }
+.service.is-dark .benefit-text { color: var(--ivory); opacity: 0.88; }
+.service.is-light .benefit-text { color: var(--emerald); }
+.benefit-text em { font-style: italic; }
+.service.is-dark .benefit-text em { color: var(--gold); }
+.service.is-light .benefit-text em { color: var(--gold-dark); }
+.benefit-text strong { font-weight: 500; font-family: var(--font-display); font-size: 1.1em; }
+
+.service-note { padding: 1.6rem 1.8rem; background: rgba(201, 169, 97, 0.08); border-left: 2px solid var(--gold); margin-bottom: 2.5rem; border-radius: 0 2px 2px 0; max-width: 620px; }
+.service.is-dark .service-note { background: rgba(201, 169, 97, 0.12); }
+.service-note-label { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; font-weight: 500; margin-bottom: 0.5rem; }
+.service.is-dark .service-note-label { color: var(--gold); }
+.service.is-light .service-note-label { color: var(--gold-dark); }
+.service-note p { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; line-height: 1.5; }
+.service.is-dark .service-note p { color: var(--ivory); }
+.service.is-light .service-note p { color: var(--emerald); }
+.service-note em { font-style: italic; }
+.service.is-dark .service-note em { color: var(--gold); }
+.service.is-light .service-note em { color: var(--gold-dark); }
+
+/* ACTIONS */
+.service-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem; }
+
+/* BUTTONS */
+.btn-gold, .btn-outline-gold, .btn-outline-ink, .btn-ink { display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1.1rem 1.8rem; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; border-radius: 999px; transition: color 0.5s, border-color 0.5s; position: relative; overflow: hidden; cursor: pointer; }
+.btn-gold { background: var(--gold); color: var(--onyx); border: 1px solid var(--gold); }
+.btn-gold::before { content: ''; position: absolute; inset: 0; background: var(--gold-bright); transform: translateY(101%); transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1); }
+.btn-gold:hover::before { transform: translateY(0); }
+.btn-gold > * { position: relative; z-index: 1; }
+.btn-outline-gold { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+.btn-outline-gold::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateY(101%); transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1); }
+.btn-outline-gold:hover { color: var(--onyx); }
+.btn-outline-gold:hover::before { transform: translateY(0); }
+.btn-outline-gold > * { position: relative; z-index: 1; }
+.btn-ink { background: var(--emerald); color: var(--ivory); border: 1px solid var(--emerald); }
+.btn-ink::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateY(101%); transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1); }
+.btn-ink:hover { color: var(--onyx); border-color: var(--gold); }
+.btn-ink:hover::before { transform: translateY(0); }
+.btn-ink > * { position: relative; z-index: 1; }
+.btn-outline-ink { background: transparent; color: var(--emerald); border: 1px solid var(--emerald); }
+.btn-outline-ink::before { content: ''; position: absolute; inset: 0; background: var(--emerald); transform: translateY(101%); transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1); }
+.btn-outline-ink:hover { color: var(--ivory); }
+.btn-outline-ink:hover::before { transform: translateY(0); }
+.btn-outline-ink > * { position: relative; z-index: 1; }
+.btn-arrow svg { transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1); }
+.btn-gold:hover .btn-arrow svg, .btn-outline-gold:hover .btn-arrow svg, .btn-ink:hover .btn-arrow svg, .btn-outline-ink:hover .btn-arrow svg { transform: translateX(4px); }
+
+/* FORMS SECTION */
+.forms { padding: 8rem var(--gutter); background: var(--ivory-deep); color: var(--emerald); position: relative; overflow: hidden; }
+.forms::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 60%); pointer-events: none; }
+.forms-inner { max-width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
+.forms-header { text-align: center; margin-bottom: 4rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+.forms-eyebrow { display: inline-flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); font-weight: 500; margin-bottom: 2rem; }
+.forms-eyebrow::before, .forms-eyebrow::after { content: ''; width: 30px; height: 1px; background: var(--gold); }
+.forms-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; line-height: 1; letter-spacing: -0.025em; color: var(--emerald); margin-bottom: 1.5rem; }
+.forms-title em { color: var(--gold-dark); font-style: italic; }
+.forms-subtitle { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; line-height: 1.5; color: var(--emerald-soft); }
+.forms-subtitle em { color: var(--gold-dark); font-style: italic; }
+
+.forms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.form-card { background: var(--ivory-bright); border: 1px solid var(--hairline-light); border-radius: 2px; padding: 2rem 2rem 1.8rem; display: flex; flex-direction: column; gap: 1rem; transition: border-color 0.4s, transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); position: relative; overflow: hidden; }
+.form-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform: translateX(-100%); transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1); }
+.form-card:hover { border-color: var(--gold); transform: translateY(-3px); }
+.form-card:hover::before { transform: translateX(100%); }
+.form-card-icon { width: 44px; height: 44px; border: 1px solid var(--hairline-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold-dark); transition: border-color 0.4s, background 0.4s; margin-bottom: 0.5rem; }
+.form-card:hover .form-card-icon { border-color: var(--gold); background: rgba(201, 169, 97, 0.08); }
+.form-card-icon svg { width: 20px; height: 20px; }
+.form-card-type { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-dark); font-weight: 500; }
+.form-card-title { font-family: var(--font-display); font-size: 1.4rem; line-height: 1.2; color: var(--emerald); letter-spacing: -0.005em; }
+.form-card-title em { color: var(--gold-dark); font-style: italic; }
+.form-card-desc { font-size: 0.85rem; line-height: 1.55; color: var(--emerald-soft); flex-grow: 1; }
+.form-card-actions { display: flex; gap: 0.6rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--hairline-light); flex-wrap: wrap; }
+.form-card-link { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 0.9rem; background: transparent; color: var(--emerald); border: 1px solid var(--hairline-light); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; border-radius: 999px; transition: all 0.3s; cursor: pointer; }
+.form-card-link:hover { border-color: var(--gold); color: var(--gold-dark); background: rgba(201,169,97,0.05); }
+.form-card-link.is-primary { background: var(--emerald); color: var(--gold); border-color: var(--emerald); }
+.form-card-link.is-primary:hover { background: var(--gold); color: var(--onyx); border-color: var(--gold); }
+.form-card-link svg { width: 11px; height: 11px; }
+
+/* DISCLAIMER STRIP */
+.disclaimer-strip { padding: 4rem var(--gutter); background: var(--onyx-deep); color: var(--ivory); border-top: 1px solid var(--hairline-dark); }
+.disclaimer-strip-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+.disclaimer-icon { width: 40px; height: 40px; margin: 0 auto 1.5rem; color: var(--gold); }
+.disclaimer-icon svg { width: 100%; height: 100%; }
+.disclaimer-label { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 1rem; }
+.disclaimer-text { font-family: var(--font-display); font-style: italic; font-size: clamp(1.05rem, 1.4vw, 1.3rem); line-height: 1.6; color: var(--ivory); opacity: 0.9; }
+.disclaimer-text em { color: var(--gold); font-style: italic; }
+
+/* CTA */
+.cta { background: var(--onyx); color: var(--ivory); padding: 10rem var(--gutter); text-align: center; position: relative; overflow: hidden; }
+.cta-bg-glow { position: absolute; top: 50%; left: 50%; width: 1000px; height: 1000px; background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 60%); transform: translate(-50%, -50%); pointer-events: none; animation: ctaGlow 8s ease-in-out infinite; }
+@keyframes ctaGlow { 0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); } }
+.cta-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-eyebrow { display: inline-flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 3rem; }
+.cta-eyebrow-line { width: 50px; height: 1px; background: var(--gold); }
+.cta-headline { font-family: var(--font-display); font-size: clamp(3.5rem, 10vw, 10rem); font-weight: 300; line-height: 0.92; letter-spacing: -0.04em; color: var(--ivory); margin-bottom: 2rem; }
+.cta-headline em { color: var(--gold); font-style: italic; position: relative; display: inline-block; }
+.cta-headline em::after { content: ''; position: absolute; bottom: 0.05em; left: 5%; right: 5%; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.cta-sub { font-family: var(--font-display); font-style: italic; font-size: 1.3rem; color: var(--ivory); opacity: 0.75; margin-bottom: 3rem; }
+.cta-sub em { color: var(--gold); font-style: italic; }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* FOOTER */
+.footer { background: var(--onyx-deep); color: var(--ivory); padding: 5rem var(--gutter) 2rem; position: relative; overflow: hidden; border-top: 1px solid var(--hairline-dark); }
+.footer-inner { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 4rem; position: relative; z-index: 1; }
+@media (max-width: 768px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+.footer-brand { display: flex; flex-direction: column; gap: 1.2rem; max-width: 320px; }
+.footer-mark { width: 48px; height: 48px; color: var(--gold); }
+.footer-name { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.2; color: var(--ivory); }
+.footer-name em { font-style: italic; font-size: 0.95rem; color: var(--gold); display: block; font-weight: 400; }
+.footer-tag { font-family: var(--font-display); font-style: italic; font-size: 0.95rem; line-height: 1.5; color: var(--ivory); opacity: 0.6; }
+.footer-col h4 { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; font-weight: 500; }
+.footer-col ul { display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col a, .footer-col p { font-size: 0.85rem; line-height: 1.6; color: var(--ivory); opacity: 0.7; transition: color 0.3s, opacity 0.3s; }
+.footer-col a:hover { color: var(--gold); opacity: 1; }
+.footer-bar { max-width: var(--container); margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--hairline-dark); display: flex; justify-content: space-between; font-size: 0.72rem; letter-spacing: 0.05em; color: var(--ivory); opacity: 0.5; position: relative; z-index: 1; flex-wrap: wrap; gap: 1rem; }
+.footer-credit a { color: var(--gold); opacity: 1; border-bottom: 1px solid var(--gold); padding-bottom: 1px; }
+.footer-large { position: absolute; bottom: -2rem; left: 0; right: 0; text-align: center; pointer-events: none; z-index: 0; overflow: hidden; }
+.footer-large span { font-family: var(--font-display); font-size: clamp(6rem, 22vw, 20rem); font-weight: 300; line-height: 0.8; letter-spacing: -0.04em; color: transparent; -webkit-text-stroke: 1px rgba(201, 169, 97, 0.15); font-style: italic; }
+.footer-disclaimer { max-width: var(--container); margin: 3rem auto 0; font-size: 0.68rem; line-height: 1.5; color: var(--ivory); opacity: 0.4; text-align: center; position: relative; z-index: 1; font-style: italic; }
+
+/* WhatsApp */
+.whatsapp-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background: var(--emerald); color: var(--gold); display: flex; align-items: center; justify-content: center; border-radius: 50%; z-index: 80; transition: background 0.4s, transform 0.5s cubic-bezier(0.7, 0, 0.3, 1), box-shadow 0.4s; box-shadow: 0 4px 24px rgba(14, 15, 12, 0.3); }
+.whatsapp-float::before { content: ''; position: absolute; inset: -4px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0; transform: scale(0.95); transition: all 0.4s; }
+.whatsapp-float:hover { background: var(--gold); color: var(--emerald); transform: scale(1.08); box-shadow: 0 8px 32px rgba(201, 169, 97, 0.4); }
+.whatsapp-float:hover::before { opacity: 1; transform: scale(1.15); }
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 1.1s cubic-bezier(0.2, 0.7, 0.2, 1), transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-stagger > * { opacity: 0; transform: translateY(32px); transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.07s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.14s; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.21s; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.28s; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.35s; }
+.reveal-stagger.is-visible > *:nth-child(7) { transition-delay: 0.42s; }
+.reveal-stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) { .nav-wordmark-sub { display: none; } .nav-wordmark-line { font-size: 1.1rem; } }
+@media (max-width: 768px) { .nav-links, .nav-cta { display: none; } .nav-burger { display: flex; } .page-hero { padding-top: 7rem; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } .reveal, .reveal-stagger > * { opacity: 1; transform: none; } }
+
+/* ANDROID/FIREFOX SAFETY RULES */
+* { min-width: 0; }
+h1, h2, h3, h4, h5, h6, .page-hero-title, .cta-headline, .service-title, .forms-title { overflow-wrap: anywhere; word-break: break-word; hyphens: auto; }
+img, svg, video, iframe { max-width: 100%; }
+@media (max-width: 480px) {
+  .page-hero-title, .cta-headline { font-size: clamp(2.5rem, 12vw, 4rem) !important; }
+}
+.jump-nav-list, .forms-grid, .nav-burger { min-width: initial; }
+.jump-nav-list a, .form-card { flex-shrink: 0; }
+
+
+/* ─── MERGED THERAPIES/SERVICES CSS ─── */
+#packages, #addons, #fyi, .mod-intro { scroll-margin-top: 8rem; }
+.mod-intro { padding: clamp(5rem, 9vw, 8rem) var(--gutter) 2rem; background: var(--ivory); }
+.mod-intro-inner { max-width: var(--container); margin: 0 auto; }
+.pkg-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+@media (max-width: 1100px) { .pkg-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 720px) { .pkg-grid, .tx-grid { grid-template-columns: 1fr; } }
+.pkg .tx-sub, .tx .tx-sub { max-width: 740px; }
+.fyi { padding: clamp(5rem, 9vw, 8rem) var(--gutter); background: var(--ivory-deep); color: var(--emerald); }
+.fyi-inner { max-width: var(--container); margin: 0 auto; }
+.fyi-lead { font-size: clamp(1.02rem, 1.2vw, 1.18rem); line-height: 1.7; color: rgba(14,15,12,0.72); margin-top: 1.5rem; max-width: 700px; }
+.fyi-lead em { font-family: var(--font-display); font-style: italic; color: var(--emerald); }
+.fyi-list { margin-top: 3rem; display: flex; flex-direction: column; border-top: 1px solid var(--hairline-light); }
+.fyi-body { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+.fyi-body li { position: relative; padding-left: 1.4rem; font-size: 0.95rem; line-height: 1.6; color: rgba(14,15,12,0.78); }
+.fyi-body li::before { content: ''; position: absolute; left: 0; top: 0.65em; width: 6px; height: 6px; border: 1px solid var(--gold-dark); border-radius: 50%; }
+
+.faq { padding: 8rem var(--gutter); background: var(--ivory); color: var(--emerald); }
+.faq-inner { max-width: var(--container); margin: 0 auto; }
+.faq-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start; }
+@media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr; gap: 3rem; } }
+.faq-side { position: sticky; top: 7rem; }
+@media (max-width: 900px) { .faq-side { position: relative; top: 0; } }
+.faq-eyebrow { display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-dark); font-weight: 500; }
+.faq-eyebrow-num { font-family: var(--font-display); font-style: italic; font-size: 1.6rem; color: var(--emerald); letter-spacing: 0; }
+.faq-eyebrow-line { width: 60px; height: 1px; background: var(--gold); margin-top: 0.5rem; }
+.faq-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; line-height: 1; letter-spacing: -0.025em; color: var(--emerald); margin-top: 2rem; }
+.faq-title em { color: var(--gold-dark); font-style: italic; }
+.faq-sub { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; line-height: 1.5; color: var(--emerald-soft); margin-top: 1.5rem; max-width: 320px; }
+.faq-list { display: flex; flex-direction: column; border-top: 1px solid var(--hairline-light); }
+.faq-item { border-bottom: 1px solid var(--hairline-light); }
+.faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 1.8rem 0; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.7rem); font-weight: 400; line-height: 1.25; color: var(--emerald); transition: color 0.4s, padding-left 0.5s cubic-bezier(0.7, 0, 0.3, 1); position: relative; letter-spacing: -0.005em; }
+.faq-question::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--gold); transition: width 0.5s cubic-bezier(0.7, 0, 0.3, 1); }
+.faq-item.is-open .faq-question::before, .faq-question:hover::before { width: 3px; }
+.faq-item.is-open .faq-question, .faq-question:hover { padding-left: 1.2rem; color: var(--gold-dark); }
+.faq-question em { color: var(--gold-dark); font-style: italic; }
+.faq-icon { width: 32px; height: 32px; border: 1px solid var(--emerald); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--emerald); flex-shrink: 0; transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1); }
+.faq-item.is-open .faq-icon { background: var(--gold); border-color: var(--gold); color: var(--emerald); transform: rotate(180deg); }
+.faq-icon svg { transition: transform 0.4s; }
+.faq-item.is-open .faq-icon svg { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.7, 0, 0.3, 1); }
+.faq-item.is-open .faq-answer { max-height: 600px; }
+.faq-answer-inner { padding: 0 0 2rem 1.2rem; font-size: 0.98rem; line-height: 1.75; color: var(--emerald-soft); max-width: 700px; }
+.faq-answer-inner em { color: var(--gold-dark); font-style: italic; }
+.faq-answer-inner strong { font-weight: 500; color: var(--emerald); }
+
+/* CTA */
+.cta { background: var(--onyx); color: var(--ivory); padding: 10rem var(--gutter); text-align: center; position: relative; overflow: hidden; }
+.cta-bg-glow { position: absolute; top: 50%; left: 50%; width: 1000px; height: 1000px; background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 60%); transform: translate(-50%, -50%); pointer-events: none; animation: ctaGlow 8s ease-in-out infinite; }
+@keyframes ctaGlow { 0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); } }
+.cta-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-eyebrow { display: inline-flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 3rem; }
+.cta-eyebrow-line { width: 50px; height: 1px; background: var(--gold); }
+.cta-headline { font-family: var(--font-display); font-size: clamp(3.5rem, 10vw, 10rem); font-weight: 300; line-height: 0.92; letter-spacing: -0.04em; color: var(--ivory); margin-bottom: 4rem; }
+.cta-headline em { color: var(--gold); font-style: italic; position: relative; display: inline-block; }
+.cta-headline em::after { content: ''; position: absolute; bottom: 0.05em; left: 5%; right: 5%; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* FOOTER */
+.footer { background: var(--onyx-deep); color: var(--ivory); padding: 5rem var(--gutter) 2rem; position: relative; overflow: hidden; border-top: 1px solid var(--hairline-dark); }
+.footer-inner { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 4rem; position: relative; z-index: 1; }
+@media (max-width: 768px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+.footer-brand { display: flex; flex-direction: column; gap: 1.2rem; max-width: 320px; }
+.footer-mark { width: 48px; height: 48px; color: var(--gold); }
+.footer-name { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.2; color: var(--ivory); }
+.footer-name em { font-style: italic; font-size: 0.95rem; color: var(--gold); display: block; font-weight: 400; }
+.footer-tag { font-family: var(--font-display); font-style: italic; font-size: 0.95rem; line-height: 1.5; color: var(--ivory); opacity: 0.6; }
+.footer-col h4 { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; font-weight: 500; }
+.footer-col ul { display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col a, .footer-col p { font-size: 0.85rem; line-height: 1.6; color: var(--ivory); opacity: 0.7; transition: color 0.3s, opacity 0.3s; }
+.footer-col a:hover { color: var(--gold); opacity: 1; }
+.footer-bar { max-width: var(--container); margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--hairline-dark); display: flex; justify-content: space-between; font-size: 0.72rem; letter-spacing: 0.05em; color: var(--ivory); opacity: 0.5; position: relative; z-index: 1; flex-wrap: wrap; gap: 1rem; }
+.footer-credit a { color: var(--gold); opacity: 1; border-bottom: 1px solid var(--gold); padding-bottom: 1px; }
+.footer-large { position: absolute; bottom: -2rem; left: 0; right: 0; text-align: center; pointer-events: none; z-index: 0; overflow: hidden; }
+.footer-large span { font-family: var(--font-display); font-size: clamp(6rem, 22vw, 20rem); font-weight: 300; line-height: 0.8; letter-spacing: -0.04em; color: transparent; -webkit-text-stroke: 1px rgba(201, 169, 97, 0.15); font-style: italic; }
+.footer-disclaimer { max-width: var(--container); margin: 3rem auto 0; font-size: 0.68rem; line-height: 1.5; color: var(--ivory); opacity: 0.4; text-align: center; position: relative; z-index: 1; font-style: italic; }
+
+/* WhatsApp */
+.whatsapp-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background: var(--emerald); color: var(--gold); display: flex; align-items: center; justify-content: center; border-radius: 50%; z-index: 80; transition: background 0.4s, transform 0.5s cubic-bezier(0.7, 0, 0.3, 1), box-shadow 0.4s; box-shadow: 0 4px 24px rgba(14, 15, 12, 0.3); }
+.whatsapp-float::before { content: ''; position: absolute; inset: -4px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0; transform: scale(0.95); transition: all 0.4s; }
+.whatsapp-float:hover { background: var(--gold); color: var(--emerald); transform: scale(1.08); box-shadow: 0 8px 32px rgba(201, 169, 97, 0.4); }
+.whatsapp-float:hover::before { opacity: 1; transform: scale(1.15); }
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 1.1s cubic-bezier(0.2, 0.7, 0.2, 1), transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-stagger > * { opacity: 0; transform: translateY(32px); transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.1s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.2s; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.3s; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.4s; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.5s; }
+.reveal-stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) { .nav-wordmark-sub { display: none; } .nav-wordmark-line { font-size: 1.1rem; } }
+@media (max-width: 768px) { .nav-links, .nav-cta { display: none; } .nav-burger { display: flex; } .page-hero { padding-top: 7rem; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } .reveal, .reveal-stagger > * { opacity: 1; transform: none; } }
+
+
+/* ANDROID/FIREFOX SAFETY RULES */
+* { min-width: 0; }
+.hero-headline, .page-hero-title, .cta-headline, .course-title, .immersion-title, .programs-title, .featured-title, .compare-title, .credentials-title, .testimonials-title, .space-title, .story-title, .differ-quote, .form-side-title, .payments-title, .visit-title, .faq-title, .steps-title { overflow-wrap: anywhere; word-break: break-word; hyphens: auto; }
+img, svg, video, iframe { max-width: 100%; }
+@media (max-width: 480px) {
+  .hero-headline, .page-hero-title, .cta-headline { font-size: clamp(2.5rem, 12vw, 4rem) !important; }
+}
+
+
+/* =========================================================
+   THERAPIES PAGE
+   ========================================================= */
+
+/* Separation banner — distinguishes therapy practice from training school */
+.sep { background: var(--emerald-deep); color: var(--ivory); position: relative; overflow: hidden; }
+.sep::before { content: ''; position: absolute; inset: 0; background:
+  radial-gradient(circle at 85% 20%, rgba(201,169,97,0.10), transparent 45%); pointer-events: none; }
+.sep-inner { max-width: var(--container); margin: 0 auto; padding: clamp(3.5rem, 7vw, 6rem) var(--gutter); position: relative;
+  display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+@media (max-width: 860px) { .sep-inner { grid-template-columns: 1fr; gap: 2rem; } }
+.sep-tag { display: inline-flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+.sep-tag-line { width: 40px; height: 1px; background: var(--gold); }
+.sep-head { font-family: var(--font-display); font-weight: 300; font-size: clamp(2rem, 4.2vw, 3.4rem); line-height: 1.05; margin-top: 1.4rem; letter-spacing: -0.01em; }
+.sep-head em { color: var(--gold); }
+.sep-body { font-size: clamp(1rem, 1.15vw, 1.12rem); line-height: 1.7; color: rgba(245,240,230,0.82); }
+.sep-body p + p { margin-top: 1.1rem; }
+.sep-body strong { color: var(--ivory); font-weight: 500; }
+.sep-link { display: inline-flex; align-items: center; gap: 0.6rem; margin-top: 1.8rem; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 500; transition: gap 0.4s, color 0.3s; }
+.sep-link:hover { gap: 1rem; color: var(--gold-bright); }
+.sep-link svg { transition: transform 0.4s; }
+.sep-link:hover svg { transform: translateX(3px); }
+
+/* Section shell reused for light therapy sections */
+.tx { background: var(--ivory); color: var(--onyx); position: relative; }
+.tx-inner { max-width: var(--container); margin: 0 auto; padding: clamp(4rem, 9vw, 8rem) var(--gutter); position: relative; }
+.tx-header { max-width: 780px; margin-bottom: clamp(3rem, 5vw, 4.5rem); }
+.tx-eyebrow { display: flex; align-items: center; gap: 1.2rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-dark); font-weight: 500; margin-bottom: 1.6rem; }
+.tx-eyebrow-num { font-family: var(--font-display); font-style: italic; font-size: 1.6rem; color: var(--emerald); letter-spacing: 0; }
+.tx-eyebrow-line { width: 60px; height: 1px; background: var(--gold); }
+.tx-title { font-family: var(--font-display); font-weight: 300; font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1.02; letter-spacing: -0.015em; color: var(--emerald); }
+.tx-title em { color: var(--gold-dark); }
+.tx-sub { font-size: clamp(1.02rem, 1.2vw, 1.18rem); line-height: 1.7; color: rgba(14,15,12,0.72); margin-top: 1.5rem; max-width: 640px; }
+.tx-sub em { font-family: var(--font-display); font-style: italic; color: var(--emerald); }
+
+/* Add-on therapy cards */
+.tx-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+@media (max-width: 780px) { .tx-grid { grid-template-columns: 1fr; } }
+.tx-card { background: var(--ivory-bright); border: 1px solid var(--hairline-light); border-radius: 3px; padding: clamp(1.8rem, 2.6vw, 2.6rem); position: relative; overflow: hidden; transition: transform 0.6s cubic-bezier(0.2,0.7,0.2,1), border-color 0.5s, box-shadow 0.6s; }
+.tx-card::after { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--gold), transparent); transform: scaleY(0); transform-origin: top; transition: transform 0.6s cubic-bezier(0.7,0,0.3,1); }
+.tx-card:hover { transform: translateY(-4px); border-color: rgba(201,169,97,0.5); box-shadow: 0 24px 50px -30px rgba(26,58,46,0.4); }
+.tx-card:hover::after { transform: scaleY(1); }
+.tx-card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; border-bottom: 1px solid var(--hairline-light); padding-bottom: 1.2rem; margin-bottom: 1.2rem; }
+.tx-name { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.4rem, 2.1vw, 1.85rem); line-height: 1.1; color: var(--emerald); letter-spacing: -0.01em; }
+.tx-name small { display: block; font-family: var(--font-body); font-weight: 500; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-dark); margin-top: 0.6rem; }
+.tx-price { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.5rem, 2.4vw, 2rem); color: var(--onyx); white-space: nowrap; }
+.tx-price sup { font-size: 0.55em; top: -0.7em; color: var(--gold-dark); }
+.tx-desc { font-size: 0.95rem; line-height: 1.65; color: rgba(14,15,12,0.75); }
+.tx-benefits { margin-top: 1.2rem; display: flex; flex-direction: column; gap: 0.6rem; }
+.tx-benefits li { position: relative; padding-left: 1.4rem; font-size: 0.88rem; line-height: 1.5; color: rgba(14,15,12,0.7); }
+.tx-benefits li::before { content: ''; position: absolute; left: 0; top: 0.5em; width: 6px; height: 6px; border: 1px solid var(--gold-dark); border-radius: 50%; }
+
+.tx-foot { margin-top: 3rem; display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; align-items: center; justify-content: space-between; padding-top: 2rem; border-top: 1px solid var(--hairline-light); }
+.tx-disclaimer { font-size: 0.82rem; line-height: 1.6; color: rgba(14,15,12,0.55); font-style: italic; max-width: 620px; }
+.tx-note { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); font-weight: 500; }
+
+/* Packages — dark world */
+.pkg { background: var(--onyx); color: var(--ivory); position: relative; }
+.pkg-inner { max-width: var(--container); margin: 0 auto; padding: clamp(4rem, 9vw, 8rem) var(--gutter); position: relative; }
+.pkg .tx-eyebrow { color: var(--gold); }
+.pkg .tx-eyebrow-num { color: var(--gold-bright); }
+.pkg .tx-title { color: var(--ivory); }
+.pkg .tx-title em { color: var(--gold); }
+.pkg .tx-sub { color: rgba(245,240,230,0.75); }
+.pkg .tx-sub em { color: var(--gold); }
+.pkg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+@media (max-width: 1024px) { .pkg-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 680px) { .pkg-grid { grid-template-columns: 1fr; } }
+.pkg-card { border: 1px solid var(--hairline-dark); border-radius: 3px; padding: clamp(1.8rem, 2.4vw, 2.4rem); display: flex; flex-direction: column; position: relative; overflow: hidden; background: linear-gradient(180deg, rgba(42,80,68,0.14), rgba(26,28,24,0.0)); transition: transform 0.6s cubic-bezier(0.2,0.7,0.2,1), border-color 0.5s, background 0.6s; }
+.pkg-card:hover { transform: translateY(-5px); border-color: rgba(201,169,97,0.55); background: linear-gradient(180deg, rgba(42,80,68,0.26), rgba(26,28,24,0.0)); }
+.pkg-card.is-feature { border-color: rgba(201,169,97,0.4); background: linear-gradient(180deg, rgba(42,80,68,0.3), rgba(26,28,24,0.05)); }
+.pkg-badge { position: absolute; top: 1.4rem; right: 1.4rem; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--onyx); background: var(--gold); padding: 0.4rem 0.7rem; border-radius: 999px; font-weight: 600; }
+.pkg-card-top { padding-bottom: 1.3rem; margin-bottom: 1.3rem; border-bottom: 1px solid var(--hairline-dark); }
+.pkg-name { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.5rem, 2.2vw, 1.95rem); line-height: 1.08; color: var(--ivory); letter-spacing: -0.01em; padding-right: 3rem; }
+.pkg-price { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.7rem, 2.6vw, 2.3rem); color: var(--gold); margin-top: 0.9rem; }
+.pkg-price sup { font-size: 0.5em; top: -0.8em; opacity: 0.7; }
+.pkg-desc { font-size: 0.92rem; line-height: 1.6; color: rgba(245,240,230,0.7); }
+.pkg-incl-label { font-size: 0.64rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin: 1.5rem 0 1rem; }
+.pkg-incl { display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 1.8rem; }
+.pkg-incl li { position: relative; padding-left: 1.7rem; font-size: 0.9rem; line-height: 1.45; color: rgba(245,240,230,0.85); }
+.pkg-incl li::before { content: ''; position: absolute; left: 0; top: 0.15em; width: 12px; height: 8px; border-left: 1.5px solid var(--gold); border-bottom: 1.5px solid var(--gold); transform: rotate(-45deg); }
+.pkg-incl li.pkg-choice { color: var(--gold-bright); font-style: italic; font-family: var(--font-display); font-size: 1rem; }
+.pkg-cta { margin-top: auto; }
+.pkg-cta a { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 500; padding: 0.9rem 0; border-top: 1px solid var(--hairline-dark); width: 100%; transition: gap 0.4s, color 0.3s; }
+.pkg-cta a:hover { gap: 1rem; color: var(--gold-bright); }
+.pkg-note { margin-top: 2.5rem; font-size: 0.85rem; line-height: 1.6; color: rgba(245,240,230,0.55); font-style: italic; text-align: center; }
+
+/* FYI — before / after / policies */
+.fyi { background: var(--ivory-deep); color: var(--onyx); position: relative; }
+.fyi-inner { max-width: 980px; margin: 0 auto; padding: clamp(4rem, 9vw, 8rem) var(--gutter); position: relative; }
+.fyi-lead { font-size: clamp(1.02rem, 1.2vw, 1.18rem); line-height: 1.7; color: rgba(14,15,12,0.72); margin-top: 1.5rem; max-width: 680px; }
+.fyi-list { margin-top: clamp(2.5rem, 4vw, 3.5rem); border-top: 1px solid var(--hairline-light); }
+.fyi-body { columns: 2; column-gap: 3rem; padding: 0.5rem 0 2rem; }
+@media (max-width: 680px) { .fyi-body { columns: 1; } }
+.fyi-body li { break-inside: avoid; position: relative; padding-left: 1.5rem; margin-bottom: 0.9rem; font-size: 0.92rem; line-height: 1.55; color: rgba(14,15,12,0.78); }
+.fyi-body li::before { content: ''; position: absolute; left: 0; top: 0.55em; width: 6px; height: 6px; background: var(--gold-dark); border-radius: 50%; }
+.fyi-body li strong { color: var(--emerald); font-weight: 600; }
+
+/* Booking CTA */
+.book { background: var(--emerald); color: var(--ivory); position: relative; overflow: hidden; text-align: center; }
+.book::before { content: ''; position: absolute; inset: 0; background:
+  radial-gradient(circle at 50% 120%, rgba(201,169,97,0.18), transparent 55%); pointer-events: none; }
+.book-inner { max-width: 760px; margin: 0 auto; padding: clamp(4.5rem, 10vw, 9rem) var(--gutter); position: relative; }
+.book-eyebrow { display: inline-flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 2.2rem; }
+.book-eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+.book-title { font-family: var(--font-display); font-weight: 300; font-size: clamp(2.4rem, 6vw, 4.6rem); line-height: 1.02; letter-spacing: -0.02em; }
+.book-title em { color: var(--gold); }
+.book-sub { font-size: clamp(1.05rem, 1.3vw, 1.25rem); line-height: 1.65; color: rgba(245,240,230,0.82); margin: 1.6rem auto 0; max-width: 520px; }
+.book-sub em { font-family: var(--font-display); font-style: italic; color: var(--gold-bright); }
+.book-actions { margin-top: 2.8rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+.book-meta { margin-top: 2.4rem; display: flex; flex-wrap: wrap; gap: 0.7rem 2rem; justify-content: center; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,240,230,0.6); font-weight: 500; }
+.book-meta span { display: inline-flex; align-items: center; gap: 0.6rem; }
+.book-meta span::before { content: ''; width: 4px; height: 4px; background: var(--gold); border-radius: 50%; }
+.btn-gold-solid { display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1.1rem 2rem; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; border-radius: 999px; background: var(--gold); color: var(--onyx); border: 1px solid var(--gold); transition: transform 0.5s cubic-bezier(0.2,0.7,0.2,1), background 0.4s, box-shadow 0.4s; }
+.btn-gold-solid:hover { background: var(--gold-bright); box-shadow: 0 12px 34px -12px rgba(201,169,97,0.6); }
+.btn-gold-solid svg { transition: transform 0.4s; }
+.btn-gold-solid:hover svg { transform: translateX(3px); }
+
+/* FYI accordions hold longer lists than the site default 600px */
+.fyi .faq-item.is-open .faq-answer { max-height: 1600px; }
+.fyi .faq-answer-inner { max-width: 100%; padding-bottom: 1.5rem; }
+
+
+
+/* ─── END MERGED ─── */
+
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-mark">
+      <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="40" cy="40" r="38" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+        <path d="M40 10 C 40 28, 25 35, 25 50 C 25 60, 32 67, 40 67 C 48 67, 55 60, 55 50 C 55 35, 40 28, 40 10 Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="40" cy="48" r="3" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="loader-text"><span>Salud</span> <em>Natural</em></div>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    <div class="loader-caption" data-en="Wellness services" data-es="Servicios de bienestar">Wellness services</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Salud Natural home">
+      <svg class="nav-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 5 C 20 14, 13 17, 13 25 C 13 30, 16.5 34, 20 34 C 23.5 34, 27 30, 27 25 C 27 17, 20 14, 20 5 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="20" cy="24" r="1.5" fill="currentColor"/>
+      </svg>
+      <span class="nav-wordmark">
+        <span class="nav-wordmark-line">Salud Natural</span>
+        <span class="nav-wordmark-sub">Wellness &amp; Learning Center</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="about.html" data-en="About" data-es="Sobre">About</a></li>
+      <li><a href="courses.html" data-en="Courses" data-es="Cursos">Courses</a></li>
+      <li><a href="services.html" class="active" data-en="Therapeutic Services" data-es="Servicios Terapéuticos">Therapeutic Services</a></li>
+      <li><a href="contact.html" data-en="Enroll" data-es="Inscríbete">Enroll</a></li>
+    </ul>
+    <div class="lang-toggle" role="group" aria-label="Language toggle">
+      <button type="button" data-lang-set="en" class="is-active">EN</button>
+      <button type="button" data-lang-set="es">ES</button>
+    </div>
+    <a href="https://wa.me/19394780105" target="_blank" rel="noopener" class="nav-cta">
+      <span>WhatsApp</span>
+      <svg viewBox="0 0 24 24" width="13" height="13"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+    <li><a href="about.html" data-en="About" data-es="Sobre">About</a></li>
+    <li><a href="courses.html" data-en="Courses" data-es="Cursos">Courses</a></li>
+    <li><a href="services.html"><em data-en="Therapeutic Services" data-es="Servicios Terapéuticos">Therapeutic Services</em></a></li>
+    <li><a href="contact.html" data-en="Enroll" data-es="Inscríbete">Enroll</a></li>
+    <li><a href="https://wa.me/19394780105" target="_blank" rel="noopener">WhatsApp →</a></li>
+  </ul>
+  <div class="mobile-lang-toggle" role="group" aria-label="Language toggle">
+    <button type="button" data-lang-set="en" class="is-active">English</button>
+    <button type="button" data-lang-set="es">Español</button>
+  </div>
+  <div class="mobile-menu-footer">
+    <p>Caguas · Puerto Rico</p>
+    <p>939-478-0105</p>
+  </div>
+</div>
+
+<main>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg" aria-hidden="true">
+    <div class="glow"></div>
+    <svg class="glyph" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#C9A961" stroke-width="0.6" opacity="0.9">
+        <circle cx="300" cy="300" r="290"/>
+        <circle cx="300" cy="300" r="230"/>
+        <circle cx="300" cy="300" r="170"/>
+        <circle cx="300" cy="300" r="110"/>
+        <path d="M300 10 L 300 590 M 10 300 L 590 300" stroke-dasharray="2 6"/>
+        <circle cx="300" cy="300" r="4" fill="#C9A961"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="page-hero-inner">
+    <div class="crumb">
+      <a href="index.html">Salud Natural</a>
+      <span class="crumb-sep"></span>
+      <span data-en="Services" data-es="Servicios">Services</span>
+    </div>
+
+    <h1 class="page-hero-title">
+      <span class="page-hero-line">
+        <span class="page-hero-word" data-lang="en">Therapeutic</span>
+        <span class="page-hero-word" data-lang="es">Servicios</span>
+      </span>
+      <span class="page-hero-line">
+        <span class="page-hero-word" data-lang="en"><em>services.</em></span>
+        <span class="page-hero-word" data-lang="es"><em>terapéuticos.</em></span>
+      </span>
+    </h1>
+
+    <p class="page-hero-subtitle">
+      <span data-lang="en">Wellness packages, signature modalities, and individual add-on therapies offered by <em>Naturopath Tasha Maria Soto</em>. By appointment only, in Caguas.</span>
+      <span data-lang="es">Paquetes de bienestar, modalidades principales, y terapias individuales ofrecidas por la <em>Naturópata Tasha Maria Soto</em>. Solo por cita previa, en Caguas.</span>
+    </p>
+
+    <div class="page-hero-actions">
+      <a href="#book" class="btn-gold btn-arrow">
+        <span data-en="Request to book" data-es="Solicitar cita">Request to book</span>
+        <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#forms" class="btn-outline-gold" data-en="Intake forms" data-es="Formularios">Intake forms</a>
+    </div>
+  </div>
+</section>
+
+<!-- JUMP NAV -->
+<nav class="jump-nav" id="jumpNav" aria-label="Services navigation">
+  <div class="jump-nav-inner">
+    <span class="jump-nav-label" data-en="Jump to" data-es="Ir a">Jump to</span>
+    <div class="jump-nav-list">
+      <a href="#packages" data-en="Packages" data-es="Paquetes">Packages</a>
+      <a href="#frequency" data-en="Frequency" data-es="Frecuencia">Frequency</a>
+      <a href="#mind" data-en="Mind Engagement" data-es="Mind Engagement">Mind Engagement</a>
+      <a href="#rtms" data-en="AO rTMS" data-es="AO rTMS">AO rTMS</a>
+      <a href="#hydro" data-en="Hydro2" data-es="Hydro2">Hydro2</a>
+      <a href="#addons" data-en="Add-ons" data-es="Complementos">Add-ons</a>
+      <a href="#fyi" data-en="FYI" data-es="Info">FYI</a>
+      <a href="#forms" data-en="Forms" data-es="Formularios">Forms</a>
+      <a href="#book" data-en="Book" data-es="Reservar">Book</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PACKAGES -->
+<section class="pkg" id="packages">
+  <div class="pkg-inner">
+    <div class="tx-header">
+      <div class="tx-eyebrow reveal">
+        <span class="tx-eyebrow-num">¶ 01</span>
+        <span data-en="Wellness packages" data-es="Paquetes de bienestar">Wellness packages</span>
+        <span class="tx-eyebrow-line"></span>
+      </div>
+      <h2 class="tx-title reveal">
+        <span data-lang="en">Curated to work <em>in harmony.</em></span>
+        <span data-lang="es">Diseñados para trabajar <em>en armonía.</em></span>
+      </h2>
+      <p class="tx-sub reveal">
+        <span data-lang="en">Save more and experience more. Each package brings together complementary therapies for a deeper, more complete healing experience.</span>
+        <span data-lang="es">Ahorra más y experimenta más. Cada paquete reúne terapias complementarias para una experiencia de sanación más profunda y completa.</span>
+      </p>
+    </div>
+
+    <div class="pkg-grid reveal-stagger">
+
+      <article class="pkg-card is-feature">
+        <span class="pkg-badge" data-en="Signature" data-es="Insignia">Signature</span>
+        <div class="pkg-card-top">
+          <h3 class="pkg-name">The Ultimate Detox Package</h3>
+          <div class="pkg-price"><sup>$</sup>166</div>
+        </div>
+        <p class="pkg-desc">
+          <span data-lang="en">A whole-body detox designed to release what no longer serves you — our most powerful cleansing therapies in one comprehensive session.</span>
+          <span data-lang="es">Una desintoxicación de cuerpo completo para soltar lo que ya no te sirve — nuestras terapias de limpieza más potentes en una sola sesión integral.</span>
+        </p>
+        <p class="pkg-incl-label" data-en="What's included" data-es="Incluye">What's included</p>
+        <ul class="pkg-incl">
+          <li data-en="Colon Hydrotherapy (Colonic)" data-es="Hidroterapia de Colon (Colónico)">Colon Hydrotherapy (Colonic)</li>
+          <li data-en="Abdominal Manipulation" data-es="Manipulación Abdominal">Abdominal Manipulation</li>
+          <li data-en="Bio Detox Mat" data-es="Estera Bio Detox">Bio Detox Mat</li>
+          <li data-en="Essential Oil Diffuser" data-es="Difusor de Aceites Esenciales">Essential Oil Diffuser</li>
+          <li data-en="Oxygen Bar" data-es="Bar de Oxígeno">Oxygen Bar</li>
+          <li data-en="Relaxing music throughout" data-es="Música relajante durante toda la sesión">Relaxing music throughout</li>
+          <li class="pkg-choice" data-en="Your choice: Chi Lymphatic OR Ionic Foot Detox" data-es="A tu elección: Chi Linfático O Detox Iónico de Pies">Your choice: Chi Lymphatic OR Ionic Foot Detox</li>
+        </ul>
+        <div class="pkg-cta">
+          <a href="https://wa.me/19394780105?text=Hola%2C%20me%20interesa%20The%20Ultimate%20Detox%20Package." target="_blank" rel="noopener">
+            <span data-en="Request this package" data-es="Solicitar este paquete">Request this package</span>
+            <svg viewBox="0 0 24 24" width="13" height="13"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="pkg-card">
+        <div class="pkg-card-top">
+          <h3 class="pkg-name">Relax, Refresh &amp; Recharge</h3>
+          <div class="pkg-price"><sup>$</sup>88</div>
+        </div>
+        <p class="pkg-desc">
+          <span data-lang="en">The ultimate feel-good experience — designed to leave you refreshed, recharged, and deeply cared for, from your lymphatic system to your nervous system.</span>
+          <span data-lang="es">La experiencia máxima de bienestar — diseñada para dejarte renovada, recargada y profundamente cuidada, desde tu sistema linfático hasta tu sistema nervioso.</span>
+        </p>
+        <p class="pkg-incl-label" data-en="What's included" data-es="Incluye">What's included</p>
+        <ul class="pkg-incl">
+          <li data-en="Lymphatic System Stimulation" data-es="Estimulación del Sistema Linfático">Lymphatic System Stimulation</li>
+          <li data-en="Foot &amp; Liver Radio Frequency Detox" data-es="Detox de Radiofrecuencia de Pies e Hígado">Foot &amp; Liver Radio Frequency Detox</li>
+          <li data-en="Oxygen Bar Boost" data-es="Impulso de Bar de Oxígeno">Oxygen Bar Boost</li>
+        </ul>
+        <div class="pkg-cta">
+          <a href="https://wa.me/19394780105?text=Hola%2C%20me%20interesa%20el%20paquete%20Relax%2C%20Refresh%20%26%20Recharge." target="_blank" rel="noopener">
+            <span data-en="Request this package" data-es="Solicitar este paquete">Request this package</span>
+            <svg viewBox="0 0 24 24" width="13" height="13"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="pkg-card">
+        <div class="pkg-card-top">
+          <h3 class="pkg-name">Ultimate Detox Pack</h3>
+          <div class="pkg-price"><sup>$</sup>155</div>
+        </div>
+        <p class="pkg-desc">
+          <span data-lang="en">A comprehensive cleanse targeting key organs for a truly holistic detox. Trust our colon hydrotherapy experts to guide a thorough, restorative reset.</span>
+          <span data-lang="es">Una limpieza integral que trabaja órganos clave para una desintoxicación verdaderamente holística. Confía en nuestros expertos en hidroterapia de colon para un reinicio restaurador y completo.</span>
+        </p>
+        <p class="pkg-incl-label" data-en="What's included" data-es="Incluye">What's included</p>
+        <ul class="pkg-incl">
+          <li data-en="Colon Hydrotherapy (Colonic)" data-es="Hidroterapia de Colon (Colónico)">Colon Hydrotherapy (Colonic)</li>
+          <li data-en="Chi Lymph Session" data-es="Sesión de Chi Linfático">Chi Lymph Session</li>
+          <li data-en="Bio Detox Mat" data-es="Estera Bio Detox">Bio Detox Mat</li>
+        </ul>
+        <div class="pkg-cta">
+          <a href="https://wa.me/19394780105?text=Hola%2C%20me%20interesa%20el%20Ultimate%20Detox%20Pack." target="_blank" rel="noopener">
+            <span data-en="Request this package" data-es="Solicitar este paquete">Request this package</span>
+            <svg viewBox="0 0 24 24" width="13" height="13"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="pkg-card">
+        <div class="pkg-card-top">
+          <h3 class="pkg-name">Goodbye Heavy Metal Detox</h3>
+          <div class="pkg-price"><sup>$</sup>77</div>
+        </div>
+        <p class="pkg-desc">
+          <span data-lang="en">A targeted protocol to help your body safely eliminate heavy metals and environmental toxins that accumulate over time — therapies that support deep cellular detox.</span>
+          <span data-lang="es">Un protocolo dirigido para ayudar a tu cuerpo a eliminar de forma segura metales pesados y toxinas ambientales acumuladas con el tiempo — terapias que apoyan la desintoxicación celular profunda.</span>
+        </p>
+        <p class="pkg-incl-label" data-en="What's included" data-es="Incluye">What's included</p>
+        <ul class="pkg-incl">
+          <li data-en="Chi Lymphatic Session" data-es="Sesión de Chi Linfático">Chi Lymphatic Session</li>
+          <li data-en="PEMF Detox Mat or Sauna Blanket" data-es="Estera PEMF Detox o Manta de Sauna">PEMF Detox Mat or Sauna Blanket</li>
+          <li data-en="Ionic Foot Bath Detox" data-es="Baño Iónico de Pies Detox">Ionic Foot Bath Detox</li>
+        </ul>
+        <div class="pkg-cta">
+          <a href="https://wa.me/19394780105?text=Hola%2C%20me%20interesa%20el%20paquete%20Goodbye%20Heavy%20Metal%20Detox." target="_blank" rel="noopener">
+            <span data-en="Request this package" data-es="Solicitar este paquete">Request this package</span>
+            <svg viewBox="0 0 24 24" width="13" height="13"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <article class="pkg-card">
+        <span class="pkg-badge" data-en="Overnight · for 2" data-es="Noche · para 2">Overnight · for 2</span>
+        <div class="pkg-card-top">
+          <h3 class="pkg-name">Detox Reboot Retreat</h3>
+          <div class="pkg-price"><sup>$</sup>444</div>
+        </div>
+        <p class="pkg-desc">
+          <span data-lang="en">The ultimate reset, designed for two. Stay with us and give body and mind a full chance to rest, restore, and reboot — therapy, nourishing meals, mindfulness, and a personalized evaluation.</span>
+          <span data-lang="es">El reinicio máximo, diseñado para dos. Quédate con nosotros y dale a tu cuerpo y mente la oportunidad de descansar, restaurar y reiniciar — terapia, comidas nutritivas, mindfulness y una evaluación personalizada.</span>
+        </p>
+        <p class="pkg-incl-label" data-en="What's included" data-es="Incluye">What's included</p>
+        <ul class="pkg-incl">
+          <li data-en="Overnight stay for 2 guests" data-es="Estadía de una noche para 2 personas">Overnight stay for 2 guests</li>
+          <li data-en="Colonic with Bio Detox Mat + Oxygen Boost on arrival" data-es="Colónico con Estera Bio Detox + Oxígeno a la llegada">Colonic with Bio Detox Mat + Oxygen Boost on arrival</li>
+          <li data-en="Light dinner on arrival, breakfast next day" data-es="Cena ligera a la llegada, desayuno al día siguiente">Light dinner on arrival, breakfast next day</li>
+          <li data-en="Guided meditation session" data-es="Sesión de meditación guiada">Guided meditation session</li>
+          <li data-en="Health evaluation via Bio Frequency Machine" data-es="Evaluación de salud con Máquina de Biofrecuencia">Health evaluation via Bio Frequency Machine</li>
+        </ul>
+        <div class="pkg-cta">
+          <a href="https://wa.me/19394780105?text=Hola%2C%20me%20interesa%20el%20Detox%20Reboot%20Retreat%20(estad%C3%ADa%20de%20una%20noche)." target="_blank" rel="noopener">
+            <span data-en="Request this retreat" data-es="Solicitar este retiro">Request this retreat</span>
+            <svg viewBox="0 0 24 24" width="13" height="13"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="pkg-note" data-en="Packages can be combined or created according to your needs. All treatment packages are final and must be used within six months." data-es="Los paquetes pueden combinarse o crearse según tus necesidades. Todos los paquetes son finales y deben usarse dentro de seis meses.">Packages can be combined or created according to your needs. All treatment packages are final and must be used within six months.</p>
+  </div>
+</section>
+
+
+<!-- MODALITY INTRO HEADER -->
+<section class="mod-intro">
+  <div class="mod-intro-inner">
+    <div class="tx-header">
+      <div class="tx-eyebrow reveal">
+        <span class="tx-eyebrow-num">¶ 02</span>
+        <span data-en="Core modalities" data-es="Modalidades principales">Core modalities</span>
+        <span class="tx-eyebrow-line"></span>
+      </div>
+      <h2 class="tx-title reveal">
+        <span data-lang="en">Four signature <em>wellness modalities.</em></span>
+        <span data-lang="es">Cuatro modalidades <em>principales de bienestar.</em></span>
+      </h2>
+      <p class="tx-sub reveal">
+        <span data-lang="en">Gentle, non-invasive wellness technologies offered by <em>Naturopath Tasha Maria Soto</em> — frequency, mind engagement, magnetic support, and molecular hydrogen.</span>
+        <span data-lang="es">Tecnologías de bienestar gentiles y no invasivas ofrecidas por la <em>Naturópata Tasha Maria Soto</em> — frecuencia, engagement mental, apoyo magnético, e hidrógeno molecular.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 01 — FREQUENCY & VIBRATIONAL -->
+<section class="service is-light" id="frequency">
+  <div class="service-bg-glow"></div>
+  <div class="service-inner">
+    <div class="service-grid">
+      <div class="service-content">
+        <p class="service-eyebrow reveal">
+          <span class="service-eyebrow-num">¶ 02 · I</span>
+          <div class="service-eyebrow-line"></div>
+          <span data-en="Gentle resonance" data-es="Resonancia gentil">Gentle resonance</span>
+        </p>
+        <h2 class="service-title reveal">
+          <span data-lang="en">Frequency &amp;<br><em>Vibrational Wellness.</em></span>
+          <span data-lang="es">Bienestar de Frecuencia<br>y <em>Vibración.</em></span>
+        </h2>
+        <p class="service-tagline reveal">
+          <span data-lang="en">A gentle, non-invasive way to support your body's <em>natural harmony</em>, energy balance, and deep relaxation.</span>
+          <span data-lang="es">Una manera gentil y no invasiva de apoyar la <em>armonía natural</em> del cuerpo, el balance de energía, y la relajación profunda.</span>
+        </p>
+        <div class="service-desc reveal">
+          <p data-lang="en">Frequency wellness utilizes resonant <em>bio-energetic frequencies</em> to help align your body's natural subtle energy fields. Designed to complement your personal self-care journey, this gentle modality supports deep relaxation, vitality, and cellular harmony.</p>
+          <p data-lang="es">El bienestar de frecuencia utiliza <em>frecuencias bio-energéticas</em> resonantes para ayudar a alinear los campos sutiles de energía del cuerpo. Diseñado para complementar tu camino personal de autocuidado, esta modalidad gentil apoya la relajación profunda, la vitalidad, y la armonía celular.</p>
+        </div>
+
+        <div class="service-pricing reveal">
+          <div class="price-block">
+            <span class="price-label" data-en="First session" data-es="Primera sesión">First session</span>
+            <span class="price-value">$55<em>.00</em></span>
+            <span class="price-note" data-en="Full intake included" data-es="Admisión completa incluida">Full intake included</span>
+          </div>
+          <div class="price-block">
+            <span class="price-label" data-en="Subsequent sessions" data-es="Sesiones siguientes">Subsequent sessions</span>
+            <span class="price-value">$33<em>.00</em></span>
+            <span class="price-note" data-en="Per visit" data-es="Por visita">Per visit</span>
+          </div>
+        </div>
+
+        <p class="benefits-eyebrow reveal" data-en="Who it's for" data-es="Para quién es">Who it's for</p>
+        <ol class="benefits-list reveal-stagger">
+          <li class="benefit-item">
+            <span class="benefit-mark">I.</span>
+            <div class="benefit-text">
+              <span data-lang="en">Anyone looking to <em>align and balance</em> their natural bio-energy.</span>
+              <span data-lang="es">Cualquier persona buscando <em>alinear y balancear</em> su bio-energía natural.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">II.</span>
+            <div class="benefit-text">
+              <span data-lang="en">Those seeking <em>non-invasive, restorative</em> relaxation modalities.</span>
+              <span data-lang="es">Personas que buscan modalidades de relajación <em>no invasivas y restaurativas</em>.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">III.</span>
+            <div class="benefit-text">
+              <span data-lang="en">Clients wanting to <em>enhance the benefits</em> of acupuncture and bodywork.</span>
+              <span data-lang="es">Clientes que quieren <em>mejorar los beneficios</em> de acupuntura y trabajo corporal.</span>
+            </div>
+          </li>
+        </ol>
+
+        <div class="service-actions reveal">
+          <a href="#book" class="btn-ink btn-arrow">
+            <span data-en="Request to book" data-es="Solicitar cita">Request to book</span>
+            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20to%20learn%20more%20about%20Frequency%20%26%20Vibrational%20Wellness." target="_blank" rel="noopener" class="btn-outline-ink" data-en="Ask Tasha" data-es="Pregunta a Tasha">Ask Tasha</a>
+        </div>
+      </div>
+
+      <div class="service-emblem-wrap reveal">
+        <span class="service-emblem-tag" data-en="Non-invasive" data-es="No invasivo">Non-invasive</span>
+        <div class="service-emblem">
+          <!-- Frequency / wave emblem -->
+          <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g class="rotate-slow" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5">
+              <circle cx="160" cy="160" r="150"/>
+              <circle cx="160" cy="160" r="120" stroke-dasharray="3 7"/>
+            </g>
+            <!-- concentric wave rings -->
+            <g fill="none" stroke="currentColor" stroke-width="0.8">
+              <circle cx="160" cy="160" r="30" class="wave"/>
+              <circle cx="160" cy="160" r="55" class="wave" style="animation-delay: 0.3s"/>
+              <circle cx="160" cy="160" r="80" class="wave" style="animation-delay: 0.6s"/>
+              <circle cx="160" cy="160" r="105" class="wave" style="animation-delay: 0.9s"/>
+            </g>
+            <!-- center dot -->
+            <circle cx="160" cy="160" r="5" fill="currentColor"/>
+            <!-- outer sine wave -->
+            <g fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.6">
+              <path d="M 25 160 Q 55 130, 85 160 T 145 160 T 205 160 T 265 160 T 295 160"/>
+              <path d="M 25 160 Q 55 190, 85 160 T 145 160 T 205 160 T 265 160 T 295 160" opacity="0.4"/>
+            </g>
+            <text x="160" y="35" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">FREQUENCY</text>
+            <text x="160" y="295" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">RESONANCE</text>
+          </svg>
+        </div>
+        <span class="service-emblem-vertical">Bio-energetic</span>
+        <span class="service-emblem-num">№ 01</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 02 — AO HUB MIND ENGAGEMENT -->
+<section class="service is-dark is-reversed" id="mind">
+  <div class="service-bg-glow"></div>
+  <div class="service-inner">
+    <div class="service-grid">
+      <div class="service-content">
+        <p class="service-eyebrow reveal">
+          <span class="service-eyebrow-num">¶ 02 · II</span>
+          <div class="service-eyebrow-line"></div>
+          <span data-en="Mind &amp; brainwave work" data-es="Mente y ondas cerebrales">Mind &amp; brainwave work</span>
+        </p>
+        <h2 class="service-title reveal">
+          <span data-lang="en">Mind Engagement<br>with <em>AO Hub.</em></span>
+          <span data-lang="es">Mind Engagement<br>con <em>AO Hub.</em></span>
+        </h2>
+        <p class="service-tagline reveal">
+          <span data-lang="en">Within you lives a <em>vast inner universe</em> — a quiet landscape of energy, rhythm, and light. The Solex Mind Engagement System works hand in hand with AO Scan to help you reconnect with your natural harmony.</span>
+          <span data-lang="es">Dentro de ti vive un <em>vasto universo interior</em> — un paisaje tranquilo de energía, ritmo, y luz. El Solex Mind Engagement System trabaja de la mano con AO Scan para ayudarte a reconectar con tu armonía natural.</span>
+        </p>
+        <div class="service-desc reveal">
+          <p data-lang="en">When life pulls you out of balance, you may feel it as stress, restless nights, a scattered mind, or tension held in the body. These sessions honor <em>body, mind, and spirit</em> as one — opening sacred doorways through four distinct brainwave states.</p>
+          <p data-lang="es">Cuando la vida te saca de balance, puedes sentirlo como estrés, noches inquietas, una mente dispersa, o tensión acumulada en el cuerpo. Estas sesiones honran <em>cuerpo, mente y espíritu</em> como uno — abriendo puertas sagradas a través de cuatro estados distintos de ondas cerebrales.</p>
+        </div>
+
+        <div class="service-pricing reveal">
+          <div class="price-block">
+            <span class="price-label" data-en="First session" data-es="Primera sesión">First session</span>
+            <span class="price-value">$111<em>.00</em></span>
+            <span class="price-note" data-en="Full intake included" data-es="Admisión completa incluida">Full intake included</span>
+          </div>
+          <div class="price-block">
+            <span class="price-label" data-en="Subsequent sessions" data-es="Sesiones siguientes">Subsequent sessions</span>
+            <span class="price-value">$55<em>.00</em></span>
+            <span class="price-note" data-en="Per visit" data-es="Por visita">Per visit</span>
+          </div>
+        </div>
+
+        <p class="benefits-eyebrow reveal" data-en="Four mind states, four sacred doorways" data-es="Cuatro estados mentales, cuatro puertas sagradas">Four mind states, four sacred doorways</p>
+        <ol class="benefits-list reveal-stagger">
+          <li class="benefit-item">
+            <span class="benefit-mark">I.</span>
+            <div class="benefit-text">
+              <strong>Theta (4–8 Hz)</strong> — <span data-lang="en">the doorway to <em>deep stillness</em>, rest, and inner reflection.</span>
+              <span data-lang="es">la puerta a la <em>quietud profunda</em>, descanso, y reflexión interior.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">II.</span>
+            <div class="benefit-text">
+              <strong>Alpha (8–12 Hz)</strong> — <span data-lang="en">a peaceful, open state where <em>creativity and clarity</em> flow.</span>
+              <span data-lang="es">un estado pacífico y abierto donde fluyen la <em>creatividad y la claridad</em>.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">III.</span>
+            <div class="benefit-text">
+              <strong>Beta (12–35 Hz)</strong> — <span data-lang="en">the energy of <em>active thought</em>, focus, and presence in daily life.</span>
+              <span data-lang="es">la energía del <em>pensamiento activo</em>, enfoque, y presencia en la vida diaria.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">IV.</span>
+            <div class="benefit-text">
+              <strong>Gamma (35 Hz+)</strong> — <span data-lang="en">heightened awareness and <em>expanded mental clarity</em>.</span>
+              <span data-lang="es">conciencia elevada y <em>claridad mental expandida</em>.</span>
+            </div>
+          </li>
+        </ol>
+
+        <p class="benefits-eyebrow reveal" data-en="Sessions to nurture your journey" data-es="Sesiones para nutrir tu camino">Sessions to nurture your journey</p>
+        <ol class="benefits-list reveal-stagger">
+          <li class="benefit-item">
+            <span class="benefit-mark">◇</span>
+            <div class="benefit-text">
+              <strong><span data-lang="en">Dependencies Support</span><span data-lang="es">Apoyo para Dependencias</span></strong> — <span data-lang="en">loving encouragement as you release old habits and welcome <em>positive change</em>.</span>
+              <span data-lang="es">aliento amoroso mientras liberas viejos hábitos y das la bienvenida al <em>cambio positivo</em>.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">◇</span>
+            <div class="benefit-text">
+              <strong><span data-lang="en">Cognitive Mindset Sessions</span><span data-lang="es">Sesiones de Mentalidad Cognitiva</span></strong> — <span data-lang="en">a reflective space to listen inward and let go of <em>limiting beliefs</em>.</span>
+              <span data-lang="es">un espacio reflexivo para escuchar hacia adentro y soltar <em>creencias limitantes</em>.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">◇</span>
+            <div class="benefit-text">
+              <strong><span data-lang="en">Light Engagement Sessions</span><span data-lang="es">Sesiones de Light Engagement</span></strong> — <span data-lang="en">gentle light and sound pulses that invite your mind into <em>calm, balanced rhythms</em>.</span>
+              <span data-lang="es">pulsos gentiles de luz y sonido que invitan a tu mente a <em>ritmos calmados y balanceados</em>.</span>
+            </div>
+          </li>
+        </ol>
+
+        <div class="service-actions reveal">
+          <a href="#book" class="btn-gold btn-arrow">
+            <span data-en="Request to book" data-es="Solicitar cita">Request to book</span>
+            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20to%20learn%20more%20about%20AO%20Hub%20Mind%20Engagement." target="_blank" rel="noopener" class="btn-outline-gold" data-en="Ask Tasha" data-es="Pregunta a Tasha">Ask Tasha</a>
+        </div>
+      </div>
+
+      <div class="service-emblem-wrap reveal">
+        <span class="service-emblem-tag" data-en="Brainwave" data-es="Ondas cerebrales">Brainwave</span>
+        <div class="service-emblem">
+          <!-- Mind / brainwave emblem -->
+          <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g class="rotate-reverse" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.6">
+              <circle cx="160" cy="160" r="150"/>
+            </g>
+            <!-- four wave stacks representing brainwave states -->
+            <g fill="none" stroke="currentColor" stroke-width="1" opacity="0.9">
+              <path d="M 70 100 Q 95 85, 120 100 T 170 100 T 220 100 T 250 100"/>
+              <path d="M 70 140 Q 95 115, 120 140 T 170 140 T 220 140 T 250 140"/>
+              <path d="M 70 180 Q 95 155, 120 180 T 170 180 T 220 180 T 250 180"/>
+              <path d="M 70 220 Q 95 195, 120 220 T 170 220 T 220 220 T 250 220"/>
+            </g>
+            <g fill="currentColor" font-family="Cormorant Garamond" font-style="italic" font-size="11" opacity="0.8">
+              <text x="55" y="104" text-anchor="end">θ</text>
+              <text x="55" y="144" text-anchor="end">α</text>
+              <text x="55" y="184" text-anchor="end">β</text>
+              <text x="55" y="224" text-anchor="end">γ</text>
+            </g>
+            <text x="160" y="35" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">AO HUB</text>
+            <text x="160" y="295" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">MIND ENGAGEMENT</text>
+          </svg>
+        </div>
+        <span class="service-emblem-vertical">θ · α · β · γ</span>
+        <span class="service-emblem-num">№ 02</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 03 — AO rTMS -->
+<section class="service is-light" id="rtms">
+  <div class="service-bg-glow"></div>
+  <div class="service-inner">
+    <div class="service-grid">
+      <div class="service-content">
+        <p class="service-eyebrow reveal">
+          <span class="service-eyebrow-num">¶ 02 · III</span>
+          <div class="service-eyebrow-line"></div>
+          <span data-en="Magnetic support" data-es="Apoyo magnético">Magnetic support</span>
+        </p>
+        <h2 class="service-title reveal">
+          <span data-lang="en">AO rTMS: Gentle Magnetic<br>Support for <em>Mind &amp; Body.</em></span>
+          <span data-lang="es">AO rTMS: Apoyo Magnético<br>Gentil para <em>Mente y Cuerpo.</em></span>
+        </h2>
+        <p class="service-tagline reveal">
+          <span data-lang="en">AO rTMS uses <em>soft, low-intensity magnetic pulses</em> to invite calm and balance into your inner landscape.</span>
+          <span data-lang="es">AO rTMS usa <em>pulsos magnéticos suaves y de baja intensidad</em> para invitar calma y balance a tu paisaje interior.</span>
+        </p>
+        <div class="service-desc reveal">
+          <p data-lang="en">Designed for <em>gentle, non-invasive use</em>, it is a supportive addition to personal and professional wellness routines — honoring the connection between body, mind, and spirit.</p>
+          <p data-lang="es">Diseñado para <em>uso gentil y no invasivo</em>, es una adición de apoyo a rutinas personales y profesionales de bienestar — honrando la conexión entre cuerpo, mente, y espíritu.</p>
+        </div>
+
+        <div class="service-pricing reveal">
+          <div class="price-block">
+            <span class="price-label" data-en="First session" data-es="Primera sesión">First session</span>
+            <span class="price-value">$101<em>.00</em></span>
+            <span class="price-note" data-en="Full intake included" data-es="Admisión completa incluida">Full intake included</span>
+          </div>
+          <div class="price-block">
+            <span class="price-label" data-en="Subsequent sessions" data-es="Sesiones siguientes">Subsequent sessions</span>
+            <span class="price-value">$44<em>.00</em></span>
+            <span class="price-note" data-en="Per visit" data-es="Por visita">Per visit</span>
+          </div>
+        </div>
+
+        <p class="benefits-eyebrow reveal" data-en="How it may support you" data-es="Cómo puede apoyarte">How it may support you</p>
+        <ol class="benefits-list reveal-stagger">
+          <li class="benefit-item">
+            <span class="benefit-mark">I.</span>
+            <div class="benefit-text">
+              <strong><span data-lang="en">Mental Clarity</span><span data-lang="es">Claridad Mental</span></strong> — <span data-lang="en">supports a sense of <em>focus</em> and a clear, present mind.</span>
+              <span data-lang="es">apoya una sensación de <em>enfoque</em> y una mente clara y presente.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">II.</span>
+            <div class="benefit-text">
+              <strong><span data-lang="en">Emotional Balance</span><span data-lang="es">Balance Emocional</span></strong> — <span data-lang="en">encourages calm and a feeling of <em>ease</em> during stressful times.</span>
+              <span data-lang="es">fomenta calma y una sensación de <em>tranquilidad</em> durante tiempos estresantes.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">III.</span>
+            <div class="benefit-text">
+              <strong><span data-lang="en">Restful Sleep</span><span data-lang="es">Sueño Reparador</span></strong> — <span data-lang="en">invites a deeper sense of <em>relaxation</em> at day's end.</span>
+              <span data-lang="es">invita a una sensación más profunda de <em>relajación</em> al final del día.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">IV.</span>
+            <div class="benefit-text">
+              <strong><span data-lang="en">Comfort &amp; Ease</span><span data-lang="es">Confort y Alivio</span></strong> — <span data-lang="en">may help you feel more <em>at ease</em> with everyday tension.</span>
+              <span data-lang="es">puede ayudarte a sentirte más <em>cómoda</em> con la tensión cotidiana.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">V.</span>
+            <div class="benefit-text">
+              <strong><span data-lang="en">Personalized Sessions</span><span data-lang="es">Sesiones Personalizadas</span></strong> — <span data-lang="en">sessions can be tailored to your <em>wellness intentions</em>.</span>
+              <span data-lang="es">las sesiones pueden adaptarse a tus <em>intenciones de bienestar</em>.</span>
+            </div>
+          </li>
+        </ol>
+
+        <div class="service-actions reveal">
+          <a href="#book" class="btn-ink btn-arrow">
+            <span data-en="Request to book" data-es="Solicitar cita">Request to book</span>
+            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20to%20learn%20more%20about%20AO%20rTMS." target="_blank" rel="noopener" class="btn-outline-ink" data-en="Ask Tasha" data-es="Pregunta a Tasha">Ask Tasha</a>
+        </div>
+      </div>
+
+      <div class="service-emblem-wrap reveal">
+        <span class="service-emblem-tag" data-en="Low-intensity" data-es="Baja intensidad">Low-intensity</span>
+        <div class="service-emblem">
+          <!-- Magnetic field emblem -->
+          <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g class="rotate-slow" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5">
+              <circle cx="160" cy="160" r="150"/>
+              <circle cx="160" cy="160" r="125" stroke-dasharray="2 6"/>
+            </g>
+            <!-- magnetic field lines (concentric ovals around a central axis) -->
+            <g fill="none" stroke="currentColor" stroke-width="0.9">
+              <ellipse cx="160" cy="160" rx="40" ry="90"/>
+              <ellipse cx="160" cy="160" rx="60" ry="105"/>
+              <ellipse cx="160" cy="160" rx="80" ry="118"/>
+              <ellipse cx="160" cy="160" rx="100" ry="128"/>
+            </g>
+            <!-- center bar -->
+            <g fill="currentColor">
+              <circle cx="160" cy="80" r="5"/>
+              <circle cx="160" cy="240" r="5"/>
+              <rect x="155" y="80" width="10" height="160" fill="none" stroke="currentColor" stroke-width="1"/>
+            </g>
+            <text x="160" y="75" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-style="italic" font-size="12">N</text>
+            <text x="160" y="252" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-style="italic" font-size="12">S</text>
+            <text x="160" y="35" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">AO rTMS</text>
+            <text x="160" y="295" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">MAGNETIC PULSE</text>
+          </svg>
+        </div>
+        <span class="service-emblem-vertical">Non-invasive</span>
+        <span class="service-emblem-num">№ 03</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 04 — AO HYDRO2 -->
+<section class="service is-dark is-reversed" id="hydro">
+  <div class="service-bg-glow"></div>
+  <div class="service-inner">
+    <div class="service-grid">
+      <div class="service-content">
+        <p class="service-eyebrow reveal">
+          <span class="service-eyebrow-num">¶ 02 · IV</span>
+          <div class="service-eyebrow-line"></div>
+          <span data-en="Molecular hydrogen" data-es="Hidrógeno molecular">Molecular hydrogen</span>
+        </p>
+        <h2 class="service-title reveal">
+          <span data-lang="en">AO Hydro2:<br><em>Hydrogen.</em></span>
+          <span data-lang="es">AO Hydro2:<br><em>Hidrógeno.</em></span>
+        </h2>
+        <p class="service-tagline reveal">
+          <span data-lang="en">The AO Hydro2 offers <em>four gentle ways</em> to welcome molecular hydrogen into your wellness journey — the smallest molecule in nature, a subject of growing curiosity in wellness research.</span>
+          <span data-lang="es">El AO Hydro2 ofrece <em>cuatro formas gentiles</em> de recibir hidrógeno molecular en tu camino de bienestar — la molécula más pequeña en la naturaleza, un tema de creciente curiosidad en la investigación de bienestar.</span>
+        </p>
+        <div class="service-desc reveal">
+          <p data-lang="en">We will guide you toward the method that feels right for you, creating a calm, supported space to <em>pause, breathe, and reconnect.</em> Each session flows through with Si Bin and Black Tourmaline filter, stones long treasured in traditional wellness practices.</p>
+          <p data-lang="es">Te guiaremos hacia el método que se sienta correcto para ti, creando un espacio calmado y de apoyo para <em>pausar, respirar, y reconectar.</em> Cada sesión fluye a través de un filtro de Si Bin y Turmalina Negra, piedras largamente apreciadas en prácticas tradicionales de bienestar.</p>
+        </div>
+
+        <div class="service-pricing reveal">
+          <div class="price-block">
+            <span class="price-label" data-en="Add-on" data-es="Adicional">Add-on</span>
+            <span class="price-value">$44<em>.00</em></span>
+            <span class="price-note" data-en="With another service" data-es="Con otro servicio">With another service</span>
+          </div>
+          <div class="price-block">
+            <span class="price-label" data-en="Subsequent sessions" data-es="Sesiones siguientes">Subsequent sessions</span>
+            <span class="price-value">$33<em>.00</em></span>
+            <span class="price-note" data-en="Per visit" data-es="Por visita">Per visit</span>
+          </div>
+        </div>
+
+        <p class="benefits-eyebrow reveal" data-en="Four ways to receive" data-es="Cuatro formas de recibir">Four ways to receive</p>
+        <ol class="benefits-list reveal-stagger">
+          <li class="benefit-item">
+            <span class="benefit-mark">I.</span>
+            <div class="benefit-text">
+              <strong><span data-lang="en">Inhalation</span><span data-lang="es">Inhalación</span></strong> — <span data-lang="en">relax with a soft cannula while you breathe, rest, and <em>settle inward</em>.</span>
+              <span data-lang="es">relájate con una cánula suave mientras respiras, descansas, y <em>te asientas por dentro</em>.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">II.</span>
+            <div class="benefit-text">
+              <strong><span data-lang="en">Hydrogen-infused water</span><span data-lang="es">Agua infundida con hidrógeno</span></strong> — <span data-lang="en">a <em>freshly prepared glass</em> to sip during your session.</span>
+              <span data-lang="es">un <em>vaso recién preparado</em> para beber durante tu sesión.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">III.</span>
+            <div class="benefit-text">
+              <strong><span data-lang="en">Eye goggles</span><span data-lang="es">Gafas para los ojos</span></strong> — <span data-lang="en">a <em>quiet pause</em> for the eye area.</span>
+              <span data-lang="es">una <em>pausa tranquila</em> para el área de los ojos.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">IV.</span>
+            <div class="benefit-text">
+              <strong><span data-lang="en">Ear attachment</span><span data-lang="es">Accesorio para los oídos</span></strong> — <span data-lang="en">a gentle, <em>exploratory way</em> to include the ears in your session.</span>
+              <span data-lang="es">una forma gentil y <em>exploratoria</em> de incluir los oídos en tu sesión.</span>
+            </div>
+          </li>
+        </ol>
+
+        <p class="benefits-eyebrow reveal" data-en="How it may support you" data-es="Cómo puede apoyarte">How it may support you</p>
+        <ol class="benefits-list reveal-stagger">
+          <li class="benefit-item">
+            <span class="benefit-mark">◇</span>
+            <div class="benefit-text">
+              <span data-lang="en">A sense of <em>daily balance and vitality</em>.</span>
+              <span data-lang="es">Una sensación de <em>balance y vitalidad diaria</em>.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">◇</span>
+            <div class="benefit-text">
+              <span data-lang="en">Comfort and ease around <em>movement and recovery</em>.</span>
+              <span data-lang="es">Confort y alivio alrededor del <em>movimiento y la recuperación</em>.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">◇</span>
+            <div class="benefit-text">
+              <span data-lang="en">A <em>clear, present mind</em>.</span>
+              <span data-lang="es">Una <em>mente clara y presente</em>.</span>
+            </div>
+          </li>
+          <li class="benefit-item">
+            <span class="benefit-mark">◇</span>
+            <div class="benefit-text">
+              <span data-lang="en">Hydration <em>with intention</em>.</span>
+              <span data-lang="es">Hidratación <em>con intención</em>.</span>
+            </div>
+          </li>
+        </ol>
+
+        <div class="service-actions reveal">
+          <a href="#book" class="btn-gold btn-arrow">
+            <span data-en="Request to book" data-es="Solicitar cita">Request to book</span>
+            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20to%20learn%20more%20about%20AO%20Hydro2%20Hydrogen." target="_blank" rel="noopener" class="btn-outline-gold" data-en="Ask Tasha" data-es="Pregunta a Tasha">Ask Tasha</a>
+        </div>
+      </div>
+
+      <div class="service-emblem-wrap reveal">
+        <span class="service-emblem-tag" data-en="H₂" data-es="H₂">H₂</span>
+        <div class="service-emblem">
+          <!-- Hydrogen molecule emblem -->
+          <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g class="rotate-slow" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.5">
+              <circle cx="160" cy="160" r="150"/>
+            </g>
+            <!-- H2 molecule — two atoms bonded -->
+            <g fill="none" stroke="currentColor" stroke-width="1">
+              <circle cx="115" cy="160" r="42"/>
+              <circle cx="205" cy="160" r="42"/>
+              <circle cx="115" cy="160" r="28" stroke-dasharray="2 3" opacity="0.5"/>
+              <circle cx="205" cy="160" r="28" stroke-dasharray="2 3" opacity="0.5"/>
+            </g>
+            <g fill="currentColor" font-family="Cormorant Garamond" font-style="italic" font-size="26">
+              <text x="115" y="170" text-anchor="middle">H</text>
+              <text x="205" y="170" text-anchor="middle">H</text>
+            </g>
+            <!-- water drops around -->
+            <g fill="currentColor" opacity="0.7">
+              <circle cx="80" cy="90" r="2.5" class="pulse"/>
+              <circle cx="240" cy="90" r="2.5" class="pulse" style="animation-delay: 0.3s"/>
+              <circle cx="80" cy="230" r="2.5" class="pulse" style="animation-delay: 0.6s"/>
+              <circle cx="240" cy="230" r="2.5" class="pulse" style="animation-delay: 0.9s"/>
+              <circle cx="160" cy="60" r="2.5" class="pulse" style="animation-delay: 1.2s"/>
+              <circle cx="160" cy="260" r="2.5" class="pulse" style="animation-delay: 1.5s"/>
+            </g>
+            <text x="160" y="35" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">AO HYDRO2</text>
+            <text x="160" y="295" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="9" letter-spacing="5">MOLECULAR HYDROGEN</text>
+          </svg>
+        </div>
+        <span class="service-emblem-vertical">Si Bin · Tourmaline</span>
+        <span class="service-emblem-num">№ 04</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADD-ONS -->
+<section class="tx" id="addons">
+  <div class="tx-inner">
+    <div class="tx-header">
+      <div class="tx-eyebrow reveal">
+        <span class="tx-eyebrow-num">¶ 03</span>
+        <span data-en="Individual add-on therapies" data-es="Terapias complementarias">Individual add-on therapies</span>
+        <span class="tx-eyebrow-line"></span>
+      </div>
+      <h2 class="tx-title reveal">
+        <span data-lang="en">Tailored to <em>your</em> body.</span>
+        <span data-lang="es">A la medida de <em>tu</em> cuerpo.</span>
+      </h2>
+      <p class="tx-sub reveal">
+        <span data-lang="en">Each therapy targets a specific area of wellness — from detoxification and lymphatic support to cellular repair and deep relaxation — and can be added to any primary session. <em>For home-bound individuals, we can make arrangements to treat.</em></span>
+        <span data-lang="es">Cada terapia trabaja un área específica de bienestar — desde la desintoxicación y el apoyo linfático hasta la reparación celular y la relajación profunda — y puede añadirse a cualquier sesión principal. <em>Para personas confinadas en el hogar, podemos hacer arreglos para tratar.</em></span>
+      </p>
+    </div>
+
+    <div class="tx-grid reveal-stagger">
+
+      <article class="tx-card">
+        <div class="tx-card-top">
+          <div class="tx-name">Ionic Foot Detoxification</div>
+          <div class="tx-price"><sup>$</sup>44</div>
+        </div>
+        <p class="tx-desc">
+          <span data-lang="en">A relaxing, gentle way to support your body's natural detoxification. An ionizing machine charges the foot-bath water, drawing toxins out through the feet — a safe, non-invasive way to reset and recharge.</span>
+          <span data-lang="es">Una forma suave y relajante de apoyar la desintoxicación natural del cuerpo. Una máquina ionizadora carga el agua del baño de pies, extrayendo toxinas a través de los pies — segura y no invasiva para reiniciar y recargar.</span>
+        </p>
+      </article>
+
+      <article class="tx-card">
+        <div class="tx-card-top">
+          <div class="tx-name">Chi Lymph Machine</div>
+          <div class="tx-price"><sup>$</sup>22</div>
+        </div>
+        <p class="tx-desc">
+          <span data-lang="en">A passive-exercise therapy with many of the benefits of aerobic movement — without stressing your joints. A gentle swinging motion travels up through the whole body to support lymph and circulation.</span>
+          <span data-lang="es">Una terapia de ejercicio pasivo con muchos beneficios del movimiento aeróbico — sin forzar las articulaciones. Un suave balanceo recorre todo el cuerpo para apoyar la linfa y la circulación.</span>
+        </p>
+        <ul class="tx-benefits">
+          <li data-en="Moves lymph fluid and supports immune function" data-es="Moviliza el fluido linfático y apoya la función inmune">Moves lymph fluid and supports immune function</li>
+          <li data-en="Promotes flexibility in ankles, knees, hips, and spine" data-es="Promueve flexibilidad en tobillos, rodillas, caderas y columna">Promotes flexibility in ankles, knees, hips, and spine</li>
+          <li data-en="Relaxes the muscles along the back" data-es="Relaja los músculos de la espalda">Relaxes the muscles along the back</li>
+          <li data-en="Increases circulation in the lower extremities" data-es="Aumenta la circulación en las extremidades inferiores">Increases circulation in the lower extremities</li>
+        </ul>
+      </article>
+
+      <article class="tx-card">
+        <div class="tx-card-top">
+          <div class="tx-name">Infrared Light Therapy<small>Face &amp; Body</small></div>
+          <div class="tx-price"><sup>$</sup>22</div>
+        </div>
+        <p class="tx-desc">
+          <span data-lang="en">Ideal for deep cellular repair — skin health and joint wellness. Targeted light energy works beneath the skin's surface.</span>
+          <span data-lang="es">Ideal para la reparación celular profunda — salud de la piel y bienestar de las articulaciones. La energía lumínica dirigida trabaja bajo la superficie de la piel.</span>
+        </p>
+        <ul class="tx-benefits">
+          <li data-en="Reduces skin and tissue inflammation" data-es="Reduce la inflamación de la piel y los tejidos">Reduces skin and tissue inflammation</li>
+          <li data-en="Speeds healing of lesions and wounds" data-es="Acelera la cicatrización de lesiones y heridas">Speeds healing of lesions and wounds</li>
+          <li data-en="Stimulates collagen and elastin for firmer skin" data-es="Estimula colágeno y elastina para una piel más firme">Stimulates collagen and elastin for firmer skin</li>
+        </ul>
+      </article>
+
+      <article class="tx-card">
+        <div class="tx-card-top">
+          <div class="tx-name">PEMF Infrared Mat</div>
+          <div class="tx-price"><sup>$</sup>33</div>
+        </div>
+        <p class="tx-desc">
+          <span data-lang="en">A multi-layered wellness mat combining far-infrared, negative ions, PEMF (Pulsed Electromagnetic Field), and photon light in one session. When heated, it releases penetrating energy deep into the body's core.</span>
+          <span data-lang="es">Una estera multicapa que combina infrarrojo lejano, iones negativos, PEMF (Campo Electromagnético Pulsado) y luz de fotones en una sola sesión. Al calentarse, libera energía penetrante hasta el núcleo del cuerpo.</span>
+        </p>
+        <ul class="tx-benefits">
+          <li data-en="Up to 21 therapeutic layers working in synergy" data-es="Hasta 21 capas terapéuticas trabajando en sinergia">Up to 21 therapeutic layers working in synergy</li>
+          <li data-en="Generates penetrating heat and regulates temperature" data-es="Genera calor penetrante y regula la temperatura">Generates penetrating heat and regulates temperature</li>
+          <li data-en="Delivers PEMF and negative-ion therapy" data-es="Ofrece terapia PEMF y de iones negativos">Delivers PEMF and negative-ion therapy</li>
+          <li data-en="Prepares the body to receive other treatments" data-es="Prepara el cuerpo para recibir otros tratamientos">Prepares the body to receive other treatments</li>
+        </ul>
+      </article>
+
+      <article class="tx-card">
+        <div class="tx-card-top">
+          <div class="tx-name">The Oxygen Bar</div>
+          <div class="tx-price"><sup>$</sup>22</div>
+        </div>
+        <p class="tx-desc">
+          <span data-lang="en">Breathe a higher concentration of pure oxygen — adjustable from 40% up to 90% — for an instant boost in clarity, energy, and recovery. A natural complement to nearly any service.</span>
+          <span data-lang="es">Respira una mayor concentración de oxígeno puro — ajustable del 40% hasta el 90% — para un impulso instantáneo de claridad, energía y recuperación. Complemento natural de casi cualquier servicio.</span>
+        </p>
+        <ul class="tx-benefits">
+          <li data-en="Reduces fatigue and raises energy levels" data-es="Reduce la fatiga y eleva los niveles de energía">Reduces fatigue and raises energy levels</li>
+          <li data-en="Supports better sleep and nutrient absorption" data-es="Favorece el sueño y la absorción de nutrientes">Supports better sleep and nutrient absorption</li>
+          <li data-en="Calms the mind and helps stabilize the nervous system" data-es="Calma la mente y ayuda a estabilizar el sistema nervioso">Calms the mind and helps stabilize the nervous system</li>
+          <li data-en="Supports pre- and post-athletic performance" data-es="Apoya el rendimiento atlético antes y después">Supports pre- and post-athletic performance</li>
+        </ul>
+      </article>
+
+      <article class="tx-card">
+        <div class="tx-card-top">
+          <div class="tx-name">Castor Oil Wraps</div>
+          <div class="tx-price"><sup>$</sup>22</div>
+        </div>
+        <p class="tx-desc">
+          <span data-lang="en">A time-honored therapy combining castor oil and clay packs over the liver region. As the body's largest gland, the liver is vital to detoxification and immunity — this wrap supports it directly.</span>
+          <span data-lang="es">Una terapia tradicional que combina aceite de ricino y compresas de arcilla sobre la región del hígado. Como la glándula más grande del cuerpo, el hígado es vital para la desintoxicación y la inmunidad — esta envoltura lo apoya directamente.</span>
+        </p>
+        <ul class="tx-benefits">
+          <li data-en="Supports recovery from fatty liver" data-es="Apoya la recuperación del hígado graso">Supports recovery from fatty liver</li>
+          <li data-en="Reduces inflammation and discomfort" data-es="Reduce la inflamación y la molestia">Reduces inflammation and discomfort</li>
+          <li data-en="Promotes a healthier liver, lymphatic and immune response" data-es="Promueve un hígado, sistema linfático e inmune más sanos">Promotes a healthier liver, lymphatic and immune response</li>
+        </ul>
+      </article>
+
+      <article class="tx-card">
+        <div class="tx-card-top">
+          <div class="tx-name">Bio Frequency Inner Voice Scan<small>Telehealth or In-Person</small></div>
+          <div class="tx-price"><sup>$</sup>155</div>
+        </div>
+        <p class="tx-desc">
+          <span data-lang="en">A comprehensive health assessment using a Bio Frequency Inner Voice scan — in person or via telehealth. The full-body scan generates two detailed reports, one on bio-frequencies and one on your vitals, for a clear picture of what your body needs.</span>
+          <span data-lang="es">Una evaluación de salud integral con un escaneo Bio Frequency Inner Voice — presencial o por telesalud. El escaneo de cuerpo completo genera dos informes detallados, uno de biofrecuencias y otro de tus signos vitales, para ver con claridad lo que tu cuerpo necesita.</span>
+        </p>
+      </article>
+
+      <article class="tx-card">
+        <div class="tx-card-top">
+          <div class="tx-name">Colon Hydrotherapy<small>Colonics</small></div>
+          <div class="tx-price"><sup>$</sup>122</div>
+        </div>
+        <p class="tx-desc">
+          <span data-lang="en">Also known as colon cleansing or colonic irrigation — purified water gently flushes the colon to support natural detoxification. Often called the body's "second immune system," the colon is central to absorption, microbial balance, and digestive health.</span>
+          <span data-lang="es">También conocida como limpieza de colon o irrigación colónica — agua purificada limpia suavemente el colon para apoyar la desintoxicación natural. Llamado a menudo el "segundo sistema inmune" del cuerpo, el colon es central para la absorción, el equilibrio microbiano y la salud digestiva.</span>
+        </p>
+        <ul class="tx-benefits">
+          <li data-en="Supports detoxification and boosts energy" data-es="Apoya la desintoxicación e impulsa la energía">Supports detoxification and boosts energy</li>
+          <li data-en="Relieves abdominal discomfort and bloating" data-es="Alivia la molestia abdominal y la hinchazón">Relieves abdominal discomfort and bloating</li>
+          <li data-en="Improves nutrient absorption and microbial balance" data-es="Mejora la absorción de nutrientes y el equilibrio microbiano">Improves nutrient absorption and microbial balance</li>
+          <li data-en="A healing effect on the whole digestive tract" data-es="Un efecto sanador en todo el tracto digestivo">A healing effect on the whole digestive tract</li>
+        </ul>
+      </article>
+
+    </div>
+
+    <div class="tx-foot reveal">
+      <p class="tx-disclaimer" data-en="* This is not a medical device and should not be used as a replacement for prescribed medical treatments." data-es="* Esto no es un dispositivo médico y no debe usarse como reemplazo de tratamientos médicos recetados.">* This is not a medical device and should not be used as a replacement for prescribed medical treatments.</p>
+      <p class="tx-note" data-en="Available as add-ons to any primary session" data-es="Disponibles como complemento de cualquier sesión">Available as add-ons to any primary session</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- FYI -->
+<section class="fyi" id="fyi">
+  <div class="fyi-inner">
+    <div class="tx-header" style="margin-bottom: 0;">
+      <div class="tx-eyebrow reveal">
+        <span class="tx-eyebrow-num">¶ 04</span>
+        <span data-en="Before you book — FYI" data-es="Antes de reservar — Info">Before you book — FYI</span>
+        <span class="tx-eyebrow-line"></span>
+      </div>
+      <h2 class="tx-title reveal">
+        <span data-lang="en">A little <em>preparation</em> goes far.</span>
+        <span data-lang="es">Un poco de <em>preparación</em> hace mucho.</span>
+      </h2>
+      <p class="fyi-lead reveal">
+        <span data-lang="en">Please read the following before your appointment. Preparing your body helps you get the most from your session — and all required forms are completed before you arrive.</span>
+        <span data-lang="es">Por favor lee lo siguiente antes de tu cita. Preparar tu cuerpo te ayuda a aprovechar al máximo tu sesión — y todos los formularios requeridos se completan antes de llegar.</span>
+      </p>
+    </div>
+
+    <div class="fyi-list">
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span data-en="Before your appointment" data-es="Antes de tu cita">Before your appointment</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <ul class="fyi-body">
+              <li data-en="Stay well-hydrated in the days before — drink plenty of water." data-es="Mantente bien hidratada en los días previos — bebe mucha agua.">Stay well-hydrated in the days before — drink plenty of water.</li>
+              <li data-en="Eat a light meal a few hours before. Avoid heavy, greasy, or spicy foods." data-es="Come ligero unas horas antes. Evita comidas pesadas, grasosas o picantes.">Eat a light meal a few hours before. Avoid heavy, greasy, or spicy foods.</li>
+              <li data-en="Avoid eating within two hours of your appointment — if needed, only a small piece of fruit." data-es="Evita comer dentro de las dos horas previas — de ser necesario, solo un pedazo pequeño de fruta.">Avoid eating within two hours of your appointment — if needed, only a small piece of fruit.</li>
+              <li data-en="Refrain from alcohol and caffeine — they dehydrate and reduce effectiveness." data-es="Evita el alcohol y la cafeína — deshidratan y reducen la efectividad.">Refrain from alcohol and caffeine — they dehydrate and reduce effectiveness.</li>
+              <li data-en="Allow yourself time before and after to stay calm and unrushed." data-es="Date tiempo antes y después para mantenerte en calma y sin prisa.">Allow yourself time before and after to stay calm and unrushed.</li>
+              <li data-en="Please refrain from heavy perfume, cologne, or scented lotions — out of respect for others' sensitivities." data-es="Por favor evita perfumes, colonias o lociones fuertes — por respeto a las sensibilidades de otros.">Please refrain from heavy perfume, cologne, or scented lotions.</li>
+              <li data-en="Silence your phone or use airplane mode — our office is an EMF-reduced zone." data-es="Silencia tu teléfono o usa modo avión — nuestra oficina es una zona de EMF reducido.">Silence your phone or use airplane mode — our office is an EMF-reduced zone.</li>
+              <li data-en="Print and complete all forms before your appointment." data-es="Imprime y completa todos los formularios antes de tu cita.">Print and complete all forms before your appointment.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span data-en="Arrival &amp; timing" data-es="Llegada y puntualidad">Arrival &amp; timing</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <ul class="fyi-body">
+              <li data-en="Please arrive on time — and allow a few extra minutes if using GPS." data-es="Por favor llega a tiempo — y da unos minutos extra si usas GPS.">Please arrive on time — and allow a few extra minutes if using GPS.</li>
+              <li data-en="Do not arrive more than 15 minutes early; we may still be with another client." data-es="No llegues con más de 15 minutos de anticipación; podríamos estar con otro cliente.">Do not arrive more than 15 minutes early; we may still be with another client.</li>
+              <li data-en="Arriving more than 10 minutes late may be treated as a no-show and forfeit your deposit." data-es="Llegar más de 10 minutos tarde puede considerarse ausencia y perder tu depósito.">Arriving more than 10 minutes late may be treated as a no-show.</li>
+              <li data-en="If you knock and there's no answer, please wait in the seating area — we may be in session." data-es="Si tocas y no hay respuesta, espera en el área de asientos — podríamos estar en sesión.">If there's no answer, please wait in the seating area — we may be in session.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span data-en="After your session — aftercare" data-es="Después de tu sesión — cuidado">After your session — aftercare</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <ul class="fyi-body">
+              <li data-en="Don't eat or drink immediately after — wait until you're home or near a restroom, as urgency may occur." data-es="No comas ni bebas inmediatamente después — espera a estar en casa o cerca de un baño, puede haber urgencia.">Don't eat or drink immediately after — wait until you're home or near a restroom.</li>
+              <li data-en="Your first meal: avoid beans, nuts, corn, and cabbage — they can cause gas." data-es="Tu primera comida: evita habichuelas, nueces, maíz y repollo — pueden causar gases.">First meal: avoid beans, nuts, corn, and cabbage — they can cause gas.</li>
+              <li data-en="Avoid greasy, creamy, or alcoholic foods afterward." data-es="Evita comidas grasosas, cremosas o alcohólicas después.">Avoid greasy, creamy, or alcoholic foods afterward.</li>
+              <li data-en="Hydrate well — aim for water equal to half your body weight in ounces daily." data-es="Hidrátate bien — busca agua equivalente a la mitad de tu peso corporal en onzas al día.">Hydrate well — water equal to half your body weight in ounces daily.</li>
+              <li data-en="Chew thoroughly — around 30 times per bite — and don't drink fluids with meals." data-es="Mastica bien — unas 30 veces por bocado — y no bebas líquidos con las comidas.">Chew thoroughly and don't drink fluids with meals.</li>
+              <li data-en="Add live, wholesome foods; reduce flour, pasta, cheese, dairy, and rice." data-es="Añade alimentos vivos e integrales; reduce harina, pasta, queso, lácteos y arroz.">Add live foods; reduce flour, pasta, cheese, dairy, and rice.</li>
+              <li data-en="A full aftercare guide — probiotics, enzymes, aloe, and more — is provided at your visit." data-es="En tu visita se entrega una guía completa de cuidado — probióticos, enzimas, aloe y más.">A full aftercare guide is provided at your visit.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span data-en="Who we can't treat" data-es="A quién no podemos tratar">Who we can't treat</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <ul class="fyi-body">
+              <li data-en="Abdominal surgery within the past six months — we're unable to proceed with colonic treatment." data-es="Cirugía abdominal en los últimos seis meses — no podemos proceder con el tratamiento colónico.">Abdominal surgery within the past six months — we cannot proceed with colonics.</li>
+              <li data-en="Over 340 pounds — regrettably, we cannot perform the treatment due to table capacity." data-es="Más de 340 libras — lamentablemente no podemos realizar el tratamiento por capacidad de la camilla.">Over 340 pounds — we cannot perform the treatment due to table capacity.</li>
+              <li data-en="When in doubt, message us first and we'll help you find the right option." data-es="Ante la duda, escríbenos primero y te ayudamos a encontrar la mejor opción.">When in doubt, message us first and we'll help you find the right option.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-question" aria-expanded="false">
+          <span data-en="Payment, deposits &amp; policies" data-es="Pago, depósitos y políticas">Payment, deposits &amp; policies</span>
+          <span class="faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <ul class="fyi-body">
+              <li data-en="A 50% deposit is required for all appointments; the balance is due the day of service." data-es="Se requiere un depósito del 50% para todas las citas; el balance se paga el día del servicio.">A 50% deposit is required; balance is due the day of service.</li>
+              <li data-en="We accept PayPal, credit cards, ATH, and cash for the in-person balance." data-es="Aceptamos PayPal, tarjetas de crédito, ATH y efectivo para el balance en persona.">We accept PayPal, credit cards, ATH, and cash for the in-person balance.</li>
+              <li data-en="We also accept Health Savings Account (HSA) cards." data-es="También aceptamos tarjetas de Cuenta de Ahorros de Salud (HSA).">We also accept Health Savings Account (HSA) cards.</li>
+              <li data-en="48-hour notice is required to cancel or reschedule without forfeiting your deposit." data-es="Se requiere aviso de 48 horas para cancelar o reprogramar sin perder el depósito.">48-hour notice is required to cancel or reschedule.</li>
+              <li data-en="All treatment packages are final and must be used within six months." data-es="Todos los paquetes son finales y deben usarse dentro de seis meses.">All packages are final and must be used within six months.</li>
+              <li data-en="Management may apply your deposit toward other services at its discretion." data-es="La gerencia puede aplicar tu depósito a otros servicios a su discreción.">Management may apply your deposit toward other services at its discretion.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- DISCLAIMER STRIP -->
+<section class="disclaimer-strip">
+  <div class="disclaimer-strip-inner">
+    <div class="disclaimer-icon">
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">
+        <circle cx="20" cy="20" r="18"/>
+        <path d="M20 12v10M20 26v.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <p class="disclaimer-label" data-en="A note on these sessions" data-es="Una nota sobre estas sesiones">A note on these sessions</p>
+    <p class="disclaimer-text">
+      <span data-lang="en">Come with openness and leave with a <em>deeper sense of peace</em>. These sessions are complementary wellness experiences and are not intended to diagnose, treat, or cure any medical condition. Please let us know if you have a medical condition, implanted devices, or are pregnant.</span>
+      <span data-lang="es">Ven con apertura y vete con una <em>sensación más profunda de paz</em>. Estas sesiones son experiencias complementarias de bienestar y no están destinadas a diagnosticar, tratar o curar ninguna condición médica. Por favor avísanos si tienes alguna condición médica, dispositivos implantados, o estás embarazada.</span>
+    </p>
+  </div>
+</section>
+
+<!-- FORMS SECTION -->
+<section class="forms" id="forms">
+  <div class="forms-inner">
+    <div class="forms-header">
+      <p class="forms-eyebrow">
+        <span data-en="Client intake" data-es="Admisión del cliente">Client intake</span>
+      </p>
+      <h2 class="forms-title reveal">
+        <span data-lang="en">Forms &amp; <em>paperwork.</em></span>
+        <span data-lang="es">Formularios y <em>documentación.</em></span>
+      </h2>
+      <p class="forms-subtitle reveal">
+        <span data-lang="en">Download, review, and bring these to your appointment — or request to book and we'll send them your way.</span>
+        <span data-lang="es">Descarga, revisa, y trae estos a tu cita — o solicita una cita y te los enviaremos.</span>
+      </p>
+    </div>
+
+    <div class="forms-grid reveal-stagger">
+      <!-- Form 1 — Colonic Intake -->
+      <article class="form-card">
+        <div class="form-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+        </div>
+        <span class="form-card-type" data-en="Intake form" data-es="Formulario de admisión">Intake form</span>
+        <h3 class="form-card-title">
+          <span data-lang="en">Colon Hydrotherapy <em>Intake.</em></span>
+          <span data-lang="es">Admisión de <em>Hidroterapia.</em></span>
+        </h3>
+        <p class="form-card-desc">
+          <span data-lang="en">Full client intake form — health history, current medications, and signed acknowledgement.</span>
+          <span data-lang="es">Formulario completo de admisión — historial de salud, medicamentos actuales, y acuse de recibo firmado.</span>
+        </p>
+        <div class="form-card-actions">
+          <a href="forms/colon-intake-en.pdf" target="_blank" rel="noopener" class="form-card-link is-primary">
+            <span>EN</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </a>
+          <a href="forms/colon-intake-es.pdf" target="_blank" rel="noopener" class="form-card-link">
+            <span>ES</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Form 2 — Initial Symptom Survey -->
+      <article class="form-card">
+        <div class="form-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        </div>
+        <span class="form-card-type" data-en="Health survey" data-es="Encuesta de salud">Health survey</span>
+        <h3 class="form-card-title">
+          <span data-lang="en">Initial Symptom <em>Survey.</em></span>
+          <span data-lang="es">Encuesta Inicial<br>de <em>Síntomas.</em></span>
+        </h3>
+        <p class="form-card-desc">
+          <span data-lang="en">Scored symptom inventory used to understand your baseline before beginning sessions.</span>
+          <span data-lang="es">Inventario puntuado de síntomas usado para entender tu estado base antes de comenzar sesiones.</span>
+        </p>
+        <div class="form-card-actions">
+          <a href="forms/symptom-survey-en.pdf" target="_blank" rel="noopener" class="form-card-link is-primary">
+            <span>EN</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </a>
+          <a href="forms/symptom-survey-es.pdf" target="_blank" rel="noopener" class="form-card-link">
+            <span>ES</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Form 3 — Before Appointment -->
+      <article class="form-card">
+        <div class="form-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <span class="form-card-type" data-en="Before your visit" data-es="Antes de tu visita">Before your visit</span>
+        <h3 class="form-card-title">
+          <span data-lang="en">Before Appointment<br><em>Info.</em></span>
+          <span data-lang="es">Información<br><em>Pre-Cita.</em></span>
+        </h3>
+        <p class="form-card-desc">
+          <span data-lang="en">What to eat, drink, and avoid in the 48 hours leading up to your colon hydrotherapy session.</span>
+          <span data-lang="es">Qué comer, beber, y evitar en las 48 horas previas a tu sesión de hidroterapia.</span>
+        </p>
+        <div class="form-card-actions">
+          <a href="forms/before-appointment-en.pdf" target="_blank" rel="noopener" class="form-card-link is-primary">
+            <span>EN</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </a>
+          <a href="forms/before-appointment-es.pdf" target="_blank" rel="noopener" class="form-card-link">
+            <span>ES</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </a>
+        </div>
+      </article>
+
+      <!-- Form 4 — After Care -->
+      <article class="form-card">
+        <div class="form-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <span class="form-card-type" data-en="After your visit" data-es="Después de tu visita">After your visit</span>
+        <h3 class="form-card-title">
+          <span data-lang="en">After Care<br><em>Instructions.</em></span>
+          <span data-lang="es">Instrucciones<br><em>Post-Cuidado.</em></span>
+        </h3>
+        <p class="form-card-desc">
+          <span data-lang="en">Recovery guidance, foods to favor, and signs to watch for in the days after your session.</span>
+          <span data-lang="es">Guía de recuperación, alimentos a favorecer, y señales a observar en los días después de tu sesión.</span>
+        </p>
+        <div class="form-card-actions">
+          <a href="forms/after-care-en.pdf" target="_blank" rel="noopener" class="form-card-link is-primary">
+            <span>EN</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </a>
+          <a href="forms/after-care-es.pdf" target="_blank" rel="noopener" class="form-card-link">
+            <span>ES</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA — REQUEST TO BOOK -->
+<section class="cta" id="book">
+  <div class="cta-bg-glow"></div>
+  <div class="cta-inner">
+    <p class="cta-eyebrow reveal">
+      <span class="cta-eyebrow-line"></span>
+      <span data-en="By appointment only" data-es="Solo por cita previa">By appointment only</span>
+    </p>
+    <h2 class="cta-headline reveal">
+      <span data-lang="en">Request<br>to <em>book.</em></span>
+      <span data-lang="es">Solicita<br>tu <em>cita.</em></span>
+    </h2>
+    <p class="cta-sub reveal">
+      <span data-lang="en">Send a message. Tasha replies <em>within 24 hours</em> to confirm your appointment time.</span>
+      <span data-lang="es">Envía un mensaje. Tasha responde <em>dentro de 24 horas</em> para confirmar tu cita.</span>
+    </p>
+    <div class="cta-actions reveal">
+      <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20to%20request%20a%20wellness%20session." target="_blank" rel="noopener" class="btn-gold btn-arrow">
+        <span data-en="Message on WhatsApp" data-es="Mensaje en WhatsApp">Message on WhatsApp</span>
+        <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="mailto:saludnaturalwellnesscenter@gmail.com?subject=Appointment%20Request" class="btn-outline-gold" data-en="Email Tasha" data-es="Correo a Tasha">Email Tasha</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg class="footer-mark" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M30 8 C 30 22, 18 28, 18 38 C 18 46, 23.5 52, 30 52 C 36.5 52, 42 46, 42 38 C 42 28, 30 22, 30 8 Z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <circle cx="30" cy="36" r="2" fill="currentColor"/>
+      </svg>
+      <p class="footer-name">Salud Natural<br><em>Wellness &amp; Learning Center</em></p>
+      <p class="footer-tag">
+        <span data-lang="en">The Caribbean's only naturopath-led holistic training center.</span>
+        <span data-lang="es">El único centro de formación holística del Caribe dirigido por una naturópata.</span>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Explore" data-es="Explorar">Explore</h4>
+      <ul>
+        <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a href="about.html" data-en="About Tasha" data-es="Sobre Tasha">About Tasha</a></li>
+        <li><a href="courses.html" data-en="All Courses" data-es="Todos los Cursos">All Courses</a></li>
+        <li><a href="services.html" data-en="Therapeutic Services" data-es="Servicios Terapéuticos">Therapeutic Services</a></li>
+        <li><a href="contact.html" data-en="Enroll" data-es="Inscríbete">Enroll</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Visit" data-es="Visita">Visit</h4>
+      <p>Bo Beatriz<br>Sector Las Piñas<br>Carr 1 KM .45<br>Caguas, PR 00725</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Connect" data-es="Conecta">Connect</h4>
+      <ul>
+        <li><a href="tel:+19394780105">939-478-0105</a></li>
+        <li><a href="mailto:saludnaturalwellnesscenter@gmail.com" data-en="Email" data-es="Correo">Email</a></li>
+        <li><a href="https://wa.me/19394780105" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://us.fullscript.com/welcome/tsoto" target="_blank" rel="noopener" data-en="Fullscript Dispensary" data-es="Dispensario Fullscript">Fullscript Dispensary</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <p data-lang="en">© 2026 Salud Natural Wellness &amp; Learning Center. A division of Salud Natural Wellness Center Inc.</p>
+    <p data-lang="es">© 2026 Salud Natural Wellness &amp; Learning Center. Una división de Salud Natural Wellness Center Inc.</p>
+    <p class="footer-credit">
+      <span data-en="Crafted by" data-es="Creado por">Crafted by</span>
+      <a href="#" target="_blank" rel="noopener">Lizardi Technologies</a>
+    </p>
+  </div>
+  <div class="footer-large" aria-hidden="true"><span>Salud Natural</span></div>
+  <p class="footer-disclaimer">
+    <span data-lang="en">The information contained on this website is not intended to diagnose, treat, cure or prevent any disease. Any statements have not been evaluated by the FDA.</span>
+    <span data-lang="es">La información contenida en este sitio web no tiene la intención de diagnosticar, tratar, curar o prevenir ninguna enfermedad. Las declaraciones no han sido evaluadas por la FDA.</span>
+  </p>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20to%20request%20a%20wellness%20session." target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp Tasha">
+  <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+(function() {
+  'use strict';
+
+  const loader = document.getElementById('loader');
+  function dismissLoader() { if (loader && !loader.classList.contains('is-hidden')) loader.classList.add('is-hidden'); }
+  window.addEventListener('load', () => setTimeout(dismissLoader, 2000));
+  setTimeout(dismissLoader, 3200);
+
+  // LANGUAGE TOGGLE
+  let langInitialized = false;
+  function applyLanguage(lang) {
+    const wasInitialized = langInitialized;
+    document.body.classList.toggle('is-es', lang === 'es');
+    document.documentElement.setAttribute('lang', lang);
+    const attrName = lang === 'es' ? 'data-es' : 'data-en';
+    document.querySelectorAll('[data-en][data-es]').forEach(el => {
+      const newText = el.getAttribute(attrName);
+      if (newText === null) return;
+      if (el.children.length === 0) {
+        el.textContent = newText;
+      } else {
+        for (const node of el.childNodes) {
+          if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+            node.textContent = newText;
+            return;
+          }
+        }
+      }
+    });
+    document.querySelectorAll('[data-lang-set]').forEach(btn => {
+      btn.classList.toggle('is-active', btn.getAttribute('data-lang-set') === lang);
+    });
+    if (wasInitialized) {
+      document.querySelectorAll('.page-hero-word[data-lang="' + lang + '"]').forEach(el => {
+        el.style.animation = 'none';
+        void el.offsetWidth;
+        el.style.animation = '';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    }
+    try { localStorage.setItem('snwlc-lang', lang); } catch (e) {}
+    langInitialized = true;
+  }
+  let initialLang = 'en';
+  try {
+    const stored = localStorage.getItem('snwlc-lang');
+    if (stored === 'es' || stored === 'en') initialLang = stored;
+  } catch (e) {}
+  applyLanguage(initialLang);
+  document.querySelectorAll('[data-lang-set]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      applyLanguage(btn.getAttribute('data-lang-set'));
+    });
+  });
+
+  // NAV SCROLL
+  const nav = document.getElementById('nav');
+  const jumpNav = document.getElementById('jumpNav');
+  const lightSections = document.querySelectorAll('.service.is-light, .forms');
+  function updateNav() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    if (scrollY > 80) nav.classList.add('is-scrolled');
+    else nav.classList.remove('is-scrolled');
+    if (scrollY > 200) jumpNav.classList.add('is-compact');
+    else jumpNav.classList.remove('is-compact');
+    if (!nav.classList.contains('is-scrolled')) {
+      let onLight = false;
+      lightSections.forEach(sec => {
+        const r = sec.getBoundingClientRect();
+        if (r.top < 60 && r.bottom > 60) onLight = true;
+      });
+      nav.classList.toggle('is-light', onLight);
+    } else { nav.classList.remove('is-light'); }
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+
+  // ACTIVE JUMP NAV LINK
+  const sections = document.querySelectorAll('.service[id], .forms[id], .cta[id]');
+  const jumpLinks = document.querySelectorAll('.jump-nav-list a');
+  function updateActiveJump() {
+    let active = '';
+    const checkY = window.scrollY + 200;
+    sections.forEach(sec => {
+      if (sec.offsetTop <= checkY) active = sec.id;
+    });
+    jumpLinks.forEach(l => {
+      l.classList.toggle('is-active', l.getAttribute('href') === '#' + active);
+    });
+  }
+  window.addEventListener('scroll', updateActiveJump, { passive: true });
+  updateActiveJump();
+
+  // MOBILE MENU
+  const burger = document.getElementById('navBurger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('is-open');
+      mobileMenu.classList.toggle('is-open');
+      document.body.style.overflow = mobileMenu.classList.contains('is-open') ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.classList.remove('is-open');
+        mobileMenu.classList.remove('is-open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // REVEAL
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(el => obs.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
+
+  // Magnetic buttons
+  document.querySelectorAll('.btn-gold, .btn-outline-gold, .btn-ink, .btn-outline-ink, .nav-cta').forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      if (window.innerWidth < 1024) return;
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) * 0.15;
+      const y = (e.clientY - rect.top - rect.height / 2) * 0.25;
+      el.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+  });
+
+  // FAQ accordion (from merged therapies content)
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-question');
+    if (!q) return;
+    q.addEventListener('click', () => {
+      const wasOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('is-open'));
+      if (!wasOpen) item.classList.add('is-open');
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

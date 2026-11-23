@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Cpath d=%27M20 5 C 20 14, 13 17, 13 25 C 13 30, 16.5 34, 20 34 C 23.5 34, 27 30, 27 25 C 27 17, 20 14, 20 5 Z%27 fill=%27none%27 stroke=%27%23C9A961%27 stroke-width=%272%27/%3E%3Ccircle cx=%2720%27 cy=%2724%27 r=%271.5%27 fill=%27%23C9A961%27/%3E%3C/svg%3E">
+<title>Enroll — Salud Natural Wellness & Learning Center</title>
+<meta name="description" content="Reserve your seat in the next cohort. Bilingual holistic certification programs in Caguas, Puerto Rico.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --onyx: #0E0F0C;
+  --onyx-deep: #07080A;
+  --onyx-soft: #1A1C18;
+  --ivory: #F5F0E6;
+  --ivory-deep: #ECE5D5;
+  --ivory-bright: #FBF8F0;
+  --emerald: #1A3A2E;
+  --emerald-deep: #0F2620;
+  --emerald-soft: #2A5044;
+  --gold: #C9A961;
+  --gold-bright: #E5C77A;
+  --gold-dark: #9A7F40;
+  --hairline-light: rgba(26, 58, 46, 0.15);
+  --hairline-dark: rgba(245, 240, 230, 0.12);
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --container: 1440px;
+  --gutter: clamp(1.5rem, 4vw, 5rem);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+*::selection { background: var(--gold); color: var(--onyx); }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; max-width: 100vw; }
+body { font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 1.55; color: var(--onyx); background: var(--ivory); overflow-x: hidden; max-width: 100vw; position: relative; }
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }
+ul, ol { list-style: none; }
+em { font-style: italic; font-family: var(--font-display); font-weight: 400; }
+
+/* LOADER */
+.loader { position: fixed; inset: 0; z-index: 1000; background: var(--onyx); color: var(--ivory); display: flex; align-items: center; justify-content: center; transition: clip-path 1.1s cubic-bezier(0.76, 0, 0.24, 1); clip-path: inset(0 0 0 0); }
+.loader.is-hidden { clip-path: inset(0 0 100% 0); pointer-events: none; }
+.loader-inner { text-align: center; max-width: 320px; }
+.loader-mark { width: 80px; height: 80px; margin: 0 auto 2rem; animation: loaderRise 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both; }
+.loader-mark svg { width: 100%; height: 100%; color: var(--gold); }
+@keyframes loaderRise { from { opacity: 0; transform: translateY(20px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
+.loader-text { font-family: var(--font-display); font-size: 1.8rem; font-weight: 300; letter-spacing: 0.02em; margin-bottom: 2rem; animation: loaderFade 0.9s ease-out 0.5s both; }
+.loader-text em { font-style: italic; color: var(--gold); }
+@keyframes loaderFade { from { opacity: 0; } to { opacity: 1; } }
+.loader-bar { width: 100%; height: 1px; background: rgba(245, 240, 230, 0.15); overflow: hidden; }
+.loader-bar-fill { height: 100%; background: linear-gradient(90deg, transparent, var(--gold), transparent); background-size: 200% 100%; transform-origin: left; transform: scaleX(0); animation: loaderBar 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s forwards, loaderShimmer 1.4s linear infinite; }
+@keyframes loaderBar { to { transform: scaleX(1); } }
+@keyframes loaderShimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.loader-caption { margin-top: 1.5rem; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold-dark); animation: loaderFade 0.9s ease-out 1.4s both; }
+
+/* NAV */
+.nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.5rem var(--gutter); transition: background 0.5s, padding 0.5s, border-color 0.5s; border-bottom: 1px solid transparent; color: var(--ivory); }
+.nav.is-light { color: var(--onyx); }
+.nav.is-scrolled { background: rgba(14, 15, 12, 0.85); backdrop-filter: blur(18px) saturate(180%); -webkit-backdrop-filter: blur(18px) saturate(180%); padding: 1rem var(--gutter); border-bottom-color: var(--hairline-dark); color: var(--ivory); }
+.nav-inner { max-width: var(--container); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+.nav-mark { width: 32px; height: 32px; color: var(--gold); transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1); }
+.nav-logo:hover .nav-mark { transform: rotate(180deg); }
+.nav-wordmark { display: flex; flex-direction: column; line-height: 1; }
+.nav-wordmark-line { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; letter-spacing: 0.01em; }
+.nav-wordmark-sub { font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-top: 0.3rem; font-weight: 500; }
+.nav-links { display: flex; gap: 2.5rem; font-size: 0.82rem; letter-spacing: 0.04em; }
+.nav-links a { position: relative; padding: 0.5rem 0; transition: color 0.3s; }
+.nav-links a::before { content: ''; position: absolute; left: -0.5rem; top: 50%; width: 4px; height: 4px; background: var(--gold); border-radius: 50%; opacity: 0; transform: translate(-100%, -50%) scale(0.5); transition: all 0.4s cubic-bezier(0.7, 0, 0.3, 1); }
+.nav-links a:hover::before, .nav-links a.active::before { opacity: 1; transform: translate(-100%, -50%) scale(1); }
+.nav-links a.active { color: var(--gold); }
+.nav-cta { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.4rem; border: 1px solid var(--gold); border-radius: 999px; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; color: var(--gold); transition: all 0.4s; position: relative; overflow: hidden; }
+.nav-cta::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateY(101%); transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1); }
+.nav-cta:hover { color: var(--onyx); }
+.nav-cta:hover::before { transform: translateY(0); }
+.nav-cta span, .nav-cta svg { position: relative; z-index: 1; }
+.nav-cta svg { transition: transform 0.4s; }
+.nav-cta:hover svg { transform: translateX(3px); }
+.nav-burger { display: none; flex-direction: column; gap: 6px; width: 28px; padding: 8px 0; }
+.nav-burger span { display: block; height: 1.5px; background: currentColor; transition: transform 0.4s; }
+.nav-burger.is-open span:nth-child(1) { transform: translateY(3.5px) rotate(45deg); }
+.nav-burger.is-open span:nth-child(2) { transform: translateY(-3px) rotate(-45deg); }
+
+.mobile-menu { position: fixed; inset: 0; z-index: 90; background: var(--onyx); color: var(--ivory); padding: 8rem var(--gutter) 3rem; display: flex; flex-direction: column; justify-content: space-between; clip-path: inset(0 0 100% 0); transition: clip-path 0.8s cubic-bezier(0.76, 0, 0.24, 1); pointer-events: none; }
+.mobile-menu.is-open { clip-path: inset(0 0 0 0); pointer-events: auto; }
+.mobile-menu ul { display: flex; flex-direction: column; gap: 1.5rem; }
+.mobile-menu ul a { font-family: var(--font-display); font-size: clamp(2.5rem, 10vw, 5rem); font-weight: 300; line-height: 1; display: block; }
+.mobile-menu ul em { color: var(--gold); }
+.mobile-menu-footer { font-size: 0.75rem; letter-spacing: 0.1em; opacity: 0.6; display: flex; justify-content: space-between; gap: 2rem; text-transform: uppercase; }
+
+/* BILINGUAL */
+[data-lang="es"] { display: none; }
+body.is-es [data-lang="es"] { display: revert; }
+body.is-es [data-lang="en"] { display: none; }
+.page-hero-word[data-lang="en"], .page-hero-word[data-lang="es"] { display: inline-block; }
+body.is-es .page-hero-word[data-lang="en"] { display: none; }
+body:not(.is-es) .page-hero-word[data-lang="es"] { display: none; }
+
+.lang-toggle { display: inline-flex; align-items: center; border: 1px solid rgba(201, 169, 97, 0.4); border-radius: 999px; padding: 0.35rem; margin-right: 1rem; }
+.lang-toggle button { background: transparent; border: none; font-family: var(--font-body); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; color: currentColor; padding: 0.35rem 0.8rem; border-radius: 999px; cursor: pointer; transition: background 0.4s, color 0.4s; opacity: 0.6; }
+.lang-toggle button.is-active { background: var(--gold); color: var(--onyx); opacity: 1; }
+.lang-toggle button:not(.is-active):hover { opacity: 1; color: var(--gold); }
+@media (max-width: 600px) { .lang-toggle { display: none; } }
+.mobile-lang-toggle { display: none; margin-top: 2rem; align-items: center; border: 1px solid rgba(201, 169, 97, 0.4); border-radius: 999px; padding: 0.4rem; width: fit-content; }
+@media (max-width: 600px) { .mobile-lang-toggle { display: inline-flex; } }
+.mobile-lang-toggle button { background: transparent; border: none; font-family: var(--font-body); font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--ivory); padding: 0.5rem 1.2rem; border-radius: 999px; cursor: pointer; transition: background 0.4s, color 0.4s; opacity: 0.6; }
+.mobile-lang-toggle button.is-active { background: var(--gold); color: var(--onyx); opacity: 1; }
+
+/* PAGE HERO */
+.page-hero { position: relative; background: var(--onyx); color: var(--ivory); padding: 10rem var(--gutter) 5rem; overflow: hidden; }
+.page-hero-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.page-hero-bg svg { position: absolute; opacity: 0.14; }
+.page-hero-bg .glyph { top: -15%; left: -5%; width: 55%; max-width: 700px; animation: glyphFloat 14s ease-in-out infinite; }
+@keyframes glyphFloat { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-15px) rotate(3deg); } }
+.page-hero-bg .glow { position: absolute; top: 50%; right: 20%; width: 700px; height: 700px; background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 60%); transform: translate(50%, -50%); animation: glowPulse 8s ease-in-out infinite; }
+@keyframes glowPulse { 0%, 100% { opacity: 0.5; transform: translate(50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(50%, -50%) scale(1.15); } }
+.page-hero-inner { position: relative; z-index: 2; max-width: var(--container); margin: 0 auto; }
+
+.crumb { display: flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 3rem; opacity: 0; animation: fadeUp 1s ease-out 1.4s forwards; }
+.crumb a { transition: color 0.3s; }
+.crumb a:hover { color: var(--gold-bright); }
+.crumb-sep { width: 30px; height: 1px; background: var(--gold); opacity: 0.5; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+.page-hero-title { font-family: var(--font-display); font-weight: 300; font-size: clamp(3.5rem, 10vw, 9rem); line-height: 0.9; letter-spacing: -0.03em; color: var(--ivory); max-width: 1100px; }
+.page-hero-title em { color: var(--gold); font-style: italic; position: relative; }
+.page-hero-title em::after { content: ''; position: absolute; bottom: 0.08em; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform: scaleX(0); transform-origin: left; animation: underline 1.5s cubic-bezier(0.2, 0.7, 0.2, 1) 2.5s forwards; }
+@keyframes underline { to { transform: scaleX(1); } }
+.page-hero-line { display: block; overflow: hidden; padding-bottom: 0.06em; }
+.page-hero-word { display: inline-block; transform: translateY(110%); opacity: 0; animation: heroWord 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) forwards; }
+.page-hero-line:nth-child(1) .page-hero-word { animation-delay: 1.8s; }
+.page-hero-line:nth-child(2) .page-hero-word { animation-delay: 1.95s; }
+@keyframes heroWord { to { transform: translateY(0); opacity: 1; } }
+
+.page-hero-bottom { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 3rem; align-items: end; padding-top: 4rem; margin-top: 3rem; border-top: 1px solid var(--hairline-dark); }
+@media (max-width: 900px) { .page-hero-bottom { grid-template-columns: 1fr; gap: 2rem; } }
+
+.page-hero-sub { font-family: var(--font-display); font-style: italic; font-size: clamp(1.1rem, 1.4vw, 1.35rem); line-height: 1.5; color: var(--ivory); opacity: 0.85; max-width: 480px; opacity: 0; animation: fadeUp 1s ease-out 2.5s forwards; }
+.page-hero-sub em { color: var(--gold); font-style: italic; }
+
+.hero-quick-info { opacity: 0; animation: fadeUp 1s ease-out 2.7s forwards; }
+.hero-quick-eyebrow { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; font-weight: 500; }
+.hero-quick-list { display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.88rem; color: var(--ivory); }
+.hero-quick-list li::before { content: '✦ '; color: var(--gold); margin-right: 0.4rem; }
+.hero-quick-list em { color: var(--gold); font-style: italic; }
+.hero-quick-actions { display: flex; flex-direction: column; gap: 0.75rem; opacity: 0; animation: fadeUp 1s ease-out 2.9s forwards; }
+
+/* BUTTONS */
+.btn-gold, .btn-outline-gold, .btn-outline-ink, .btn-ink { display: inline-flex; align-items: center; justify-content: center; gap: 0.75rem; padding: 1.1rem 1.8rem; font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; border-radius: 999px; transition: color 0.5s, border-color 0.5s; position: relative; overflow: hidden; cursor: pointer; }
+.btn-gold { background: var(--gold); color: var(--onyx); border: 1px solid var(--gold); }
+.btn-gold::before { content: ''; position: absolute; inset: 0; background: var(--gold-bright); transform: translateY(101%); transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1); }
+.btn-gold:hover::before { transform: translateY(0); }
+.btn-gold > * { position: relative; z-index: 1; }
+.btn-outline-gold { background: transparent; color: var(--gold); border: 1px solid var(--gold); }
+.btn-outline-gold::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateY(101%); transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1); }
+.btn-outline-gold:hover { color: var(--onyx); }
+.btn-outline-gold:hover::before { transform: translateY(0); }
+.btn-outline-gold > * { position: relative; z-index: 1; }
+.btn-ink { background: var(--emerald); color: var(--ivory); border: 1px solid var(--emerald); }
+.btn-ink::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateY(101%); transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1); }
+.btn-ink:hover { color: var(--onyx); border-color: var(--gold); }
+.btn-ink:hover::before { transform: translateY(0); }
+.btn-ink > * { position: relative; z-index: 1; }
+.btn-outline-ink { background: transparent; color: var(--emerald); border: 1px solid var(--emerald); }
+.btn-outline-ink::before { content: ''; position: absolute; inset: 0; background: var(--emerald); transform: translateY(101%); transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1); }
+.btn-outline-ink:hover { color: var(--ivory); }
+.btn-outline-ink:hover::before { transform: translateY(0); }
+.btn-outline-ink > * { position: relative; z-index: 1; }
+.btn-arrow svg { transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1); }
+.btn-gold:hover .btn-arrow svg, .btn-outline-gold:hover .btn-arrow svg, .btn-ink:hover .btn-arrow svg, .btn-outline-ink:hover .btn-arrow svg { transform: translateX(4px); }
+
+/* STEPS */
+.steps { padding: 7rem var(--gutter); background: var(--ivory); color: var(--emerald); }
+.steps-inner { max-width: var(--container); margin: 0 auto; }
+.steps-header { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: start; margin-bottom: 5rem; }
+@media (max-width: 900px) { .steps-header { grid-template-columns: 1fr; gap: 2rem; } }
+.steps-eyebrow { display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-dark); font-weight: 500; }
+.steps-eyebrow-num { font-family: var(--font-display); font-style: italic; font-size: 1.6rem; color: var(--emerald); letter-spacing: 0; }
+.steps-eyebrow-line { width: 60px; height: 1px; background: var(--gold); margin-top: 0.5rem; }
+.steps-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5.5vw, 4.5rem); font-weight: 300; line-height: 1; letter-spacing: -0.025em; color: var(--emerald); }
+.steps-title em { color: var(--gold-dark); font-style: italic; }
+.steps-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+@media (max-width: 768px) { .steps-list { grid-template-columns: 1fr; } }
+.step-card { position: relative; padding: 2.5rem 2rem; background: var(--ivory-bright); border: 1px solid var(--hairline-light); border-radius: 2px; transition: transform 0.5s, border-color 0.5s, background 0.5s; overflow: hidden; }
+.step-card::before { content: ''; position: absolute; left: 0; top: 0; width: 0; height: 100%; background: var(--gold); transition: width 0.6s cubic-bezier(0.7, 0, 0.3, 1); }
+.step-card:hover { transform: translateY(-4px); border-color: var(--gold); background: var(--ivory); }
+.step-card:hover::before { width: 3px; }
+.step-card-num { font-family: var(--font-display); font-style: italic; font-size: 2.5rem; color: var(--gold-dark); margin-bottom: 1.5rem; line-height: 1; }
+.step-card h3 { font-family: var(--font-display); font-size: 1.9rem; font-weight: 500; line-height: 1.15; margin-bottom: 1rem; color: var(--emerald); letter-spacing: -0.01em; }
+.step-card h3 em { color: var(--gold-dark); font-style: italic; }
+.step-card p { font-size: 0.95rem; line-height: 1.7; color: var(--emerald-soft); }
+
+/* FORM */
+.form-section { padding: 8rem var(--gutter); background: var(--onyx); color: var(--ivory); position: relative; overflow: hidden; }
+.form-section::before { content: ''; position: absolute; bottom: -200px; right: -200px; width: 800px; height: 800px; background: radial-gradient(circle, rgba(201, 169, 97, 0.06) 0%, transparent 60%); pointer-events: none; }
+.form-inner { max-width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
+.form-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+@media (max-width: 900px) { .form-grid { grid-template-columns: 1fr; gap: 3rem; } }
+.form-side { position: sticky; top: 7rem; }
+@media (max-width: 900px) { .form-side { position: relative; top: 0; } }
+.form-side-eyebrow { display: flex; align-items: center; gap: 1.5rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 2rem; }
+.form-side-num { font-family: var(--font-display); font-style: italic; color: var(--gold); font-size: 1rem; letter-spacing: 0; }
+.form-side-title { font-family: var(--font-display); font-size: clamp(2rem, 4.5vw, 4rem); font-weight: 300; line-height: 1; letter-spacing: -0.025em; color: var(--ivory); margin-bottom: 2rem; }
+.form-side-title em { color: var(--gold); font-style: italic; }
+.form-side-body { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; line-height: 1.55; color: var(--ivory); opacity: 0.8; margin-bottom: 3rem; max-width: 440px; }
+.form-side-body em { color: var(--gold); font-style: italic; }
+.form-side-contact { display: flex; flex-direction: column; gap: 1rem; padding: 2rem 0; border-top: 1px solid var(--hairline-dark); border-bottom: 1px solid var(--hairline-dark); margin-bottom: 2rem; }
+.form-contact-row { display: flex; align-items: center; gap: 1rem; font-size: 0.9rem; color: var(--ivory); transition: color 0.3s; }
+.form-contact-row svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; }
+.form-contact-row strong { font-weight: 400; color: var(--gold); margin-right: 0.5rem; font-family: var(--font-display); font-style: italic; }
+.form-contact-row a:hover { color: var(--gold); }
+.form-side-hours { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ivory); opacity: 0.5; font-weight: 500; }
+.form-side-hours em { color: var(--gold); font-style: italic; font-family: var(--font-display); letter-spacing: 0; text-transform: none; }
+
+.form-card { background: var(--onyx-soft); border: 1px solid var(--hairline-dark); border-radius: 2px; padding: clamp(2rem, 4vw, 3.5rem); position: relative; overflow: hidden; }
+.form-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.form-card-label { display: flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 1.5rem; }
+.form-card-label::before { content: ''; width: 30px; height: 1px; background: var(--gold); }
+.form-card h3 { font-family: var(--font-display); font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 400; line-height: 1.15; letter-spacing: -0.015em; margin-bottom: 2.5rem; color: var(--ivory); }
+.form-card h3 em { color: var(--gold); font-style: italic; }
+.form-row { margin-bottom: 1.5rem; }
+.form-row-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media (max-width: 600px) { .form-row-grid { grid-template-columns: 1fr; } }
+.form-field { position: relative; }
+.form-field label { display: block; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 0.7rem; }
+.form-field input, .form-field select, .form-field textarea { width: 100%; padding: 1rem 1.1rem; background: transparent; border: 1px solid var(--hairline-dark); border-radius: 2px; color: var(--ivory); font-family: var(--font-body); font-size: 0.95rem; transition: border-color 0.4s, background 0.4s; }
+.form-field input::placeholder, .form-field textarea::placeholder { color: var(--ivory); opacity: 0.35; font-style: italic; font-family: var(--font-display); }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: none; border-color: var(--gold); background: rgba(201, 169, 97, 0.05); }
+.form-field select { appearance: none; background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 9l6 6 6-6' stroke='%23C9A961' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; background-size: 18px; padding-right: 3rem; cursor: pointer; }
+.form-field select option { background: var(--onyx); color: var(--ivory); }
+.form-field textarea { min-height: 130px; resize: vertical; font-family: var(--font-body); line-height: 1.55; }
+.form-radio-group { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+@media (max-width: 600px) { .form-radio-group { grid-template-columns: 1fr; } }
+.form-radio { position: relative; display: flex; align-items: center; gap: 0.7rem; padding: 0.95rem 1.1rem; border: 1px solid var(--hairline-dark); border-radius: 2px; cursor: pointer; transition: border-color 0.4s, background 0.4s; font-size: 0.88rem; color: var(--ivory); }
+.form-radio input[type="radio"] { position: absolute; opacity: 0; }
+.form-radio-dot { width: 14px; height: 14px; border: 1px solid var(--hairline-dark); border-radius: 50%; position: relative; transition: border-color 0.3s; flex-shrink: 0; }
+.form-radio-dot::after { content: ''; position: absolute; inset: 3px; background: var(--gold); border-radius: 50%; transform: scale(0); transition: transform 0.3s cubic-bezier(0.5, 0, 0.2, 1.4); }
+.form-radio input[type="radio"]:checked ~ .form-radio-dot { border-color: var(--gold); }
+.form-radio input[type="radio"]:checked ~ .form-radio-dot::after { transform: scale(1); }
+.form-radio:has(input:checked) { border-color: var(--gold); background: rgba(201, 169, 97, 0.06); }
+.form-submit { margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+.form-submit button { cursor: pointer; }
+.form-disclaimer { font-size: 0.7rem; line-height: 1.5; color: var(--ivory); opacity: 0.4; margin-top: 1.5rem; font-style: italic; }
+.form-success { display: none; text-align: center; padding: 2rem 0; }
+.form-card.is-success .form-fields { display: none; }
+.form-card.is-success .form-success { display: block; }
+.form-success-icon { width: 56px; height: 56px; border: 1px solid var(--gold); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; color: var(--gold); animation: successPop 0.6s cubic-bezier(0.4, 1.6, 0.6, 1); }
+@keyframes successPop { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.form-success h4 { font-family: var(--font-display); font-size: 2rem; font-weight: 400; line-height: 1.2; margin-bottom: 1rem; color: var(--ivory); }
+.form-success h4 em { color: var(--gold); font-style: italic; }
+.form-success p { font-family: var(--font-display); font-style: italic; font-size: 1.15rem; line-height: 1.5; color: var(--ivory); opacity: 0.7; max-width: 420px; margin: 0 auto 2rem; }
+
+/* PAYMENTS */
+.payments { padding: 8rem var(--gutter); background: var(--ivory); color: var(--emerald); }
+.payments-inner { max-width: var(--container); margin: 0 auto; }
+.payments-header { margin-bottom: 5rem; max-width: 900px; }
+.payments-eyebrow { display: flex; align-items: center; gap: 1.5rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-dark); font-weight: 500; margin-bottom: 2rem; }
+.payments-title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; line-height: 0.98; letter-spacing: -0.025em; color: var(--emerald); }
+.payments-title em { color: var(--gold-dark); font-style: italic; }
+.payments-sub { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; line-height: 1.5; color: var(--emerald-soft); margin-top: 1.5rem; max-width: 600px; }
+.payments-sub em { color: var(--gold-dark); font-style: italic; }
+.payment-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 4rem; }
+@media (max-width: 768px) { .payment-grid { grid-template-columns: 1fr; } }
+.pay-card { background: var(--ivory-bright); border: 1px solid var(--hairline-light); border-radius: 2px; padding: 2.5rem 2.2rem; position: relative; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.5s, background 0.5s; cursor: pointer; }
+.pay-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); transform: translateX(-100%); transition: transform 0.9s cubic-bezier(0.7, 0, 0.3, 1); }
+.pay-card:hover { transform: translateY(-4px); border-color: var(--gold); background: var(--ivory); }
+.pay-card:hover::before { transform: translateX(100%); }
+.pay-card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.5rem; }
+.pay-card-logo { font-family: var(--font-display); font-size: 1.6rem; line-height: 1; color: var(--emerald); font-weight: 500; letter-spacing: -0.01em; }
+.pay-card-logo em { color: var(--gold-dark); font-style: italic; }
+.pay-card-num { font-family: var(--font-display); font-style: italic; font-size: 0.95rem; color: var(--gold-dark); }
+.pay-card-name { font-family: var(--font-display); font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 400; line-height: 1.1; color: var(--emerald); margin-bottom: 0.7rem; letter-spacing: -0.01em; }
+.pay-card-name em { color: var(--gold-dark); font-style: italic; }
+.pay-card-detail { font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-dark); font-weight: 500; margin-bottom: 1.5rem; }
+.pay-card-desc { font-size: 0.92rem; line-height: 1.65; color: var(--emerald-soft); margin-bottom: 2rem; flex: 1; }
+.pay-card-cta { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--emerald); font-weight: 500; padding-top: 1.2rem; border-top: 1px solid var(--hairline-light); transition: color 0.4s, gap 0.4s; }
+.pay-card:hover .pay-card-cta { color: var(--gold-dark); gap: 1rem; }
+.pay-card-cta svg { transition: transform 0.4s; }
+.pay-card:hover .pay-card-cta svg { transform: translateX(4px); }
+
+.payment-note { display: flex; align-items: center; gap: 1.5rem; padding: 2rem 2.5rem; background: var(--emerald); color: var(--ivory); border-radius: 2px; position: relative; overflow: hidden; }
+.payment-note::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 50%, rgba(201, 169, 97, 0.15) 0%, transparent 60%); }
+.payment-note-icon { width: 48px; height: 48px; border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold); flex-shrink: 0; position: relative; z-index: 1; }
+.payment-note-body { position: relative; z-index: 1; }
+.payment-note-body strong { font-family: var(--font-display); font-style: italic; font-size: 1.2rem; color: var(--gold); font-weight: 500; display: block; margin-bottom: 0.3rem; }
+.payment-note-body p { font-size: 0.92rem; line-height: 1.55; color: var(--ivory); opacity: 0.85; }
+
+/* VISIT */
+.visit { padding: 8rem var(--gutter); background: var(--onyx); color: var(--ivory); position: relative; overflow: hidden; }
+.visit-inner { max-width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
+.visit-header { margin-bottom: 4rem; max-width: 800px; }
+.visit-eyebrow { display: flex; align-items: center; gap: 1.5rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 2rem; }
+.visit-num { font-family: var(--font-display); font-style: italic; color: var(--gold); font-size: 1rem; letter-spacing: 0; }
+.visit-title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; line-height: 0.98; letter-spacing: -0.025em; color: var(--ivory); }
+.visit-title em { color: var(--gold); font-style: italic; }
+.visit-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2rem; }
+@media (max-width: 900px) { .visit-grid { grid-template-columns: 1fr; } }
+.visit-map { position: relative; aspect-ratio: 4 / 3; background: var(--onyx-soft); border: 1px solid var(--hairline-dark); border-radius: 2px; overflow: hidden; }
+.visit-map iframe { width: 100%; height: 100%; border: 0; filter: invert(0.92) hue-rotate(180deg) saturate(0.6) brightness(0.95); }
+.visit-map-frame { position: absolute; inset: 1rem; border: 1px solid rgba(201, 169, 97, 0.15); pointer-events: none; z-index: 2; border-radius: 2px; }
+.visit-map-pin { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 3; pointer-events: none; }
+.visit-map-pin-inner { width: 18px; height: 18px; background: var(--gold); border: 3px solid var(--onyx); border-radius: 50%; box-shadow: 0 0 0 0 rgba(201, 169, 97, 0.5); animation: pinPulse 2s infinite; }
+@keyframes pinPulse { 0% { box-shadow: 0 0 0 0 rgba(201, 169, 97, 0.6); } 70% { box-shadow: 0 0 0 18px rgba(201, 169, 97, 0); } 100% { box-shadow: 0 0 0 0 rgba(201, 169, 97, 0); } }
+.visit-card { background: var(--emerald); border-radius: 2px; padding: clamp(2rem, 3vw, 3rem); position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; min-height: 100%; }
+.visit-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 30%, rgba(201, 169, 97, 0.2) 0%, transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(201, 169, 97, 0.1) 0%, transparent 55%); }
+.visit-card::after { content: ''; position: absolute; top: 1.2rem; left: 1.2rem; right: 1.2rem; bottom: 1.2rem; border: 1px solid rgba(201, 169, 97, 0.2); border-radius: 2px; pointer-events: none; }
+.visit-card-inner { position: relative; z-index: 1; }
+.visit-card-eyebrow { font-family: var(--font-display); font-style: italic; font-size: 0.9rem; color: var(--gold); margin-bottom: 2rem; }
+.visit-card-place { font-family: var(--font-display); font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1.1; font-weight: 400; color: var(--ivory); margin-bottom: 1.5rem; letter-spacing: -0.01em; }
+.visit-card-place em { color: var(--gold); font-style: italic; }
+.visit-card-divider { width: 50px; height: 1px; background: var(--gold); margin: 1.5rem 0; }
+.visit-card-meta { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
+.visit-card-meta-row { display: flex; gap: 0.6rem; font-size: 0.85rem; color: var(--ivory); line-height: 1.5; }
+.visit-card-meta-row strong { font-family: var(--font-display); font-style: italic; color: var(--gold); font-weight: 500; min-width: 60px; font-size: 0.95rem; }
+.visit-card-actions { display: flex; flex-direction: column; gap: 0.5rem; }
+.visit-card-link { display: inline-flex; align-items: center; justify-content: space-between; gap: 0.6rem; padding: 0.8rem 1.2rem; background: transparent; border: 1px solid rgba(201, 169, 97, 0.4); border-radius: 999px; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; color: var(--gold); transition: all 0.4s; }
+.visit-card-link:hover { background: var(--gold); color: var(--emerald); border-color: var(--gold); }
+.visit-card-link svg { transition: transform 0.4s; }
+.visit-card-link:hover svg { transform: translateX(3px); }
+
+/* FAQ */
+.faq { padding: 8rem var(--gutter); background: var(--ivory); color: var(--emerald); }
+.faq-inner { max-width: var(--container); margin: 0 auto; }
+.faq-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start; }
+@media (max-width: 900px) { .faq-grid { grid-template-columns: 1fr; gap: 3rem; } }
+.faq-side { position: sticky; top: 7rem; }
+@media (max-width: 900px) { .faq-side { position: relative; top: 0; } }
+.faq-eyebrow { display: flex; flex-direction: column; gap: 0.8rem; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold-dark); font-weight: 500; }
+.faq-eyebrow-num { font-family: var(--font-display); font-style: italic; font-size: 1.6rem; color: var(--emerald); letter-spacing: 0; }
+.faq-eyebrow-line { width: 60px; height: 1px; background: var(--gold); margin-top: 0.5rem; }
+.faq-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; line-height: 1; letter-spacing: -0.025em; color: var(--emerald); margin-top: 2rem; }
+.faq-title em { color: var(--gold-dark); font-style: italic; }
+.faq-sub { font-family: var(--font-display); font-style: italic; font-size: 1.1rem; line-height: 1.5; color: var(--emerald-soft); margin-top: 1.5rem; max-width: 320px; }
+.faq-list { display: flex; flex-direction: column; border-top: 1px solid var(--hairline-light); }
+.faq-item { border-bottom: 1px solid var(--hairline-light); }
+.faq-question { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 1.8rem 0; background: none; border: none; cursor: pointer; text-align: left; font-family: var(--font-display); font-size: clamp(1.3rem, 2.2vw, 1.7rem); font-weight: 400; line-height: 1.25; color: var(--emerald); transition: color 0.4s, padding-left 0.5s cubic-bezier(0.7, 0, 0.3, 1); position: relative; letter-spacing: -0.005em; }
+.faq-question::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--gold); transition: width 0.5s cubic-bezier(0.7, 0, 0.3, 1); }
+.faq-item.is-open .faq-question::before, .faq-question:hover::before { width: 3px; }
+.faq-item.is-open .faq-question, .faq-question:hover { padding-left: 1.2rem; color: var(--gold-dark); }
+.faq-question em { color: var(--gold-dark); font-style: italic; }
+.faq-icon { width: 32px; height: 32px; border: 1px solid var(--emerald); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--emerald); flex-shrink: 0; transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1); }
+.faq-item.is-open .faq-icon { background: var(--gold); border-color: var(--gold); color: var(--emerald); transform: rotate(180deg); }
+.faq-icon svg { transition: transform 0.4s; }
+.faq-item.is-open .faq-icon svg { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.6s cubic-bezier(0.7, 0, 0.3, 1); }
+.faq-item.is-open .faq-answer { max-height: 600px; }
+.faq-answer-inner { padding: 0 0 2rem 1.2rem; font-size: 0.98rem; line-height: 1.75; color: var(--emerald-soft); max-width: 700px; }
+.faq-answer-inner em { color: var(--gold-dark); font-style: italic; }
+.faq-answer-inner strong { font-weight: 500; color: var(--emerald); }
+
+/* CTA */
+.cta { background: var(--onyx); color: var(--ivory); padding: 10rem var(--gutter); text-align: center; position: relative; overflow: hidden; }
+.cta-bg-glow { position: absolute; top: 50%; left: 50%; width: 1000px; height: 1000px; background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 60%); transform: translate(-50%, -50%); pointer-events: none; animation: ctaGlow 8s ease-in-out infinite; }
+@keyframes ctaGlow { 0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); } }
+.cta-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-eyebrow { display: inline-flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 3rem; }
+.cta-eyebrow-line { width: 50px; height: 1px; background: var(--gold); }
+.cta-headline { font-family: var(--font-display); font-size: clamp(3.5rem, 10vw, 10rem); font-weight: 300; line-height: 0.92; letter-spacing: -0.04em; color: var(--ivory); margin-bottom: 4rem; }
+.cta-headline em { color: var(--gold); font-style: italic; position: relative; display: inline-block; }
+.cta-headline em::after { content: ''; position: absolute; bottom: 0.05em; left: 5%; right: 5%; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* FOOTER */
+.footer { background: var(--onyx-deep); color: var(--ivory); padding: 5rem var(--gutter) 2rem; position: relative; overflow: hidden; border-top: 1px solid var(--hairline-dark); }
+.footer-inner { max-width: var(--container); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 4rem; position: relative; z-index: 1; }
+@media (max-width: 768px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+.footer-brand { display: flex; flex-direction: column; gap: 1.2rem; max-width: 320px; }
+.footer-mark { width: 48px; height: 48px; color: var(--gold); }
+.footer-name { font-family: var(--font-display); font-size: 1.5rem; line-height: 1.2; color: var(--ivory); }
+.footer-name em { font-style: italic; font-size: 0.95rem; color: var(--gold); display: block; font-weight: 400; }
+.footer-tag { font-family: var(--font-display); font-style: italic; font-size: 0.95rem; line-height: 1.5; color: var(--ivory); opacity: 0.6; }
+.footer-col h4 { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; font-weight: 500; }
+.footer-col ul { display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col a, .footer-col p { font-size: 0.85rem; line-height: 1.6; color: var(--ivory); opacity: 0.7; transition: color 0.3s, opacity 0.3s; }
+.footer-col a:hover { color: var(--gold); opacity: 1; }
+.footer-bar { max-width: var(--container); margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--hairline-dark); display: flex; justify-content: space-between; font-size: 0.72rem; letter-spacing: 0.05em; color: var(--ivory); opacity: 0.5; position: relative; z-index: 1; flex-wrap: wrap; gap: 1rem; }
+.footer-credit a { color: var(--gold); opacity: 1; border-bottom: 1px solid var(--gold); padding-bottom: 1px; }
+.footer-large { position: absolute; bottom: -2rem; left: 0; right: 0; text-align: center; pointer-events: none; z-index: 0; overflow: hidden; }
+.footer-large span { font-family: var(--font-display); font-size: clamp(6rem, 22vw, 20rem); font-weight: 300; line-height: 0.8; letter-spacing: -0.04em; color: transparent; -webkit-text-stroke: 1px rgba(201, 169, 97, 0.15); font-style: italic; }
+.footer-disclaimer { max-width: var(--container); margin: 3rem auto 0; font-size: 0.68rem; line-height: 1.5; color: var(--ivory); opacity: 0.4; text-align: center; position: relative; z-index: 1; font-style: italic; }
+
+/* WhatsApp */
+.whatsapp-float { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; background: var(--emerald); color: var(--gold); display: flex; align-items: center; justify-content: center; border-radius: 50%; z-index: 80; transition: background 0.4s, transform 0.5s cubic-bezier(0.7, 0, 0.3, 1), box-shadow 0.4s; box-shadow: 0 4px 24px rgba(14, 15, 12, 0.3); }
+.whatsapp-float::before { content: ''; position: absolute; inset: -4px; border: 1px solid var(--gold); border-radius: 50%; opacity: 0; transform: scale(0.95); transition: all 0.4s; }
+.whatsapp-float:hover { background: var(--gold); color: var(--emerald); transform: scale(1.08); box-shadow: 0 8px 32px rgba(201, 169, 97, 0.4); }
+.whatsapp-float:hover::before { opacity: 1; transform: scale(1.15); }
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 1.1s cubic-bezier(0.2, 0.7, 0.2, 1), transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-stagger > * { opacity: 0; transform: translateY(32px); transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.1s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.2s; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.3s; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.4s; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.5s; }
+.reveal-stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 900px) { .nav-wordmark-sub { display: none; } .nav-wordmark-line { font-size: 1.1rem; } }
+@media (max-width: 768px) { .nav-links, .nav-cta { display: none; } .nav-burger { display: flex; } .page-hero { padding-top: 7rem; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } .reveal, .reveal-stagger > * { opacity: 1; transform: none; } }
+
+
+/* ANDROID/FIREFOX SAFETY RULES */
+* { min-width: 0; }
+.hero-headline, .page-hero-title, .cta-headline, .course-title, .immersion-title, .programs-title, .featured-title, .compare-title, .credentials-title, .testimonials-title, .space-title, .story-title, .differ-quote, .form-side-title, .payments-title, .visit-title, .faq-title, .steps-title { overflow-wrap: anywhere; word-break: break-word; hyphens: auto; }
+img, svg, video, iframe { max-width: 100%; }
+@media (max-width: 480px) {
+  .hero-headline, .page-hero-title, .cta-headline { font-size: clamp(2.5rem, 12vw, 4rem) !important; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-mark">
+      <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="40" cy="40" r="38" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+        <path d="M40 10 C 40 28, 25 35, 25 50 C 25 60, 32 67, 40 67 C 48 67, 55 60, 55 50 C 55 35, 40 28, 40 10 Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="40" cy="48" r="3" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="loader-text"><span>Salud</span> <em>Natural</em></div>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    <div class="loader-caption" data-en="Reserve your seat" data-es="Reserva tu plaza">Reserve your seat</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Salud Natural home">
+      <svg class="nav-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 5 C 20 14, 13 17, 13 25 C 13 30, 16.5 34, 20 34 C 23.5 34, 27 30, 27 25 C 27 17, 20 14, 20 5 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="20" cy="24" r="1.5" fill="currentColor"/>
+      </svg>
+      <span class="nav-wordmark">
+        <span class="nav-wordmark-line">Salud Natural</span>
+        <span class="nav-wordmark-sub">Wellness &amp; Learning Center</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="about.html" data-en="About" data-es="Sobre">About</a></li>
+      <li><a href="courses.html" data-en="Courses" data-es="Cursos">Courses</a></li>
+      <li><a href="services.html" data-en="Therapeutic Services" data-es="Servicios Terapéuticos">Therapeutic Services</a></li>
+      <li><a href="contact.html" class="active" data-en="Enroll" data-es="Inscríbete">Enroll</a></li>
+    </ul>
+    <div class="lang-toggle" role="group" aria-label="Language toggle">
+      <button type="button" data-lang-set="en" class="is-active">EN</button>
+      <button type="button" data-lang-set="es">ES</button>
+    </div>
+    <a href="https://wa.me/19394780105" target="_blank" rel="noopener" class="nav-cta">
+      <span>WhatsApp</span>
+      <svg viewBox="0 0 24 24" width="13" height="13"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+    <li><a href="about.html" data-en="About" data-es="Sobre">About</a></li>
+    <li><a href="courses.html" data-en="Courses" data-es="Cursos">Courses</a></li>
+    <li><a href="services.html" data-en="Therapeutic Services" data-es="Servicios Terapéuticos">Therapeutic Services</a></li>
+    <li><a href="contact.html"><em data-en="Enroll" data-es="Inscríbete">Enroll</em></a></li>
+    <li><a href="https://wa.me/19394780105" target="_blank" rel="noopener">WhatsApp →</a></li>
+  </ul>
+  <div class="mobile-lang-toggle" role="group" aria-label="Language toggle">
+    <button type="button" data-lang-set="en" class="is-active">English</button>
+    <button type="button" data-lang-set="es">Español</button>
+  </div>
+  <div class="mobile-menu-footer">
+    <p>Caguas · Puerto Rico</p>
+    <p>939-478-0105</p>
+  </div>
+</div>
+
+<main>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-bg" aria-hidden="true">
+    <div class="glow"></div>
+    <svg class="glyph" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#C9A961" stroke-width="0.6" opacity="0.9">
+        <circle cx="300" cy="300" r="290"/>
+        <circle cx="300" cy="300" r="240"/>
+        <circle cx="300" cy="300" r="190"/>
+        <path d="M300 60 C 300 180, 200 220, 200 320 C 200 380, 245 420, 300 420 C 355 420, 400 380, 400 320 C 400 220, 300 180, 300 60 Z"/>
+        <circle cx="300" cy="310" r="6" fill="#C9A961"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="page-hero-inner">
+    <div class="crumb">
+      <a href="index.html">Salud Natural</a>
+      <span class="crumb-sep"></span>
+      <span data-en="Enroll" data-es="Inscríbete">Enroll</span>
+    </div>
+
+    <h1 class="page-hero-title">
+      <span class="page-hero-line">
+        <span class="page-hero-word" data-lang="en">Reserve your seat.</span>
+        <span class="page-hero-word" data-lang="es">Reserva tu plaza.</span>
+      </span>
+      <span class="page-hero-line">
+        <span class="page-hero-word" data-lang="en"><em>Begin the work.</em></span>
+        <span class="page-hero-word" data-lang="es"><em>Comienza el trabajo.</em></span>
+      </span>
+    </h1>
+
+    <div class="page-hero-bottom">
+      <div class="page-hero-sub">
+        <span data-lang="en">Tell us which certification calls to you. We respond within <em>24 hours</em> — usually same day — with the next cohort dates and how to reserve your seat.</span>
+        <span data-lang="es">Cuéntanos qué certificación te llama. Respondemos en <em>24 horas</em> — usualmente el mismo día — con las fechas de la próxima cohorte y cómo reservar tu plaza.</span>
+      </div>
+
+      <div class="hero-quick-info">
+        <p class="hero-quick-eyebrow" data-en="Need to know" data-es="Lo esencial">Need to know</p>
+        <ul class="hero-quick-list">
+          <li data-en="50% deposit secures your seat" data-es="Depósito del 50% asegura tu plaza">50% deposit secures your seat</li>
+          <li data-en="Max 6 students per cohort" data-es="Máx. 6 estudiantes por cohorte">Max 6 students per cohort</li>
+          <li>
+            <span data-lang="en">New cohorts begin <em>monthly</em></span>
+            <span data-lang="es">Nuevas cohortes <em>mensuales</em></span>
+          </li>
+          <li data-en="Bilingual ES / EN" data-es="Bilingüe ES / EN">Bilingual ES / EN</li>
+        </ul>
+      </div>
+
+      <div class="hero-quick-actions">
+        <a href="#form" class="btn-gold btn-arrow">
+          <span data-en="Inquiry Form" data-es="Formulario">Inquiry Form</span>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20to%20enroll." target="_blank" rel="noopener" class="btn-outline-gold" data-en="Message on WhatsApp" data-es="Mensaje por WhatsApp">Message on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="steps">
+  <div class="steps-inner">
+    <div class="steps-header">
+      <div class="steps-eyebrow reveal">
+        <span class="steps-eyebrow-num">¶ 01</span>
+        <span data-en="How enrollment works" data-es="Cómo funciona la inscripción">How enrollment works</span>
+        <div class="steps-eyebrow-line"></div>
+      </div>
+      <h2 class="steps-title reveal">
+        <span data-lang="en">Three steps from <em>here</em><br>to your certification.</span>
+        <span data-lang="es">Tres pasos de <em>aquí</em><br>a tu certificación.</span>
+      </h2>
+    </div>
+
+    <ol class="steps-list reveal-stagger">
+      <li class="step-card">
+        <div class="step-card-num">I.</div>
+        <h3>
+          <span data-lang="en">Send your <em>inquiry</em></span>
+          <span data-lang="es">Envía tu <em>consulta</em></span>
+        </h3>
+        <p data-lang="en">Tell us which course calls to you, your background, and how you'd like to be contacted. We respond personally within 24 hours — never an automated reply.</p>
+        <p data-lang="es">Cuéntanos qué curso te llama, tu trasfondo, y cómo prefieres que te contactemos. Respondemos personalmente en 24 horas — nunca una respuesta automática.</p>
+      </li>
+      <li class="step-card">
+        <div class="step-card-num">II.</div>
+        <h3>
+          <span data-lang="en">Reserve your <em>seat</em></span>
+          <span data-lang="es">Reserva tu <em>plaza</em></span>
+        </h3>
+        <p data-lang="en">Once you're ready, a 50% deposit confirms your place in the next cohort. Pay by credit card, ATH Móvil, Zelle, or PayPal — whichever you prefer.</p>
+        <p data-lang="es">Cuando estés lista, un depósito del 50% confirma tu lugar en la próxima cohorte. Paga con tarjeta de crédito, ATH Móvil, Zelle, o PayPal — lo que mejor te funcione.</p>
+      </li>
+      <li class="step-card">
+        <div class="step-card-num">III.</div>
+        <h3>
+          <span data-lang="en">Begin your <em>training</em></span>
+          <span data-lang="es">Comienza tu <em>formación</em></span>
+        </h3>
+        <p data-lang="en">Balance is due the day before your cohort begins. From there: Zoom sessions, hands-on practice in Caguas, certification, and lifetime access to your instructor's guidance.</p>
+        <p data-lang="es">El balance se paga el día antes de comenzar la cohorte. Desde ahí: sesiones por Zoom, práctica presencial en Caguas, certificación, y acceso de por vida a la guía de tu instructora.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="form">
+  <div class="form-inner">
+    <div class="form-grid">
+      <aside class="form-side">
+        <p class="form-side-eyebrow">
+          <span class="form-side-num">¶ 02</span>
+          <span data-en="Inquiry" data-es="Consulta">Inquiry</span>
+        </p>
+        <h2 class="form-side-title">
+          <span data-lang="en">Start the<br><em>conversation.</em></span>
+          <span data-lang="es">Comienza la<br><em>conversación.</em></span>
+        </h2>
+        <p class="form-side-body">
+          <span data-lang="en">Every cohort begins with a conversation. Tell us about <em>you</em> — and we'll respond personally with the next steps.</span>
+          <span data-lang="es">Cada cohorte comienza con una conversación. Cuéntanos sobre <em>ti</em> — y te responderemos personalmente con los siguientes pasos.</span>
+        </p>
+
+        <div class="form-side-contact">
+          <div class="form-contact-row">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.95.37 1.88.72 2.77a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.31-1.31a2 2 0 012.11-.45c.89.35 1.82.59 2.77.72A2 2 0 0122 16.92z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <strong data-en="Call" data-es="Llama">Call</strong>
+            <a href="tel:+19394780105">939-478-0105</a>
+          </div>
+          <div class="form-contact-row">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/19394780105" target="_blank" rel="noopener">939-478-0105</a>
+          </div>
+          <div class="form-contact-row">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M22 6L12 13 2 6" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            <strong data-en="Email" data-es="Correo">Email</strong>
+            <a href="mailto:saludnaturalwellnesscenter@gmail.com">saludnaturalwellnesscenter@gmail.com</a>
+          </div>
+        </div>
+
+        <p class="form-side-hours">
+          <span data-lang="en">Response <em>within 24 hours</em></span>
+          <span data-lang="es">Respuesta <em>en 24 horas</em></span>
+        </p>
+      </aside>
+
+      <!-- TODO: Replace action="" with your Formspree endpoint (e.g. https://formspree.io/f/YOUR_ID) -->
+      <form class="form-card" id="inquiryForm" action="" method="POST" novalidate>
+        <p class="form-card-label" data-en="A — Inquiry form" data-es="A — Formulario de consulta">A — Inquiry form</p>
+        <h3>
+          <span data-lang="en">Tell us about <em>you.</em></span>
+          <span data-lang="es">Cuéntanos sobre <em>ti.</em></span>
+        </h3>
+
+        <div class="form-fields">
+          <div class="form-row form-row-grid">
+            <div class="form-field">
+              <label for="firstName" data-en="First name" data-es="Nombre">First name</label>
+              <input type="text" id="firstName" name="firstName" data-placeholder-en="Your first name" data-placeholder-es="Tu nombre" placeholder="Your first name" required>
+            </div>
+            <div class="form-field">
+              <label for="lastName" data-en="Last name" data-es="Apellido">Last name</label>
+              <input type="text" id="lastName" name="lastName" data-placeholder-en="Your last name" data-placeholder-es="Tu apellido" placeholder="Your last name" required>
+            </div>
+          </div>
+
+          <div class="form-row form-row-grid">
+            <div class="form-field">
+              <label for="email" data-en="Email" data-es="Correo">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-field">
+              <label for="phone" data-en="Phone / WhatsApp" data-es="Teléfono / WhatsApp">Phone / WhatsApp</label>
+              <input type="tel" id="phone" name="phone" placeholder="939-000-0000">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="course" data-en="Which course calls to you?" data-es="¿Qué curso te llama?">Which course calls to you?</label>
+              <select id="course" name="course" required>
+                <option value="" data-en="Select a certification" data-es="Selecciona una certificación">Select a certification</option>
+                <option value="foundation" data-en="Foundation Colon Hydrotherapy — $3,333" data-es="Hidroterapia de Colon Fundamental — $3,333">Foundation Colon Hydrotherapy — $3,333</option>
+                <option value="advanced" data-en="Advanced Colon Hydrotherapy — $2,222" data-es="Hidroterapia de Colon Avanzada — $2,222">Advanced Colon Hydrotherapy — $2,222</option>
+                <option value="gut" data-en="Digestive Nutrition &amp; Gut Health — $555" data-es="Nutrición Digestiva y Salud Intestinal — $555">Digestive Nutrition &amp; Gut Health — $555</option>
+                <option value="biomagnetic" data-en="Biomagnetic Therapy — $666" data-es="Terapia Biomagnética — $666">Biomagnetic Therapy — $666</option>
+                <option value="yoni" data-en="Womb &amp; Yoni Steaming — $333" data-es="Vaporización del Útero — $333">Womb &amp; Yoni Steaming — $333</option>
+                <option value="ion" data-en="Ion Foot Detox Specialist — $222" data-es="Detox Iónico de Pies — $222">Ion Foot Detox Specialist — $222</option>
+                <option value="unsure" data-en="Not sure yet — help me choose" data-es="No estoy segura — ayúdame a elegir">Not sure yet — help me choose</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label data-en="Preferred language" data-es="Idioma preferido">Preferred language</label>
+              <div class="form-radio-group">
+                <label class="form-radio">
+                  <input type="radio" name="language" value="es" checked>
+                  <span class="form-radio-dot"></span>
+                  <span>Español</span>
+                </label>
+                <label class="form-radio">
+                  <input type="radio" name="language" value="en">
+                  <span class="form-radio-dot"></span>
+                  <span>English</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label data-en="How would you like Tasha to reach you?" data-es="¿Cómo prefieres que Tasha te contacte?">How would you like Tasha to reach you?</label>
+              <div class="form-radio-group">
+                <label class="form-radio">
+                  <input type="radio" name="contactMethod" value="whatsapp" checked>
+                  <span class="form-radio-dot"></span>
+                  <span>WhatsApp</span>
+                </label>
+                <label class="form-radio">
+                  <input type="radio" name="contactMethod" value="phone">
+                  <span class="form-radio-dot"></span>
+                  <span data-en="Phone call" data-es="Llamada">Phone call</span>
+                </label>
+                <label class="form-radio">
+                  <input type="radio" name="contactMethod" value="email">
+                  <span class="form-radio-dot"></span>
+                  <span data-en="Email" data-es="Correo">Email</span>
+                </label>
+                <label class="form-radio">
+                  <input type="radio" name="contactMethod" value="text">
+                  <span class="form-radio-dot"></span>
+                  <span data-en="Text message" data-es="Mensaje de texto">Text message</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="message">
+                <span data-en="A note for Tasha" data-es="Una nota para Tasha">A note for Tasha</span>
+                <span style="text-transform: none; letter-spacing: 0; opacity: 0.5; font-family: var(--font-display); font-style: italic;" data-en=" (optional)" data-es=" (opcional)"> (optional)</span>
+              </label>
+              <textarea id="message" name="message" data-placeholder-en="Share anything you'd like Tasha to know — your background, your healing journey, your questions. Or simply say hello." data-placeholder-es="Comparte lo que quieras que Tasha sepa — tu trasfondo, tu camino de sanación, tus preguntas. O simplemente saluda." placeholder="Share anything you'd like Tasha to know — your background, your healing journey, your questions. Or simply say hello."></textarea>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button type="submit" class="btn-gold btn-arrow">
+              <span data-en="Send Inquiry" data-es="Enviar Consulta">Send Inquiry</span>
+              <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20to%20enroll." target="_blank" rel="noopener" class="btn-outline-gold" data-en="Or, message WhatsApp" data-es="O, mensaje por WhatsApp">Or, message WhatsApp</a>
+          </div>
+
+          <p class="form-disclaimer">
+            <span data-lang="en">By submitting, you agree to be contacted regarding your inquiry. Your information is never shared.</span>
+            <span data-lang="es">Al enviar, aceptas ser contactada sobre tu consulta. Tu información nunca se comparte.</span>
+          </p>
+        </div>
+
+        <div class="form-success">
+          <div class="form-success-icon">
+            <svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 12l5 5L20 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4>
+            <span data-lang="en">Your inquiry is <em>on its way.</em></span>
+            <span data-lang="es">Tu consulta está <em>en camino.</em></span>
+          </h4>
+          <p>
+            <span data-lang="en">Tasha will respond personally within 24 hours — usually the same day. Check your inbox and your WhatsApp.</span>
+            <span data-lang="es">Tasha te responderá personalmente en 24 horas — usualmente el mismo día. Revisa tu correo y tu WhatsApp.</span>
+          </p>
+          <a href="index.html" class="btn-outline-gold" data-en="Return Home" data-es="Volver al Inicio">Return Home</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENTS -->
+<section class="payments">
+  <div class="payments-inner">
+    <div class="payments-header">
+      <div class="payments-eyebrow reveal">
+        <span class="steps-eyebrow-num" style="color: var(--gold-dark);">¶ 03</span>
+        <span data-en="Payment methods" data-es="Métodos de pago">Payment methods</span>
+      </div>
+      <h2 class="payments-title reveal">
+        <span data-lang="en">Pay your way.<br>Reserve your <em>seat.</em></span>
+        <span data-lang="es">Paga a tu manera.<br>Reserva tu <em>plaza.</em></span>
+      </h2>
+      <p class="payments-sub reveal">
+        <span data-lang="en">Choose the method that works for you — credit card, ATH Móvil, Zelle, or PayPal. <em>A 50% deposit secures your place.</em> The balance is due the day before training begins.</span>
+        <span data-lang="es">Elige el método que mejor te funcione — tarjeta de crédito, ATH Móvil, Zelle, o PayPal. <em>Un depósito del 50% asegura tu plaza.</em> El balance se paga el día antes de comenzar la formación.</span>
+      </p>
+    </div>
+
+    <div class="payment-grid reveal-stagger">
+      <!-- TODO: Replace href="#" with your Stripe/Square payment link for credit cards -->
+      <a href="#" class="pay-card" data-payment="card">
+        <div class="pay-card-top">
+          <span class="pay-card-logo" data-en="Card" data-es="Tarjeta">Card</span>
+          <span class="pay-card-num">№ 01</span>
+        </div>
+        <div class="pay-card-name">
+          <span data-lang="en">Credit or <em>Debit.</em></span>
+          <span data-lang="es">Crédito o <em>Débito.</em></span>
+        </div>
+        <div class="pay-card-detail">Visa · MasterCard · Amex</div>
+        <p class="pay-card-desc" data-lang="en">Most students choose this. We'll send you a secure payment link via email once your seat is confirmed — no card details entered on this site.</p>
+        <p class="pay-card-desc" data-lang="es">La mayoría elige esta opción. Te enviamos un enlace de pago seguro por correo una vez confirmemos tu plaza — no se ingresan datos de tarjeta en este sitio.</p>
+        <span class="pay-card-cta">
+          <span data-en="How it works" data-es="Cómo funciona">How it works</span>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <!-- TODO: Replace href with your ATH Móvil business link, or keep WhatsApp -->
+      <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20to%20pay%20by%20ATH%20M%C3%B3vil." target="_blank" rel="noopener" class="pay-card" data-payment="ath">
+        <div class="pay-card-top">
+          <span class="pay-card-logo">ATH <em>Móvil</em></span>
+          <span class="pay-card-num">№ 02</span>
+        </div>
+        <div class="pay-card-name">
+          <span data-lang="en">Direct <em>transfer.</em></span>
+          <span data-lang="es">Pago <em>directo.</em></span>
+        </div>
+        <div class="pay-card-detail" data-en="Local Puerto Rico" data-es="Local Puerto Rico">Local Puerto Rico</div>
+        <p class="pay-card-desc" data-lang="en">Send your deposit instantly from your bank app. WhatsApp Tasha for the ATH Móvil handle, send your payment, and receive your confirmation.</p>
+        <p class="pay-card-desc" data-lang="es">Envía tu depósito al instante desde tu app bancaria. Escribe a Tasha por WhatsApp para el handle de ATH Móvil, envía tu pago, y recibe tu confirmación.</p>
+        <span class="pay-card-cta">
+          <span data-en="Message on WhatsApp" data-es="Mensaje por WhatsApp">Message on WhatsApp</span>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <!-- TODO: Replace href with your Zelle info link, or keep WhatsApp -->
+      <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20to%20pay%20by%20Zelle." target="_blank" rel="noopener" class="pay-card" data-payment="zelle">
+        <div class="pay-card-top">
+          <span class="pay-card-logo">Zelle</span>
+          <span class="pay-card-num">№ 03</span>
+        </div>
+        <div class="pay-card-name">
+          <span data-lang="en">Bank to <em>bank.</em></span>
+          <span data-lang="es">Banco a <em>banco.</em></span>
+        </div>
+        <div class="pay-card-detail" data-en="US bank transfer" data-es="Transferencia bancaria EE.UU.">US bank transfer</div>
+        <p class="pay-card-desc" data-lang="en">No fees, instant transfer between US bank accounts. WhatsApp Tasha and we'll send you the Zelle details to complete your deposit.</p>
+        <p class="pay-card-desc" data-lang="es">Sin cargos, transferencia instantánea entre cuentas bancarias de EE.UU. Escribe a Tasha por WhatsApp y te enviamos los detalles de Zelle para completar tu depósito.</p>
+        <span class="pay-card-cta">
+          <span data-en="Message on WhatsApp" data-es="Mensaje por WhatsApp">Message on WhatsApp</span>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <!-- PayPal link -->
+      <a href="https://paypal.me/tashasotopr" target="_blank" rel="noopener" class="pay-card" data-payment="paypal">
+        <div class="pay-card-top">
+          <span class="pay-card-logo">Pay<em>Pal</em></span>
+          <span class="pay-card-num">№ 04</span>
+        </div>
+        <div class="pay-card-name">
+          <span data-lang="en">International<br><em>friendly.</em></span>
+          <span data-lang="es">Internacional<br><em>amigable.</em></span>
+        </div>
+        <div class="pay-card-detail" data-en="Worldwide" data-es="Mundial">Worldwide</div>
+        <p class="pay-card-desc" data-lang="en">Best for students outside Puerto Rico and the US. WhatsApp Tasha and we'll send the PayPal link directly to your inbox.</p>
+        <p class="pay-card-desc" data-lang="es">Ideal para estudiantes fuera de Puerto Rico y EE.UU. Escribe a Tasha por WhatsApp y te enviamos el enlace de PayPal directo a tu correo.</p>
+        <span class="pay-card-cta">
+          <span data-en="Message on WhatsApp" data-es="Mensaje por WhatsApp">Message on WhatsApp</span>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </div>
+
+    <div class="payment-note reveal">
+      <div class="payment-note-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 2L2 7l10 5 10-5-10-5z M2 17l10 5 10-5 M2 12l10 5 10-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="payment-note-body">
+        <strong data-en="50% deposit — non-refundable, fully transferable." data-es="Depósito del 50% — no reembolsable, totalmente transferible.">50% deposit — non-refundable, fully transferable.</strong>
+        <p data-lang="en">If you can't attend your scheduled cohort, your deposit transfers to the next one with 72 hours notice. Balance is due the day before training begins.</p>
+        <p data-lang="es">Si no puedes asistir a tu cohorte, tu depósito se transfiere a la próxima con 72 horas de aviso. El balance se paga el día antes de comenzar la formación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit">
+  <div class="visit-inner">
+    <div class="visit-header">
+      <div class="visit-eyebrow reveal">
+        <span class="visit-num">¶ 04</span>
+        <span data-en="Visit the studio" data-es="Visita el estudio">Visit the studio</span>
+      </div>
+      <h2 class="visit-title reveal">
+        Caguas, <em>Puerto Rico.</em>
+      </h2>
+    </div>
+
+    <div class="visit-grid reveal-stagger">
+      <div class="visit-map">
+        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-66.085%2C18.225%2C-65.985%2C18.275&amp;layer=mapnik&amp;marker=18.25%2C-66.035" loading="lazy" title="Map showing Salud Natural Wellness & Learning Center in Caguas, Puerto Rico"></iframe>
+        <div class="visit-map-frame"></div>
+        <div class="visit-map-pin"><div class="visit-map-pin-inner"></div></div>
+      </div>
+
+      <div class="visit-card">
+        <div class="visit-card-inner">
+          <div class="visit-card-eyebrow" data-en="Find us" data-es="Encuéntranos">Find us</div>
+          <div class="visit-card-place">Bo Beatriz<br>Sector Las Piñas<br><em>Caguas, PR</em></div>
+          <div class="visit-card-divider"></div>
+          <div class="visit-card-meta">
+            <div class="visit-card-meta-row">
+              <strong data-en="Addr." data-es="Dir.">Addr.</strong>
+              <span>Carr 1 Km .45<br>Caguas, PR 00725</span>
+            </div>
+            <div class="visit-card-meta-row">
+              <strong>Tel.</strong>
+              <span>939-478-0105</span>
+            </div>
+            <div class="visit-card-meta-row">
+              <strong data-en="Hours" data-es="Horario">Hours</strong>
+              <span data-en="By appointment" data-es="Con cita previa">By appointment</span>
+            </div>
+          </div>
+          <div class="visit-card-actions">
+            <a href="https://maps.google.com/?q=Caguas+Bo+Beatriz+Salud+Natural+Wellness" target="_blank" rel="noopener" class="visit-card-link">
+              <span data-en="Open in Google Maps" data-es="Abrir en Google Maps">Open in Google Maps</span>
+              <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20to%20visit%20the%20studio." target="_blank" rel="noopener" class="visit-card-link">
+              <span data-en="Schedule a visit" data-es="Agenda una visita">Schedule a visit</span>
+              <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <div class="faq-grid">
+      <aside class="faq-side reveal">
+        <div class="faq-eyebrow">
+          <span class="faq-eyebrow-num">¶ 05</span>
+          <span data-en="Common questions" data-es="Preguntas frecuentes">Common questions</span>
+          <div class="faq-eyebrow-line"></div>
+        </div>
+        <h2 class="faq-title">
+          <span data-lang="en">Before you <em>enroll.</em></span>
+          <span data-lang="es">Antes de <em>inscribirte.</em></span>
+        </h2>
+        <p class="faq-sub">
+          <span data-lang="en">Most students ask these. If yours isn't here, just send us a note — Tasha responds personally.</span>
+          <span data-lang="es">La mayoría preguntan esto. Si la tuya no está aquí, envíanos una nota — Tasha responde personalmente.</span>
+        </p>
+      </aside>
+
+      <div class="faq-list reveal-stagger">
+        <article class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="Do I need any prior medical experience?" data-es="¿Necesito experiencia médica previa?">Do I need any prior medical experience?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p data-lang="en"><strong>No prior medical experience required.</strong> Many of our most successful graduates began as complete beginners drawn to natural healing — Tasha's teaching meets you exactly where you are. The Foundation Colon Hydrotherapy course covers anatomy, physiology, and technique from the ground up, with the same patience and detail we give experienced practitioners.</p>
+              <p data-lang="es"><strong>No se requiere experiencia médica previa.</strong> Muchas de nuestras graduadas más exitosas comenzaron como principiantes totales atraídas a la sanación natural — la enseñanza de Tasha te encuentra exactamente donde estás. El curso Fundamental cubre anatomía, fisiología, y técnica desde cero, con la misma paciencia y detalle que damos a profesionales experimentadas.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="When does the next cohort begin?" data-es="¿Cuándo comienza la próxima cohorte?">When does the next cohort begin?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p data-lang="en">New cohorts begin the <em>first week of each month.</em> Maximum 6 students per cohort, so seats fill quickly — especially for the Foundation Colon Hydrotherapy program. Send your inquiry and we'll confirm the next available start date for your chosen certification.</p>
+              <p data-lang="es">Las nuevas cohortes comienzan la <em>primera semana de cada mes.</em> Máximo 6 estudiantes por cohorte, así que las plazas se llenan rápido — especialmente para el programa Fundamental de Hidroterapia de Colon. Envía tu consulta y te confirmamos la próxima fecha disponible para la certificación que elijas.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="How does the 50% deposit work?" data-es="¿Cómo funciona el depósito del 50%?">How does the 50% deposit work?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p data-lang="en">Once we confirm your seat, you pay <strong>50% to reserve your place.</strong> The remaining balance is due the day before training begins. The deposit is <em>non-refundable</em>, but it's fully transferable to a future cohort with 72 hours' notice if you can't attend.</p>
+              <p data-lang="es">Cuando confirmamos tu plaza, pagas <strong>el 50% para reservar tu lugar.</strong> El balance restante se paga el día antes de comenzar. El depósito es <em>no reembolsable</em>, pero es totalmente transferible a una cohorte futura con 72 horas de aviso si no puedes asistir.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="Are classes taught in English or Spanish?" data-es="¿Las clases son en inglés o español?">Are classes taught in English or Spanish?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p data-lang="en"><em>Both.</em> All courses are taught fully bilingually — English and Spanish. Tasha adapts to the language preferences of each cohort. You can request a Spanish-primary or English-primary cohort when you inquire.</p>
+              <p data-lang="es"><em>Ambos.</em> Todos los cursos se enseñan de forma totalmente bilingüe — inglés y español. Tasha se adapta a las preferencias de idioma de cada cohorte. Puedes solicitar una cohorte principalmente en español o en inglés al hacer tu consulta.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="Is the certification recognized?" data-es="¿La certificación está reconocida?">Is the certification recognized?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p data-lang="en">Yes — graduates of the <strong>Foundation</strong> and <strong>Advanced Colon Hydrotherapy</strong> certifications qualify to join <em>GPACT</em> (Global Professional Association of Colon Therapists). Salud Natural is also affiliated with IPHM, CTAA, and ADMNPR. All courses include a certificate of completion.</p>
+              <p data-lang="es">Sí — las graduadas de las certificaciones <strong>Fundamental</strong> y <strong>Avanzada</strong> de Hidroterapia de Colon califican para unirse a <em>GPACT</em> (Global Professional Association of Colon Therapists). Salud Natural también está afiliada con IPHM, CTAA, y ADMNPR. Todos los cursos incluyen certificado de finalización.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="Where does the in-person training happen?" data-es="¿Dónde es la formación presencial?">Where does the in-person training happen?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p data-lang="en">All hands-on training happens at our studio in <em>Caguas, Puerto Rico</em> — Bo Beatriz, Sector Las Piñas. Half of each course is delivered live via Zoom (anatomy, theory, technique demos), and the other half is in-person hands-on practice. For students outside Puerto Rico, Tasha also offers travel training for an additional fee.</p>
+              <p data-lang="es">Toda la formación práctica ocurre en nuestro estudio de <em>Caguas, Puerto Rico</em> — Bo Beatriz, Sector Las Piñas. La mitad de cada curso se da en vivo por Zoom (anatomía, teoría, demostraciones técnicas), y la otra mitad es práctica presencial. Para estudiantes fuera de Puerto Rico, Tasha también ofrece formación en viaje por una tarifa adicional.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-en="What's included in the course tuition?" data-es="¿Qué incluye la matrícula del curso?">What's included in the course tuition?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              <p data-lang="en">Every course includes the <strong>full digital training manual</strong>, all Zoom sessions, in-person hands-on instruction, a certificate of completion, and lifetime access to Tasha's guidance for ongoing questions as you build your practice.</p>
+              <p data-lang="es">Cada curso incluye el <strong>manual de formación digital completo</strong>, todas las sesiones de Zoom, instrucción práctica presencial, certificado de finalización, y acceso de por vida a la guía de Tasha para preguntas continuas mientras construyes tu práctica.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-bg-glow"></div>
+  <div class="cta-inner">
+    <p class="cta-eyebrow reveal">
+      <span class="cta-eyebrow-line"></span>
+      <span data-en="The next cohort fills quickly" data-es="La próxima cohorte se llena rápido">The next cohort fills quickly</span>
+    </p>
+    <h2 class="cta-headline reveal">
+      <span data-lang="en">Reserve your<br><em>seat.</em></span>
+      <span data-lang="es">Reserva tu<br><em>plaza.</em></span>
+    </h2>
+    <div class="cta-actions reveal">
+      <a href="#form" class="btn-gold btn-arrow">
+        <span data-en="Send Inquiry" data-es="Enviar Consulta">Send Inquiry</span>
+        <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20to%20enroll." target="_blank" rel="noopener" class="btn-outline-gold" data-en="Message WhatsApp" data-es="Mensaje WhatsApp">Message WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg class="footer-mark" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M30 8 C 30 22, 18 28, 18 38 C 18 46, 23.5 52, 30 52 C 36.5 52, 42 46, 42 38 C 42 28, 30 22, 30 8 Z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <circle cx="30" cy="36" r="2" fill="currentColor"/>
+      </svg>
+      <p class="footer-name">Salud Natural<br><em>Wellness &amp; Learning Center</em></p>
+      <p class="footer-tag">
+        <span data-lang="en">The Caribbean's only naturopath-led holistic training center.</span>
+        <span data-lang="es">El único centro de formación holística del Caribe dirigido por una naturópata.</span>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Explore" data-es="Explorar">Explore</h4>
+      <ul>
+        <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a href="about.html" data-en="About Tasha" data-es="Sobre Tasha">About Tasha</a></li>
+        <li><a href="courses.html" data-en="All Courses" data-es="Todos los Cursos">All Courses</a></li>
+        <li><a href="services.html" data-en="Therapeutic Services" data-es="Servicios Terapéuticos">Therapeutic Services</a></li>
+        <li><a href="contact.html" data-en="Enroll" data-es="Inscríbete">Enroll</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Visit" data-es="Visita">Visit</h4>
+      <p>Bo Beatriz<br>Sector Las Piñas<br>Carr 1 KM .45<br>Caguas, PR 00725</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Connect" data-es="Conecta">Connect</h4>
+      <ul>
+        <li><a href="tel:+19394780105">939-478-0105</a></li>
+        <li><a href="mailto:saludnaturalwellnesscenter@gmail.com" data-en="Email" data-es="Correo">Email</a></li>
+        <li><a href="https://wa.me/19394780105" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://us.fullscript.com/welcome/tsoto" target="_blank" rel="noopener" data-en="Fullscript Dispensary" data-es="Dispensario Fullscript">Fullscript Dispensary</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <p data-lang="en">© 2025 Salud Natural Wellness &amp; Learning Center. A division of Salud Natural Wellness Center Inc.</p>
+    <p data-lang="es">© 2025 Salud Natural Wellness &amp; Learning Center. Una división de Salud Natural Wellness Center Inc.</p>
+    <p class="footer-credit">
+      <span data-en="Crafted by" data-es="Creado por">Crafted by</span>
+      <a href="#" target="_blank" rel="noopener">Lizardi Technologies</a>
+    </p>
+  </div>
+  <div class="footer-large" aria-hidden="true"><span>Salud Natural</span></div>
+  <p class="footer-disclaimer">
+    <span data-lang="en">The information contained on this website is not intended to diagnose, treat, cure or prevent any disease. Any statements have not been evaluated by the FDA.</span>
+    <span data-lang="es">La información contenida en este sitio web no tiene la intención de diagnosticar, tratar, curar o prevenir ninguna enfermedad. Las declaraciones no han sido evaluadas por la FDA.</span>
+  </p>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27d%20like%20to%20enroll." target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp Tasha">
+  <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+(function() {
+  'use strict';
+
+  const loader = document.getElementById('loader');
+  function dismissLoader() { if (loader && !loader.classList.contains('is-hidden')) loader.classList.add('is-hidden'); }
+  window.addEventListener('load', () => setTimeout(dismissLoader, 2000));
+  setTimeout(dismissLoader, 3200);
+
+  // LANGUAGE TOGGLE
+  let langInitialized = false;
+  function applyLanguage(lang) {
+    const wasInitialized = langInitialized;
+    document.body.classList.toggle('is-es', lang === 'es');
+    document.documentElement.setAttribute('lang', lang);
+    const attrName = lang === 'es' ? 'data-es' : 'data-en';
+    document.querySelectorAll('[data-en][data-es]').forEach(el => {
+      const newText = el.getAttribute(attrName);
+      if (newText === null) return;
+      if (el.children.length === 0) {
+        el.textContent = newText;
+      } else {
+        for (const node of el.childNodes) {
+          if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+            node.textContent = newText;
+            return;
+          }
+        }
+      }
+    });
+    // Swap placeholders on inputs
+    document.querySelectorAll('[data-placeholder-en][data-placeholder-es]').forEach(el => {
+      const ph = el.getAttribute(lang === 'es' ? 'data-placeholder-es' : 'data-placeholder-en');
+      if (ph !== null) el.setAttribute('placeholder', ph);
+    });
+    document.querySelectorAll('[data-lang-set]').forEach(btn => {
+      btn.classList.toggle('is-active', btn.getAttribute('data-lang-set') === lang);
+    });
+    if (wasInitialized) {
+      document.querySelectorAll('.page-hero-word[data-lang="' + lang + '"]').forEach(el => {
+        el.style.animation = 'none';
+        void el.offsetWidth;
+        el.style.animation = '';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    }
+    try { localStorage.setItem('snwlc-lang', lang); } catch (e) {}
+    langInitialized = true;
+  }
+  let initialLang = 'en';
+  try {
+    const stored = localStorage.getItem('snwlc-lang');
+    if (stored === 'es' || stored === 'en') initialLang = stored;
+  } catch (e) {}
+  applyLanguage(initialLang);
+  document.querySelectorAll('[data-lang-set]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      applyLanguage(btn.getAttribute('data-lang-set'));
+    });
+  });
+
+  // NAV SCROLL
+  const nav = document.getElementById('nav');
+  const lightSections = document.querySelectorAll('.steps, .payments, .faq');
+  function updateNav() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    if (scrollY > 80) nav.classList.add('is-scrolled');
+    else nav.classList.remove('is-scrolled');
+    if (!nav.classList.contains('is-scrolled')) {
+      let onLight = false;
+      lightSections.forEach(sec => {
+        const r = sec.getBoundingClientRect();
+        if (r.top < 60 && r.bottom > 60) onLight = true;
+      });
+      nav.classList.toggle('is-light', onLight);
+    } else { nav.classList.remove('is-light'); }
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+
+  // MOBILE MENU
+  const burger = document.getElementById('navBurger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('is-open');
+      mobileMenu.classList.toggle('is-open');
+      document.body.style.overflow = mobileMenu.classList.contains('is-open') ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.classList.remove('is-open');
+        mobileMenu.classList.remove('is-open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // REVEAL
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(el => obs.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
+
+  // FAQ ACCORDION
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-question');
+    q.addEventListener('click', () => {
+      const wasOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('is-open'));
+      if (!wasOpen) item.classList.add('is-open');
+      q.setAttribute('aria-expanded', !wasOpen);
+    });
+  });
+
+  // FORM SUBMIT — replace with real handler later
+  const form = document.getElementById('inquiryForm');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      // If action="" still empty, show success state without submitting (placeholder behavior)
+      if (!form.getAttribute('action')) {
+        e.preventDefault();
+        form.classList.add('is-success');
+        return;
+      }
+      // Otherwise let it submit naturally to Formspree/other handler
+    });
+  }
+
+  // Magnetic buttons
+  document.querySelectorAll('.btn-gold, .btn-outline-gold, .nav-cta').forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      if (window.innerWidth < 1024) return;
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) * 0.2;
+      const y = (e.clientY - rect.top - rect.height / 2) * 0.3;
+      el.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+  });
+})();
+</script>
+
+</body>
+</html>

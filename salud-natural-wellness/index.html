@@ -1,0 +1,2577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 40 40%27%3E%3Cpath d=%27M20 5 C 20 14, 13 17, 13 25 C 13 30, 16.5 34, 20 34 C 23.5 34, 27 30, 27 25 C 27 17, 20 14, 20 5 Z%27 fill=%27none%27 stroke=%27%23C9A961%27 stroke-width=%272%27/%3E%3Ccircle cx=%2720%27 cy=%2724%27 r=%271.5%27 fill=%27%23C9A961%27/%3E%3C/svg%3E">
+<title>Salud Natural — The Caribbean's Only Naturopath-Led Holistic Training Center</title>
+<meta name="description" content="Bilingual certification programs in Colon Hydrotherapy, Gut Health, and the sacred arts of natural healing — led by Naturopath Tasha Maria Soto. Caguas, Puerto Rico.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   SALUD NATURAL — APOTHECARY LUXURY
+   ========================================================= */
+:root {
+  --onyx: #0E0F0C;
+  --onyx-deep: #07080A;
+  --onyx-soft: #1A1C18;
+  --ivory: #F5F0E6;
+  --ivory-deep: #ECE5D5;
+  --ivory-bright: #FBF8F0;
+  --emerald: #1A3A2E;
+  --emerald-deep: #0F2620;
+  --emerald-soft: #2A5044;
+  --gold: #C9A961;
+  --gold-bright: #E5C77A;
+  --gold-dark: #9A7F40;
+  --hairline-light: rgba(26, 58, 46, 0.15);
+  --hairline-dark: rgba(245, 240, 230, 0.12);
+
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --container: 1440px;
+  --gutter: clamp(1.5rem, 4vw, 5rem);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+*::selection { background: var(--gold); color: var(--onyx); }
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; text-size-adjust: 100%; overflow-x: hidden; max-width: 100vw; }
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--onyx);
+  background: var(--ivory);
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }
+ul, ol { list-style: none; }
+em { font-style: italic; font-family: var(--font-display); font-weight: 400; }
+
+/* =========================================================
+   GLOBAL SECTIONS — DARK & LIGHT WORLDS
+   ========================================================= */
+.section-dark {
+  background: var(--onyx);
+  color: var(--ivory);
+  position: relative;
+}
+.section-light {
+  background: var(--ivory);
+  color: var(--onyx);
+  position: relative;
+}
+
+/* Grain texture overlay for both */
+.section-dark::before, .section-light::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+.section-dark > *, .section-light > * { position: relative; z-index: 2; }
+
+/* =========================================================
+   LOADER
+   ========================================================= */
+.loader {
+  position: fixed; inset: 0; z-index: 1000;
+  background: var(--onyx); color: var(--ivory);
+  display: flex; align-items: center; justify-content: center;
+  transition: clip-path 1.1s cubic-bezier(0.76, 0, 0.24, 1);
+  clip-path: inset(0 0 0 0);
+}
+.loader.is-hidden {
+  clip-path: inset(0 0 100% 0);
+  pointer-events: none;
+}
+.loader-inner { text-align: center; max-width: 320px; }
+.loader-mark {
+  width: 80px; height: 80px; margin: 0 auto 2rem;
+  animation: loaderRise 1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.2s both;
+}
+.loader-mark svg { width: 100%; height: 100%; color: var(--gold); }
+@keyframes loaderRise {
+  from { opacity: 0; transform: translateY(20px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.loader-text {
+  font-family: var(--font-display);
+  font-size: 1.8rem; font-weight: 300;
+  letter-spacing: 0.02em;
+  margin-bottom: 2rem;
+  animation: loaderFade 0.9s ease-out 0.5s both;
+}
+.loader-text em { font-style: italic; color: var(--gold); }
+@keyframes loaderFade { from { opacity: 0; } to { opacity: 1; } }
+.loader-bar { width: 100%; height: 1px; background: rgba(245, 240, 230, 0.15); overflow: hidden; }
+.loader-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  background-size: 200% 100%;
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: loaderBar 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s forwards, loaderShimmer 1.4s linear infinite;
+}
+@keyframes loaderBar { to { transform: scaleX(1); } }
+@keyframes loaderShimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.loader-caption {
+  margin-top: 1.5rem;
+  font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold-dark);
+  animation: loaderFade 0.9s ease-out 1.4s both;
+}
+
+/* =========================================================
+   NAV
+   ========================================================= */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1.5rem var(--gutter);
+  transition: background 0.5s ease, padding 0.5s ease, border-color 0.5s ease;
+  border-bottom: 1px solid transparent;
+  color: var(--ivory);
+}
+.nav.is-light { color: var(--onyx); }
+.nav.is-scrolled {
+  background: rgba(14, 15, 12, 0.85);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  padding: 1rem var(--gutter);
+  border-bottom-color: var(--hairline-dark);
+  color: var(--ivory);
+}
+.nav-inner {
+  max-width: var(--container); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+}
+.nav-logo { display: flex; align-items: center; gap: 0.75rem; }
+.nav-mark {
+  width: 32px; height: 32px; color: var(--gold);
+  transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.nav-logo:hover .nav-mark { transform: rotate(180deg); }
+.nav-wordmark { display: flex; flex-direction: column; line-height: 1; }
+.nav-wordmark-line {
+  font-family: var(--font-display); font-size: 1.3rem;
+  font-weight: 500; letter-spacing: 0.01em;
+}
+.nav-wordmark-sub {
+  font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-top: 0.3rem; font-weight: 500;
+}
+.nav-links { display: flex; gap: 2.5rem; font-size: 0.82rem; letter-spacing: 0.04em; }
+.nav-links a {
+  position: relative; padding: 0.5rem 0;
+  transition: color 0.3s ease;
+}
+.nav-links a::before {
+  content: '';
+  position: absolute; left: -0.5rem; top: 50%;
+  width: 4px; height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-100%, -50%) scale(0.5);
+  transition: all 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.nav-links a:hover::before, .nav-links a.active::before {
+  opacity: 1;
+  transform: translate(-100%, -50%) scale(1);
+}
+.nav-links a.active { color: var(--gold); }
+.nav-cta {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
+  font-weight: 500; color: var(--gold);
+  transition: all 0.4s ease;
+  position: relative; overflow: hidden;
+}
+.nav-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--gold);
+  transform: translateY(101%);
+  transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.nav-cta:hover { color: var(--onyx); }
+.nav-cta:hover::before { transform: translateY(0); }
+.nav-cta span, .nav-cta svg { position: relative; z-index: 1; }
+.nav-cta svg { transition: transform 0.4s ease; }
+.nav-cta:hover svg { transform: translateX(3px); }
+.nav-burger { display: none; flex-direction: column; gap: 6px; width: 28px; padding: 8px 0; }
+.nav-burger span { display: block; height: 1.5px; background: currentColor; transition: transform 0.4s; }
+.nav-burger.is-open span:nth-child(1) { transform: translateY(3.5px) rotate(45deg); }
+.nav-burger.is-open span:nth-child(2) { transform: translateY(-3px) rotate(-45deg); }
+
+.mobile-menu {
+  position: fixed; inset: 0; z-index: 90;
+  background: var(--onyx); color: var(--ivory);
+  padding: 8rem var(--gutter) 3rem;
+  display: flex; flex-direction: column; justify-content: space-between;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+  pointer-events: none;
+}
+.mobile-menu.is-open { clip-path: inset(0 0 0 0); pointer-events: auto; }
+.mobile-menu ul { display: flex; flex-direction: column; gap: 1.5rem; }
+.mobile-menu ul a {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 10vw, 5rem);
+  font-weight: 300; line-height: 1; display: block;
+}
+.mobile-menu ul em { color: var(--gold); }
+.mobile-menu-footer {
+  font-size: 0.75rem; letter-spacing: 0.1em; opacity: 0.6;
+  display: flex; justify-content: space-between; gap: 2rem;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   HERO — DARK
+   ========================================================= */
+.hero {
+  position: relative; min-height: 100vh;
+  padding: 8rem var(--gutter) 3rem;
+  background: var(--onyx); color: var(--ivory);
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; pointer-events: none;
+  z-index: 0;
+}
+.hero-bg svg {
+  position: absolute;
+  opacity: 0.18;
+}
+.hero-bg .glyph-1 {
+  top: 12%; right: -3%; width: 50%; max-width: 700px;
+  animation: glyphFloat 12s ease-in-out infinite;
+}
+.hero-bg .glyph-2 {
+  bottom: -5%; left: -5%; width: 40%; max-width: 500px;
+  opacity: 0.1;
+  animation: glyphFloat 14s ease-in-out infinite reverse;
+}
+@keyframes glyphFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+}
+.hero-bg .glow {
+  position: absolute; top: 30%; left: 50%;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(201, 169, 97, 0.06) 0%, transparent 60%);
+  transform: translate(-50%, -50%);
+  animation: glowPulse 8s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+}
+
+.hero-inner {
+  position: relative; z-index: 2;
+  max-width: var(--container); margin: 0 auto;
+  min-height: calc(100vh - 11rem);
+  display: grid; grid-template-rows: auto 1fr auto; gap: 2rem;
+}
+
+.hero-meta {
+  display: flex; align-items: center; gap: 1.5rem;
+  font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500;
+  opacity: 0; animation: fadeUp 1s ease-out 1.6s forwards;
+}
+.hero-meta-divider { width: 30px; height: 1px; background: var(--gold); opacity: 0.5; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(3rem, 10vw, 9rem);
+  line-height: 0.92; letter-spacing: -0.03em;
+  margin-top: 1.5rem;
+  color: var(--ivory);
+}
+.hero-line { display: block; overflow: hidden; padding-bottom: 0.06em; }
+.hero-word {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+  animation: heroWord 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+.hero-word em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 400;
+  position: relative;
+}
+.hero-word em::after {
+  content: '';
+  position: absolute; bottom: 0.1em; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(0); transform-origin: left;
+  animation: underline 1.5s cubic-bezier(0.2, 0.7, 0.2, 1) 2.6s forwards;
+}
+@keyframes underline { to { transform: scaleX(1); } }
+.hero-line:nth-child(1) .hero-word { animation-delay: 1.8s; }
+.hero-line:nth-child(2) .hero-word { animation-delay: 1.95s; }
+.hero-line:nth-child(3) .hero-word { animation-delay: 2.1s; }
+.hero-line:nth-child(4) .hero-word { animation-delay: 2.25s; }
+@keyframes heroWord { to { transform: translateY(0); opacity: 1; } }
+
+.hero-bottom {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  align-items: end;
+  padding-top: 4rem;
+  border-top: 1px solid var(--hairline-dark);
+  margin-top: 2rem;
+}
+@media (max-width: 900px) { .hero-bottom { grid-template-columns: 1fr; gap: 2rem; } }
+
+.hero-sub {
+  opacity: 0; animation: fadeUp 1s ease-out 2.6s forwards;
+}
+.hero-sub-eyebrow {
+  font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem; font-weight: 500;
+}
+.hero-sub p {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--ivory);
+  font-style: italic;
+}
+
+.hero-credentials {
+  opacity: 0; animation: fadeUp 1s ease-out 2.8s forwards;
+}
+.hero-credentials-eyebrow {
+  font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem; font-weight: 500;
+}
+.hero-credentials ul {
+  display: flex; flex-direction: column; gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--ivory);
+}
+.hero-credentials li::before {
+  content: '✦ ';
+  color: var(--gold);
+  margin-right: 0.4rem;
+}
+
+.hero-actions {
+  display: flex; flex-direction: column; gap: 0.75rem; align-items: flex-end;
+  opacity: 0; animation: fadeUp 1s ease-out 3s forwards;
+}
+@media (max-width: 900px) { .hero-actions { align-items: flex-start; } }
+
+.hero-scroll {
+  position: absolute; bottom: 1.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.75rem;
+  font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0; animation: fadeUp 1s ease-out 3.2s forwards;
+}
+.hero-scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, transparent, var(--gold) 50%, transparent);
+  animation: scrollDown 2s ease-in-out infinite;
+}
+@keyframes scrollDown {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn-gold, .btn-outline-gold, .btn-outline-ink, .btn-ink {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  padding: 1.1rem 1.8rem;
+  font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 999px;
+  transition: color 0.5s ease, border-color 0.5s ease;
+  position: relative; overflow: hidden;
+  cursor: pointer;
+}
+.btn-gold {
+  background: var(--gold); color: var(--onyx); border: 1px solid var(--gold);
+}
+.btn-gold::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--gold-bright);
+  transform: translateY(101%);
+  transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.btn-gold:hover::before { transform: translateY(0); }
+.btn-gold > * { position: relative; z-index: 1; }
+
+.btn-outline-gold {
+  background: transparent; color: var(--gold); border: 1px solid var(--gold);
+}
+.btn-outline-gold::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--gold);
+  transform: translateY(101%);
+  transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.btn-outline-gold:hover { color: var(--onyx); }
+.btn-outline-gold:hover::before { transform: translateY(0); }
+.btn-outline-gold > * { position: relative; z-index: 1; }
+
+.btn-ink {
+  background: var(--emerald); color: var(--ivory); border: 1px solid var(--emerald);
+}
+.btn-ink::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--gold);
+  transform: translateY(101%);
+  transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.btn-ink:hover { color: var(--onyx); border-color: var(--gold); }
+.btn-ink:hover::before { transform: translateY(0); }
+.btn-ink > * { position: relative; z-index: 1; }
+
+.btn-outline-ink {
+  background: transparent; color: var(--emerald); border: 1px solid var(--emerald);
+}
+.btn-outline-ink::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--emerald);
+  transform: translateY(101%);
+  transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.btn-outline-ink:hover { color: var(--ivory); }
+.btn-outline-ink:hover::before { transform: translateY(0); }
+.btn-outline-ink > * { position: relative; z-index: 1; }
+
+.btn-arrow svg {
+  transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.btn-gold:hover .btn-arrow svg,
+.btn-outline-gold:hover .btn-arrow svg,
+.btn-ink:hover .btn-arrow svg,
+.btn-outline-ink:hover .btn-arrow svg {
+  transform: translateX(4px);
+}
+
+/* =========================================================
+   MARQUEE
+   ========================================================= */
+.marquee {
+  background: var(--onyx);
+  padding: 2rem 0;
+  overflow: hidden;
+  border-top: 1px solid var(--hairline-dark);
+  border-bottom: 1px solid var(--hairline-dark);
+  position: relative;
+}
+.marquee-track {
+  display: inline-flex; align-items: center; gap: 3rem;
+  white-space: nowrap;
+  animation: marqueeScroll 50s linear infinite;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.5rem, 3.2vw, 2.6rem);
+  font-weight: 400;
+  color: var(--gold);
+}
+.marquee-track .filled { color: var(--gold); }
+.marquee-track .outlined {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--gold);
+}
+.marquee-dot { font-style: normal; font-size: 0.7em; color: var(--gold-dark); }
+@keyframes marqueeScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* =========================================================
+   INTRO STATEMENT — LIGHT
+   ========================================================= */
+.intro {
+  padding: 8rem var(--gutter) 6rem;
+  background: var(--ivory);
+  color: var(--emerald);
+  position: relative;
+}
+.intro-grid {
+  max-width: var(--container); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 2fr;
+  gap: 5rem; align-items: start;
+}
+@media (max-width: 900px) { .intro-grid { grid-template-columns: 1fr; gap: 3rem; } }
+
+.intro-eyebrow {
+  display: flex; flex-direction: column; gap: 1rem;
+  font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold-dark); font-weight: 500;
+  padding-top: 1rem;
+}
+.intro-eyebrow .eyebrow-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.6rem;
+  color: var(--emerald);
+  letter-spacing: 0;
+}
+.intro-eyebrow-line { width: 60px; height: 1px; background: var(--gold); margin-top: 0.5rem; }
+
+.intro-glyph {
+  margin-top: 3rem;
+  width: 100%; max-width: 180px;
+}
+.intro-glyph svg { width: 100%; height: auto; color: var(--gold); }
+
+.intro-statement {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-weight: 300; line-height: 1.12; letter-spacing: -0.015em;
+  color: var(--emerald);
+  margin-bottom: 3rem;
+}
+.intro-statement em {
+  color: var(--gold-dark);
+  font-style: italic;
+}
+.intro-cite {
+  display: flex; align-items: center; gap: 1rem;
+  font-size: 0.8rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--emerald-soft);
+  font-weight: 500;
+}
+.cite-line { width: 50px; height: 1px; background: var(--gold); flex-shrink: 0; }
+
+/* =========================================================
+   STATS BAND — DARK
+   ========================================================= */
+.stats {
+  padding: 5rem var(--gutter);
+  background: var(--onyx);
+  color: var(--ivory);
+  border-top: 1px solid var(--hairline-dark);
+  border-bottom: 1px solid var(--hairline-dark);
+}
+.stats-grid {
+  max-width: var(--container); margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+}
+@media (max-width: 768px) { .stats-grid { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+
+.stat {
+  display: flex; flex-direction: column; gap: 0.6rem;
+  position: relative;
+}
+.stat:not(:last-child)::after {
+  content: '';
+  position: absolute; right: -1.5rem; top: 10%; bottom: 10%;
+  width: 1px;
+  background: var(--hairline-dark);
+}
+@media (max-width: 768px) {
+  .stat:not(:last-child)::after { display: none; }
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 300; line-height: 1;
+  color: var(--gold);
+  letter-spacing: -0.02em;
+}
+.stat-num em { font-style: italic; color: var(--gold-bright); }
+.stat-label {
+  font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ivory); opacity: 0.7;
+  line-height: 1.4;
+}
+
+/* =========================================================
+   FEATURED COURSE — LIGHT
+   ========================================================= */
+.featured {
+  padding: 8rem var(--gutter);
+  background: var(--ivory);
+  color: var(--emerald);
+}
+.featured-inner { max-width: var(--container); margin: 0 auto; }
+.featured-label {
+  display: flex; align-items: center; gap: 1.5rem;
+  font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold-dark); font-weight: 500;
+  margin-bottom: 3rem;
+}
+.featured-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--emerald);
+  font-size: 1rem; letter-spacing: 0;
+}
+
+.featured-grid {
+  display: grid; grid-template-columns: 0.85fr 1fr;
+  gap: 5rem; align-items: start;
+}
+@media (max-width: 900px) { .featured-grid { grid-template-columns: 1fr; gap: 3rem; } }
+
+.featured-visual {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--emerald);
+  border-radius: 2px;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.featured-visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(201, 169, 97, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(201, 169, 97, 0.18) 0%, transparent 50%);
+  z-index: 0;
+}
+.featured-emblem {
+  position: relative; z-index: 1;
+  width: 75%; max-width: 320px;
+  color: var(--gold);
+}
+.featured-emblem svg { width: 100%; height: auto; }
+.featured-emblem .emblem-rotate {
+  animation: emblemRotate 60s linear infinite;
+  transform-origin: center;
+}
+@keyframes emblemRotate { to { transform: rotate(360deg); } }
+.featured-tag {
+  position: absolute; top: 1.5rem; left: 1.5rem; z-index: 2;
+  padding: 0.5rem 1rem;
+  background: rgba(245, 240, 230, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  font-weight: 600; color: var(--emerald);
+}
+.featured-corner {
+  position: absolute; bottom: 1.5rem; right: 1.5rem; z-index: 2;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+
+.featured-content { padding-top: 1rem; }
+.featured-eyebrow {
+  font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold-dark); margin-bottom: 1.5rem; font-weight: 500;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.featured-eyebrow::before {
+  content: ''; width: 8px; height: 8px;
+  border-radius: 50%; background: var(--gold);
+  display: inline-block;
+  animation: dotPulse 2s ease-in-out infinite;
+}
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.6; }
+}
+
+.featured-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-weight: 300; line-height: 0.98; letter-spacing: -0.025em;
+  margin-bottom: 2rem;
+  color: var(--emerald);
+}
+.featured-title em { color: var(--gold-dark); font-style: italic; }
+
+.featured-desc {
+  font-size: 1.05rem; line-height: 1.7;
+  color: var(--emerald-soft);
+  margin-bottom: 3rem;
+  max-width: 540px;
+}
+
+.featured-meta {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-bottom: 3rem;
+  border-top: 1px solid var(--hairline-light);
+}
+@media (max-width: 768px) { .featured-meta { grid-template-columns: 1fr; } }
+.meta-block {
+  display: flex; flex-direction: column; gap: 0.4rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--hairline-light);
+}
+.meta-block:nth-child(odd) { padding-right: 2rem; border-right: 1px solid var(--hairline-light); }
+.meta-block:nth-child(even) { padding-left: 2rem; }
+@media (max-width: 768px) {
+  .meta-block:nth-child(odd) { padding-right: 0; border-right: none; }
+  .meta-block:nth-child(even) { padding-left: 0; }
+}
+.meta-label {
+  font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold-dark); font-weight: 500;
+}
+.meta-value {
+  font-family: var(--font-display);
+  font-size: 1.8rem; font-weight: 400; line-height: 1;
+  color: var(--emerald);
+}
+.meta-value em { font-style: italic; color: var(--gold-dark); }
+.meta-note {
+  font-size: 0.78rem; color: var(--emerald-soft); line-height: 1.5;
+  margin-top: 0.2rem;
+}
+
+/* =========================================================
+   PROGRAMS — DARK (interactive split view)
+   ========================================================= */
+.programs {
+  padding: 8rem var(--gutter);
+  background: var(--onyx);
+  color: var(--ivory);
+}
+.programs-inner { max-width: var(--container); margin: 0 auto; }
+.programs-header { margin-bottom: 5rem; }
+.programs-label {
+  display: flex; align-items: center; gap: 1.5rem;
+  font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500;
+  margin-bottom: 2rem;
+}
+.programs-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 300; line-height: 0.98; letter-spacing: -0.025em;
+  color: var(--ivory); max-width: 900px;
+}
+.programs-title em { color: var(--gold); font-style: italic; }
+
+.programs-list {
+  border-top: 1px solid var(--hairline-dark);
+}
+.program-row {
+  display: grid; grid-template-columns: 60px 1fr auto auto 60px;
+  gap: 2rem; align-items: center;
+  padding: 1.8rem 0;
+  border-bottom: 1px solid var(--hairline-dark);
+  position: relative;
+  cursor: pointer;
+  transition: padding-left 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.program-row::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 0;
+  background: var(--gold);
+  transition: width 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.program-row::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.04));
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+.program-row:hover { padding-left: 1.5rem; }
+.program-row:hover::before { width: 3px; }
+.program-row:hover::after { opacity: 1; }
+
+.program-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem; color: var(--gold);
+  transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.program-row:hover .program-num { transform: scale(1.4) translateX(-4px); }
+
+.program-name { display: flex; flex-direction: column; gap: 0.4rem; }
+.program-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  font-weight: 400; line-height: 1.1;
+  color: var(--ivory);
+  transition: color 0.5s ease, transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.program-row:hover .program-title { color: var(--gold); transform: translateX(4px); }
+.program-tag {
+  font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gold-dark); font-weight: 500;
+}
+
+.program-duration {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1rem; color: var(--ivory); opacity: 0.6;
+}
+.program-price {
+  font-family: var(--font-display);
+  font-size: 1.5rem; font-weight: 400; color: var(--ivory);
+  transition: color 0.5s ease;
+}
+.program-row:hover .program-price { color: var(--gold-bright); }
+
+.program-arrow {
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px;
+  border: 1px solid var(--hairline-dark);
+  border-radius: 50%;
+  transition: all 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+  color: var(--ivory);
+}
+.program-row:hover .program-arrow {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--onyx);
+  transform: rotate(-45deg) scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .program-row { grid-template-columns: 40px 1fr auto; gap: 1rem; padding: 1.3rem 0; }
+  .program-duration, .program-arrow { display: none; }
+  .program-price { font-size: 1.1rem; }
+}
+
+.programs-cta { margin-top: 4rem; text-align: center; }
+
+/* =========================================================
+   INSTRUCTOR — LIGHT
+   ========================================================= */
+.instructor {
+  padding: 8rem var(--gutter);
+  background: var(--ivory);
+  color: var(--emerald);
+}
+.instructor-inner { max-width: var(--container); margin: 0 auto; }
+.instructor-grid {
+  display: grid; grid-template-columns: 1fr 1.3fr;
+  gap: 5rem; align-items: start;
+}
+@media (max-width: 900px) { .instructor-grid { grid-template-columns: 1fr; gap: 3rem; } }
+
+/* INSTRUCTOR PORTRAIT — Tasha photo with editorial frame */
+.instructor-visual {
+  position: relative;
+  max-width: 480px;
+  background: var(--onyx);
+  border-radius: 2px;
+  overflow: hidden;
+}
+@media (max-width: 900px) { .instructor-visual { position: relative; top: 0; } }
+.instructor-portrait {
+  position: relative;
+  width: 100%;
+}
+.instructor-portrait img {
+  width: 100%; height: auto; display: block;
+}
+/* Editorial gradient overlay — bottom-up dark for caption legibility */
+.instructor-visual::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg,
+    rgba(14, 15, 12, 0) 0%,
+    rgba(14, 15, 12, 0) 50%,
+    rgba(14, 15, 12, 0.4) 75%,
+    rgba(14, 15, 12, 0.85) 100%
+  );
+  pointer-events: none;
+}
+/* Gold inner frame */
+.instructor-visual::after {
+  content: '';
+  position: absolute; top: 1rem; left: 1rem; right: 1rem; bottom: 1rem;
+  border: 1px solid rgba(201, 169, 97, 0.25);
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 1px;
+}
+.instructor-portrait-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  z-index: 3;
+  padding: 2rem;
+  display: flex; align-items: end; justify-content: space-between; gap: 1rem;
+  color: var(--ivory);
+}
+.instructor-portrait-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  line-height: 1.15;
+  color: var(--ivory);
+  letter-spacing: -0.005em;
+}
+.instructor-portrait-name em { color: var(--gold); font-style: italic; }
+.instructor-portrait-role {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500;
+  margin-top: 0.4rem;
+}
+.instructor-portrait-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+.instructor-vertical {
+  position: absolute; bottom: 2rem; right: -3rem;
+  transform-origin: right top;
+  transform: rotate(-90deg) translateY(100%);
+  font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+  z-index: 3;
+}
+
+/* =========================================================
+   BILINGUAL — language toggle visibility
+   ========================================================= */
+[data-lang="es"] { display: none; }
+body.is-es [data-lang="es"] { display: revert; }
+body.is-es [data-lang="en"] { display: none; }
+/* Special-case: hero words need inline-block for animation */
+.hero-word[data-lang="en"],
+.hero-word[data-lang="es"],
+.page-hero-word[data-lang="en"],
+.page-hero-word[data-lang="es"] { display: inline-block; }
+body.is-es .hero-word[data-lang="en"],
+body.is-es .page-hero-word[data-lang="en"] { display: none; }
+body:not(.is-es) .hero-word[data-lang="es"],
+body:not(.is-es) .page-hero-word[data-lang="es"] { display: none; }
+
+/* Language toggle button (in nav) */
+.lang-toggle {
+  display: inline-flex; align-items: center;
+  border: 1px solid rgba(201, 169, 97, 0.4);
+  border-radius: 999px;
+  padding: 0.35rem;
+  gap: 0;
+  margin-right: 1rem;
+}
+.lang-toggle button {
+  background: transparent;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: currentColor;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.4s ease, color 0.4s ease;
+  opacity: 0.6;
+}
+.lang-toggle button.is-active {
+  background: var(--gold);
+  color: var(--onyx);
+  opacity: 1;
+}
+.lang-toggle button:not(.is-active):hover { opacity: 1; color: var(--gold); }
+@media (max-width: 600px) {
+  .lang-toggle { display: none; }
+}
+.mobile-lang-toggle {
+  display: none;
+  margin-top: 2rem;
+  align-items: center;
+  border: 1px solid rgba(201, 169, 97, 0.4);
+  border-radius: 999px;
+  padding: 0.4rem;
+  width: fit-content;
+}
+@media (max-width: 600px) { .mobile-lang-toggle { display: inline-flex; } }
+.mobile-lang-toggle button {
+  background: transparent; border: none;
+  font-family: var(--font-body);
+  font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500;
+  color: var(--ivory); padding: 0.5rem 1.2rem; border-radius: 999px;
+  cursor: pointer; transition: background 0.4s, color 0.4s; opacity: 0.6;
+}
+.mobile-lang-toggle button.is-active { background: var(--gold); color: var(--onyx); opacity: 1; }
+
+.instructor-content { padding-top: 1rem; }
+.instructor-eyebrow {
+  display: flex; align-items: center; gap: 1.5rem;
+  font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold-dark); font-weight: 500;
+  margin-bottom: 2rem;
+}
+.instructor-name {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 300; line-height: 0.92; letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+  color: var(--emerald);
+}
+.instructor-name em { color: var(--gold-dark); font-style: italic; }
+.instructor-titles {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem; color: var(--emerald-soft);
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--hairline-light);
+}
+.instructor-body { display: flex; flex-direction: column; gap: 1.4rem; margin-bottom: 3rem; max-width: 540px; }
+.instructor-body p { font-size: 1rem; line-height: 1.75; color: var(--emerald); }
+
+.instructor-quote {
+  position: relative;
+  padding: 2.5rem 0 2.5rem 2.5rem;
+  border-left: 2px solid var(--gold);
+  margin: 2rem 0 3rem;
+  max-width: 580px;
+}
+.quote-mark {
+  position: absolute; top: 0.5rem; left: 1.2rem;
+  font-family: var(--font-display);
+  font-size: 5rem; line-height: 1;
+  color: var(--gold); opacity: 0.4;
+}
+.instructor-quote p {
+  font-family: var(--font-display);
+  font-size: 1.6rem; line-height: 1.32;
+  font-weight: 400;
+  color: var(--emerald);
+}
+.instructor-quote em { color: var(--gold-dark); font-style: italic; font-weight: 500; }
+
+.instructor-affiliations {
+  display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+  margin-bottom: 3rem; padding-top: 2rem;
+  border-top: 1px solid var(--hairline-light);
+}
+.affiliation-label {
+  font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold-dark); font-weight: 500;
+}
+.affiliation-logos {
+  display: flex; gap: 1.5rem; flex-wrap: wrap;
+  font-family: var(--font-display);
+  font-size: 1.1rem; font-weight: 500;
+  color: var(--emerald);
+  letter-spacing: 0.05em;
+}
+.affiliation-logos span {
+  position: relative;
+  padding: 0.2rem 0;
+}
+.affiliation-logos span:not(:last-child)::after {
+  content: '·';
+  margin-left: 1.5rem;
+  color: var(--gold-dark);
+}
+
+/* =========================================================
+   TESTIMONIAL — DARK
+   ========================================================= */
+.testimonial {
+  background: var(--onyx);
+  color: var(--ivory);
+  padding: 8rem var(--gutter);
+  position: relative;
+  overflow: hidden;
+}
+.testimonial-bg {
+  position: absolute;
+  top: 0; right: 0;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(201, 169, 97, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.testimonial-inner { max-width: var(--container); margin: 0 auto; position: relative; z-index: 1; }
+.testimonial-eyebrow {
+  display: flex; align-items: center; gap: 1.5rem;
+  font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500;
+  margin-bottom: 3rem;
+}
+.testimonial-featured {
+  max-width: 1100px;
+  margin: 0 0 5rem;
+  position: relative;
+  padding-left: 5rem;
+}
+.testimonial-featured::before {
+  content: '"';
+  position: absolute; top: -2rem; left: 0;
+  font-family: var(--font-display);
+  font-size: 10rem;
+  line-height: 1;
+  color: var(--gold);
+  font-style: italic;
+}
+.testimonial-featured p {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.6vw, 3.2rem);
+  line-height: 1.25; font-weight: 300; letter-spacing: -0.01em;
+  color: var(--ivory);
+  margin-bottom: 2.5rem;
+}
+.testimonial-featured em { color: var(--gold); font-style: italic; }
+.testimonial-featured footer {
+  display: flex; flex-direction: column; gap: 0.4rem;
+  padding-top: 2rem; border-top: 1px solid var(--hairline-dark);
+  max-width: 300px;
+}
+.testimonial-name {
+  font-family: var(--font-display);
+  font-size: 1.4rem; font-style: italic;
+  color: var(--gold);
+}
+.testimonial-role {
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--ivory); opacity: 0.6;
+}
+
+.testimonial-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+@media (max-width: 900px) { .testimonial-grid { grid-template-columns: 1fr; } }
+
+.testi-card {
+  padding: 2.5rem 2rem;
+  background: var(--onyx-soft);
+  border: 1px solid var(--hairline-dark);
+  border-radius: 2px;
+  position: relative;
+  transition: border-color 0.5s ease, transform 0.5s ease, background 0.5s ease;
+  overflow: hidden;
+}
+.testi-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.8s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.testi-card:hover {
+  border-color: rgba(201, 169, 97, 0.3);
+  transform: translateY(-4px);
+  background: rgba(26, 28, 24, 0.8);
+}
+.testi-card:hover::before { transform: translateX(100%); }
+.testi-card .quote-glyph {
+  font-family: var(--font-display);
+  font-size: 2.5rem; line-height: 1;
+  color: var(--gold);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+  opacity: 0.5;
+}
+.testi-card p {
+  font-size: 0.92rem; line-height: 1.65;
+  color: var(--ivory); opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+.testi-author {
+  display: flex; flex-direction: column; gap: 0.2rem;
+  padding-top: 1.2rem; border-top: 1px solid var(--hairline-dark);
+}
+.testi-author-name {
+  font-family: var(--font-display);
+  font-style: italic; font-size: 1.1rem;
+  color: var(--gold);
+}
+.testi-author-role {
+  font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ivory); opacity: 0.5;
+}
+
+.testimonial-link {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--gold);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--gold);
+  transition: gap 0.4s ease, color 0.4s ease;
+}
+.testimonial-link:hover { gap: 1.25rem; color: var(--gold-bright); }
+
+/* =========================================================
+   PROCESS — LIGHT
+   ========================================================= */
+.process {
+  padding: 8rem var(--gutter);
+  background: var(--ivory);
+  color: var(--emerald);
+}
+.process-inner { max-width: var(--container); margin: 0 auto; }
+.process-header { margin-bottom: 5rem; }
+.process-label {
+  display: flex; align-items: center; gap: 1.5rem;
+  font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold-dark); font-weight: 500;
+  margin-bottom: 2rem;
+}
+.process-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 300; line-height: 0.98; letter-spacing: -0.025em;
+  color: var(--emerald); max-width: 900px;
+}
+.process-title em { color: var(--gold-dark); font-style: italic; }
+
+.process-list {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  counter-reset: step;
+}
+@media (max-width: 768px) { .process-list { grid-template-columns: 1fr; gap: 2rem; } }
+
+.process-step {
+  padding: 2.5rem 2rem;
+  background: var(--ivory-bright);
+  border: 1px solid var(--hairline-light);
+  border-radius: 2px;
+  position: relative;
+  transition: transform 0.5s ease, border-color 0.5s ease, background 0.5s ease;
+  overflow: hidden;
+}
+.process-step::before {
+  content: '';
+  position: absolute; left: 0; top: 0;
+  width: 0; height: 100%;
+  background: var(--gold);
+  transition: width 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.process-step:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+  background: var(--ivory);
+}
+.process-step:hover::before { width: 3px; }
+.step-num {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  line-height: 1;
+}
+.process-step h3 {
+  font-family: var(--font-display);
+  font-size: 1.9rem; font-weight: 500; line-height: 1.15;
+  margin-bottom: 1rem; color: var(--emerald);
+  letter-spacing: -0.01em;
+}
+.process-step p {
+  font-size: 0.95rem; line-height: 1.7;
+  color: var(--emerald-soft);
+}
+
+/* =========================================================
+   DISPENSARY BAND — Fullscript 10% off
+   ========================================================= */
+.dispensary {
+  background: var(--ivory-deep);
+  padding: 6rem var(--gutter);
+  border-top: 1px solid var(--hairline-light);
+  border-bottom: 1px solid var(--hairline-light);
+  position: relative;
+  overflow: hidden;
+}
+.dispensary::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(201, 169, 97, 0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+.dispensary::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(26, 58, 46, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.dispensary-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.dispensary-card {
+  background: var(--ivory-bright);
+  border: 1px solid rgba(201, 169, 97, 0.4);
+  border-radius: 3px;
+  padding: clamp(2.5rem, 4vw, 3.5rem) clamp(2rem, 4vw, 4rem);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.5s, transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.dispensary-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: translateX(-100%);
+  transition: transform 1.4s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.dispensary-card:hover { transform: translateY(-3px); border-color: var(--gold); }
+.dispensary-card:hover::before { transform: translateX(100%); }
+@media (max-width: 900px) {
+  .dispensary-card { grid-template-columns: 1fr; text-align: left; gap: 1.5rem; }
+}
+.dispensary-discount {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 130px; height: 130px;
+  background: var(--emerald);
+  color: var(--gold);
+  border-radius: 50%;
+  position: relative;
+}
+.dispensary-discount::before {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border: 1px solid rgba(201, 169, 97, 0.4);
+  border-radius: 50%;
+  animation: discountRing 14s linear infinite;
+}
+@keyframes discountRing { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.dispensary-discount-num {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 3.4rem;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+.dispensary-discount-pct {
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+  font-weight: 500;
+}
+@media (max-width: 900px) {
+  .dispensary-discount { width: 110px; height: 110px; }
+  .dispensary-discount-num { font-size: 2.8rem; }
+}
+.dispensary-body { display: flex; flex-direction: column; gap: 0.8rem; }
+.dispensary-eyebrow {
+  display: flex; align-items: center; gap: 1rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  font-weight: 500;
+}
+.dispensary-eyebrow::before {
+  content: '';
+  width: 30px; height: 1px;
+  background: var(--gold);
+}
+.dispensary-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  line-height: 1.1;
+  font-weight: 400;
+  color: var(--emerald);
+  letter-spacing: -0.015em;
+}
+.dispensary-title em { color: var(--gold-dark); font-style: italic; }
+.dispensary-desc {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--emerald-soft);
+  max-width: 540px;
+}
+.dispensary-desc em { color: var(--gold-dark); font-style: italic; }
+.dispensary-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.1rem 1.6rem;
+  background: var(--emerald);
+  color: var(--gold);
+  border: 1px solid var(--emerald);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.dispensary-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--gold);
+  transform: translateY(101%);
+  transition: transform 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.dispensary-cta:hover { color: var(--onyx); border-color: var(--gold); }
+.dispensary-cta:hover::before { transform: translateY(0); }
+.dispensary-cta > * { position: relative; z-index: 1; }
+.dispensary-cta svg { transition: transform 0.4s; }
+.dispensary-cta:hover svg { transform: translateX(4px); }
+
+/* =========================================================
+   CTA — DARK
+   ========================================================= */
+.cta {
+  background: var(--onyx);
+  color: var(--ivory);
+  padding: 10rem var(--gutter);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-bg-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 1000px; height: 1000px;
+  background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 60%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: ctaGlow 8s ease-in-out infinite;
+}
+@keyframes ctaGlow {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+}
+.cta-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+.cta-eyebrow {
+  display: inline-flex; align-items: center; gap: 1rem;
+  font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--gold); font-weight: 500;
+  margin-bottom: 3rem;
+}
+.cta-eyebrow .cite-line { background: var(--gold); }
+.cta-headline {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 12vw, 12rem);
+  font-weight: 300; line-height: 0.92; letter-spacing: -0.04em;
+  color: var(--ivory);
+  margin-bottom: 4rem;
+}
+.cta-headline em {
+  color: var(--gold);
+  font-style: italic;
+  position: relative;
+  display: inline-block;
+}
+.cta-headline em::after {
+  content: '';
+  position: absolute; bottom: 0.05em; left: 5%; right: 5%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+  background: var(--onyx-deep);
+  color: var(--ivory);
+  padding: 5rem var(--gutter) 2rem;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--hairline-dark);
+}
+.footer-inner {
+  max-width: var(--container); margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem; padding-bottom: 4rem;
+  position: relative; z-index: 1;
+}
+@media (max-width: 768px) { .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+
+.footer-brand { display: flex; flex-direction: column; gap: 1.2rem; max-width: 320px; }
+.footer-mark { width: 48px; height: 48px; color: var(--gold); }
+.footer-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem; line-height: 1.2;
+  color: var(--ivory);
+}
+.footer-name em {
+  font-style: italic; font-size: 0.95rem;
+  color: var(--gold); display: block;
+  font-weight: 400;
+}
+.footer-tag {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.95rem; line-height: 1.5;
+  color: var(--ivory); opacity: 0.6;
+}
+.footer-col h4 {
+  font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1.2rem; font-weight: 500;
+}
+.footer-col ul { display: flex; flex-direction: column; gap: 0.6rem; }
+.footer-col a, .footer-col p {
+  font-size: 0.85rem; line-height: 1.6;
+  color: var(--ivory); opacity: 0.7;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+.footer-col a:hover { color: var(--gold); opacity: 1; }
+
+.footer-bar {
+  max-width: var(--container); margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid var(--hairline-dark);
+  display: flex; justify-content: space-between;
+  font-size: 0.72rem; letter-spacing: 0.05em;
+  color: var(--ivory); opacity: 0.5;
+  position: relative; z-index: 1; flex-wrap: wrap; gap: 1rem;
+}
+.footer-credit a {
+  color: var(--gold); opacity: 1;
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 1px;
+}
+.footer-large {
+  position: absolute; bottom: -2rem; left: 0; right: 0;
+  text-align: center; pointer-events: none; z-index: 0;
+  overflow: hidden;
+}
+.footer-large span {
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 22vw, 20rem);
+  font-weight: 300; line-height: 0.8;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(201, 169, 97, 0.15);
+  font-style: italic;
+}
+.footer-disclaimer {
+  max-width: var(--container); margin: 3rem auto 0;
+  font-size: 0.68rem; line-height: 1.5;
+  color: var(--ivory); opacity: 0.4;
+  text-align: center; position: relative; z-index: 1;
+  font-style: italic;
+}
+
+/* =========================================================
+   WHATSAPP FLOAT
+   ========================================================= */
+.whatsapp-float {
+  position: fixed; bottom: 1.5rem; right: 1.5rem;
+  width: 56px; height: 56px;
+  background: var(--emerald); color: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; z-index: 80;
+  transition: background 0.4s ease, transform 0.5s cubic-bezier(0.7, 0, 0.3, 1), box-shadow 0.4s ease;
+  box-shadow: 0 4px 24px rgba(14, 15, 12, 0.3);
+}
+.whatsapp-float::before {
+  content: '';
+  position: absolute; inset: -4px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.4s, transform 0.4s;
+}
+.whatsapp-float:hover {
+  background: var(--gold); color: var(--emerald);
+  transform: scale(1.08);
+  box-shadow: 0 8px 32px rgba(201, 169, 97, 0.4);
+}
+.whatsapp-float:hover::before { opacity: 1; transform: scale(1.15); }
+
+/* =========================================================
+   REVEAL ANIMATIONS
+   ========================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.1s cubic-bezier(0.2, 0.7, 0.2, 1), transform 1.1s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1), transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.32s; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.40s; }
+.reveal-stagger.is-visible > * { opacity: 1; transform: translateY(0); }
+
+/* Image distortion / lift on hover (used on visual blocks) */
+.visual-hover {
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1), filter 0.8s ease;
+}
+.visual-hover:hover { transform: translateY(-4px) scale(1.01); }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 900px) {
+  .nav-wordmark-sub { display: none; }
+  .nav-wordmark-line { font-size: 1.1rem; }
+}
+@media (max-width: 768px) {
+  .nav-links, .nav-cta { display: none; }
+  .nav-burger { display: flex; }
+  .hero { padding-top: 7rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .marquee-track { animation: none; }
+  .reveal, .reveal-stagger > * { opacity: 1; transform: none; }
+}
+
+
+/* ANDROID/FIREFOX SAFETY RULES */
+* { min-width: 0; }
+.hero-headline, .page-hero-title, .cta-headline, .course-title, .immersion-title, .programs-title, .featured-title, .compare-title, .credentials-title, .testimonials-title, .space-title, .story-title, .differ-quote, .form-side-title, .payments-title, .visit-title, .faq-title, .steps-title { overflow-wrap: anywhere; word-break: break-word; hyphens: auto; }
+img, svg, video, iframe { max-width: 100%; }
+@media (max-width: 480px) {
+  .hero-headline, .page-hero-title, .cta-headline { font-size: clamp(2.5rem, 12vw, 4rem) !important; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-mark">
+      <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="40" cy="40" r="38" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.3"/>
+        <path d="M40 10 C 40 28, 25 35, 25 50 C 25 60, 32 67, 40 67 C 48 67, 55 60, 55 50 C 55 35, 40 28, 40 10 Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <circle cx="40" cy="48" r="3" fill="currentColor"/>
+      </svg>
+    </div>
+    <div class="loader-text"><span>Salud</span> <em>Natural</em></div>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+    <div class="loader-caption">Wellness &amp; Learning Center</div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Salud Natural home">
+      <svg class="nav-mark" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M20 5 C 20 14, 13 17, 13 25 C 13 30, 16.5 34, 20 34 C 23.5 34, 27 30, 27 25 C 27 17, 20 14, 20 5 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="20" cy="24" r="1.5" fill="currentColor"/>
+      </svg>
+      <span class="nav-wordmark">
+        <span class="nav-wordmark-line">Salud Natural</span>
+        <span class="nav-wordmark-sub">Wellness &amp; Learning Center</span>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active" data-en="Home" data-es="Inicio">Home</a></li>
+      <li><a href="about.html" data-en="About" data-es="Sobre">About</a></li>
+      <li><a href="courses.html" data-en="Courses" data-es="Cursos">Courses</a></li>
+      <li><a href="services.html" data-en="Therapeutic Services" data-es="Servicios Terapéuticos">Therapeutic Services</a></li>
+      <li><a href="contact.html" data-en="Enroll" data-es="Inscríbete">Enroll</a></li>
+    </ul>
+    <div class="lang-toggle" role="group" aria-label="Language toggle">
+      <button type="button" data-lang-set="en" class="is-active">EN</button>
+      <button type="button" data-lang-set="es">ES</button>
+    </div>
+    <a href="https://wa.me/19394780105" target="_blank" rel="noopener" class="nav-cta">
+      <span>WhatsApp</span>
+      <svg viewBox="0 0 24 24" width="13" height="13"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu"><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="index.html"><em data-en="Home" data-es="Inicio">Home</em></a></li>
+    <li><a href="about.html" data-en="About" data-es="Sobre">About</a></li>
+    <li><a href="courses.html" data-en="Courses" data-es="Cursos">Courses</a></li>
+    <li><a href="services.html" data-en="Therapeutic Services" data-es="Servicios Terapéuticos">Therapeutic Services</a></li>
+    <li><a href="contact.html" data-en="Enroll" data-es="Inscríbete">Enroll</a></li>
+    <li><a href="https://wa.me/19394780105" target="_blank" rel="noopener">WhatsApp →</a></li>
+  </ul>
+  <div class="mobile-lang-toggle" role="group" aria-label="Language toggle">
+    <button type="button" data-lang-set="en" class="is-active">English</button>
+    <button type="button" data-lang-set="es">Español</button>
+  </div>
+  <div class="mobile-menu-footer">
+    <p>Caguas · Puerto Rico</p>
+    <p>939-478-0105</p>
+  </div>
+</div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="glow"></div>
+    <!-- Decorative botanical glyph 1 -->
+    <svg class="glyph-1" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#C9A961" stroke-width="0.6" opacity="0.9">
+        <circle cx="300" cy="300" r="290"/>
+        <circle cx="300" cy="300" r="240"/>
+        <circle cx="300" cy="300" r="190"/>
+        <path d="M300 60 C 300 180, 200 220, 200 320 C 200 380, 245 420, 300 420 C 355 420, 400 380, 400 320 C 400 220, 300 180, 300 60 Z"/>
+        <path d="M300 60 L 300 540 M 60 300 L 540 300" stroke-dasharray="2 6"/>
+        <circle cx="300" cy="310" r="6" fill="#C9A961"/>
+        <path d="M180 200 Q 300 280 420 200" />
+        <path d="M180 400 Q 300 320 420 400"/>
+      </g>
+    </svg>
+    <!-- Decorative botanical glyph 2 -->
+    <svg class="glyph-2" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#C9A961" stroke-width="0.5">
+        <path d="M250 50 C 200 150, 100 200, 100 300 Q 100 400, 250 450 Q 400 400, 400 300 C 400 200, 300 150, 250 50 Z"/>
+        <path d="M250 100 Q 150 200, 150 300 Q 150 380, 250 410 Q 350 380, 350 300 Q 350 200, 250 100 Z"/>
+        <path d="M250 150 Q 200 220, 200 300 Q 200 360, 250 380 Q 300 360, 300 300 Q 300 220, 250 150 Z"/>
+        <line x1="250" y1="50" x2="250" y2="450" stroke-dasharray="3 8"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span>Est. 2016</span>
+      <span class="hero-meta-divider"></span>
+      <span>Caguas · Puerto Rico</span>
+      <span class="hero-meta-divider"></span>
+      <span data-en="Bilingual ES / EN" data-es="Bilingüe ES / EN">Bilingual ES / EN</span>
+    </div>
+
+    <h1 class="hero-headline">
+      <span class="hero-line">
+        <span class="hero-word" data-lang="en"><em>Your</em> journey</span>
+        <span class="hero-word" data-lang="es"><em>Tu</em> camino</span>
+      </span>
+      <span class="hero-line">
+        <span class="hero-word" data-lang="en">to becoming a</span>
+        <span class="hero-word" data-lang="es">para convertirte</span>
+      </span>
+      <span class="hero-line">
+        <span class="hero-word" data-lang="en">holistic <em>healer</em></span>
+        <span class="hero-word" data-lang="es">en <em>sanador</em></span>
+      </span>
+      <span class="hero-line">
+        <span class="hero-word" data-lang="en">starts here.</span>
+        <span class="hero-word" data-lang="es">holístico.</span>
+      </span>
+    </h1>
+
+    <div class="hero-bottom">
+      <div class="hero-sub">
+        <p class="hero-sub-eyebrow" data-en="A school of natural medicine" data-es="Una escuela de medicina natural">A school of natural medicine</p>
+        <p data-lang="en">The Caribbean's only naturopath-led training center — where the next generation learns the technique <em>and the reverence</em> behind it.</p>
+        <p data-lang="es">El único centro de formación dirigido por una naturópata en el Caribe — donde la próxima generación aprende la técnica <em>y la reverencia</em> que la sostiene.</p>
+      </div>
+
+      <div class="hero-credentials">
+        <p class="hero-credentials-eyebrow" data-en="Certifications offered" data-es="Certificaciones disponibles">Certifications offered</p>
+        <ul>
+          <li data-en="Colon Hydrotherapy" data-es="Hidroterapia de Colon">Colon Hydrotherapy</li>
+          <li data-en="Digestive Nutrition &amp; Gut Health" data-es="Nutrición Digestiva y Salud Intestinal">Digestive Nutrition &amp; Gut Health</li>
+          <li data-en="Biomagnetic Therapy" data-es="Terapia Biomagnética">Biomagnetic Therapy</li>
+          <li data-en="Womb Steaming &amp; Ion Detox" data-es="Vaporización del Útero y Detox Iónico">Womb Steaming &amp; Ion Detox</li>
+        </ul>
+      </div>
+
+      <div class="hero-actions">
+        <a href="courses.html" class="btn-gold btn-arrow">
+          <span data-en="Explore Courses" data-es="Ver Cursos">Explore Courses</span>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="contact.html" class="btn-outline-gold" data-en="Book a Discovery Call" data-es="Agenda una Llamada">Book a Discovery Call</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span data-en="Scroll" data-es="Desliza">Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<section class="marquee" aria-hidden="true">
+  <div class="marquee-track" data-lang="en">
+    <span class="filled">The Caribbean's only naturopath-led training</span>
+    <span class="marquee-dot">✦</span>
+    <span class="outlined">GPACT-eligible certifications</span>
+    <span class="marquee-dot">✦</span>
+    <span class="filled">Bilingual programs</span>
+    <span class="marquee-dot">✦</span>
+    <span class="outlined">Est. Caguas, PR</span>
+    <span class="marquee-dot">✦</span>
+    <span class="filled">The Caribbean's only naturopath-led training</span>
+    <span class="marquee-dot">✦</span>
+    <span class="outlined">GPACT-eligible certifications</span>
+    <span class="marquee-dot">✦</span>
+    <span class="filled">Bilingual programs</span>
+    <span class="marquee-dot">✦</span>
+    <span class="outlined">Est. Caguas, PR</span>
+    <span class="marquee-dot">✦</span>
+  </div>
+  <div class="marquee-track" data-lang="es">
+    <span class="filled">El único centro naturopático del Caribe</span>
+    <span class="marquee-dot">✦</span>
+    <span class="outlined">Certificaciones avaladas por GPACT</span>
+    <span class="marquee-dot">✦</span>
+    <span class="filled">Programas bilingües</span>
+    <span class="marquee-dot">✦</span>
+    <span class="outlined">Desde Caguas, PR</span>
+    <span class="marquee-dot">✦</span>
+    <span class="filled">El único centro naturopático del Caribe</span>
+    <span class="marquee-dot">✦</span>
+    <span class="outlined">Certificaciones avaladas por GPACT</span>
+    <span class="marquee-dot">✦</span>
+    <span class="filled">Programas bilingües</span>
+    <span class="marquee-dot">✦</span>
+    <span class="outlined">Desde Caguas, PR</span>
+    <span class="marquee-dot">✦</span>
+  </div>
+</section>
+
+<!-- INTRO STATEMENT -->
+<section class="intro section-light">
+  <div class="intro-grid">
+    <div class="intro-eyebrow reveal">
+      <span class="eyebrow-num">¶ 01</span>
+      <span data-en="A school of natural medicine" data-es="Una escuela de medicina natural">A school of natural medicine</span>
+      <div class="intro-eyebrow-line"></div>
+      <div class="intro-glyph">
+        <svg viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-width="1">
+            <circle cx="90" cy="90" r="88"/>
+            <circle cx="90" cy="90" r="68"/>
+            <circle cx="90" cy="90" r="48"/>
+            <path d="M90 10 C 90 50, 50 65, 50 100 C 50 122, 68 138, 90 138 C 112 138, 130 122, 130 100 C 130 65, 90 50, 90 10 Z"/>
+            <circle cx="90" cy="96" r="3" fill="currentColor"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+    <div class="intro-body reveal">
+      <p class="intro-statement" data-lang="en">
+        Where the next generation of holistic practitioners learn not only the techniques of natural healing — but the <em>intuition, the energetics, and the reverence</em> that make this work sacred.
+      </p>
+      <p class="intro-statement" data-lang="es">
+        Donde la próxima generación de sanadores holísticos aprende no solo las técnicas de la medicina natural — sino la <em>intuición, la energética, y la reverencia</em> que hacen sagrado este trabajo.
+      </p>
+      <p class="intro-cite">
+        <span class="cite-line"></span>
+        <span data-en="Caguas, Puerto Rico · The Caribbean's only of its kind" data-es="Caguas, Puerto Rico · Único en su clase en el Caribe">Caguas, Puerto Rico · The Caribbean's only of its kind</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<section class="stats">
+  <div class="stats-grid reveal-stagger">
+    <div class="stat">
+      <span class="stat-num" data-count-to="9">9<em>+</em></span>
+      <span class="stat-label" data-en="Years in practice" data-es="Años en la práctica">Years in practice</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-count-to="6">6</span>
+      <span class="stat-label" data-en="Certification programs" data-es="Programas de certificación">Certification programs</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num" data-count-to="1"><em>1</em></span>
+      <span class="stat-label" data-en="Of its kind in the Caribbean" data-es="Único en su clase en el Caribe">Of its kind in the Caribbean</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">2<em>×</em></span>
+      <span class="stat-label" data-en="Languages taught — ES / EN" data-es="Idiomas enseñados — ES / EN">Languages taught — ES / EN</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED COURSE -->
+<section class="featured section-light">
+  <div class="featured-inner">
+    <div class="featured-label reveal">
+      <span class="featured-num">[ ¶ 02 ]</span>
+      <span data-en="Flagship certification" data-es="Certificación insignia">Flagship certification</span>
+    </div>
+
+    <div class="featured-grid">
+      <div class="featured-visual reveal visual-hover">
+        <div class="featured-tag" data-en="GPACT Eligible" data-es="Avalado por GPACT">GPACT Eligible</div>
+        <div class="featured-emblem">
+          <svg class="emblem-rotate" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <g fill="none" stroke="currentColor" stroke-width="0.7">
+              <circle cx="160" cy="160" r="158"/>
+              <circle cx="160" cy="160" r="135"/>
+              <circle cx="160" cy="160" r="100"/>
+              <circle cx="160" cy="160" r="60"/>
+            </g>
+            <text x="160" y="50" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="11" letter-spacing="6">SALUD NATURAL</text>
+            <text x="160" y="280" text-anchor="middle" fill="currentColor" font-family="Cormorant Garamond" font-size="11" letter-spacing="6">EST. 2016</text>
+            <g transform="translate(160 160)" fill="none" stroke="currentColor" stroke-width="1.2">
+              <path d="M0 -80 C 0 -40, -30 -25, -30 0 C -30 18, -14 32, 0 32 C 14 32, 30 18, 30 0 C 30 -25, 0 -40, 0 -80 Z"/>
+              <circle cx="0" cy="10" r="3" fill="currentColor"/>
+            </g>
+          </svg>
+        </div>
+        <div class="featured-corner">№ 01</div>
+      </div>
+
+      <div class="featured-content">
+        <p class="featured-eyebrow reveal" data-en="Most enrolled" data-es="Más popular">Most enrolled</p>
+        <h2 class="featured-title reveal">
+          <span data-lang="en">Foundation<br>Colon<br><em>Hydrotherapy</em></span>
+          <span data-lang="es">Hidroterapia<br>de Colon<br><em>Fundamental</em></span>
+        </h2>
+        <p class="featured-desc reveal" data-lang="en">
+          Our flagship program. Four weeks of immersive training — half remote, half hands-on in our Caguas studio — covering anatomy, physiology, technique, client energetics, and the trauma-aware care that traditional programs leave out. Graduates qualify to join GPACT and practice independently.
+        </p>
+        <p class="featured-desc reveal" data-lang="es">
+          Nuestro programa insignia. Cuatro semanas de formación inmersiva — mitad remota, mitad práctica en nuestro estudio de Caguas — que cubre anatomía, fisiología, técnica, energética del cliente, y el cuidado consciente del trauma que los programas tradicionales dejan fuera. Los graduados pueden unirse a GPACT y ejercer de manera independiente.
+        </p>
+        <div class="featured-meta reveal">
+          <div class="meta-block">
+            <span class="meta-label" data-en="Investment" data-es="Inversión">Investment</span>
+            <span class="meta-value">$3,333<em>.33</em></span>
+            <span class="meta-note" data-en="50% deposit reserves your seat" data-es="50% de depósito reserva tu plaza">50% deposit reserves your seat</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Format" data-es="Formato">Format</span>
+            <span class="meta-value" data-en="Hybrid" data-es="Híbrido">Hybrid</span>
+            <span class="meta-note" data-en="Zoom + in-person hands-on" data-es="Zoom + práctica presencial">Zoom + in-person hands-on</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Duration" data-es="Duración">Duration</span>
+            <span class="meta-value" data-en="4 weeks" data-es="4 semanas">4 weeks</span>
+            <span class="meta-note" data-en="2 sessions per week · Max 6 students" data-es="2 sesiones por semana · Máx. 6 estudiantes">2 sessions per week · Max 6 students</span>
+          </div>
+          <div class="meta-block">
+            <span class="meta-label" data-en="Language" data-es="Idioma">Language</span>
+            <span class="meta-value">ES / EN</span>
+            <span class="meta-note" data-en="Taught fully bilingual" data-es="Enseñado totalmente bilingüe">Taught fully bilingual</span>
+          </div>
+        </div>
+        <a href="courses.html#foundation" class="btn-ink btn-arrow reveal">
+          <span data-en="View Full Curriculum" data-es="Ver Currículo Completo">View Full Curriculum</span>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs">
+  <div class="programs-inner">
+    <div class="programs-header">
+      <div class="programs-label reveal">
+        <span class="featured-num">[ ¶ 03 ]</span>
+        <span data-en="Full program catalog" data-es="Catálogo completo">Full program catalog</span>
+      </div>
+      <h2 class="programs-title reveal">
+        <span data-lang="en">Six certifications.<br>One <em>lineage</em><br>of healing.</span>
+        <span data-lang="es">Seis certificaciones.<br>Un <em>linaje</em><br>de sanación.</span>
+      </h2>
+    </div>
+
+    <ul class="programs-list reveal-stagger">
+      <li class="program-row" onclick="location.href='courses.html#foundation'">
+        <span class="program-num">¶ 01</span>
+        <div class="program-name">
+          <span class="program-title" data-en="Foundation Colon Hydrotherapy" data-es="Hidroterapia de Colon Fundamental">Foundation Colon Hydrotherapy</span>
+          <span class="program-tag" data-en="GPACT Eligible · Hybrid" data-es="Avalado por GPACT · Híbrido">GPACT Eligible · Hybrid</span>
+        </div>
+        <span class="program-duration" data-en="4 weeks" data-es="4 semanas">4 weeks</span>
+        <span class="program-price">$3,333</span>
+        <a href="courses.html#foundation" class="program-arrow" aria-label="View course">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </li>
+      <li class="program-row" onclick="location.href='courses.html#advanced'">
+        <span class="program-num">¶ 02</span>
+        <div class="program-name">
+          <span class="program-title" data-en="Advanced Colon Hydrotherapy" data-es="Hidroterapia de Colon Avanzada">Advanced Colon Hydrotherapy</span>
+          <span class="program-tag" data-en="GPACT Eligible · Hybrid" data-es="Avalado por GPACT · Híbrido">GPACT Eligible · Hybrid</span>
+        </div>
+        <span class="program-duration" data-en="40 hrs" data-es="40 hrs">40 hrs</span>
+        <span class="program-price">$2,222</span>
+        <a href="courses.html#advanced" class="program-arrow" aria-label="View course">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </li>
+      <li class="program-row" onclick="location.href='courses.html#gut'">
+        <span class="program-num">¶ 03</span>
+        <div class="program-name">
+          <span class="program-title" data-en="Digestive Nutrition &amp; Gut Health" data-es="Nutrición Digestiva y Salud Intestinal">Digestive Nutrition &amp; Gut Health</span>
+          <span class="program-tag" data-en="Practitioner · Hybrid" data-es="Profesional · Híbrido">Practitioner · Hybrid</span>
+        </div>
+        <span class="program-duration" data-en="3 days" data-es="3 días">3 days</span>
+        <span class="program-price">$555</span>
+        <a href="courses.html#gut" class="program-arrow" aria-label="View course">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </li>
+      <li class="program-row" onclick="location.href='courses.html#biomagnetic'">
+        <span class="program-num">¶ 04</span>
+        <div class="program-name">
+          <span class="program-title" data-en="Biomagnetic Therapy" data-es="Terapia Biomagnética">Biomagnetic Therapy</span>
+          <span class="program-tag" data-en="Beginner · Hybrid" data-es="Principiante · Híbrido">Beginner · Hybrid</span>
+        </div>
+        <span class="program-duration" data-en="3–4 days" data-es="3–4 días">3–4 days</span>
+        <span class="program-price">$666</span>
+        <a href="courses.html#biomagnetic" class="program-arrow" aria-label="View course">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </li>
+      <li class="program-row" onclick="location.href='courses.html#yoni'">
+        <span class="program-num">¶ 05</span>
+        <div class="program-name">
+          <span class="program-title" data-en="Womb &amp; Yoni Steaming Practitioner" data-es="Profesional de Vaporización del Útero">Womb &amp; Yoni Steaming Practitioner</span>
+          <span class="program-tag" data-en="Certification · Hybrid" data-es="Certificación · Híbrido">Certification · Hybrid</span>
+        </div>
+        <span class="program-duration" data-en="2 days" data-es="2 días">2 days</span>
+        <span class="program-price">$333</span>
+        <a href="courses.html#yoni" class="program-arrow" aria-label="View course">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </li>
+      <li class="program-row" onclick="location.href='courses.html#ion'">
+        <span class="program-num">¶ 06</span>
+        <div class="program-name">
+          <span class="program-title" data-en="Ion Foot Detox Specialist" data-es="Especialista en Detox Iónico de Pies">Ion Foot Detox Specialist</span>
+          <span class="program-tag" data-en="Certification · Hybrid" data-es="Certificación · Híbrido">Certification · Hybrid</span>
+        </div>
+        <span class="program-duration" data-en="8 hrs" data-es="8 hrs">8 hrs</span>
+        <span class="program-price">$222</span>
+        <a href="courses.html#ion" class="program-arrow" aria-label="View course">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </li>
+    </ul>
+
+    <div class="programs-cta reveal">
+      <a href="courses.html" class="btn-outline-gold btn-arrow">
+        <span data-en="View all programs" data-es="Ver todos los programas">View all programs</span>
+        <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section class="instructor section-light">
+  <div class="instructor-inner">
+    <div class="instructor-grid">
+      <div class="instructor-visual reveal visual-hover">
+        <div class="instructor-portrait">
+          <img src="images/tasha.jpg" alt="Tasha Maria Soto — Naturopath, Iridologist, and founder of Salud Natural Wellness & Learning Center">
+        </div>
+        <div class="instructor-portrait-caption">
+          <div>
+            <div class="instructor-portrait-name">Tasha Maria <em>Soto.</em></div>
+            <div class="instructor-portrait-role" data-en="Naturopath · Founder" data-es="Naturópata · Fundadora">Naturopath · Founder</div>
+          </div>
+          <div class="instructor-portrait-num">№ 04</div>
+        </div>
+        <div class="instructor-vertical" data-en="Caguas · Bo Beatriz" data-es="Caguas · Bo Beatriz">Caguas · Bo Beatriz</div>
+      </div>
+
+      <div class="instructor-content">
+        <p class="instructor-eyebrow reveal">
+          <span class="featured-num">[ ¶ 04 ]</span>
+          <span data-en="Your instructor" data-es="Tu instructora">Your instructor</span>
+        </p>
+        <h2 class="instructor-name reveal">Tasha Maria<br><em>Soto.</em></h2>
+        <p class="instructor-titles reveal">
+          <span data-lang="en">Naturopath · Iridologist · Colon Hydrotherapy Instructor · Certified Gut Specialist</span>
+          <span data-lang="es">Naturópata · Iridóloga · Instructora de Hidroterapia de Colon · Especialista Certificada en Salud Digestiva</span>
+        </p>
+
+        <div class="instructor-body reveal">
+          <p data-lang="en">I came to natural healing the way most healers do — through my own suffering. Gut issues, thyroid imbalance, an autoimmune condition. A year of detoxing, herbs, energy work, and listening to what my body had been trying to say all along.</p>
+          <p data-lang="es">Llegué a la medicina natural como llegan la mayoría de los sanadores — a través de mi propio sufrimiento. Problemas digestivos, desequilibrio de la tiroides, una condición autoinmune. Un año de desintoxicación, hierbas, trabajo energético, y escuchando lo que mi cuerpo había estado tratando de decirme todo este tiempo.</p>
+          <p data-lang="en">That experience changed everything I believed about medicine. Today, after nine years in practice, I'm dedicating myself to teaching the next generation — passing on the technique, yes, but also the intuition, the energetics, and the trauma-aware care that traditional programs leave out.</p>
+          <p data-lang="es">Esa experiencia cambió todo lo que creía sobre la medicina. Hoy, después de nueve años en la práctica, me dedico a enseñar a la próxima generación — transmitiendo la técnica, sí, pero también la intuición, la energética, y el cuidado consciente del trauma que los programas tradicionales dejan fuera.</p>
+        </div>
+
+        <blockquote class="instructor-quote reveal">
+          <span class="quote-mark">"</span>
+          <p data-lang="en">My teaching honors colon hydrotherapy as a <em>sacred art</em> — not just a procedure. This is the piece missing in most traditional programs.</p>
+          <p data-lang="es">Mi enseñanza honra la hidroterapia de colon como un <em>arte sagrado</em> — no solo un procedimiento. Esta es la pieza que falta en la mayoría de los programas tradicionales.</p>
+        </blockquote>
+
+        <div class="instructor-affiliations reveal">
+          <span class="affiliation-label" data-en="Affiliated with" data-es="Avalada por">Affiliated with</span>
+          <div class="affiliation-logos">
+            <span>GPACT</span>
+            <span>IPHM</span>
+            <span>CTAA</span>
+            <span>ADMNPR</span>
+          </div>
+        </div>
+
+        <a href="about.html" class="btn-outline-ink btn-arrow reveal">
+          <span data-en="Read her full story" data-es="Lee su historia completa">Read her full story</span>
+          <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial">
+  <div class="testimonial-bg"></div>
+  <div class="testimonial-inner">
+    <div class="testimonial-eyebrow reveal">
+      <span class="featured-num">[ ¶ 05 ]</span>
+      <span data-en="In their own words" data-es="En sus propias palabras">In their own words</span>
+    </div>
+
+    <blockquote class="testimonial-featured reveal">
+      <p data-lang="en">She manages to balance <em>rigorous, top-tier clinical education</em> with a lighthearted, engaging teaching style. Her passion for holistic health is contagious — and her ability to break down the science of the techniques is unmatched.</p>
+      <p data-lang="es">Logra equilibrar una <em>educación clínica rigurosa de alto nivel</em> con un estilo de enseñanza ligero y cautivador. Su pasión por la salud holística es contagiosa — y su habilidad para desglosar la ciencia detrás de las técnicas es inigualable.</p>
+      <footer>
+        <span class="testimonial-name">— C. Cruz</span>
+        <span class="testimonial-role" data-en="Colon Hydrotherapy Graduate" data-es="Graduada · Hidroterapia de Colon">Colon Hydrotherapy Graduate</span>
+      </footer>
+    </blockquote>
+
+    <div class="testimonial-grid reveal-stagger">
+      <div class="testi-card">
+        <div class="quote-glyph">"</div>
+        <p data-lang="en">Tasha didn't just train me — she believed in me, challenged me, and guided me with a level of care that is rare to find.</p>
+        <p data-lang="es">Tasha no solo me entrenó — creyó en mí, me retó, y me guió con un nivel de cuidado que es difícil de encontrar.</p>
+        <div class="testi-author">
+          <span class="testi-author-name">V.P.</span>
+          <span class="testi-author-role" data-en="Graduate · 2024" data-es="Graduada · 2024">Graduate · 2024</span>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="quote-glyph">"</div>
+        <p data-lang="en">Thanks to her years of knowledge, skills, and dedication, I am now a licensed Colon Hydrotherapist. I recommend her to anyone pursuing a career in this field.</p>
+        <p data-lang="es">Gracias a sus años de conocimiento, habilidades y dedicación, hoy soy Hidroterapeuta de Colon licenciada. La recomiendo a cualquier persona que quiera seguir una carrera en este campo.</p>
+        <div class="testi-author">
+          <span class="testi-author-name">Krystal B.</span>
+          <span class="testi-author-role" data-en="Licensed Hydrotherapist" data-es="Hidroterapeuta Licenciada">Licensed Hydrotherapist</span>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="quote-glyph">"</div>
+        <p>Recomiendo a Tasha a cualquier persona interesada en este campo — especialmente si vienen sin experiencia médica previa como yo.</p>
+        <div class="testi-author">
+          <span class="testi-author-name">S.B.A.</span>
+          <span class="testi-author-role" data-en="Graduate · Spanish cohort" data-es="Graduada · Cohorte en español">Graduate · Spanish cohort</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="about.html#testimonials" class="testimonial-link reveal">
+      <span data-en="Read all testimonials" data-es="Lee todos los testimonios">Read all testimonials</span>
+      <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process section-light">
+  <div class="process-inner">
+    <div class="process-header">
+      <div class="process-label reveal">
+        <span class="featured-num">[ ¶ 06 ]</span>
+        <span data-en="How enrollment works" data-es="Cómo funciona la inscripción">How enrollment works</span>
+      </div>
+      <h2 class="process-title reveal">
+        <span data-lang="en">Three steps<br>to your <em>certification</em>.</span>
+        <span data-lang="es">Tres pasos<br>hacia tu <em>certificación</em>.</span>
+      </h2>
+    </div>
+    <ol class="process-list reveal-stagger">
+      <li class="process-step">
+        <span class="step-num">I.</span>
+        <h3 data-en="Choose your path" data-es="Elige tu camino">Choose your path</h3>
+        <p data-lang="en">Explore the six certifications and find the program that calls to you. New cohorts begin the first of each month — maximum six students per cohort.</p>
+        <p data-lang="es">Explora las seis certificaciones y encuentra el programa que te llama. Las nuevas cohortes comienzan el primer día de cada mes — máximo seis estudiantes por cohorte.</p>
+      </li>
+      <li class="process-step">
+        <span class="step-num">II.</span>
+        <h3 data-en="Reserve your seat" data-es="Reserva tu plaza">Reserve your seat</h3>
+        <p data-lang="en">A 50% deposit secures your place in the next cohort. Pay by credit card, ATH Móvil, Zelle, or PayPal — whatever works for you.</p>
+        <p data-lang="es">Un depósito del 50% asegura tu plaza en la próxima cohorte. Paga con tarjeta de crédito, ATH Móvil, Zelle, o PayPal — lo que mejor te funcione.</p>
+      </li>
+      <li class="process-step">
+        <span class="step-num">III.</span>
+        <h3 data-en="Begin your training" data-es="Comienza tu formación">Begin your training</h3>
+        <p data-lang="en">Balance is due the day before training begins. From there: Zoom sessions, hands-on practice in Caguas, certification, and lifetime access to your instructor's guidance.</p>
+        <p data-lang="es">El balance se paga el día antes de comenzar la formación. Desde ahí: sesiones por Zoom, práctica presencial en Caguas, certificación, y acceso de por vida a la guía de tu instructora.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- DISPENSARY — Fullscript 10% off -->
+<section class="dispensary">
+  <div class="dispensary-inner">
+    <div class="dispensary-card reveal">
+      <div class="dispensary-discount">
+        <span class="dispensary-discount-num">10</span>
+        <span class="dispensary-discount-pct" data-en="Off" data-es="Dscto">Off</span>
+      </div>
+      <div class="dispensary-body">
+        <p class="dispensary-eyebrow">
+          <span data-en="Fullscript Dispensary" data-es="Dispensario Fullscript">Fullscript Dispensary</span>
+        </p>
+        <h3 class="dispensary-title">
+          <span data-lang="en">Save 10% on Tasha's<br><em>curated supplements.</em></span>
+          <span data-lang="es">Ahorra 10% en los<br><em>suplementos curados</em> de Tasha.</span>
+        </h3>
+        <p class="dispensary-desc">
+          <span data-lang="en">Access the same <em>practitioner-grade</em> herbs, probiotics, and protocols Tasha uses with her clients — shipped directly to your door.</span>
+          <span data-lang="es">Accede a las mismas <em>hierbas, probióticos y protocolos de grado profesional</em> que Tasha usa con sus clientes — enviados directo a tu puerta.</span>
+        </p>
+      </div>
+      <a href="https://us.fullscript.com/welcome/tsoto" target="_blank" rel="noopener" class="dispensary-cta">
+        <span data-en="Shop the Dispensary" data-es="Visita el Dispensario">Shop the Dispensary</span>
+        <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-bg-glow"></div>
+  <div class="cta-inner">
+    <p class="cta-eyebrow reveal">
+      <span class="cite-line"></span>
+      <span data-en="The work begins when you do" data-es="El trabajo comienza cuando tú lo decides">The work begins when you do</span>
+    </p>
+    <h2 class="cta-headline reveal">
+      <span data-lang="en">Awaken<br><em>the healer</em><br>within.</span>
+      <span data-lang="es">Despierta<br><em>al sanador</em><br>interior.</span>
+    </h2>
+    <div class="cta-actions reveal">
+      <a href="courses.html" class="btn-gold btn-arrow">
+        <span data-en="Browse Courses" data-es="Ver Cursos">Browse Courses</span>
+        <svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="contact.html" class="btn-outline-gold" data-en="Book a Discovery Call" data-es="Agenda una Llamada">Book a Discovery Call</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg class="footer-mark" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M30 8 C 30 22, 18 28, 18 38 C 18 46, 23.5 52, 30 52 C 36.5 52, 42 46, 42 38 C 42 28, 30 22, 30 8 Z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+        <circle cx="30" cy="36" r="2" fill="currentColor"/>
+      </svg>
+      <p class="footer-name">Salud Natural<br><em>Wellness &amp; Learning Center</em></p>
+      <p class="footer-tag">
+        <span data-lang="en">The Caribbean's only naturopath-led holistic training center.</span>
+        <span data-lang="es">El único centro de formación holística del Caribe dirigido por una naturópata.</span>
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Explore" data-es="Explorar">Explore</h4>
+      <ul>
+        <li><a href="index.html" data-en="Home" data-es="Inicio">Home</a></li>
+        <li><a href="about.html" data-en="About Tasha" data-es="Sobre Tasha">About Tasha</a></li>
+        <li><a href="courses.html" data-en="All Courses" data-es="Todos los Cursos">All Courses</a></li>
+        <li><a href="services.html" data-en="Therapeutic Services" data-es="Servicios Terapéuticos">Therapeutic Services</a></li>
+        <li><a href="contact.html" data-en="Enroll" data-es="Inscríbete">Enroll</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Visit" data-es="Visita">Visit</h4>
+      <p>Bo Beatriz<br>Sector Las Piñas<br>Carr 1 KM .45<br>Caguas, PR 00725</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Connect" data-es="Conecta">Connect</h4>
+      <ul>
+        <li><a href="tel:+19394780105">939-478-0105</a></li>
+        <li><a href="mailto:saludnaturalwellnesscenter@gmail.com" data-en="Email" data-es="Correo">Email</a></li>
+        <li><a href="https://wa.me/19394780105" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="https://us.fullscript.com/welcome/tsoto" target="_blank" rel="noopener" data-en="Fullscript Dispensary" data-es="Dispensario Fullscript">Fullscript Dispensary</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <p data-lang="en">© 2025 Salud Natural Wellness &amp; Learning Center. A division of Salud Natural Wellness Center Inc.</p>
+    <p data-lang="es">© 2025 Salud Natural Wellness &amp; Learning Center. Una división de Salud Natural Wellness Center Inc.</p>
+    <p class="footer-credit">
+      <span data-en="Crafted by" data-es="Creado por">Crafted by</span>
+      <a href="#" target="_blank" rel="noopener">Lizardi Technologies</a>
+    </p>
+  </div>
+  <div class="footer-large" aria-hidden="true"><span>Salud Natural</span></div>
+  <p class="footer-disclaimer">
+    <span data-lang="en">The information contained on this website is not intended to diagnose, treat, cure or prevent any disease. Any statements have not been evaluated by the FDA. Consult your physician for any serious health condition or pregnancy.</span>
+    <span data-lang="es">La información contenida en este sitio web no tiene la intención de diagnosticar, tratar, curar o prevenir ninguna enfermedad. Las declaraciones no han sido evaluadas por la FDA. Consulta a tu médico ante cualquier condición de salud grave o embarazo.</span>
+  </p>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/19394780105?text=Hi%20Tasha%2C%20I%27m%20interested%20in%20one%20of%20your%20certification%20programs." target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp Tasha">
+  <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+(function() {
+  'use strict';
+
+  // ---- LOADER ----
+  const loader = document.getElementById('loader');
+  function dismissLoader() {
+    if (loader && !loader.classList.contains('is-hidden')) {
+      loader.classList.add('is-hidden');
+    }
+  }
+  window.addEventListener('load', () => setTimeout(dismissLoader, 2000));
+  setTimeout(dismissLoader, 3200);
+
+  // ---- LANGUAGE TOGGLE ----
+  // Strategy: paired data-lang="en"/"es" elements handled by CSS;
+  // single elements with data-en/data-es attrs get textContent swapped by JS.
+  let langInitialized = false;
+  function applyLanguage(lang) {
+    const wasInitialized = langInitialized;
+    // Update body class — drives paired-element CSS visibility
+    document.body.classList.toggle('is-es', lang === 'es');
+    // Update <html lang> for SEO/screen readers
+    document.documentElement.setAttribute('lang', lang);
+    // Swap text content for elements with data-en/data-es attributes
+    const attrName = lang === 'es' ? 'data-es' : 'data-en';
+    document.querySelectorAll('[data-en][data-es]').forEach(el => {
+      const newText = el.getAttribute(attrName);
+      if (newText === null) return;
+      if (el.children.length === 0) {
+        el.textContent = newText;
+      } else {
+        for (const node of el.childNodes) {
+          if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+            node.textContent = newText;
+            return;
+          }
+        }
+      }
+    });
+    // Update both desktop and mobile toggle button active states
+    document.querySelectorAll('[data-lang-set]').forEach(btn => {
+      btn.classList.toggle('is-active', btn.getAttribute('data-lang-set') === lang);
+    });
+
+    // If this is a USER toggle (not initial load), re-trigger entrance animations
+    // for newly visible hero-word and page-hero-word elements
+    if (wasInitialized) {
+      const animatedSelectors = '.hero-word[data-lang="' + lang + '"], .page-hero-word[data-lang="' + lang + '"]';
+      document.querySelectorAll(animatedSelectors).forEach(el => {
+        // Restart the animation
+        el.style.animation = 'none';
+        // Force reflow
+        void el.offsetWidth;
+        el.style.animation = '';
+        // Force them to be visible immediately if user is mid-page (no entrance delay)
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+      });
+    }
+
+    // Save preference
+    try { localStorage.setItem('snwlc-lang', lang); } catch (e) {}
+    langInitialized = true;
+  }
+
+  // Initialize language from localStorage (default 'en')
+  let initialLang = 'en';
+  try {
+    const stored = localStorage.getItem('snwlc-lang');
+    if (stored === 'es' || stored === 'en') initialLang = stored;
+  } catch (e) {}
+  applyLanguage(initialLang);
+
+  // Wire up toggle buttons (desktop + mobile)
+  document.querySelectorAll('[data-lang-set]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const newLang = btn.getAttribute('data-lang-set');
+      applyLanguage(newLang);
+    });
+  });
+
+  // ---- NAV SCROLL ----
+  const nav = document.getElementById('nav');
+
+  // Determine which section is under nav at top — adjust nav color (light bg → dark text)
+  const lightSections = document.querySelectorAll('.section-light');
+
+  function updateNav() {
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    if (scrollY > 80) nav.classList.add('is-scrolled');
+    else nav.classList.remove('is-scrolled');
+
+    // Check if any light section overlaps the nav area (only when not scrolled state)
+    if (!nav.classList.contains('is-scrolled')) {
+      let onLight = false;
+      lightSections.forEach(sec => {
+        const r = sec.getBoundingClientRect();
+        if (r.top < 60 && r.bottom > 60) onLight = true;
+      });
+      nav.classList.toggle('is-light', onLight);
+    } else {
+      nav.classList.remove('is-light');
+    }
+  }
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+
+  // ---- MOBILE MENU ----
+  const burger = document.getElementById('navBurger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('is-open');
+      mobileMenu.classList.toggle('is-open');
+      document.body.style.overflow = mobileMenu.classList.contains('is-open') ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.classList.remove('is-open');
+        mobileMenu.classList.remove('is-open');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
+  // ---- REVEAL ON SCROLL ----
+  const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+  if ('IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(el => obs.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  }
+
+  // ---- COUNT-UP STATS ----
+  const statNums = document.querySelectorAll('[data-count-to]');
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+  function countUp(el, target) {
+    const duration = 1400;
+    const start = performance.now();
+    const suffix = el.querySelector('em') ? el.querySelector('em').outerHTML : '';
+    const fromZero = target;
+    function tick(now) {
+      const t = Math.min(1, (now - start) / duration);
+      const val = Math.round(fromZero * easeOut(t));
+      el.firstChild.nodeValue = val + '';
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+  if ('IntersectionObserver' in window) {
+    const statObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const target = parseInt(entry.target.dataset.countTo, 10);
+          countUp(entry.target, target);
+          statObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    statNums.forEach(el => statObs.observe(el));
+  }
+
+  // ---- MAGNETIC BUTTONS ----
+  const magnetic = document.querySelectorAll('.btn-gold, .btn-outline-gold, .btn-ink, .btn-outline-ink, .nav-cta');
+  magnetic.forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      if (window.innerWidth < 1024) return;
+      const rect = el.getBoundingClientRect();
+      const x = (e.clientX - rect.left - rect.width / 2) * 0.2;
+      const y = (e.clientY - rect.top - rect.height / 2) * 0.3;
+      el.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    el.addEventListener('mouseleave', () => { el.style.transform = ''; });
+  });
+
+  // ---- PARALLAX BACKGROUND on hero glyphs ----
+  const heroBg = document.querySelector('.hero-bg');
+  if (heroBg) {
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      if (scrolled < window.innerHeight) {
+        const glyph1 = heroBg.querySelector('.glyph-1');
+        const glyph2 = heroBg.querySelector('.glyph-2');
+        if (glyph1) glyph1.style.transform = `translate3d(0, ${scrolled * 0.3}px, 0) rotate(${scrolled * 0.05}deg)`;
+        if (glyph2) glyph2.style.transform = `translate3d(0, ${scrolled * -0.2}px, 0) rotate(${scrolled * -0.04}deg)`;
+      }
+    }, { passive: true });
+  }
+
+})();
+</script>
+
+</body>
+</html>
