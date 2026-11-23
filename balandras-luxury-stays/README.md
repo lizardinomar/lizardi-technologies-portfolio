@@ -2,6 +2,7 @@
 
 Six-page bilingual (ES/EN) website for a private four-unit beachfront rental complex in Cerro Gordo, Puerto Rico, with a per-unit add-on services cart that pays through Stripe.
 
+- **Live site:** [balandrasluxurystays.com](https://balandrasluxurystays.com)
 - **Role:** Designer and developer (Lizardi Technologies)
 - **Year:** 2026
 - **Stack:** HTML5, CSS3, vanilla JavaScript. No framework, no build step.
