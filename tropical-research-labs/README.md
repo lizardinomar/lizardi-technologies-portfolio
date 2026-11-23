@@ -1,3 +1,5 @@
+> **Client status:** The client is no longer with Lizardi Technologies and now works with a different web design agency on a different website. This repository documents the original build I designed and developed.
+
 > **Portfolio copy.** This folder holds the storefront's front end (14 HTML pages, `.htaccess`, `robots.txt`, `sitemap.xml`, product and bundle images). Not included on purpose: the Cloudflare Worker source (`trl-worker.js`), all credentials, the signed lab PDFs and COA thumbnails (third-party documents), and the client's live form keys (replaced with `YOUR_WEB3FORMS_ACCESS_KEY`). Sections below that mention those describe the production system.
 
 # Tropical Research Labs — trlpr.com
