@@ -5,3 +5,4 @@ Thumbs.db
 .dev.vars
 wrangler.toml
 node_modules/
+!.env.example
