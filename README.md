@@ -19,3 +19,13 @@ By **Nomar Lizardi Vargas** · [Lizardi Technologies](https://lizarditech.com)
 | [A.R. Pagán Auction Group](./ar-pagan-auction-group) | Auctions and liquidations, Puerto Rico | Astro 5, Tailwind v4, GSAP, Sanity CMS, Netlify | arpagan.com (launching) | Bilingual ES/EN, embedded Sanity Studio built for a non-technical owner, auto-updating auction status, BidSpotter handoff. Active client. |
 
 More projects are added as they are documented.
+
+## Platform and CMS work
+
+Sites built or extended on WordPress and WooCommerce. There is no code to show for these, since the client owns the theme and builder.
+
+| Project | Platform | Live | Notes |
+|---|---|---|---|
+| [La Makina Foundation](./la-makina-foundation) | WordPress, Bricks, WooCommerce | [lamakinafoundation.com](https://lamakinafoundation.com) | Nonprofit of MLB pitcher José Berríos. Contract work extending the Bricks site: custom HTML/CSS blocks, forms, email and images, including pages for the Bayamón Baseball Complex campaign. |
+| Billona Welding | WordPress, WooCommerce, Elementor | [billonawelding.com](https://billonawelding.com) | Spanish-language welding training school with an online enrollment store. |
+| Renacer Natural | WordPress, WooCommerce, Elementor | [renacernaturalcremas.com](https://renacernaturalcremas.com) | Natural personal-care and home products store in Fajardo, Puerto Rico. |
