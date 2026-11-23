@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Central Air Services LLC — Aire Acondicionado en Puerto Rico | Venta · Instalación · Mantenimiento</title>
+<meta name="description" content="Servicio profesional de aire acondicionado en Puerto Rico. Venta, instalación, mantenimiento y reparación de mini splits residenciales y comerciales. Técnicos certificados EPA. Financiamiento 0% disponible." />
+<link rel="icon" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+:root{
+  --bg:#06080B;
+  --bg-2:#0B0F15;
+  --bg-3:#111620;
+  --ink:#EEF2F6;
+  --ink-dim:#8893A2;
+  --ink-faint:#5A6373;
+  --orange:#F36F21;
+  --orange-soft:#FF8A3D;
+  --orange-deep:#C9520F;
+  --blue:#1B9CE6;
+  --blue-soft:#42B4F5;
+  --blue-deep:#0A5C8F;
+  --chrome:#C7CDD6;
+  --line:rgba(255,255,255,0.07);
+  --line-2:rgba(255,255,255,0.12);
+  --steel:linear-gradient(180deg,#E8ECF1 0%,#AEB6C2 45%,#7C8492 55%,#C7CDD6 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Barlow',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.5}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+::selection{background:var(--orange);color:#fff}
+
+/* GRAIN + ATMOSPHERE */
+body::before{
+  content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* CURSOR */
+.cursor{position:fixed;width:30px;height:30px;border:1.5px solid var(--orange);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s,border-color .25s;display:none;mix-blend-mode:difference}
+.cursor-dot{position:fixed;width:5px;height:5px;background:var(--orange);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+@media(min-width:1024px){.cursor,.cursor-dot{display:block}}
+.cursor.hover{width:54px;height:54px;background:rgba(243,111,33,.12);border-color:var(--orange-soft)}
+
+/* ===== NAV ===== */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .4s cubic-bezier(.22,1,.36,1)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;transition:all .4s}
+header.scrolled nav{padding:12px 48px;background:rgba(6,8,11,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);z-index:2}
+.brand img{height:46px;width:auto;transition:height .4s;filter:drop-shadow(0 4px 12px rgba(0,0,0,.5))}
+header.scrolled .brand img{height:40px}
+.nav-links{display:flex;gap:8px;align-items:center}
+.nav-links a{color:var(--ink-dim);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.02em;padding:10px 16px;border-radius:8px;transition:all .3s;position:relative}
+.nav-links a:hover{color:var(--ink);background:rgba(255,255,255,.04)}
+.nav-actions{display:flex;align-items:center;gap:14px}
+.nav-phone{display:flex;align-items:center;gap:9px;color:var(--ink);text-decoration:none;font-family:'Oswald';font-weight:600;font-size:15px;letter-spacing:.03em;transition:color .3s}
+.nav-phone svg{color:var(--orange)}
+.nav-phone:hover{color:var(--orange-soft)}
+.btn-quote{background:var(--orange);color:#fff;padding:12px 22px;border-radius:100px;font-family:'Oswald';font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 20px rgba(243,111,33,.35);transition:all .3s cubic-bezier(.34,1.56,.64,1);border:none;cursor:pointer}
+.btn-quote:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(243,111,33,.55)}
+.menu-toggle{display:none;background:none;border:none;color:var(--ink);cursor:pointer;z-index:2}
+@media(max-width:1080px){
+  nav{padding:16px 22px!important}
+  .nav-links,.nav-phone{display:none}
+  .menu-toggle{display:block}
+}
+
+/* MOBILE MENU */
+.mobile-menu{position:fixed;inset:0;z-index:999;background:rgba(6,8,11,.98);backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .4s}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu a{color:var(--ink);text-decoration:none;font-family:'Oswald';font-size:30px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;padding:12px;transition:color .3s}
+.mobile-menu a:hover{color:var(--orange)}
+.mobile-menu .mm-phone{color:var(--orange);font-size:22px;margin-top:20px}
+
+/* ===== HERO ===== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:140px 48px 80px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse 80% 60% at 75% 35%,rgba(27,156,230,.18),transparent 60%),
+  radial-gradient(ellipse 60% 50% at 15% 80%,rgba(243,111,33,.14),transparent 55%),
+  linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 90% 80% at 60% 40%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 90% 80% at 60% 40%,#000 20%,transparent 75%)}
+/* animated diagonal beams from the emblem aesthetic */
+.beam{position:absolute;width:2px;height:140%;top:-20%;background:linear-gradient(180deg,transparent,rgba(27,156,230,.35),transparent);filter:blur(1px);animation:beamSlide 7s ease-in-out infinite}
+.beam.b1{left:18%;transform:rotate(14deg);animation-delay:0s}
+.beam.b2{left:62%;transform:rotate(14deg);background:linear-gradient(180deg,transparent,rgba(243,111,33,.3),transparent);animation-delay:2.5s}
+.beam.b3{left:84%;transform:rotate(14deg);animation-delay:4s}
+@keyframes beamSlide{0%,100%{opacity:0;transform:rotate(14deg) translateY(-30px)}50%{opacity:1;transform:rotate(14deg) translateY(30px)}}
+/* floating snow particles */
+.particles{position:absolute;inset:0;pointer-events:none}
+.particle{position:absolute;color:rgba(66,180,245,.5);animation:fall linear infinite}
+@keyframes fall{0%{transform:translateY(-60px) rotate(0);opacity:0}10%{opacity:.7}90%{opacity:.7}100%{transform:translateY(105vh) rotate(360deg);opacity:0}}
+
+.hero-inner{position:relative;z-index:2;max-width:1440px;margin:0 auto;width:100%;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+@media(max-width:1024px){.hero-inner{grid-template-columns:1fr;gap:40px;text-align:center}}
+
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:100px;background:rgba(27,156,230,.1);border:1px solid rgba(27,156,230,.3);font-family:'Oswald';font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-soft);margin-bottom:28px}
+.hero-badge .ping{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue);animation:ping 2s ease-in-out infinite}
+@keyframes ping{0%,100%{opacity:1}50%{opacity:.3}}
+@media(max-width:1024px){.hero-badge{margin-left:auto;margin-right:auto}}
+
+h1{font-family:'Oswald';font-weight:700;font-size:clamp(46px,7vw,92px);line-height:.94;letter-spacing:-.01em;text-transform:uppercase;margin-bottom:26px}
+h1 .line{display:block;overflow:hidden}
+h1 .line span{display:block;transform:translateY(110%)}
+h1 .grad{background:linear-gradient(100deg,var(--orange) 0%,var(--orange-soft) 50%,var(--blue) 130%);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1 .chrome{background:var(--steel);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 1px rgba(0,0,0,.4))}
+
+.hero-sub{font-size:clamp(16px,1.5vw,19px);color:var(--ink-dim);max-width:520px;line-height:1.6;margin-bottom:36px}
+.hero-sub strong{color:var(--ink);font-weight:600}
+@media(max-width:1024px){.hero-sub{margin-left:auto;margin-right:auto}}
+
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:46px}
+@media(max-width:1024px){.hero-cta{justify-content:center}}
+.btn-primary{background:var(--orange);color:#fff;padding:18px 34px;border-radius:100px;font-family:'Oswald';font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:11px;box-shadow:0 10px 30px rgba(243,111,33,.35);transition:all .3s cubic-bezier(.34,1.56,.64,1);border:none;cursor:pointer;position:relative;overflow:hidden}
+.btn-primary span,.btn-primary svg{position:relative;z-index:1}
+.btn-primary::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,var(--orange-soft),var(--orange-deep));opacity:0;transition:opacity .35s}
+.btn-primary:hover::before{opacity:1}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(243,111,33,.55)}
+.btn-primary:hover svg{transform:translateX(5px)}
+.btn-primary svg{transition:transform .3s}
+.btn-outline{padding:18px 30px;border-radius:100px;font-family:'Oswald';font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:11px;color:var(--ink);border:1px solid var(--line-2);background:rgba(255,255,255,.02);backdrop-filter:blur(8px);transition:all .3s}
+.btn-outline:hover{background:rgba(255,255,255,.06);border-color:var(--orange);color:var(--orange-soft)}
+
+.hero-trust{display:flex;gap:36px;flex-wrap:wrap;padding-top:32px;border-top:1px solid var(--line)}
+@media(max-width:1024px){.hero-trust{justify-content:center}}
+.ht-item .n{font-family:'Oswald';font-weight:700;font-size:38px;line-height:1;background:var(--steel);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ht-item .n .u{color:var(--orange);-webkit-text-fill-color:var(--orange)}
+.ht-item .l{font-size:12px;color:var(--ink-dim);letter-spacing:.1em;text-transform:uppercase;font-weight:500;margin-top:6px}
+
+/* hero emblem visual */
+.hero-visual{position:relative;display:flex;align-items:center;justify-content:center}
+.emblem-stage{position:relative;width:100%;max-width:520px;aspect-ratio:1/1.05;display:flex;align-items:center;justify-content:center}
+.emblem-glow{position:absolute;width:75%;height:75%;border-radius:50%;background:radial-gradient(circle,rgba(27,156,230,.4),rgba(243,111,33,.15) 50%,transparent 70%);filter:blur(50px);animation:pulseGlow 5s ease-in-out infinite}
+@keyframes pulseGlow{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.12);opacity:1}}
+.emblem-ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.07)}
+.emblem-ring.r1{width:92%;height:92%;animation:spin 26s linear infinite}
+.emblem-ring.r2{width:78%;height:78%;border-style:dashed;border-color:rgba(27,156,230,.18);animation:spin 20s linear infinite reverse}
+.emblem-ring.r1::before{content:'';position:absolute;top:-4px;left:50%;width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 16px var(--orange);transform:translateX(-50%)}
+.emblem-ring.r2::before{content:'';position:absolute;bottom:-3px;left:50%;width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 14px var(--blue);transform:translateX(-50%)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.emblem-img{position:relative;z-index:3;width:82%;height:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.7));animation:floaty 6s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+/* floating spec chips */
+.chip{position:absolute;z-index:4;background:rgba(11,15,21,.85);backdrop-filter:blur(12px);border:1px solid var(--line-2);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 30px rgba(0,0,0,.5);animation:floaty 5s ease-in-out infinite}
+.chip .ico{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.chip .tx b{display:block;font-family:'Oswald';font-size:15px;font-weight:600;color:var(--ink);line-height:1}
+.chip .tx s{display:block;font-size:11px;color:var(--ink-dim);text-decoration:none;letter-spacing:.05em;margin-top:3px}
+.chip.c1{top:8%;left:-4%;animation-delay:.5s}
+.chip.c1 .ico{background:rgba(243,111,33,.15);color:var(--orange)}
+.chip.c2{bottom:14%;right:-6%;animation-delay:1.8s}
+.chip.c2 .ico{background:rgba(27,156,230,.15);color:var(--blue-soft)}
+@media(max-width:560px){.chip.c1{left:-2%;top:2%}.chip.c2{right:-2%}}
+
+/* ===== MARQUEE STRIP ===== */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2);padding:22px 0;overflow:hidden;position:relative;z-index:2}
+.strip-track{display:flex;gap:0;width:max-content;animation:marq 28s linear infinite}
+.strip-item{display:flex;align-items:center;font-family:'Barlow Condensed';font-weight:700;font-size:26px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-faint);padding:0 30px;white-space:nowrap}
+.strip-item .sep{color:var(--orange);margin-left:60px;font-size:18px}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ===== SECTION BASE ===== */
+section{position:relative;z-index:2;padding:120px 48px}
+@media(max-width:768px){section{padding:80px 22px}}
+.wrap{max-width:1440px;margin:0 auto}
+.kicker{display:inline-flex;align-items:center;gap:12px;font-family:'Oswald';font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
+.kicker::before{content:'';width:38px;height:2px;background:var(--orange)}
+h2{font-family:'Oswald';font-weight:700;font-size:clamp(38px,5vw,68px);line-height:.98;letter-spacing:-.01em;text-transform:uppercase}
+h2 .chrome{background:var(--steel);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2 .o{color:var(--orange)}
+.lead{color:var(--ink-dim);font-size:17px;line-height:1.65;max-width:560px;margin-top:22px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(46px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
+
+/* ===== SERVICES ===== */
+.svc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:64px;flex-wrap:wrap}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+@media(max-width:980px){.svc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.svc-grid{grid-template-columns:1fr}}
+.svc{position:relative;background:linear-gradient(160deg,var(--bg-3) 0%,var(--bg-2) 100%);border:1px solid var(--line);border-radius:20px;padding:34px 30px 30px;overflow:hidden;transition:transform .5s cubic-bezier(.22,1,.36,1),border-color .5s;min-height:300px;display:flex;flex-direction:column}
+.svc::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,0%),rgba(243,111,33,.14),transparent 45%);opacity:0;transition:opacity .4s}
+.svc::after{content:'';position:absolute;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--orange),var(--blue));transition:width .5s}
+.svc:hover{transform:translateY(-6px);border-color:var(--line-2)}
+.svc:hover::before{opacity:1}
+.svc:hover::after{width:100%}
+.svc.feat{background:linear-gradient(160deg,rgba(243,111,33,.08),var(--bg-2) 60%);border-color:rgba(243,111,33,.22)}
+.svc-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px}
+.svc-ico{width:56px;height:56px;border-radius:14px;background:linear-gradient(145deg,rgba(27,156,230,.16),rgba(243,111,33,.16));border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;color:var(--blue-soft);position:relative;z-index:1}
+.svc.feat .svc-ico{color:var(--orange-soft)}
+.svc-tag{font-family:'Oswald';font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);position:relative;z-index:1}
+.svc h3{font-family:'Oswald';font-weight:600;font-size:25px;text-transform:uppercase;letter-spacing:.01em;margin-bottom:12px;line-height:1.06;position:relative;z-index:1}
+.svc p{color:var(--ink-dim);font-size:14.5px;line-height:1.58;position:relative;z-index:1;flex:1}
+.svc-foot{display:flex;align-items:center;justify-content:space-between;margin-top:22px;padding-top:18px;border-top:1px solid var(--line);position:relative;z-index:1}
+.svc-price{font-family:'Oswald';font-weight:600;font-size:20px;color:var(--ink)}
+.svc-price s{font-size:12px;color:var(--ink-faint);font-weight:400;text-decoration:none;letter-spacing:.04em;display:block;margin-top:1px}
+.svc-link{color:var(--orange);display:flex;align-items:center;gap:6px;font-family:'Oswald';font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:gap .3s}
+.svc-link:hover{gap:11px}
+
+/* ===== WHY US (paramedic story) ===== */
+.why{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 50%,var(--bg) 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.why-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
+@media(max-width:1024px){.why-grid{grid-template-columns:1fr;gap:44px}}
+/* designed quote panel (no photo) */
+.why-panel{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;max-height:620px;background:linear-gradient(155deg,#0E1622 0%,#0A0E14 55%,#0B0F15 100%);border:1px solid var(--line-2);display:flex;flex-direction:column;justify-content:space-between;padding:38px}
+/* split-light atmosphere echoing the emblem */
+.why-panel::before{content:'';position:absolute;top:-30%;left:-20%;width:80%;height:90%;background:radial-gradient(circle,rgba(27,156,230,.28),transparent 60%);filter:blur(50px)}
+.why-panel::after{content:'';position:absolute;bottom:-25%;right:-15%;width:70%;height:80%;background:radial-gradient(circle,rgba(243,111,33,.22),transparent 60%);filter:blur(55px)}
+.why-panel>*{position:relative;z-index:2}
+/* heartbeat -> snowflake line motif */
+.wp-pulse{width:100%;height:60px;opacity:.9}
+.wp-pulse path{stroke:var(--blue-soft);stroke-width:2.4;fill:none;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px rgba(27,156,230,.6));stroke-dasharray:600;stroke-dashoffset:600;animation:ecg 4s ease-in-out infinite}
+@keyframes ecg{0%{stroke-dashoffset:600}55%{stroke-dashoffset:0}100%{stroke-dashoffset:-600}}
+.wp-top{display:flex;justify-content:space-between;align-items:flex-start}
+.wp-badge{background:rgba(6,8,11,.6);backdrop-filter:blur(10px);border:1px solid var(--line-2);border-radius:100px;padding:9px 16px;font-family:'Oswald';font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-soft);display:inline-flex;align-items:center;gap:9px}
+.wp-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 10px var(--blue);animation:ping 2s ease-in-out infinite}
+.wp-flake{color:rgba(66,180,245,.35);animation:floaty 6s ease-in-out infinite}
+.wp-quote{font-family:'Oswald';font-weight:500;font-size:clamp(26px,3vw,38px);line-height:1.15;color:#fff;text-transform:none;letter-spacing:-.01em}
+.wp-quote .o{color:var(--orange-soft)}
+.wp-quote .mark{font-size:64px;line-height:0;color:var(--orange);opacity:.5;display:block;margin-bottom:6px}
+.wp-foot{border-top:1px solid var(--line);padding-top:22px;display:flex;align-items:center;gap:16px}
+.wp-mono{width:52px;height:52px;border-radius:14px;background:linear-gradient(145deg,var(--orange),var(--orange-deep));display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 8px 22px rgba(243,111,33,.4)}
+.wp-foot .nm{font-family:'Oswald';font-weight:600;font-size:18px;color:var(--ink);letter-spacing:.02em}
+.wp-foot .rl{font-size:13px;color:var(--orange-soft);letter-spacing:.06em;text-transform:uppercase;margin-top:3px}
+
+.why-points{margin-top:36px;display:flex;flex-direction:column;gap:18px}
+.wp{display:flex;gap:18px;align-items:flex-start}
+.wp .ck{flex-shrink:0;width:42px;height:42px;border-radius:11px;background:linear-gradient(145deg,rgba(243,111,33,.18),rgba(243,111,33,.06));border:1px solid rgba(243,111,33,.3);display:flex;align-items:center;justify-content:center;color:var(--orange)}
+.wp b{display:block;font-family:'Oswald';font-weight:600;font-size:17px;color:var(--ink);text-transform:uppercase;letter-spacing:.02em;margin-bottom:4px}
+.wp p{color:var(--ink-dim);font-size:14.5px;line-height:1.55}
+
+/* ===== STATS BAND ===== */
+.stats{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
+@media(max-width:760px){.stats-grid{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--bg);padding:48px 32px;text-align:center;position:relative;overflow:hidden}
+.stat::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60px;height:2px;background:var(--orange);opacity:0;transition:opacity .5s,width .5s}
+.stat:hover::before{opacity:1;width:120px}
+.stat .n{font-family:'Oswald';font-weight:700;font-size:clamp(44px,5vw,62px);line-height:1;background:var(--steel);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .n .u{color:var(--orange);-webkit-text-fill-color:var(--orange)}
+.stat .l{font-size:13px;color:var(--ink-dim);letter-spacing:.06em;margin-top:12px;line-height:1.4}
+
+/* ===== COVERAGE MAP ===== */
+.cov{background:var(--bg)}
+.cov-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:56px;align-items:center}
+@media(max-width:1024px){.cov-grid{grid-template-columns:1fr;gap:40px}}
+.map-wrap{position:relative;background:linear-gradient(160deg,var(--bg-3),var(--bg-2));border:1px solid var(--line);border-radius:24px;padding:30px;overflow:hidden}
+.map-wrap::before{content:'';position:absolute;top:-40%;right:-30%;width:80%;height:120%;background:radial-gradient(circle,rgba(27,156,230,.12),transparent 60%);pointer-events:none}
+.pr-map{width:100%;height:auto;display:block;position:relative;z-index:1}
+.pr-map path{fill:rgba(255,255,255,.05);stroke:rgba(255,255,255,.12);stroke-width:.6;transition:fill .4s,filter .4s;cursor:pointer}
+.pr-map path.served{fill:rgba(27,156,230,.32)}
+.pr-map path.core{fill:var(--orange)}
+.pr-map path.served:hover,.pr-map path.core:hover{fill:var(--orange-soft);filter:drop-shadow(0 0 8px rgba(243,111,33,.7))}
+.map-tip{position:absolute;z-index:5;background:rgba(6,8,11,.95);border:1px solid var(--orange);color:#fff;font-family:'Oswald';font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:8px;pointer-events:none;opacity:0;transform:translate(-50%,-130%);transition:opacity .2s;white-space:nowrap}
+.map-legend{display:flex;gap:22px;margin-top:20px;flex-wrap:wrap}
+.lg{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--ink-dim)}
+.lg .sw{width:15px;height:15px;border-radius:4px}
+.lg .sw.core{background:var(--orange)}
+.lg .sw.served{background:rgba(27,156,230,.4)}
+
+.muni-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.muni-list span{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--ink-dim);padding:7px 13px;border:1px solid var(--line);border-radius:100px;background:rgba(255,255,255,.02);transition:all .25s;line-height:1;white-space:nowrap}
+.muni-list span::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--blue-deep);flex-shrink:0;transition:background .25s}
+.muni-list span.core{color:var(--orange-soft);border-color:rgba(243,111,33,.28);background:rgba(243,111,33,.06)}
+.muni-list span.core::before{background:var(--orange)}
+.muni-list span:hover{color:var(--ink);border-color:var(--line-2);transform:translateY(-2px)}
+.muni-list .muni-more{color:var(--ink-faint);font-style:normal;border-style:dashed}
+.muni-list .muni-more::before{display:none}
+@media(max-width:560px){.muni-list{gap:7px}.muni-list span{font-size:12px;padding:6px 11px}}
+.cov-note{margin-top:24px;padding:16px 20px;background:rgba(27,156,230,.06);border:1px solid rgba(27,156,230,.2);border-radius:12px;font-size:14px;color:var(--ink-dim);line-height:1.55}
+.cov-note b{color:var(--ink)}
+
+/* ===== PROCESS ===== */
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:22px;overflow:hidden;margin-top:60px}
+@media(max-width:920px){.proc-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.proc-grid{grid-template-columns:1fr}}
+.step{padding:46px 32px;border-right:1px solid var(--line);background:var(--bg);position:relative;transition:background .4s}
+.proc-grid .step:last-child{border-right:none}
+.step:hover{background:var(--bg-3)}
+.step .num{font-family:'Oswald';font-weight:700;font-size:54px;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(243,111,33,.4);margin-bottom:22px}
+.step:hover .num{-webkit-text-stroke-color:var(--orange)}
+.step h3{font-family:'Oswald';font-weight:600;font-size:21px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:11px;line-height:1.1}
+.step p{color:var(--ink-dim);font-size:14px;line-height:1.55}
+@media(max-width:920px){.step:nth-child(2n){border-right:none}.step:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media(max-width:540px){.step{border-right:none;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:none}}
+
+/* ===== FINANCING ===== */
+.fin{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fin-card{position:relative;background:linear-gradient(135deg,rgba(27,156,230,.1),rgba(243,111,33,.06));border:1px solid var(--line-2);border-radius:28px;padding:64px 56px;overflow:hidden;display:grid;grid-template-columns:1.3fr .7fr;gap:48px;align-items:center}
+@media(max-width:860px){.fin-card{grid-template-columns:1fr;padding:44px 30px;text-align:center}}
+.fin-card::before{content:'';position:absolute;top:-50%;right:-10%;width:60%;height:200%;background:conic-gradient(from 90deg,transparent,rgba(27,156,230,.16),transparent);animation:spin 16s linear infinite}
+.fin-c{position:relative;z-index:1}
+.fin-c h2{margin-bottom:18px}
+.fin-c p{color:var(--ink-dim);font-size:16px;line-height:1.6;max-width:520px}
+@media(max-width:860px){.fin-c p{margin:0 auto}}
+.fin-big{position:relative;z-index:1;text-align:center}
+.fin-brands{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 4px}
+.fin-brand{display:inline-flex;align-items:center;padding:9px 16px;border-radius:999px;font-family:'Oswald';font-weight:600;font-size:13px;letter-spacing:.03em;transition:transform .25s}
+.fin-brand:hover{transform:translateY(-2px)}
+.fin-brand.synchrony{background:#F36F21;color:#fff;letter-spacing:.02em}
+.fin-brand.klarna{background:#FFA8CD;color:#17120F;font-family:'Barlow';font-weight:700;font-size:14px;letter-spacing:-.01em}
+.fin-big .pct{font-family:'Oswald';font-weight:700;font-size:clamp(80px,12vw,140px);line-height:.85;background:var(--steel);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 2px rgba(0,0,0,.4))}
+.fin-big .lbl{font-family:'Oswald';font-weight:600;font-size:18px;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-top:6px}
+.fin-big .sub{font-size:13px;color:var(--ink-dim);margin-top:8px;letter-spacing:.04em}
+
+/* ===== CERTS ===== */
+.certs{background:var(--bg)}
+.cert-row{display:flex;justify-content:center;align-items:center;gap:50px;flex-wrap:wrap;margin-top:50px}
+.cert{display:flex;flex-direction:column;align-items:center;gap:14px;opacity:.85;transition:opacity .3s}
+.cert:hover{opacity:1}
+.cert .badge{width:90px;height:90px;border-radius:50%;background:linear-gradient(145deg,var(--bg-3),var(--bg-2));border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;font-family:'Oswald';font-weight:700;color:var(--ink);position:relative}
+.cert .badge.green{border-color:rgba(124,255,140,.4);color:#7CFF8C}
+.cert .badge.blue{border-color:rgba(27,156,230,.4);color:var(--blue-soft)}
+.cert .badge.org{border-color:rgba(243,111,33,.4);color:var(--orange-soft)}
+.cert .badge .big{font-size:24px;line-height:1}
+.cert .badge .sm{font-size:10px;letter-spacing:.1em;position:absolute;top:18px}
+.cert .nm{font-size:12px;color:var(--ink-dim);letter-spacing:.08em;text-transform:uppercase;text-align:center;font-weight:500}
+
+/* ===== TESTIMONIALS ===== */
+.test{background:var(--bg-2);border-top:1px solid var(--line);overflow:hidden}
+.test-track{display:flex;gap:22px;width:max-content;animation:marq 44s linear infinite;margin-top:54px}
+.test-track:hover{animation-play-state:paused}
+.tcard{flex-shrink:0;width:400px;background:var(--bg-3);border:1px solid var(--line);border-radius:18px;padding:32px}
+.tcard .stars{color:var(--orange);letter-spacing:3px;margin-bottom:18px;font-size:15px}
+.tcard .tx{font-size:16px;line-height:1.55;color:var(--ink);margin-bottom:22px}
+.tcard .au{display:flex;align-items:center;gap:13px}
+.tcard .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--blue));display:flex;align-items:center;justify-content:center;font-family:'Oswald';font-weight:600;color:#fff;font-size:15px}
+.tcard .nm{font-family:'Oswald';font-weight:600;font-size:15px;color:var(--ink)}
+.tcard .mt{font-size:12px;color:var(--ink-faint);margin-top:2px}
+
+/* ===== CTA ===== */
+.cta{position:relative;overflow:hidden;padding:150px 48px}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(243,111,33,.16),transparent 60%)}
+.cta-inner{position:relative;z-index:2;max-width:900px;margin:0 auto;text-align:center}
+.cta h2{font-size:clamp(42px,6.5vw,86px)}
+.cta .lead{margin:24px auto 40px;font-size:18px}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-phone{margin-top:44px;padding-top:30px;border-top:1px solid var(--line);display:inline-flex;flex-direction:column;gap:6px}
+.cta-phone .lbl{font-size:13px;color:var(--ink-dim);letter-spacing:.1em;text-transform:uppercase}
+.cta-phone a{font-family:'Oswald';font-weight:700;font-size:clamp(32px,5vw,46px);color:var(--ink);text-decoration:none;letter-spacing:.02em;transition:color .3s}
+.cta-phone a:hover{color:var(--orange)}
+
+/* ===== FOOTER ===== */
+footer{background:var(--bg-2);border-top:1px solid var(--line);padding:72px 48px 36px}
+@media(max-width:768px){footer{padding:56px 22px 30px}}
+.foot-grid{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:46px}
+@media(max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.foot-grid{grid-template-columns:1fr}}
+.foot-brand img{height:64px;margin-bottom:18px}
+.foot-brand p{color:var(--ink-dim);font-size:14px;line-height:1.65;max-width:320px}
+.foot-soc{display:flex;gap:12px;margin-top:20px}
+.foot-soc a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-dim);transition:all .3s}
+.foot-soc a:hover{background:var(--orange);color:#fff;border-color:var(--orange);transform:translateY(-3px)}
+.foot-col h4{font-family:'Oswald';font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:18px}
+.foot-col a,.foot-col span{display:block;color:var(--ink-dim);text-decoration:none;font-size:14px;padding:7px 0;transition:color .3s}
+.foot-col a:hover{color:var(--orange)}
+.foot-bottom{max-width:1440px;margin:54px auto 0;padding-top:28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-faint)}
+.foot-bottom a{color:var(--ink-dim);text-decoration:none}
+.foot-bottom a:hover{color:var(--orange)}
+
+/* FLOAT BUTTONS */
+.floats{position:fixed;right:22px;bottom:22px;z-index:900;display:flex;flex-direction:column;gap:12px}
+.fab{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:transform .3s;position:relative}
+.fab:hover{transform:scale(1.1)}
+.fab.wa{background:#25D366}
+.fab.call{background:var(--orange)}
+.fab::after{content:attr(data-tip);position:absolute;right:68px;top:50%;transform:translateY(-50%);background:var(--bg-3);border:1px solid var(--line-2);color:var(--ink);font-size:12px;font-family:'Oswald';letter-spacing:.04em;text-transform:uppercase;padding:7px 12px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s}
+.fab:hover::after{opacity:1}
+@media(max-width:768px){.fab::after{display:none}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cur"></div>
+<div class="cursor-dot" id="curDot"></div>
+
+<!-- NAV -->
+<header id="hdr">
+  <nav>
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="Central Air Services LLC"></a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="#cobertura">Cobertura</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+    <div class="nav-actions">
+      <a href="tel:+19393265731" class="nav-phone">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        939.326.5731
+      </a>
+      <a href="contacto.html" class="btn-quote">Cotización Gratis</a>
+    </div>
+    <button class="menu-toggle" id="menuBtn" aria-label="Menú">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </nav>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Inicio</a>
+  <a href="servicios.html">Servicios</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="#cobertura">Cobertura</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="tel:+19393265731" class="mm-phone">939.326.5731</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="beam b1"></div><div class="beam b2"></div><div class="beam b3"></div>
+    <div class="particles" id="particles"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge rv in"><span class="ping"></span>Aire Acondicionado · Toda la Isla de Puerto Rico</div>
+      <h1>
+        <span class="line"><span>Calidad que</span></span>
+        <span class="line"><span class="grad">enfría</span></span>
+        <span class="line"><span class="chrome">de verdad.</span></span>
+      </h1>
+      <p class="hero-sub">Venta, instalación, mantenimiento y reparación de aires acondicionados residenciales y comerciales. <strong>Servicio honesto, profesional y a tiempo</strong> — como lo merece tu familia.</p>
+      <div class="hero-cta">
+        <a href="contacto.html" class="btn-primary"><span>Solicita tu Cotización</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+        <a href="servicios.html" class="btn-outline">Ver Servicios</a>
+      </div>
+      <div class="hero-trust">
+        <div class="ht-item"><div class="n">300<span class="u">+</span></div><div class="l">Instalaciones</div></div>
+        <div class="ht-item"><div class="n">19<span class="u">+</span></div><div class="l">Años sirviendo a PR</div></div>
+        <div class="ht-item"><div class="n">7<span class="u">★</span></div><div class="l">Años de garantía</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="emblem-stage">
+        <div class="emblem-glow"></div>
+        <div class="emblem-ring r1"></div>
+        <div class="emblem-ring r2"></div>
+        <img class="emblem-img" src="assets/logo-3d-emblem.jpg" alt="Central Air Services emblem" style="border-radius:18px">
+        <div class="chip c1">
+          <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+          <div class="tx"><b>Certificados EPA</b><s>608 · 609 · CTRA PR</s></div>
+        </div>
+        <div class="chip c2">
+          <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></div>
+          <div class="tx"><b>Financiamiento 0%</b><s>Hasta 24 meses</s></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-track" id="stripTrack"></div>
+</div>
+
+<!-- SERVICES -->
+<section id="servicios-sec">
+  <div class="wrap">
+    <div class="svc-head">
+      <div>
+        <div class="kicker rv">Nuestros Servicios</div>
+        <h2 class="rv">Todo lo que tu <span class="o">A/C</span><br><span class="chrome">necesita.</span></h2>
+      </div>
+      <p class="lead rv d1">Trabajamos con las principales marcas del mercado — Midea, Fujitsu, Mitsubishi, Carrier y más — con garantía por escrito en cada trabajo.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc feat rv tilt">
+        <div class="svc-top"><div class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2" y="6" width="20" height="9" rx="2"/><path d="M6 10h.01M10 10h.01M5 19l2-4M19 19l-2-4M12 15v4"/></svg></div><div class="svc-tag">01 / Residencial</div></div>
+        <h3>Instalación Residencial</h3>
+        <p>Venta e instalación de unidades mini split para tu hogar. Trabajamos Midea, Fujitsu, Mitsubishi, Carrier, Airmax, TGM, Aircon y Ciac. Diseño a la medida de tu espacio.</p>
+        <div class="svc-foot"><div class="svc-price">$750–$2,400<s>Según el trabajo</s></div><a href="servicios.html" class="svc-link">Ver más <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="svc rv d1 tilt">
+        <div class="svc-top"><div class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></div><div class="svc-tag">02 / Comercial</div></div>
+        <h3>Instalación Comercial</h3>
+        <p>Venta e instalación de unidades piso techo, cassette y mini split para oficinas, restaurantes y locales. Sistemas diseñados para uso continuo.</p>
+        <div class="svc-foot"><div class="svc-price">Cotización<s>Personalizada</s></div><a href="servicios.html" class="svc-link">Ver más <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="svc rv d2 tilt">
+        <div class="svc-top"><div class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8L7 17M17 7l2.8-2.8"/></svg></div><div class="svc-tag">03 / Preventivo</div></div>
+        <h3>Mantenimiento Preventivo</h3>
+        <p>Inspección de evaporador y condensador, verificación de voltaje y protector, revisión de corrosión y de todos los componentes para que tu unidad dure años.</p>
+        <div class="svc-foot"><div class="svc-price">$80<s>Por visita</s></div><a href="servicios.html" class="svc-link">Ver más <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="svc rv tilt">
+        <div class="svc-top"><div class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div><div class="svc-tag">04 / Emergencia</div></div>
+        <h3>Reparación & Diagnóstico</h3>
+        <p>Diagnóstico profesional en sitio. Identificamos la falla, te explicamos qué pasa y te damos una solución clara. La visita aplica a tu reparación.</p>
+        <div class="svc-foot"><div class="svc-price">$90<s>Visita + diagnóstico</s></div><a href="servicios.html" class="svc-link">Ver más <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="svc rv d1 tilt">
+        <div class="svc-top"><div class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 12h4l3-9 4 18 3-9h4"/></svg></div><div class="svc-tag">05 / Sanitización</div></div>
+        <h3>Limpieza Profunda</h3>
+        <p>Lavado completo: filtros, caretas, destape de drenaje, bandeja, coils y turbina. Eliminamos polvo, hongos, mal olor y goteras — y mejoramos el enfriamiento.</p>
+        <div class="svc-foot"><div class="svc-price">Desde $60<s>Según unidad</s></div><a href="servicios.html" class="svc-link">Ver más <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+      </div>
+      <div class="svc rv d2 tilt">
+        <div class="svc-top"><div class="svc-ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4.5L6 21l1.5-7.5L2 9h7z"/></svg></div><div class="svc-tag">06 / Refrigerante</div></div>
+        <h3>Recarga de Gas</h3>
+        <p>Recarga de refrigerante residencial y comercial, siempre monitoreada con balanza para una carga exacta. Sin adivinanzas, sin desperdicio.</p>
+        <div class="svc-foot"><div class="svc-price">Desde $60<s>Por libra</s></div><a href="servicios.html" class="svc-link">Ver más <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <div class="wrap why-grid">
+    <div class="why-panel rv">
+      <div class="wp-top">
+        <div class="wp-badge"><span class="dot"></span>Yamil · Fundador</div>
+        <svg class="wp-flake" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg>
+      </div>
+      <svg class="wp-pulse" viewBox="0 0 600 60" preserveAspectRatio="none"><path d="M0 30 H180 l14 -22 l16 44 l14 -34 l12 22 H320 l10 -10 l10 10 H600"/></svg>
+      <div>
+        <span class="wp-quote mark">"</span>
+        <p class="wp-quote">De salvar vidas a <span class="o">cuidar hogares</span> — el mismo compromiso.</p>
+      </div>
+      <div class="wp-foot">
+        <div class="wp-mono"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+        <div><div class="nm">Yamil Rodríguez</div><div class="rl">19 años como paramédico</div></div>
+      </div>
+    </div>
+    <div class="why-right">
+      <div class="kicker rv">¿Por qué nosotros?</div>
+      <h2 class="rv">No somos otro<br>técnico <span class="o">cualquiera.</span></h2>
+      <p class="lead rv d1">Central Air Services nació de una decisión personal. Después de 19 años como paramédico, Yamil cambió de rumbo para pasar más tiempo con su familia — y para hacer las cosas bien. Hoy lleva esa misma vocación de servicio a cada hogar y negocio en Puerto Rico.</p>
+      <div class="why-points">
+        <div class="wp rv d1"><div class="ck"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></div><div><b>Siempre contestamos</b><p>Otros hacen el trabajo y desaparecen. Yamil se mantiene en contacto y contesta las llamadas, aunque esté trabajando en la calle.</p></div></div>
+        <div class="wp rv d2"><div class="ck"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></div><div><b>Trabajo de perfeccionista</b><p>Hacemos cada instalación como nos gustaría que la hicieran en nuestra propia casa. Calidad, limpieza y detalle en todo.</p></div></div>
+        <div class="wp rv d3"><div class="ck"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg></div><div><b>Honestidad y garantía</b><p>Técnicos certificados EPA 608, 609 y miembros del CTRA PR. Garantía por escrito de hasta 7 años en compresor.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" style="padding-top:0;padding-bottom:0">
+  <div class="stats-grid">
+    <div class="stat rv"><div class="n">300<span class="u">+</span></div><div class="l">Instalaciones realizadas</div></div>
+    <div class="stat rv d1"><div class="n">47<span class="u">+</span></div><div class="l">Municipios que cubrimos</div></div>
+    <div class="stat rv d2"><div class="n">7<span class="u">yr</span></div><div class="l">Garantía en compresor</div></div>
+    <div class="stat rv d3"><div class="n">100<span class="u">%</span></div><div class="l">Técnicos certificados</div></div>
+  </div>
+</section>
+
+<!-- COVERAGE -->
+<section class="cov" id="cobertura">
+  <div class="wrap cov-grid">
+    <div class="cov-left">
+      <div class="kicker rv">Cobertura</div>
+      <h2 class="rv">Servicio en <span class="o">toda</span><br>la isla.</h2>
+      <p class="lead rv d1">Cubrimos más de 47 municipios en Puerto Rico — desde el área este hasta el sur y el norte. Las zonas en <span style="color:var(--orange-soft);font-weight:600">naranja</span> son nuestras áreas principales.</p>
+      <div class="muni-list rv d2" id="muniList"></div>
+      <div class="cov-note rv d2"><b>¿Tu pueblo no está en la lista?</b> También trabajamos el resto de la isla como servicios especiales — solo aplica un costo adicional por distancia que coordinamos contigo antes.</div>
+    </div>
+    <div class="map-wrap rv d1">
+      <div class="map-tip" id="mapTip"></div>
+      <!-- Simplified stylized PR municipality grid map -->
+      <svg class="pr-map" id="prMap" viewBox="0 0 1000 360" xmlns="http://www.w3.org/2000/svg"></svg>
+      <div class="map-legend">
+        <div class="lg"><span class="sw core"></span> Zona principal</div>
+        <div class="lg"><span class="sw served"></span> Zona de servicio</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section>
+  <div class="wrap">
+    <div style="text-align:center;max-width:680px;margin:0 auto">
+      <div class="kicker rv" style="justify-content:center">Cómo Trabajamos</div>
+      <h2 class="rv">Simple. Claro. <span class="chrome">A tiempo.</span></h2>
+    </div>
+    <div class="proc-grid">
+      <div class="step rv"><div class="num">01</div><h3>Llámanos</h3><p>Cuéntanos qué necesitas por teléfono o WhatsApp. Te contestamos — siempre.</p></div>
+      <div class="step rv d1"><div class="num">02</div><h3>Diagnóstico</h3><p>Vamos a tu hogar o negocio, revisamos y te explicamos exactamente qué pasa.</p></div>
+      <div class="step rv d2"><div class="num">03</div><h3>Cotización</h3><p>Recibes una cotización clara por escrito en 3–4 horas. Sin sorpresas.</p></div>
+      <div class="step rv d3"><div class="num">04</div><h3>Trabajo Hecho</h3><p>Hacemos el trabajo con calidad, limpiamos y activamos tu garantía.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCING -->
+<section class="fin">
+  <div class="wrap">
+    <div class="fin-card rv">
+      <div class="fin-c">
+        <div class="kicker">Financiamiento</div>
+        <h2>Tu aire nuevo,<br><span class="o">sin esperar.</span></h2>
+        <p>Financiamiento disponible con <strong>Synchrony</strong> y <strong>Klarna</strong>, desde 6 hasta 24 meses a 0% de interés con aprobación. Comienza a disfrutar el frío hoy y paga a tu ritmo. Aceptamos efectivo, ATH Móvil, tarjeta, cheque y PayPal.</p>
+        <div class="fin-brands">
+          <span class="fin-brand synchrony">Synchrony</span>
+          <span class="fin-brand klarna">Klarna.</span>
+        </div>
+        <p style="font-size:13.5px;color:var(--ink-faint);margin-top:14px">Nota: los precios de oferta mostrados son al contado. El precio bajo financiamiento conlleva un cargo adicional.</p>
+      </div>
+      <div class="fin-big">
+        <div class="pct">0%</div>
+        <div class="lbl">Interés</div>
+        <div class="sub">Hasta 24 meses · Synchrony o Klarna</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTS -->
+<section class="certs">
+  <div class="wrap" style="text-align:center">
+    <div class="kicker rv" style="justify-content:center">Certificaciones</div>
+    <h2 class="rv">Respaldados por <span class="o">credenciales</span> reales.</h2>
+    <div class="cert-row">
+      <div class="cert rv"><div class="badge"><span class="big">EPA</span></div><div class="nm">Mainstream<br>Engineering</div></div>
+      <div class="cert rv d1"><div class="badge green"><span class="sm">EPA</span><span class="big" style="margin-top:8px">608</span></div><div class="nm">Refrigerantes<br>Estacionarios</div></div>
+      <div class="cert rv d2"><div class="badge blue"><span class="sm">EPA</span><span class="big" style="margin-top:8px">609</span></div><div class="nm">Sistemas<br>Vehiculares</div></div>
+      <div class="cert rv d3"><div class="badge org"><span class="big" style="font-size:18px">CTRA</span></div><div class="nm">Colegio Técnicos<br>Refrigeración PR</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="test">
+  <div class="wrap" style="text-align:center">
+    <div class="kicker rv" style="justify-content:center">Testimonios</div>
+    <h2 class="rv">Lo que dicen <span class="chrome">nuestros clientes.</span></h2>
+  </div>
+  <div class="test-track" id="testTrack"></div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-inner">
+    <h2 class="rv">¿Listo para un aire<br>que <span class="o">de verdad</span> enfríe?</h2>
+    <p class="lead rv d1">Solicita tu cotización sin compromiso. Te respondemos rápido y con honestidad — como debe ser.</p>
+    <div class="cta-btns rv d2">
+      <a href="contacto.html" class="btn-primary"><span>Solicitar Cotización</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+      <a href="https://wa.me/19393265731" class="btn-outline"><svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.12-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 012.89 6.99c0 5.45-4.44 9.88-9.89 9.88M20.46 3.49A11.82 11.82 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.49-8.42z"/></svg>WhatsApp</a>
+    </div>
+    <div class="cta-phone rv d3"><span class="lbl">O llámanos directo</span><a href="tel:+19393265731">939.326.5731</a></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <img src="assets/logo.png" alt="Central Air Services LLC">
+      <p>Venta, instalación, mantenimiento y reparación de aires acondicionados residenciales y comerciales en toda la isla de Puerto Rico.</p>
+      <div class="foot-soc">
+        <a href="https://www.facebook.com/centralairservicesllc" aria-label="Facebook"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg></a>
+        <a href="https://instagram.com/centralairservicespr" aria-label="Instagram"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 01-1.38-.9 3.72 3.72 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.35 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 00-1.38-2.12A5.88 5.88 0 0019.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zM12 16a4 4 0 114-4 4 4 0 01-4 4zm6.41-10.85a1.44 1.44 0 11-1.44-1.44 1.44 1.44 0 011.44 1.44z"/></svg></a>
+        <a href="tel:+19393265731" aria-label="Teléfono"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Servicios</h4>
+      <a href="servicios.html">Instalación Residencial</a>
+      <a href="servicios.html">Instalación Comercial</a>
+      <a href="servicios.html">Mantenimiento</a>
+      <a href="servicios.html">Reparación</a>
+      <a href="servicios.html">Limpieza Profunda</a>
+      <a href="servicios.html">Recarga de Gas</a>
+    </div>
+    <div class="foot-col">
+      <h4>Empresa</h4>
+      <a href="nosotros.html">Sobre Nosotros</a>
+      <a href="#cobertura">Cobertura</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="contacto.html">Cotización</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contacto</h4>
+      <a href="tel:+19393265731">939.326.5731</a>
+      <a href="mailto:centralairservices1@gmail.com">centralairservices1@gmail.com</a>
+      <span>Lun–Vie: 8:00am – 6:00pm</span>
+      <span>Sáb: Citas alternas</span>
+      <span>Dom: Cerrado</span>
+      <span style="color:var(--ink-faint);margin-top:8px">Servicio en toda la isla de PR</span>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Central Air Services LLC. Todos los derechos reservados.</span>
+    <span>Diseñado por <a href="#">Lizardi Technologies</a></span>
+  </div>
+</footer>
+
+<!-- FLOATING BUTTONS -->
+<div class="floats">
+  <a href="https://wa.me/19393265731" class="fab wa" data-tip="Escríbenos por WhatsApp" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.12-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 012.89 6.99c0 5.45-4.44 9.88-9.89 9.88M20.46 3.49A11.82 11.82 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.49-8.42z"/></svg></a>
+  <a href="tel:+19393265731" class="fab call" data-tip="Llámanos ahora" aria-label="Llamar"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></a>
+</div>
+
+<script>
+/* CURSOR */
+const cur=document.getElementById('cur'),curDot=document.getElementById('curDot');
+if(window.matchMedia('(min-width:1024px)').matches){
+  let mx=0,my=0,cx=0,cy=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;curDot.style.left=mx+'px';curDot.style.top=my+'px'});
+  function loop(){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;cur.style.left=cx+'px';cur.style.top=cy+'px';requestAnimationFrame(loop)}loop();
+  document.querySelectorAll('a,button,.svc,.tilt').forEach(el=>{el.addEventListener('mouseenter',()=>cur.classList.add('hover'));el.addEventListener('mouseleave',()=>cur.classList.remove('hover'))});
+}
+
+/* NAV scroll */
+const hdr=document.getElementById('hdr');
+addEventListener('scroll',()=>{hdr.classList.toggle('scrolled',scrollY>40)});
+
+/* MOBILE MENU */
+const mb=document.getElementById('menuBtn'),mm=document.getElementById('mobileMenu');
+mb.addEventListener('click',()=>mm.classList.toggle('open'));
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+
+/* PARTICLES */
+const pc=document.getElementById('particles'),syms=['❅','❆','✦','•'];
+for(let i=0;i<16;i++){const s=document.createElement('div');s.className='particle';s.textContent=syms[i%syms.length];s.style.left=Math.random()*100+'%';s.style.fontSize=(9+Math.random()*13)+'px';s.style.animationDuration=(11+Math.random()*16)+'s';s.style.animationDelay=(Math.random()*12)+'s';pc.appendChild(s)}
+
+/* STRIP */
+const stripWords=['Venta','Instalación','Mantenimiento','Reparación','Mini Split','Comercial','Residencial','Limpieza Profunda','Recarga de Gas'];
+const st=document.getElementById('stripTrack');
+let stripHTML='';for(let r=0;r<2;r++){stripWords.forEach(w=>{stripHTML+=`<div class="strip-item">${w}<span class="sep">❄</span></div>`})}
+st.innerHTML=stripHTML;
+
+/* HERO title reveal */
+addEventListener('load',()=>{
+  if(typeof gsap!=='undefined'){
+    gsap.to('h1 .line span',{y:0,duration:1.1,stagger:.12,ease:'power4.out',delay:.2});
+  }else{document.querySelectorAll('h1 .line span').forEach(s=>s.style.transform='none')}
+});
+
+/* REVEAL */
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* COUNTER on stats */
+function animateCount(el){
+  const txt=el.textContent;const m=txt.match(/[\d,]+/);if(!m)return;
+  const target=parseInt(m[0].replace(/,/g,''));const suffix=txt.replace(m[0],'');
+  let cur=0;const dur=1400,start=performance.now();
+  function tick(now){const p=Math.min((now-start)/dur,1);const e=1-Math.pow(1-p,3);cur=Math.floor(target*e);el.childNodes[0].textContent=cur.toLocaleString('en-US');if(p<1)requestAnimationFrame(tick);else el.childNodes[0].textContent=target.toLocaleString('en-US')}
+  requestAnimationFrame(tick);
+}
+const statIO=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const n=e.target.querySelector('.n');if(n&&!n.dataset.done){n.dataset.done=1;animateCount(n)}statIO.unobserve(e.target)}})},{threshold:.5});
+document.querySelectorAll('.stat,.ht-item').forEach(s=>statIO.observe(s));
+
+/* SERVICE tilt glow */
+document.querySelectorAll('.tilt').forEach(c=>{c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%')})});
+
+/* TESTIMONIALS */
+const tests=[
+  {tx:'Llegaron a la hora, limpios y profesionales. Me explicaron todo el proceso y la instalación quedó perfecta. Recomendados al 100%.',nm:'Carmen M.',mt:'Caguas · Instalación residencial',in:'CM'},
+  {tx:'Llamé y me contestaron enseguida — eso ya es difícil de encontrar. El diagnóstico fue honesto y el precio justo. Excelente servicio.',nm:'José R.',mt:'Humacao · Reparación',in:'JR'},
+  {tx:'El mantenimiento dejó mi unidad como nueva. Ya no gotea ni huele. Yamil es serio y se nota que sabe lo que hace.',nm:'Luis O.',mt:'Gurabo · Mantenimiento',in:'LO'},
+  {tx:'Instalaron los aires de mi negocio sin parar mis operaciones. Trabajo limpio y con garantía por escrito. Volvería a contratarlos.',nm:'María S.',mt:'San Lorenzo · Comercial',in:'MS'},
+  {tx:'Profesionalismo de principio a fin. Me dieron financiamiento y pude poner el aire que necesitaba sin descapitalizarme.',nm:'Ángel T.',mt:'Cidra · Instalación + financiamiento',in:'AT'}
+];
+const tt=document.getElementById('testTrack');
+let th='';for(let r=0;r<2;r++){tests.forEach(t=>{th+=`<div class="tcard"><div class="stars">★★★★★</div><p class="tx">${t.tx}</p><div class="au"><div class="av">${t.in}</div><div><div class="nm">${t.nm}</div><div class="mt">${t.mt}</div></div></div></div>`})}
+tt.innerHTML=th;
+
+/* ===== PR MAP (stylized municipality grid) ===== */
+// Coordinates are a stylized hex-ish grid approximating PR geography. Not survey-accurate; built for visual impact + interactivity.
+const core=['Caguas','Cayey','Cidra','Gurabo','Juncos','San Lorenzo','Las Piedras','Humacao','San Juan','Carolina','Trujillo Alto','Guaynabo','Bayamón','Toa Alta','Toa Baja','Cataño'];
+const served=['Fajardo','Ceiba','Luquillo','Naguabo','Río Grande','Canóvanas','Loíza','Yabucoa','Maunabo','Aguas Buenas','Guayama','Patillas','Arroyo','Salinas','Santa Isabel','Coamo','Juana Díaz','Ponce','Dorado','Vega Alta','Vega Baja','Manatí','Barceloneta','Florida','Arecibo','Comerío','Aibonito','Barranquitas'];
+const allMuni=[...core,...served];
+// build muni list
+const ml=document.getElementById('muniList');
+ml.innerHTML=allMuni.slice().sort((a,b)=>a.localeCompare(b,'es')).map(m=>`<span class="${core.includes(m)?'core':''}">${m}</span>`).join('');
+
+// Stylized node map: place dots on a grid resembling the island's east-heavy footprint
+const mapNodes=[
+  // west (lighter / not primary) - a few faded
+  {n:'Mayagüez',x:70,y:200,s:0},{n:'Aguadilla',x:60,y:120,s:0},{n:'San Germán',x:95,y:250,s:0},
+  // north band
+  {n:'Arecibo',x:340,y:95,s:1},{n:'Barceloneta',x:400,y:100,s:1},{n:'Manatí',x:440,y:105,s:1},{n:'Florida',x:380,y:130,s:1},
+  {n:'Vega Baja',x:500,y:105,s:1},{n:'Vega Alta',x:540,y:108,s:1},{n:'Dorado',x:580,y:110,s:1},
+  {n:'Toa Baja',x:625,y:108,s:2},{n:'Cataño',x:665,y:108,s:2},{n:'Toa Alta',x:625,y:140,s:2},
+  {n:'Bayamón',x:680,y:135,s:2},{n:'Guaynabo',x:710,y:140,s:2},{n:'San Juan',x:730,y:112,s:2},
+  {n:'Carolina',x:775,y:118,s:2},{n:'Trujillo Alto',x:745,y:148,s:2},{n:'Canóvanas',x:815,y:122,s:1},
+  {n:'Loíza',x:805,y:100,s:1},{n:'Río Grande',x:850,y:120,s:1},{n:'Luquillo',x:890,y:120,s:1},
+  {n:'Fajardo',x:930,y:130,s:1},{n:'Ceiba',x:930,y:165,s:1},{n:'Naguabo',x:915,y:195,s:1},
+  // central
+  {n:'Comerío',x:600,y:185,s:1},{n:'Aguas Buenas',x:660,y:175,s:2},{n:'Caguas',x:710,y:185,s:2},
+  {n:'Gurabo',x:760,y:175,s:2},{n:'San Lorenzo',x:800,y:195,s:2},{n:'Juncos',x:820,y:170,s:2},
+  {n:'Las Piedras',x:855,y:185,s:2},{n:'Humacao',x:905,y:225,s:2},{n:'Yabucoa',x:890,y:260,s:1},
+  {n:'Maunabo',x:865,y:290,s:1},{n:'Cidra',x:660,y:205,s:2},{n:'Cayey',x:640,y:235,s:2},
+  {n:'Aibonito',x:560,y:225,s:1},{n:'Barranquitas',x:520,y:195,s:1},{n:'Coamo',x:520,y:255,s:1},
+  // south
+  {n:'Salinas',x:560,y:285,s:1},{n:'Guayama',x:640,y:290,s:1},{n:'Arroyo',x:680,y:300,s:1},
+  {n:'Patillas',x:780,y:300,s:1},{n:'Santa Isabel',x:480,y:285,s:1},{n:'Juana Díaz',x:430,y:275,s:1},
+  {n:'Ponce',x:360,y:280,s:1}
+];
+const svg=document.getElementById('prMap'),NS='http://www.w3.org/2000/svg';
+// connective faint lines for "network" feel
+mapNodes.forEach((a,i)=>{mapNodes.slice(i+1).forEach(b=>{const d=Math.hypot(a.x-b.x,a.y-b.y);if(d<60&&(a.s>0&&b.s>0)){const l=document.createElementNS(NS,'line');l.setAttribute('x1',a.x);l.setAttribute('y1',a.y);l.setAttribute('x2',b.x);l.setAttribute('y2',b.y);l.setAttribute('stroke','rgba(27,156,230,.12)');l.setAttribute('stroke-width','.8');svg.appendChild(l)}})});
+const tip=document.getElementById('mapTip'),mapWrap=document.querySelector('.map-wrap');
+mapNodes.forEach((nd,idx)=>{
+  const c=document.createElementNS(NS,'circle');
+  c.setAttribute('cx',nd.x);c.setAttribute('cy',nd.y);
+  c.setAttribute('r',nd.s===2?7:nd.s===1?5:3.5);
+  c.setAttribute('class',nd.s===2?'core':nd.s===1?'served':'');
+  if(nd.s===0){c.setAttribute('fill','rgba(255,255,255,.06)');c.setAttribute('stroke','rgba(255,255,255,.1)')}
+  c.style.transition='all .3s';c.style.cursor='pointer';
+  c.style.transformOrigin=`${nd.x}px ${nd.y}px`;c.style.opacity=0;
+  c.dataset.i=idx;
+  if(nd.s===2){c.setAttribute('fill','var(--orange)')}
+  else if(nd.s===1){c.setAttribute('fill','rgba(27,156,230,.45)')}
+  c.addEventListener('mouseenter',e=>{const r=mapWrap.getBoundingClientRect();const sr=svg.getBoundingClientRect();const sx=sr.left-r.left+nd.x/1000*sr.width;const sy=sr.top-r.top+nd.y/360*sr.height;tip.textContent=nd.n;tip.style.left=sx+'px';tip.style.top=sy+'px';tip.style.opacity=1;c.setAttribute('r',nd.s===2?10:7);c.setAttribute('fill','var(--orange-soft)')});
+  c.addEventListener('mouseleave',()=>{tip.style.opacity=0;c.setAttribute('r',nd.s===2?7:nd.s===1?5:3.5);c.setAttribute('fill',nd.s===2?'var(--orange)':nd.s===1?'rgba(27,156,230,.45)':'rgba(255,255,255,.06)')});
+  svg.appendChild(c);
+});
+// animate dots in when map scrolls into view
+const mapIO=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){svg.querySelectorAll('circle').forEach((c,i)=>{setTimeout(()=>{c.style.opacity=1;},i*28)});mapIO.unobserve(e.target)}})},{threshold:.3});
+mapIO.observe(svg);
+</script>
+</body>
+</html>

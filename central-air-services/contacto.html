@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contacto — Central Air Services LLC | Cotización Gratis en Puerto Rico</title>
+<meta name="description" content="Contacta a Central Air Services para tu cotización gratis. Servicio de aire acondicionado en toda la isla de Puerto Rico. Llama, escríbenos por WhatsApp o llena el formulario." />
+<link rel="icon" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#06080B;--bg-2:#0B0F15;--bg-3:#111620;
+  --ink:#EEF2F6;--ink-dim:#8893A2;--ink-faint:#5A6373;
+  --orange:#F36F21;--orange-soft:#FF8A3D;--orange-deep:#C9520F;
+  --blue:#1B9CE6;--blue-soft:#42B4F5;--blue-deep:#0A5C8F;
+  --chrome:#C7CDD6;--line:rgba(255,255,255,0.07);--line-2:rgba(255,255,255,0.12);
+  --steel:linear-gradient(180deg,#E8ECF1 0%,#AEB6C2 45%,#7C8492 55%,#C7CDD6 100%);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Barlow',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.5}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+::selection{background:var(--orange);color:#fff}
+body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.cursor{position:fixed;width:30px;height:30px;border:1.5px solid var(--orange);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s,border-color .25s;display:none;mix-blend-mode:difference}
+.cursor-dot{position:fixed;width:5px;height:5px;background:var(--orange);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
+@media(min-width:1024px){.cursor,.cursor-dot{display:block}}
+.cursor.hover{width:54px;height:54px;background:rgba(243,111,33,.12);border-color:var(--orange-soft)}
+
+header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .4s cubic-bezier(.22,1,.36,1)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:18px 48px;transition:all .4s}
+header.scrolled nav{padding:12px 48px;background:rgba(6,8,11,.85);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);z-index:2}
+.brand img{height:46px;width:auto;transition:height .4s;filter:drop-shadow(0 4px 12px rgba(0,0,0,.5))}
+header.scrolled .brand img{height:40px}
+.nav-links{display:flex;gap:8px;align-items:center}
+.nav-links a{color:var(--ink-dim);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.02em;padding:10px 16px;border-radius:8px;transition:all .3s;position:relative}
+.nav-links a:hover,.nav-links a.active{color:var(--ink);background:rgba(255,255,255,.04)}
+.nav-links a.active{color:var(--orange-soft)}
+.nav-actions{display:flex;align-items:center;gap:14px}
+.nav-phone{display:flex;align-items:center;gap:9px;color:var(--ink);text-decoration:none;font-family:'Oswald';font-weight:600;font-size:15px;letter-spacing:.03em;transition:color .3s}
+.nav-phone svg{color:var(--orange)}
+.nav-phone:hover{color:var(--orange-soft)}
+.btn-quote{background:var(--orange);color:#fff;padding:12px 22px;border-radius:100px;font-family:'Oswald';font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:8px;box-shadow:0 6px 20px rgba(243,111,33,.35);transition:all .3s cubic-bezier(.34,1.56,.64,1);border:none;cursor:pointer}
+.btn-quote:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(243,111,33,.55)}
+.menu-toggle{display:none;background:none;border:none;color:var(--ink);cursor:pointer;z-index:2}
+@media(max-width:1080px){nav{padding:16px 22px!important}.nav-links,.nav-phone{display:none}.menu-toggle{display:block}}
+.mobile-menu{position:fixed;inset:0;z-index:999;background:rgba(6,8,11,.98);backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .4s}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu a{color:var(--ink);text-decoration:none;font-family:'Oswald';font-size:30px;font-weight:600;text-transform:uppercase;letter-spacing:.02em;padding:12px;transition:color .3s}
+.mobile-menu a:hover{color:var(--orange)}
+.mobile-menu .mm-phone{color:var(--orange);font-size:22px;margin-top:20px}
+
+.kicker{display:inline-flex;align-items:center;gap:12px;font-family:'Oswald';font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
+.kicker::before{content:'';width:38px;height:2px;background:var(--orange)}
+h2{font-family:'Oswald';font-weight:700;font-size:clamp(34px,4.4vw,58px);line-height:.98;letter-spacing:-.01em;text-transform:uppercase}
+h2 .chrome{background:var(--steel);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2 .o{color:var(--orange)}
+.rv{opacity:0;transform:translateY(46px);transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
+section{position:relative;z-index:2}
+.wrap{max-width:1440px;margin:0 auto}
+
+/* ===== PAGE HERO ===== */
+.phero{position:relative;padding:160px 48px 60px;overflow:hidden}
+@media(max-width:768px){.phero{padding:130px 22px 40px}}
+.phero-bg{position:absolute;inset:0;z-index:0}
+.phero-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 75% 10%,rgba(27,156,230,.16),transparent 60%),radial-gradient(ellipse 50% 50% at 8% 90%,rgba(243,111,33,.12),transparent 55%),linear-gradient(180deg,var(--bg),var(--bg-2))}
+.phero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 90% 80% at 70% 20%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 90% 80% at 70% 20%,#000 20%,transparent 75%)}
+.beam{position:absolute;width:2px;height:140%;top:-20%;background:linear-gradient(180deg,transparent,rgba(27,156,230,.3),transparent);filter:blur(1px);animation:beamSlide 7s ease-in-out infinite}
+.beam.b1{left:24%;transform:rotate(14deg)}.beam.b2{left:72%;transform:rotate(14deg);background:linear-gradient(180deg,transparent,rgba(243,111,33,.26),transparent);animation-delay:3s}
+@keyframes beamSlide{0%,100%{opacity:0;transform:rotate(14deg) translateY(-30px)}50%{opacity:1;transform:rotate(14deg) translateY(30px)}}
+.phero-inner{position:relative;z-index:2;max-width:1440px;margin:0 auto}
+.crumb{display:flex;gap:10px;align-items:center;font-size:13px;color:var(--ink-faint);letter-spacing:.06em;text-transform:uppercase;margin-bottom:24px;font-family:'Oswald';font-weight:500}
+.crumb a{color:var(--ink-dim);text-decoration:none;transition:color .3s}.crumb a:hover{color:var(--orange)}
+.phero h1{font-family:'Oswald';font-weight:700;font-size:clamp(44px,7vw,92px);line-height:.92;letter-spacing:-.01em;text-transform:uppercase}
+.phero h1 .grad{background:linear-gradient(100deg,var(--orange),var(--orange-soft) 55%,var(--blue) 120%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.phero-sub{color:var(--ink-dim);font-size:clamp(16px,1.5vw,19px);line-height:1.6;max-width:540px;margin-top:24px}
+.phero-sub strong{color:var(--ink);font-weight:600}
+
+/* ===== QUICK CONTACT CARDS ===== */
+.quick{padding:30px 48px 0}
+@media(max-width:768px){.quick{padding:20px 22px 0}}
+.quick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:820px){.quick-grid{grid-template-columns:1fr}}
+.qc{position:relative;display:flex;align-items:center;gap:18px;background:linear-gradient(160deg,var(--bg-3),var(--bg-2));border:1px solid var(--line);border-radius:18px;padding:26px 28px;text-decoration:none;overflow:hidden;transition:transform .4s,border-color .4s}
+.qc::before{content:'';position:absolute;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,var(--orange),var(--blue));transition:width .5s}
+.qc:hover{transform:translateY(-5px);border-color:var(--line-2)}
+.qc:hover::before{width:100%}
+.qc .ico{flex-shrink:0;width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#fff}
+.qc.call .ico{background:linear-gradient(145deg,var(--orange),var(--orange-deep))}
+.qc.wa .ico{background:linear-gradient(145deg,#25D366,#128C7E)}
+.qc.mail .ico{background:linear-gradient(145deg,var(--blue),var(--blue-deep))}
+.qc .tx .lb{font-family:'Oswald';font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+.qc .tx .vl{font-family:'Oswald';font-weight:600;font-size:19px;color:var(--ink);margin-top:3px;letter-spacing:.01em;word-break:break-word}
+.qc .arr{margin-left:auto;color:var(--ink-faint);transition:color .3s,transform .3s}
+.qc:hover .arr{color:var(--orange);transform:translate(3px,-3px)}
+
+/* ===== MAIN ===== */
+.main{padding:80px 48px 110px}
+@media(max-width:768px){.main{padding:60px 22px 80px}}
+.main-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:54px;align-items:start}
+@media(max-width:1024px){.main-grid{grid-template-columns:1fr;gap:44px}}
+
+/* FORM */
+.form-card{background:linear-gradient(160deg,var(--bg-3),var(--bg-2));border:1px solid var(--line);border-radius:24px;padding:44px 42px}
+@media(max-width:560px){.form-card{padding:32px 24px}}
+.form-card h2{margin-bottom:10px}
+.form-card .desc{color:var(--ink-dim);font-size:15px;line-height:1.6;margin-bottom:34px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:560px){.fgrid{grid-template-columns:1fr}}
+.field{margin-bottom:18px}
+.field.full{grid-column:1/-1}
+.field label{display:block;font-family:'Oswald';font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:9px}
+.field label .req{color:var(--orange)}
+.field input,.field select,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line-2);border-radius:12px;padding:15px 16px;color:var(--ink);font-family:'Barlow';font-size:15px;transition:border-color .3s,box-shadow .3s;outline:none}
+.field textarea{resize:vertical;min-height:130px;line-height:1.5}
+.field input::placeholder,.field textarea::placeholder{color:var(--ink-faint)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(243,111,33,.15)}
+.field select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%238893A2' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:42px;cursor:pointer}
+.field select option{background:var(--bg-2);color:var(--ink)}
+.form-submit{width:100%;background:var(--orange);color:#fff;border:none;border-radius:100px;padding:18px;font-family:'Oswald';font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:11px;box-shadow:0 10px 30px rgba(243,111,33,.35);transition:all .3s cubic-bezier(.34,1.56,.64,1);position:relative;overflow:hidden;margin-top:8px}
+.form-submit::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,var(--orange-soft),var(--orange-deep));opacity:0;transition:opacity .35s}
+.form-submit:hover::before{opacity:1}
+.form-submit span,.form-submit svg{position:relative;z-index:1}
+.form-submit:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(243,111,33,.55)}
+.form-submit:hover svg{transform:translateX(5px)}
+.form-submit svg{transition:transform .3s}
+.form-note{text-align:center;font-size:13px;color:var(--ink-faint);margin-top:18px;line-height:1.5}
+.form-note svg{vertical-align:-2px;margin-right:5px}
+/* success state */
+.form-success{display:none;text-align:center;padding:30px 10px}
+.form-success.show{display:block;animation:popIn .5s cubic-bezier(.34,1.56,.64,1)}
+@keyframes popIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+.form-success .ico{width:80px;height:80px;border-radius:50%;background:linear-gradient(145deg,rgba(124,255,140,.16),rgba(124,255,140,.05));border:1px solid rgba(124,255,140,.4);display:flex;align-items:center;justify-content:center;color:#7CFF8C;margin:0 auto 24px}
+.form-success h3{font-family:'Oswald';font-weight:600;font-size:26px;text-transform:uppercase;margin-bottom:12px}
+.form-success p{color:var(--ink-dim);font-size:15px;line-height:1.6;max-width:380px;margin:0 auto}
+
+/* SIDEBAR */
+.side{display:flex;flex-direction:column;gap:22px}
+.side-card{background:linear-gradient(160deg,var(--bg-3),var(--bg-2));border:1px solid var(--line);border-radius:20px;padding:32px 30px;position:relative;overflow:hidden}
+.side-card h3{font-family:'Oswald';font-weight:600;font-size:20px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:22px;display:flex;align-items:center;gap:11px}
+.side-card h3 svg{color:var(--orange)}
+/* hours */
+.hours li{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--line);font-size:14.5px;list-style:none}
+.hours li:last-child{border-bottom:none}
+.hours .d{color:var(--ink-dim)}
+.hours .h{font-family:'Oswald';font-weight:500;color:var(--ink);letter-spacing:.02em}
+.hours li.today{position:relative}
+.hours li.today .d{color:var(--orange-soft);font-weight:600}
+.hours li.closed .h{color:var(--ink-faint)}
+.hours-tag{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:8px 14px;border-radius:100px;background:rgba(124,255,140,.1);border:1px solid rgba(124,255,140,.3);font-family:'Oswald';font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#7CFF8C}
+.hours-tag .dot{width:7px;height:7px;border-radius:50%;background:#7CFF8C;box-shadow:0 0 10px #7CFF8C;animation:ping 2s ease-in-out infinite}
+.hours-tag.closed{background:rgba(243,111,33,.1);border-color:rgba(243,111,33,.3);color:var(--orange-soft)}
+.hours-tag.closed .dot{background:var(--orange);box-shadow:0 0 10px var(--orange);animation:none}
+@keyframes ping{0%,100%{opacity:1}50%{opacity:.3}}
+/* coverage card */
+.cov-card{background:linear-gradient(160deg,rgba(27,156,230,.08),var(--bg-2));border-color:rgba(27,156,230,.2)}
+.cov-card p{color:var(--ink-dim);font-size:14.5px;line-height:1.6;margin-bottom:16px}
+.cov-card .zones{display:flex;flex-wrap:wrap;gap:7px}
+.cov-card .zone{font-family:'Oswald';font-size:11.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--blue-soft);background:rgba(27,156,230,.1);border:1px solid rgba(27,156,230,.22);padding:5px 11px;border-radius:100px}
+.cov-card .more{font-size:13px;color:var(--ink-faint);margin-top:14px}
+.cov-card .more a{color:var(--orange);text-decoration:none}
+/* socials */
+.side-soc{display:flex;gap:12px}
+.side-soc a{flex:1;display:flex;flex-direction:column;align-items:center;gap:8px;padding:18px;border-radius:14px;background:var(--bg);border:1px solid var(--line);color:var(--ink-dim);text-decoration:none;font-family:'Oswald';font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:all .3s}
+.side-soc a:hover{color:#fff;transform:translateY(-3px)}
+.side-soc a.fb:hover{background:#1877F2;border-color:#1877F2}
+.side-soc a.ig:hover{background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF);border-color:transparent}
+
+/* ===== FAQ ===== */
+.faq{padding:0 48px 120px}
+@media(max-width:768px){.faq{padding:0 22px 80px}}
+.faq-head{text-align:center;max-width:640px;margin:0 auto 50px}
+.faq-list{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.fq{background:linear-gradient(160deg,var(--bg-3),var(--bg-2));border:1px solid var(--line);border-radius:16px;overflow:hidden;transition:border-color .4s}
+.fq.open{border-color:rgba(243,111,33,.3)}
+.fq-q{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:24px 28px;cursor:pointer;font-family:'Oswald';font-weight:500;font-size:17px;color:var(--ink);letter-spacing:.01em;list-style:none}
+.fq-q::-webkit-details-marker{display:none}
+.fq-icon{flex-shrink:0;width:30px;height:30px;border-radius:8px;background:rgba(243,111,33,.12);border:1px solid rgba(243,111,33,.25);display:flex;align-items:center;justify-content:center;color:var(--orange);transition:transform .4s}
+.fq.open .fq-icon{transform:rotate(45deg)}
+.fq-a{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.fq-a-inner{padding:0 28px 26px;color:var(--ink-dim);font-size:15px;line-height:1.65}
+.fq-a-inner strong{color:var(--ink)}
+
+/* CTA mini */
+.cta{position:relative;overflow:hidden;padding:120px 48px;text-align:center}
+.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(243,111,33,.16),transparent 60%)}
+.cta-inner{position:relative;z-index:2;max-width:820px;margin:0 auto}
+.cta h2{font-size:clamp(36px,5.5vw,72px)}
+.cta-phone{margin-top:30px;display:inline-flex;flex-direction:column;gap:6px}
+.cta-phone .lbl{font-size:13px;color:var(--ink-dim);letter-spacing:.1em;text-transform:uppercase}
+.cta-phone a{font-family:'Oswald';font-weight:700;font-size:clamp(34px,5vw,52px);color:var(--ink);text-decoration:none;letter-spacing:.02em;transition:color .3s}
+.cta-phone a:hover{color:var(--orange)}
+
+footer{background:var(--bg-2);border-top:1px solid var(--line);padding:72px 48px 36px}
+@media(max-width:768px){footer{padding:56px 22px 30px}}
+.foot-grid{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:46px}
+@media(max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.foot-grid{grid-template-columns:1fr}}
+.foot-brand img{height:64px;margin-bottom:18px}
+.foot-brand p{color:var(--ink-dim);font-size:14px;line-height:1.65;max-width:320px}
+.foot-soc{display:flex;gap:12px;margin-top:20px}
+.foot-soc a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--ink-dim);transition:all .3s}
+.foot-soc a:hover{background:var(--orange);color:#fff;border-color:var(--orange);transform:translateY(-3px)}
+.foot-col h4{font-family:'Oswald';font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:18px}
+.foot-col a,.foot-col span{display:block;color:var(--ink-dim);text-decoration:none;font-size:14px;padding:7px 0;transition:color .3s}
+.foot-col a:hover{color:var(--orange)}
+.foot-bottom{max-width:1440px;margin:54px auto 0;padding-top:28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-faint)}
+.foot-bottom a{color:var(--ink-dim);text-decoration:none}.foot-bottom a:hover{color:var(--orange)}
+
+.floats{position:fixed;right:22px;bottom:22px;z-index:900;display:flex;flex-direction:column;gap:12px}
+.fab{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;box-shadow:0 8px 24px rgba(0,0,0,.4);transition:transform .3s;position:relative}
+.fab:hover{transform:scale(1.1)}.fab.wa{background:#25D366}.fab.call{background:var(--orange)}
+.fab::after{content:attr(data-tip);position:absolute;right:68px;top:50%;transform:translateY(-50%);background:var(--bg-3);border:1px solid var(--line-2);color:var(--ink);font-size:12px;font-family:'Oswald';letter-spacing:.04em;text-transform:uppercase;padding:7px 12px;border-radius:8px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s}
+.fab:hover::after{opacity:1}
+@media(max-width:768px){.fab::after{display:none}}
+</style>
+</head>
+<body>
+<div class="cursor" id="cur"></div>
+<div class="cursor-dot" id="curDot"></div>
+
+<header id="hdr">
+  <nav>
+    <a href="index.html" class="brand"><img src="assets/logo.png" alt="Central Air Services LLC"></a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="index.html#cobertura">Cobertura</a>
+      <a href="contacto.html" class="active">Contacto</a>
+    </div>
+    <div class="nav-actions">
+      <a href="tel:+19393265731" class="nav-phone"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>939.326.5731</a>
+      <a href="#form" class="btn-quote">Cotización Gratis</a>
+    </div>
+    <button class="menu-toggle" id="menuBtn" aria-label="Menú"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  </nav>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Inicio</a>
+  <a href="servicios.html">Servicios</a>
+  <a href="nosotros.html">Nosotros</a>
+  <a href="index.html#cobertura">Cobertura</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="tel:+19393265731" class="mm-phone">939.326.5731</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="phero">
+  <div class="phero-bg"><div class="phero-grid"></div><div class="beam b1"></div><div class="beam b2"></div></div>
+  <div class="phero-inner">
+    <div class="crumb rv in"><a href="index.html">Inicio</a><span>/</span><span style="color:var(--orange-soft)">Contacto</span></div>
+    <h1 class="rv in">Hablemos de tu<br><span class="grad">aire.</span></h1>
+    <p class="phero-sub rv in">Cotización gratis, sin compromiso. <strong>Te respondemos rápido</strong> — llámanos, escríbenos por WhatsApp o llena el formulario y nosotros te contactamos.</p>
+  </div>
+</section>
+
+<!-- QUICK CONTACT -->
+<section class="quick">
+  <div class="wrap quick-grid">
+    <a href="tel:+19393265731" class="qc call rv">
+      <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>
+      <div class="tx"><div class="lb">Llámanos</div><div class="vl">939.326.5731</div></div>
+      <div class="arr"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    </a>
+    <a href="https://wa.me/19393265731" class="qc wa rv d1">
+      <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.12-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 012.89 6.99c0 5.45-4.44 9.88-9.89 9.88M20.46 3.49A11.82 11.82 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.49-8.42z"/></svg></div>
+      <div class="tx"><div class="lb">WhatsApp</div><div class="vl">Escríbenos ahora</div></div>
+      <div class="arr"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    </a>
+    <a href="mailto:centralairservices1@gmail.com" class="qc mail rv d2">
+      <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg></div>
+      <div class="tx"><div class="lb">Email</div><div class="vl" style="font-size:15px">centralairservices1@gmail.com</div></div>
+      <div class="arr"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></div>
+    </a>
+  </div>
+</section>
+
+<!-- MAIN: FORM + SIDEBAR -->
+<section class="main" id="form">
+  <div class="wrap main-grid">
+    <!-- FORM -->
+    <div class="form-card rv">
+      <div id="formView">
+        <h2>Solicita tu <span class="o">cotización.</span></h2>
+        <p class="desc">Llena el formulario y te contactamos en el menor tiempo posible. Mientras más detalles nos des, más precisa será tu cotización.</p>
+        <form id="contactForm" novalidate>
+          <div class="fgrid">
+            <div class="field"><label>Nombre <span class="req">*</span></label><input type="text" name="nombre" placeholder="Tu nombre" required></div>
+            <div class="field"><label>Apellido</label><input type="text" name="apellido" placeholder="Tu apellido"></div>
+          </div>
+          <div class="fgrid">
+            <div class="field"><label>Teléfono <span class="req">*</span></label><input type="tel" name="telefono" placeholder="787 000 0000" required></div>
+            <div class="field"><label>Email</label><input type="email" name="email" placeholder="tu@email.com"></div>
+          </div>
+          <div class="fgrid">
+            <div class="field"><label>Pueblo / Municipio <span class="req">*</span></label><input type="text" name="pueblo" placeholder="Ej: Caguas" required></div>
+            <div class="field"><label>Tipo de propiedad</label>
+              <select name="propiedad"><option value="">Selecciona</option><option>Residencial</option><option>Comercial</option></select>
+            </div>
+          </div>
+          <div class="field full"><label>¿Qué servicio necesitas? <span class="req">*</span></label>
+            <select name="servicio" required>
+              <option value="">Selecciona un servicio</option>
+              <option>Instalación Residencial</option>
+              <option>Instalación Comercial</option>
+              <option>Mantenimiento Preventivo</option>
+              <option>Reparación / Diagnóstico</option>
+              <option>Limpieza Profunda</option>
+              <option>Recarga de Gas</option>
+              <option>Protectores de Voltaje</option>
+              <option>Otro / No estoy seguro</option>
+            </select>
+          </div>
+          <div class="field full"><label>Cuéntanos más</label><textarea name="mensaje" placeholder="Ej: Necesito instalar un mini split de 12,000 BTU en mi cuarto, o mi unidad no está enfriando bien..."></textarea></div>
+          <button type="submit" class="form-submit"><span>Enviar Solicitud</span><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 5l7 7-7 7"/></svg></button>
+          <p class="form-note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>Tu información es privada y solo se usa para contactarte.</p>
+        </form>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="ico"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3>¡Solicitud enviada!</h3>
+        <p>Gracias por contactar a Central Air Services. Te responderemos lo antes posible. Para algo urgente, llámanos directo al <strong style="color:var(--orange-soft)">939.326.5731</strong>.</p>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="side">
+      <div class="side-card rv d1">
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Horario</h3>
+        <ul class="hours" id="hoursList">
+          <li data-day="1"><span class="d">Lunes</span><span class="h">8:00am – 6:00pm</span></li>
+          <li data-day="2"><span class="d">Martes</span><span class="h">8:00am – 6:00pm</span></li>
+          <li data-day="3"><span class="d">Miércoles</span><span class="h">8:00am – 6:00pm</span></li>
+          <li data-day="4"><span class="d">Jueves</span><span class="h">8:00am – 6:00pm</span></li>
+          <li data-day="5"><span class="d">Viernes</span><span class="h">8:00am – 6:00pm</span></li>
+          <li data-day="6"><span class="d">Sábado</span><span class="h">Citas alternas</span></li>
+          <li data-day="0" class="closed"><span class="d">Domingo</span><span class="h">Cerrado</span></li>
+        </ul>
+        <div id="openTag"></div>
+      </div>
+
+      <div class="side-card cov-card rv d2">
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Cobertura</h3>
+        <p>Servicio en toda la isla de Puerto Rico. Nuestras zonas principales:</p>
+        <div class="zones">
+          <span class="zone">Caguas</span><span class="zone">Cayey</span><span class="zone">Gurabo</span><span class="zone">Juncos</span><span class="zone">Humacao</span><span class="zone">San Juan</span><span class="zone">Carolina</span><span class="zone">Guaynabo</span><span class="zone">Bayamón</span><span class="zone">Toa Alta</span>
+        </div>
+        <p class="more">¿Tu pueblo no aparece? Igual te servimos. <a href="index.html#cobertura">Ver mapa completo →</a></p>
+      </div>
+
+      <div class="side-card rv d3">
+        <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>Síguenos</h3>
+        <div class="side-soc">
+          <a href="https://www.facebook.com/centralairservicesllc" class="fb"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg>Facebook</a>
+          <a href="https://instagram.com/centralairservicespr" class="ig"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 01-1.38-.9 3.72 3.72 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.35 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 00-1.38-2.12A5.88 5.88 0 0019.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zM12 16a4 4 0 114-4 4 4 0 01-4 4zm6.41-10.85a1.44 1.44 0 11-1.44-1.44 1.44 1.44 0 011.44 1.44z"/></svg>Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-head">
+    <div class="kicker" style="justify-content:center">Preguntas Frecuentes</div>
+    <h2 class="rv">Lo que más nos <span class="o">preguntan.</span></h2>
+  </div>
+  <div class="faq-list">
+    <div class="fq rv"><div class="fq-q"><span>¿La cotización tiene costo?</span><span class="fq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></div><div class="fq-a"><div class="fq-a-inner">La visita y el diagnóstico tienen un costo de <strong>$90</strong>. Si decides hacer el trabajo con nosotros, ese monto se descuenta del total. Para instalaciones nuevas coordina con nosotros y te orientamos.</div></div></div>
+    <div class="fq rv"><div class="fq-q"><span>¿En cuánto tiempo me dan la cotización?</span><span class="fq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></div><div class="fq-a"><div class="fq-a-inner">Después de la visita y el diagnóstico, normalmente enviamos tu cotización por escrito en un período de <strong>3 a 4 horas</strong>.</div></div></div>
+    <div class="fq rv"><div class="fq-q"><span>¿Ofrecen financiamiento?</span><span class="fq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></div><div class="fq-a"><div class="fq-a-inner">Sí. Tenemos financiamiento disponible con <strong>Synchrony</strong>, desde 6 hasta 24 meses a <strong>0% de interés</strong> con aprobación de crédito.</div></div></div>
+    <div class="fq rv"><div class="fq-q"><span>¿Qué métodos de pago aceptan?</span><span class="fq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></div><div class="fq-a"><div class="fq-a-inner">Aceptamos <strong>efectivo, ATH Móvil, tarjeta de crédito/débito, cheque y PayPal</strong>. Para depósitos de trabajos grandes coordinamos contigo.</div></div></div>
+    <div class="fq rv"><div class="fq-q"><span>¿Qué garantía dan en las instalaciones?</span><span class="fq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></div><div class="fq-a"><div class="fq-a-inner">Todas las marcas tienen <strong>7 años en compresor y 5 años en piezas eléctricas</strong>. Fujitsu sube a 10 y 10 si registras la unidad en su página oficial, y el modelo Midea Pro tiene 7 años en compresor y piezas.</div></div></div>
+    <div class="fq rv"><div class="fq-q"><span>¿Trabajan en mi pueblo?</span><span class="fq-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 5v14M5 12h14"/></svg></span></div><div class="fq-a"><div class="fq-a-inner">Cubrimos más de 47 municipios en toda la isla. Si tu pueblo no está en nuestra lista principal, igual te servimos como trabajo especial — solo aplica un costo adicional por distancia que coordinamos contigo antes.</div></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-inner">
+    <h2 class="rv">¿Prefieres <span class="o">llamar?</span></h2>
+    <div class="cta-phone rv d1"><span class="lbl">Estamos para servirte</span><a href="tel:+19393265731">939.326.5731</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <img src="assets/logo.png" alt="Central Air Services LLC">
+      <p>Venta, instalación, mantenimiento y reparación de aires acondicionados residenciales y comerciales en toda la isla de Puerto Rico.</p>
+      <div class="foot-soc">
+        <a href="https://www.facebook.com/centralairservicesllc" aria-label="Facebook"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.25h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg></a>
+        <a href="https://instagram.com/centralairservicespr" aria-label="Instagram"><svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 01-1.38-.9 3.72 3.72 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.35 2.67.94 3.34.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 00-1.38-2.12A5.88 5.88 0 0019.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zM12 16a4 4 0 114-4 4 4 0 01-4 4zm6.41-10.85a1.44 1.44 0 11-1.44-1.44 1.44 1.44 0 011.44 1.44z"/></svg></a>
+        <a href="tel:+19393265731" aria-label="Teléfono"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-col">
+      <h4>Servicios</h4>
+      <a href="servicios.html">Instalación Residencial</a>
+      <a href="servicios.html">Instalación Comercial</a>
+      <a href="servicios.html">Mantenimiento</a>
+      <a href="servicios.html">Reparación</a>
+      <a href="servicios.html">Limpieza Profunda</a>
+      <a href="servicios.html">Recarga de Gas</a>
+    </div>
+    <div class="foot-col">
+      <h4>Empresa</h4>
+      <a href="nosotros.html">Sobre Nosotros</a>
+      <a href="index.html#cobertura">Cobertura</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="contacto.html">Cotización</a>
+    </div>
+    <div class="foot-col">
+      <h4>Contacto</h4>
+      <a href="tel:+19393265731">939.326.5731</a>
+      <a href="mailto:centralairservices1@gmail.com">centralairservices1@gmail.com</a>
+      <span>Lun–Vie: 8:00am – 6:00pm</span>
+      <span>Sáb: Citas alternas</span>
+      <span>Dom: Cerrado</span>
+      <span style="color:var(--ink-faint);margin-top:8px">Servicio en toda la isla de PR</span>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Central Air Services LLC. Todos los derechos reservados.</span>
+    <span>Diseñado por <a href="#">Lizardi Technologies</a></span>
+  </div>
+</footer>
+
+<div class="floats">
+  <a href="https://wa.me/19393265731" class="fab wa" data-tip="Escríbenos por WhatsApp" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.12-.27-.2-.57-.35M12.05 21.8h-.01a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 012.89 6.99c0 5.45-4.44 9.88-9.89 9.88M20.46 3.49A11.82 11.82 0 0012.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 005.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.16-3.49-8.42z"/></svg></a>
+  <a href="tel:+19393265731" class="fab call" data-tip="Llámanos ahora" aria-label="Llamar"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></a>
+</div>
+
+<script>
+const cur=document.getElementById('cur'),curDot=document.getElementById('curDot');
+if(window.matchMedia('(min-width:1024px)').matches){
+  let mx=0,my=0,cx=0,cy=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;curDot.style.left=mx+'px';curDot.style.top=my+'px'});
+  function loop(){cx+=(mx-cx)*.18;cy+=(my-cy)*.18;cur.style.left=cx+'px';cur.style.top=cy+'px';requestAnimationFrame(loop)}loop();
+  document.querySelectorAll('a,button,.qc,.fq-q,input,select,textarea').forEach(el=>{el.addEventListener('mouseenter',()=>cur.classList.add('hover'));el.addEventListener('mouseleave',()=>cur.classList.remove('hover'))});
+}
+const hdr=document.getElementById('hdr');addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
+const mb=document.getElementById('menuBtn'),mm=document.getElementById('mobileMenu');
+mb.addEventListener('click',()=>mm.classList.toggle('open'));
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>mm.classList.remove('open')));
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* FAQ accordion */
+document.querySelectorAll('.fq').forEach(fq=>{
+  const q=fq.querySelector('.fq-q'),a=fq.querySelector('.fq-a');
+  q.addEventListener('click',()=>{
+    const open=fq.classList.contains('open');
+    document.querySelectorAll('.fq').forEach(o=>{o.classList.remove('open');o.querySelector('.fq-a').style.maxHeight=null});
+    if(!open){fq.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+  });
+});
+
+/* Live "open now" indicator + highlight today */
+(function(){
+  const now=new Date();const day=now.getDay();const h=now.getHours();
+  const li=document.querySelector(`.hours li[data-day="${day}"]`);
+  if(li)li.classList.add('today');
+  let openNow=false;
+  if(day>=1&&day<=5&&h>=8&&h<18)openNow=true; // Mon-Fri 8-6
+  const tag=document.getElementById('openTag');
+  if(openNow){tag.innerHTML='<span class="hours-tag"><span class="dot"></span>Abierto ahora</span>';}
+  else if(day===6){tag.innerHTML='<span class="hours-tag closed"><span class="dot"></span>Sábados con cita previa</span>';}
+  else{tag.innerHTML='<span class="hours-tag closed"><span class="dot"></span>Cerrado ahora · Escríbenos</span>';}
+})();
+
+/* Form -> WhatsApp handoff (no backend yet; sends to WhatsApp prefilled) */
+document.getElementById('contactForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const f=e.target;
+  if(!f.nombre.value||!f.telefono.value||!f.pueblo.value||!f.servicio.value){
+    [['nombre',f.nombre],['telefono',f.telefono],['pueblo',f.pueblo],['servicio',f.servicio]].forEach(([k,el])=>{el.style.borderColor=el.value?'':'var(--orange)'});
+    return;
+  }
+  // Build WhatsApp message
+  const msg=`*Nueva solicitud de cotización*%0A%0A*Nombre:* ${encodeURIComponent(f.nombre.value+' '+f.apellido.value)}%0A*Teléfono:* ${encodeURIComponent(f.telefono.value)}%0A*Email:* ${encodeURIComponent(f.email.value||'N/A')}%0A*Pueblo:* ${encodeURIComponent(f.pueblo.value)}%0A*Propiedad:* ${encodeURIComponent(f.propiedad.value||'N/A')}%0A*Servicio:* ${encodeURIComponent(f.servicio.value)}%0A*Mensaje:* ${encodeURIComponent(f.mensaje.value||'N/A')}`;
+  // show success
+  document.getElementById('formView').style.display='none';
+  document.getElementById('formSuccess').classList.add('show');
+  // open WhatsApp with prefilled details
+  window.open(`https://wa.me/19393265731?text=${msg}`,'_blank');
+});
+</script>
+</body>
+</html>

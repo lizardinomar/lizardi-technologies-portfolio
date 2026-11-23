@@ -13,5 +13,6 @@ By **Nomar Lizardi Vargas** · [Lizardi Technologies](https://lizarditech.com)
 | [PURO Sin Fondo](./puro-sin-fondo) | Restaurant, Toa Baja PR | HTML, CSS, JavaScript, GSAP | [purorest.com](https://purorest.com) | Bilingual ES/EN, animated, lead-capture popup. Sole designer and developer. |
 | [Tropical Research Labs](./tropical-research-labs) | E-commerce, Puerto Rico | HTML, CSS, JavaScript, Cloudflare Workers + D1, PlacetoPay | [trlpr.com](https://trlpr.com) | Bilingual storefront with certified card payments, order ledger and affiliate program. Original build. Client has since moved to a different agency and website. |
 | [REIS Real Estate Brokers](./reis-real-estate-brokers) | Real estate, Puerto Rico | HTML, CSS, JavaScript | [reisreb.org](https://reisreb.org) | Bilingual ES/EN, mortgage calculator, custom motion layer. Active client. |
+| [Central Air Services](./central-air-services) | HVAC, Puerto Rico | HTML, CSS, JavaScript, GSAP, Stripe | [centralairservicespr.com](https://www.centralairservicespr.com) | Service cart, 16-item unit catalog, Stripe checkout, WhatsApp handoff. Active client. |
 
 More projects are added as they are documented.
