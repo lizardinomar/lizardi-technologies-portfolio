@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="es" id="htmlRoot">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#050810" />
+<title>Catálogo · Tropical Research Labs</title>
+<meta name="description" content="Catálogo completo de compuestos peptídicos de investigación. HPLC verificados, COAs públicos, embalaje sellado. Research Use Only." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+  :root {
+    --void: #050810;
+    --navy: #0A1628;
+    --navy-light: #0F1F38;
+    --teal: #00D4AA;
+    --coral: #FF6B47;
+    --bone: #E8E4D9;
+  }
+
+  * { -webkit-font-smoothing: antialiased; }
+
+  html, body {
+    background: var(--void);
+    color: var(--bone);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  .cursor-dot {
+    position: fixed; width: 6px; height: 6px;
+    background: var(--teal); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background 0.2s;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring {
+    position: fixed; width: 40px; height: 40px;
+    border: 1px solid rgba(0, 212, 170, 0.4); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, border-color 0.3s;
+  }
+  .cursor-hover .cursor-dot { width: 12px; height: 12px; background: var(--coral); }
+  .cursor-hover .cursor-ring { width: 60px; height: 60px; border-color: var(--coral); }
+  @media (max-width: 768px) {
+    html, body { cursor: auto; }
+    .cursor-dot, .cursor-ring { display: none; }
+  }
+
+  .display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
+  .mono { font-family: 'Space Mono', monospace; }
+
+  body::before {
+    content: '';
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    pointer-events: none; z-index: 100; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  .orb { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; opacity: 0.3; }
+  .orb-teal { background: radial-gradient(circle, rgba(0,212,170,0.6) 0%, transparent 70%); }
+  .orb-coral { background: radial-gradient(circle, rgba(255,107,71,0.4) 0%, transparent 70%); }
+
+  .gradient-line { height: 1px; background: linear-gradient(90deg, transparent, rgba(0,212,170,0.4), transparent); }
+
+  .btn-magnetic {
+    position: relative;
+    display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+    padding: 18px 36px;
+    background: transparent; border: 1px solid var(--teal); color: var(--bone);
+    font-family: 'Space Mono', monospace;
+    font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
+    overflow: hidden; transition: color 0.4s; z-index: 1; cursor: pointer;
+  }
+  .btn-magnetic::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--teal); transform: translateY(101%);
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1); z-index: -1;
+  }
+  .btn-magnetic:hover { color: var(--void); }
+  .btn-magnetic:hover::before { transform: translateY(0); }
+  .btn-primary { background: var(--teal); color: var(--void); border: 1px solid var(--teal); font-weight: 700; }
+  .btn-primary::before { background: var(--coral); }
+  .btn-primary:hover { color: var(--bone); }
+
+  .reveal-up { opacity: 0; transform: translateY(40px); }
+  .reveal-text-line { overflow: hidden; }
+  .reveal-text-inner { display: inline-block; transform: translateY(110%); }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 11vw, 160px);
+    line-height: 0.88; letter-spacing: -0.01em;
+  }
+
+  .status-badge {
+    display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px;
+    border: 1px solid rgba(0,212,170,0.3); border-radius: 999px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal);
+  }
+  .status-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--teal); box-shadow: 0 0 8px var(--teal);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0,212,170,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,170,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .footer-link { position: relative; color: rgba(232,228,217,0.6); transition: color 0.3s; }
+  .footer-link:hover { color: var(--teal); }
+  .footer-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--teal); transition: width 0.3s; }
+  .footer-link:hover::after { width: 100%; }
+
+  .num-badge { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--teal); opacity: 0.6; }
+
+  .underline-gradient {
+    background: linear-gradient(90deg, var(--teal), var(--coral));
+    background-clip: text; -webkit-background-clip: text; color: transparent;
+  }
+
+  .nav-link {
+    position: relative; font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(232,228,217,0.7); transition: color 0.3s; padding: 8px 0;
+  }
+  .nav-link:hover { color: var(--teal); }
+  .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--teal); transition: width 0.3s; }
+  .nav-link:hover::after { width: 100%; }
+  .nav-link.active { color: var(--teal); }
+  .nav-link.active::after { width: 100%; }
+
+  .section-eyebrow {
+    font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--teal); display: flex; align-items: center; gap: 16px;
+  }
+  .section-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--teal); }
+
+  .compliance-pill {
+    display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
+    border: 1px solid rgba(232,228,217,0.15); border-radius: 999px;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(232,228,217,0.6);
+  }
+
+  /* FILTER BAR */
+  .filter-bar {
+    position: sticky; top: 80px; z-index: 40;
+    background: rgba(5, 8, 16, 0.95);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(0,212,170,0.1);
+    border-bottom: 1px solid rgba(0,212,170,0.1);
+    padding: 20px 0;
+  }
+  .filter-pill {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 8px 18px;
+    border: 1px solid rgba(232,228,217,0.15);
+    color: rgba(232,228,217,0.55);
+    border-radius: 999px;
+    cursor: pointer; transition: all 0.3s;
+    white-space: nowrap;
+  }
+  .filter-pill:hover { border-color: rgba(0,212,170,0.5); color: var(--teal); }
+  .filter-pill.active { background: var(--teal); border-color: var(--teal); color: var(--void); font-weight: 700; }
+  .filter-pill .count {
+    margin-left: 6px; padding: 2px 6px;
+    background: rgba(232,228,217,0.1);
+    border-radius: 999px; font-size: 9px;
+  }
+  .filter-pill.active .count { background: rgba(5, 8, 16, 0.15); }
+
+  /* RUO BANNER */
+  .ruo-banner {
+    background: linear-gradient(90deg, rgba(255,107,71,0.08), rgba(255,107,71,0.04), rgba(255,107,71,0.08));
+    border-top: 1px solid rgba(255,107,71,0.2);
+    border-bottom: 1px solid rgba(255,107,71,0.2);
+    padding: 12px 24px;
+    text-align: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--coral);
+  }
+
+  /* PRODUCT CARD */
+  .bundle-card {
+    position: relative; border: 1px solid rgba(255,107,71,0.25);
+    border-radius: 6px; overflow: hidden; cursor: pointer;
+    background: linear-gradient(180deg, rgba(15,31,56,0.6), rgba(5,8,16,0.9));
+    transition: transform .3s, border-color .3s, box-shadow .3s;
+  }
+  .bundle-card:hover { transform: translateY(-6px); border-color: var(--coral);
+    box-shadow: 0 20px 40px -20px rgba(255,107,71,0.4); }
+  .bundle-card img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+  .bundle-card .bundle-info { padding: 14px 16px 16px; }
+  .bundle-card .bundle-tier { font-family: 'Space Mono', monospace; font-size: 9px;
+    letter-spacing: .2em; text-transform: uppercase; color: var(--coral); margin-bottom: 4px; }
+  .bundle-card .bundle-name { font-family: 'Bebas Neue', sans-serif; font-size: 22px;
+    color: var(--bone); line-height: 1; letter-spacing: .02em; }
+  .bundle-card .bundle-price { font-family: 'Bebas Neue', sans-serif; font-size: 30px;
+    color: var(--teal); margin-top: 6px; }
+  .bundle-badge { position: absolute; top: 10px; right: 10px; z-index: 2;
+    background: var(--coral); color: var(--void); font-family: 'Space Mono', monospace;
+    font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px; }
+  .upsell-box { border: 1px solid rgba(255,107,71,0.3); border-radius: 6px;
+    padding: 16px; margin: 20px 0; background: rgba(255,107,71,0.05);
+    display: flex; align-items: center; gap: 14px; cursor: pointer; transition: all .25s; }
+  .upsell-box:hover { border-color: var(--coral); background: rgba(255,107,71,0.1); }
+  .upsell-box.active { border-color: var(--coral); background: rgba(255,107,71,0.12); }
+  .upsell-check { width: 24px; height: 24px; border: 2px solid var(--coral); border-radius: 4px;
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+    color: var(--void); font-weight: 700; transition: background .2s; }
+  .upsell-box.active .upsell-check { background: var(--coral); }
+  .bundle-includes { list-style: none; padding: 0; margin: 16px 0; }
+  .bundle-includes li { display: flex; align-items: center; gap: 10px; padding: 8px 0;
+    border-bottom: 1px solid rgba(232,228,217,0.08); font-size: 14px; color: rgba(232,228,217,0.8); }
+  .bundle-includes li::before { content: '✓'; color: var(--teal); font-weight: 700; }
+
+  .product-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(15,31,56,0.4) 0%, rgba(10,22,40,0.7) 100%);
+    border: 1px solid rgba(0,212,170,0.15);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    cursor: pointer;
+  }
+  .product-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    transform: translateX(-100%); transition: transform 0.8s;
+  }
+  .product-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0,212,170,0.5);
+    box-shadow: 0 30px 60px -20px rgba(0,212,170,0.15);
+  }
+  .product-card:hover::before { transform: translateX(100%); }
+
+  .vial-container {
+    position: relative; width: 100%; aspect-ratio: 1 / 1;
+    background: #050810;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .vial-image {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .product-card:hover .vial-image { transform: scale(1.05); }
+
+  /* Vial fallback (SVG when no image present) */
+  .vial-fallback {
+    width: 80px; height: 180px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .vial-fallback::before {
+    content: '';
+    position: absolute;
+    width: 120px; height: 120px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,212,170,0.3), transparent 70%);
+    filter: blur(20px);
+    animation: vial-pulse 4s ease-in-out infinite;
+  }
+  @keyframes vial-pulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+  }
+
+  .ruo-stamp {
+    position: absolute; top: 12px; right: 12px;
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 4px 10px;
+    background: rgba(255,107,71,0.15);
+    border: 1px solid rgba(255,107,71,0.4);
+    color: var(--coral);
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    backdrop-filter: blur(10px);
+  }
+  .new-stamp {
+    position: absolute; top: 12px; left: 12px;
+    padding: 4px 10px;
+    background: var(--teal);
+    color: var(--void);
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700;
+  }
+
+  .product-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+
+  .cat-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border: 1px solid rgba(0,212,170,0.3);
+    color: var(--teal);
+    font-family: 'Space Mono', monospace;
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    margin-bottom: 10px;
+    align-self: flex-start;
+  }
+
+  .product-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.02em;
+    color: var(--bone);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .product-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: rgba(232,228,217,0.5);
+    line-height: 1.4;
+    margin-bottom: 14px;
+    min-height: 28px;
+  }
+  .size-row {
+    display: flex; flex-wrap: wrap; gap: 6px;
+    margin-bottom: 14px;
+  }
+  .size-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; font-weight: 700;
+    padding: 4px 10px;
+    background: rgba(15,31,56,0.6);
+    border: 1px solid rgba(0,212,170,0.15);
+    color: var(--bone);
+    transition: all 0.2s;
+  }
+  .size-tag:hover, .size-tag.selected {
+    border-color: var(--teal); color: var(--teal);
+  }
+
+  .price-row {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid rgba(232,228,217,0.08);
+    margin-top: auto;
+  }
+  .price-display {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    color: var(--bone);
+    line-height: 1;
+  }
+  .price-display .cents { font-size: 14px; color: rgba(232,228,217,0.5); }
+
+  .product-actions {
+    display: flex; gap: 6px; margin-top: 14px;
+  }
+  .btn-add {
+    flex: 1;
+    padding: 12px;
+    background: var(--teal);
+    color: var(--void);
+    border: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-add::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--coral);
+    transform: translateY(101%);
+    transition: transform 0.3s cubic-bezier(0.7,0,0.3,1);
+  }
+  .btn-add span { position: relative; z-index: 1; }
+  .btn-add:hover::before { transform: translateY(0); }
+  .btn-add:hover { color: var(--bone); }
+  .btn-detail {
+    padding: 12px 16px;
+    background: transparent;
+    border: 1px solid rgba(232,228,217,0.2);
+    color: var(--bone);
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .btn-detail:hover { border-color: var(--teal); color: var(--teal); }
+
+  /* CART BUTTON (floating) */
+  .cart-fab {
+    position: fixed; bottom: 32px; right: 32px;
+    z-index: 60;
+    width: 64px; height: 64px;
+    background: var(--teal);
+    color: var(--void);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 20px 40px -10px rgba(0,212,170,0.4);
+    transition: all 0.3s;
+  }
+  .cart-fab:hover {
+    transform: translateY(-4px) scale(1.05);
+    background: var(--coral);
+    color: var(--bone);
+  }
+  .cart-count {
+    position: absolute; top: -4px; right: -4px;
+    min-width: 22px; height: 22px;
+    background: var(--coral);
+    color: var(--bone);
+    border-radius: 50%;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 6px;
+    border: 2px solid var(--void);
+  }
+  .cart-fab.empty .cart-count { display: none; }
+
+  /* CART DRAWER */
+  .cart-drawer {
+    position: fixed; top: 0; right: 0; bottom: 0;
+    width: 100%; max-width: 480px;
+    background: var(--void);
+    border-left: 1px solid rgba(0,212,170,0.2);
+    z-index: 100;
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+    display: flex; flex-direction: column;
+  }
+  .cart-drawer.open { transform: translateX(0); }
+  .cart-overlay {
+    position: fixed; inset: 0;
+    background: rgba(5,8,16,0.7);
+    backdrop-filter: blur(8px);
+    z-index: 99;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.4s;
+  }
+  .cart-overlay.open { opacity: 1; pointer-events: all; }
+
+  .cart-header {
+    padding: 28px 32px;
+    border-bottom: 1px solid rgba(232,228,217,0.08);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cart-body { flex-grow: 1; overflow-y: auto; padding: 16px 32px; }
+  .cart-footer {
+    padding: 24px 32px;
+    border-top: 1px solid rgba(232,228,217,0.08);
+    background: rgba(10,22,40,0.4);
+  }
+
+  .cart-item {
+    display: flex; gap: 14px; padding: 16px 0;
+    border-bottom: 1px solid rgba(232,228,217,0.05);
+  }
+  .cart-item-img {
+    width: 64px; height: 80px;
+    background: rgba(15,31,56,0.6);
+    border: 1px solid rgba(0,212,170,0.15);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .cart-item-img img { width: 100%; height: 100%; object-fit: contain; }
+  .cart-item-info { flex-grow: 1; min-width: 0; }
+  .cart-item-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px; color: var(--bone); line-height: 1.1;
+  }
+  .cart-item-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; color: rgba(232,228,217,0.5);
+    margin-top: 4px;
+  }
+  .cart-item-controls {
+    display: flex; align-items: center; gap: 8px; margin-top: 10px;
+  }
+  .qty-btn {
+    width: 24px; height: 24px;
+    border: 1px solid rgba(232,228,217,0.2);
+    background: transparent;
+    color: var(--bone);
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .qty-btn:hover { border-color: var(--teal); color: var(--teal); }
+  .qty-val {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px; color: var(--bone);
+    min-width: 24px; text-align: center;
+  }
+  .cart-item-remove {
+    background: transparent; border: none;
+    color: rgba(255,107,71,0.6);
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 0.2em;
+    cursor: pointer;
+    margin-left: auto;
+    transition: color 0.2s;
+  }
+  .cart-item-remove:hover { color: var(--coral); }
+  .cart-item-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px; color: var(--bone);
+    margin-top: 6px;
+  }
+
+  .cart-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: rgba(232,228,217,0.5);
+  }
+
+  .cart-total-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 16px;
+  }
+  .cart-total-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(232,228,217,0.6);
+  }
+  .cart-total-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px; color: var(--bone);
+  }
+
+  /* MODAL */
+  .modal-overlay {
+    position: fixed; inset: 0;
+    background: rgba(5,8,16,0.85);
+    backdrop-filter: blur(20px);
+    z-index: 200;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.4s;
+    overflow-y: auto;
+    padding: 60px 24px;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--void);
+    border: 1px solid rgba(0,212,170,0.3);
+    transform: scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    position: relative;
+  }
+  .modal::before, .modal::after {
+    content: ''; position: absolute; width: 24px; height: 24px;
+    border: 1px solid var(--teal);
+  }
+  .modal::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+  .modal::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+  .modal-overlay.open .modal { transform: scale(1); }
+
+  .modal-close {
+    position: absolute; top: 20px; right: 20px;
+    width: 40px; height: 40px;
+    border: 1px solid rgba(232,228,217,0.3);
+    background: transparent;
+    color: var(--bone);
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+    z-index: 10;
+  }
+  .modal-close:hover { background: var(--coral); border-color: var(--coral); color: var(--bone); }
+
+  .modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 0;
+  }
+  @media (max-width: 768px) {
+    .modal-grid { grid-template-columns: 1fr; }
+  }
+
+  .modal-img-side {
+    background: linear-gradient(180deg, rgba(15,31,56,0.4), rgba(10,22,40,0.8));
+    padding: 60px 40px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+  }
+  .modal-img-side::before {
+    content: '';
+    position: absolute;
+    width: 80%; height: 80%;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,212,170,0.15), transparent 70%);
+    filter: blur(40px);
+  }
+  .modal-img-side img {
+    max-width: 70%;
+    max-height: 480px;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+  }
+  .modal-content-side {
+    padding: 48px 40px;
+  }
+
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin: 20px 0;
+  }
+  .specs-table tr { border-bottom: 1px solid rgba(232,228,217,0.08); }
+  .specs-table td:first-child {
+    font-family: 'Space Mono', monospace;
+    color: rgba(232,228,217,0.5);
+    padding: 12px 16px 12px 0;
+    text-transform: uppercase;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    width: 40%;
+    vertical-align: top;
+  }
+  .specs-table td:last-child {
+    padding: 12px 0;
+    color: var(--bone);
+    font-weight: 500;
+    vertical-align: top;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .ruo-warning-box {
+    background: rgba(255,107,71,0.06);
+    border: 1px solid rgba(255,107,71,0.25);
+    border-left: 3px solid var(--coral);
+    padding: 16px 20px;
+    margin-top: 20px;
+    font-size: 11px;
+    line-height: 1.7;
+    color: rgba(232,228,217,0.7);
+  }
+
+  /* TOAST */
+  .toast {
+    position: fixed;
+    bottom: 32px; left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: var(--teal);
+    color: var(--void);
+    padding: 14px 28px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 700;
+    z-index: 300;
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    box-shadow: 0 20px 40px -10px rgba(0,212,170,0.4);
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* Hide scrollbar but allow scroll */
+  .filter-scroll {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .filter-scroll::-webkit-scrollbar { display: none; }
+
+  @media (max-width: 768px) {
+    .hero-title { font-size: 56px; }
+    .nav-desktop { display: none; }
+    .cart-fab { bottom: 20px; right: 20px; width: 56px; height: 56px; }
+    .modal-content-side { padding: 32px 24px; }
+    .modal-img-side { padding: 40px 20px; min-height: 360px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .cursor-dot, .cursor-ring { display: none !important; }
+  }
+</style>
+
+<style>
+/* ===== MOBILE NAV FIX + MENU ===== */
+@media (max-width: 900px) {
+  .nav-desktop { display: none !important; }
+}
+.nav-burger { display: none; background: none; border: 1px solid rgba(232,228,217,.25); border-radius: 6px; padding: 9px 10px; cursor: pointer; }
+.nav-burger span { display: block; width: 20px; height: 2px; background: #E8E4D9; margin: 4px 0; border-radius: 2px; }
+@media (max-width: 900px) { .nav-burger { display: block; } }
+.mobile-menu { position: fixed; inset: 0; z-index: 70; background: rgba(5,8,16,.98); backdrop-filter: blur(8px); display: none; flex-direction: column; padding: 24px; overflow-y: auto; }
+.mobile-menu.open { display: flex; }
+.mm-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
+.mm-close { background: none; border: 1px solid rgba(232,228,217,.25); border-radius: 6px; color: #E8E4D9; font-size: 16px; padding: 8px 13px; cursor: pointer; }
+.mm-links { display: flex; flex-direction: column; gap: 4px; }
+.mm-links a { font-family: 'Bebas Neue', sans-serif; font-size: 42px; letter-spacing: .03em; color: #E8E4D9; text-decoration: none; padding: 10px 4px; border-bottom: 1px solid rgba(232,228,217,.08); transition: color .2s; }
+.mm-links a:hover { color: #00D4AA; }
+.mm-links a.mm-panel { color: #00D4AA; }
+.mm-links a.mm-cta { color: #050810; background: #00D4AA; text-align: center; border-radius: 6px; margin-top: 18px; border: none; padding: 14px; }
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-6 transition-all" id="mainNav">
+  <div class="flex items-center justify-between">
+    <a href="index.html" class="block">
+      <img src="assets/images/logo-wordmark.png" alt="Tropical Research Labs" class="h-10 md:h-12 w-auto" />
+    </a>
+
+    <div class="nav-desktop flex items-center gap-10">
+      <a href="catalogo.html" class="nav-link active" data-es="Catálogo" data-en="Catalog">Catálogo</a>
+      <a href="coas.html" class="nav-link">COAs</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contacto.html" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a>
+      <a href="panel.html" class="nav-link" data-es="Panel" data-en="Panel">Panel</a>
+    </div>
+
+    <div class="flex items-center gap-6">
+      <button onclick="toggleLang()" id="langToggle" class="mono text-xs tracking-[0.2em] uppercase text-[#E8E4D9]/60 hover:text-[#00D4AA] transition cursor-pointer">
+        <span id="langCurrent">ES</span> <span class="text-[#E8E4D9]/30">/</span> <span id="langOther">EN</span>
+      </button>
+      <button class="nav-burger" onclick="toggleMobileMenu(true)" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-head">
+    <a href="index.html"><img src="assets/images/logo-wordmark.png" alt="Tropical Research Labs" style="height:36px;width:auto;"></a>
+    <button class="mm-close" onclick="toggleMobileMenu(false)" aria-label="Cerrar menú">✕</button>
+  </div>
+  <nav class="mm-links">
+    <a href="catalogo.html" data-es="Catálogo" data-en="Catalog">Catálogo</a>
+    <a href="coas.html">COAs</a>
+    <a href="about.html">About</a>
+    <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+    <a href="panel.html" class="mm-panel" data-es="Panel de Afiliados" data-en="Affiliate Panel">Panel de Afiliados</a>
+    <a href="catalogo.html" class="mm-cta" data-es="Shop" data-en="Shop">Shop</a>
+  </nav>
+</div>
+
+
+<!-- HERO STRIP -->
+<section class="relative pt-40 pb-16 px-6 md:px-12 overflow-hidden">
+  <div class="absolute inset-0 grid-bg opacity-50"></div>
+  <div class="orb orb-teal" style="width: 600px; height: 600px; top: -200px; right: -150px;"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto">
+    <div class="reveal-up mb-8">
+      <span class="status-badge">
+        <span class="status-dot"></span>
+        <span data-es="Catálogo de Compuestos" data-en="Compound Catalog">Catálogo de Compuestos</span>
+      </span>
+    </div>
+
+    <h1 class="hero-title text-[#E8E4D9] mb-8">
+      <div class="reveal-text-line"><span class="reveal-text-inner" data-es="Compuestos de" data-en="Research">Compuestos de</span></div>
+      <div class="reveal-text-line"><span class="reveal-text-inner" style="font-style: italic; color: var(--coral);" data-es="investigación." data-en="compounds.">investigación.</span></div>
+    </h1>
+
+    <p class="text-base md:text-lg text-[#E8E4D9]/70 leading-relaxed max-w-2xl reveal-up" data-es="Catálogo completo de péptidos sintéticos de grado científico para uso exclusivo en investigación. Verificación HPLC independiente, COAs disponibles por lote." data-en="Full catalog of synthetic scientific-grade peptides for exclusive research use. Independent HPLC verification, COAs available per batch.">
+      Catálogo completo de péptidos sintéticos de grado científico para uso exclusivo en investigación. Verificación HPLC independiente, COAs disponibles por lote.
+    </p>
+  </div>
+</section>
+
+<!-- BUNDLES / OFERTAS -->
+<section class="relative z-10 px-6 md:px-12 pt-8 pb-4">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-end justify-between mb-8 flex-wrap gap-4">
+      <div>
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#FF6B47] mb-3" data-es="/ Ofertas" data-en="/ Deals">/ Ofertas</div>
+        <h2 class="display text-4xl md:text-6xl text-[#E8E4D9] leading-none" data-es="Paquetes" data-en="Bundles">Paquetes</h2>
+      </div>
+      <p class="text-sm text-[#E8E4D9]/50 max-w-xs" data-es="Combos seleccionados con todo lo que necesitas para empezar. Precio fijo, más valor." data-en="Curated combos with everything you need to start. Fixed price, more value.">
+        Combos seleccionados con todo lo que necesitas para empezar. Precio fijo, más valor.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4" id="bundleGrid"></div>
+  </div>
+</section>
+
+<!-- RUO BANNER -->
+<div class="ruo-banner">
+  <span data-es="⚠ Todos los compuestos son para uso en investigación in vitro / in vivo únicamente — No para consumo humano" data-en="⚠ All compounds are for in vitro / in vivo research use only — Not for human consumption">
+    ⚠ Todos los compuestos son para uso en investigación in vitro / in vivo únicamente — No para consumo humano
+  </span>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="filter-scroll flex gap-2">
+      <button class="filter-pill active" data-cat="all" onclick="filterCat('all', this)">
+        <span data-es="Todos" data-en="All">Todos</span>
+        <span class="count" id="count-all">0</span>
+      </button>
+      <button class="filter-pill" data-cat="Metabólico" onclick="filterCat('Metabólico', this)">
+        <span>Metabólico</span>
+        <span class="count" id="count-Metabólico">0</span>
+      </button>
+      <button class="filter-pill" data-cat="GH / IGF" onclick="filterCat('GH / IGF', this)">
+        <span>GH / IGF</span>
+        <span class="count" id="count-GH / IGF">0</span>
+      </button>
+      <button class="filter-pill" data-cat="Reparación" onclick="filterCat('Reparación', this)">
+        <span data-es="Reparación" data-en="Recovery">Reparación</span>
+        <span class="count" id="count-Reparación">0</span>
+      </button>
+      <button class="filter-pill" data-cat="Neuro" onclick="filterCat('Neuro', this)">
+        <span>Neuro</span>
+        <span class="count" id="count-Neuro">0</span>
+      </button>
+      <button class="filter-pill" data-cat="Mitocondrial" onclick="filterCat('Mitocondrial', this)">
+        <span>Mitocondrial</span>
+        <span class="count" id="count-Mitocondrial">0</span>
+      </button>
+      <button class="filter-pill" data-cat="Piel / Cabello" onclick="filterCat('Piel / Cabello', this)">
+        <span data-es="Piel / Cabello" data-en="Skin / Hair">Piel / Cabello</span>
+        <span class="count" id="count-Piel / Cabello">0</span>
+      </button>
+      <button class="filter-pill" data-cat="Bioregulador" onclick="filterCat('Bioregulador', this)">
+        <span data-es="Bioregulador" data-en="Bioregulator">Bioregulador</span>
+        <span class="count" id="count-Bioregulador">0</span>
+      </button>
+      <button class="filter-pill" data-cat="Otros" onclick="filterCat('Otros', this)">
+        <span data-es="Otros" data-en="Other">Otros</span>
+        <span class="count" id="count-Otros">0</span>
+      </button>
+      <button class="filter-pill" data-cat="Suministros" onclick="filterCat('Suministros', this)">
+        <span data-es="Suministros" data-en="Supplies">Suministros</span>
+        <span class="count" id="count-Suministros">0</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT GRID -->
+<section class="px-6 md:px-12 py-12 min-h-screen">
+  <div class="max-w-7xl mx-auto">
+    <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+      <!-- Products injected by JS -->
+    </div>
+
+    <div id="emptyState" class="hidden text-center py-32">
+      <div class="display text-4xl text-[#E8E4D9]/40 mb-4" data-es="Sin resultados" data-en="No results">Sin resultados</div>
+      <p class="text-sm text-[#E8E4D9]/40" data-es="No hay compuestos en esta categoría." data-en="No compounds in this category.">No hay compuestos en esta categoría.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section class="relative py-24 px-6 md:px-12 border-t border-[#00D4AA]/15 overflow-hidden">
+  <div class="orb orb-coral" style="width: 500px; height: 500px; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+    <div class="section-eyebrow justify-center mb-6 reveal-up" style="text-align: center;"><span data-es="¿Buscas algo específico?" data-en="Looking for something specific?">¿Buscas algo específico?</span></div>
+    <h2 class="display text-4xl md:text-6xl text-[#E8E4D9] mb-8 reveal-up">
+      <span data-es="¿No ves un" data-en="Don't see a">¿No ves un</span><br/>
+      <span style="color: var(--coral); font-style: italic;" data-es="compuesto?" data-en="compound?">compuesto?</span>
+    </h2>
+    <p class="text-base text-[#E8E4D9]/60 mb-10 max-w-xl mx-auto reveal-up" data-es="Si tu investigación requiere un compuesto que no está en el catálogo, contáctanos directamente." data-en="If your research requires a compound not in the catalog, contact us directly.">
+      Si tu investigación requiere un compuesto que no está en el catálogo, contáctanos directamente.
+    </p>
+    <a href="https://wa.me/19395991835?text=Hola%2C%20quisiera%20consultar%20disponibilidad%20de%20un%20compuesto" class="btn-magnetic">
+      <span data-es="Solicitud por WhatsApp" data-en="WhatsApp Request">Solicitud por WhatsApp</span>
+      <span>→</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="relative border-t border-[#00D4AA]/15 px-6 md:px-12 py-16" style="background: #030509;">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16 pb-12 border-b border-[#E8E4D9]/5">
+      <a href="index.html" class="inline-block">
+        <img src="assets/images/logo-wordmark.png" alt="Tropical Research Labs" class="h-20 md:h-28 w-auto" />
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-12 gap-12 mb-16">
+      <div class="md:col-span-4">
+        <p class="text-sm text-[#E8E4D9]/50 leading-relaxed max-w-sm mb-6" data-es="Compuestos peptídicos de grado científico para investigación de laboratorio. Operando desde Puerto Rico bajo estándares de pureza HPLC verificados." data-en="Scientific-grade peptide compounds for laboratory research. Operating from Puerto Rico under verified HPLC purity standards.">
+          Compuestos peptídicos de grado científico para investigación de laboratorio. Operando desde Puerto Rico bajo estándares de pureza HPLC verificados.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="compliance-pill">RUO Peptides</span>
+        </div>
+      </div>
+
+      <div class="md:col-span-2">
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-4">Shop</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="catalogo.html" class="footer-link" data-es="Catálogo" data-en="Catalog">Catálogo</a></li>
+          <li><a href="coas.html" class="footer-link">COAs</a></li>
+          <li><a href="afiliados.html" class="footer-link" data-es="Afiliados" data-en="Affiliates">Afiliados</a></li>
+          <li><a href="catalogo.html" class="footer-link" data-es="Pagos" data-en="Payments">Pagos</a></li>
+          <li><a href="contacto.html" class="footer-link" data-es="Soporte" data-en="Support">Soporte</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-4">Lab</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="about.html" class="footer-link">About</a></li>
+          <li><a href="coas.html" class="footer-link" data-es="Verificación" data-en="Verification">Verificación</a></li>
+          <li><a href="contacto.html" class="footer-link" data-es="Contacto" data-en="Contact">Contacto</a></li>
+          <li><a href="contacto.html" class="footer-link" data-es="Afiliados" data-en="Affiliates">Afiliados</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-4">Legal</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="disclaimer.html" class="footer-link">Disclaimer</a></li>
+          <li><a href="terminos.html" class="footer-link" data-es="Términos" data-en="Terms">Términos</a></li>
+          <li><a href="privacidad.html" class="footer-link" data-es="Privacidad" data-en="Privacy">Privacidad</a></li>
+          <li><a href="envios.html" class="footer-link" data-es="Envíos" data-en="Shipping">Envíos</a></li>
+          <li><a href="accesibilidad.html" class="footer-link" data-es="Accesibilidad" data-en="Accessibility">Accesibilidad</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-4" data-es="Contacto" data-en="Contact">Contacto</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://wa.me/19395991835" class="footer-link">WhatsApp</a></li>
+          <li><a href="mailto:tropicalresearchlabs@gmail.com" class="footer-link">Email</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-[#E8E4D9]/10 pt-8 mb-8">
+      <div class="p-6 border border-[#FF6B47]/20 bg-[#FF6B47]/5 mb-6">
+        <div class="flex items-start gap-3">
+          <span class="text-[#FF6B47] text-xl">⚠</span>
+          <div class="space-y-3 text-xs text-[#E8E4D9]/70 leading-relaxed">
+            <p data-es-html="<strong class='text-[#FF6B47]'>Research Use Only · Not for Human Use.</strong> Todos los productos vendidos por Tropical Research Labs son estrictamente para uso en laboratorio y propósitos de investigación científica únicamente. NO están destinados para uso humano, veterinario, consumo, inyección, inhalación, aplicación tópica, diagnóstico, tratamiento, cura ni prevención de ninguna enfermedad o condición médica." data-en-html="<strong class='text-[#FF6B47]'>Research Use Only · Not for Human Use.</strong> All products sold by Tropical Research Labs are strictly for laboratory use and scientific research purposes only. They are NOT intended for human or veterinary use, consumption, injection, inhalation, topical application, diagnosis, treatment, cure or prevention of any disease or medical condition.">
+              <strong class="text-[#FF6B47]">Research Use Only · Not for Human Use.</strong> Todos los productos vendidos por Tropical Research Labs son estrictamente para uso en laboratorio y propósitos de investigación científica únicamente. NO están destinados para uso humano, veterinario, consumo, inyección, inhalación, aplicación tópica, diagnóstico, tratamiento, cura ni prevención de ninguna enfermedad o condición médica.
+            </p>
+            <p data-es-html="<strong class='text-[#E8E4D9]'>TRL NO es una farmacia 503A ni una instalación de externalización 503B</strong>. Los productos no han sido evaluados por la FDA." data-en-html="<strong class='text-[#E8E4D9]'>TRL is NOT a 503A pharmacy nor a 503B outsourcing facility</strong>. Products have not been evaluated by the FDA.">
+              <strong class="text-[#E8E4D9]">TRL NO es una farmacia 503A ni una instalación de externalización 503B</strong>. Los productos no han sido evaluados por la FDA.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mono text-[10px] tracking-[0.2em] uppercase text-[#E8E4D9]/40">
+      <div>© 2026 Tropical Research Labs LLC · All Rights Reserved</div>
+      <div class="flex items-center gap-6">
+        <span>Puerto Rico, USA</span>
+        <a href="tel:+19395991835" class="footer-link">(939) 599-1835</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- CART FAB -->
+<button class="cart-fab empty" id="cartFab" onclick="openCart()">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M3 3h2l2.4 12.5a2 2 0 0 0 2 1.5h9.6a2 2 0 0 0 2-1.5L23 6H6"/>
+    <circle cx="9" cy="20" r="1.5"/>
+    <circle cx="18" cy="20" r="1.5"/>
+  </svg>
+  <span class="cart-count" id="cartCount">0</span>
+</button>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <div>
+      <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA]" data-es="Tu Carrito" data-en="Your Cart">Tu Carrito</div>
+      <div class="display text-3xl text-[#E8E4D9] mt-1"><span id="cartItemCount">0</span> <span class="text-base text-[#E8E4D9]/50" data-es="items" data-en="items">items</span></div>
+    </div>
+    <button onclick="closeCart()" class="text-[#E8E4D9]/50 hover:text-[#FF6B47] text-2xl">✕</button>
+  </div>
+
+  <div class="cart-body" id="cartBody">
+    <div class="cart-empty">
+      <div class="text-5xl mb-4 opacity-30">∅</div>
+      <p class="display text-2xl text-[#E8E4D9]/60 mb-2" data-es="Carrito vacío" data-en="Empty cart">Carrito vacío</p>
+      <p class="text-xs text-[#E8E4D9]/40" data-es="Explora el catálogo para agregar compuestos." data-en="Browse the catalog to add compounds.">Explora el catálogo para agregar compuestos.</p>
+    </div>
+  </div>
+
+  <div class="cart-footer" id="cartFooter" style="display: none;">
+    <div class="cart-total-row">
+      <span class="cart-total-label" data-es="Subtotal" data-en="Subtotal">Subtotal</span>
+      <span class="cart-total-val" id="cartTotal">$0</span>
+    </div>
+    <p class="text-[10px] text-[#E8E4D9]/40 mono uppercase tracking-wider mb-4" data-es="* IVU y envío calculados al checkout" data-en="* Sales tax and shipping calculated at checkout">* IVU y envío calculados al checkout</p>
+    <button onclick="goToCheckout()" class="btn-magnetic btn-primary w-full mb-3">
+      <span data-es="Proceder al Checkout" data-en="Proceed to Checkout">Proceder al Checkout</span>
+      <span>→</span>
+    </button>
+    <button onclick="orderViaWhatsApp()" class="btn-magnetic w-full">
+      <span data-es="Ordenar por WhatsApp" data-en="Order via WhatsApp">Ordenar por WhatsApp</span>
+    </button>
+  </div>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="modal-overlay" id="productModal" onclick="closeModal(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-grid">
+      <div class="modal-img-side">
+        <img id="modalImg" src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22/%3E" alt="" />
+      </div>
+      <div class="modal-content-side">
+        <div class="cat-badge" id="modalCat"></div>
+        <h2 class="display text-5xl text-[#E8E4D9] mb-1" id="modalName"></h2>
+        <p class="mono text-xs text-[#E8E4D9]/50 mb-6" id="modalSub"></p>
+
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-3" data-es="Presentaciones" data-en="Sizes">Presentaciones</div>
+        <div class="flex flex-wrap gap-2 mb-6" id="modalSizes"></div>
+
+        <p class="text-sm text-[#E8E4D9]/75 leading-relaxed border-l-2 border-[#00D4AA] pl-4 mb-6" id="modalDesc"></p>
+
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-2" data-es="Especificaciones Técnicas" data-en="Technical Specifications">Especificaciones Técnicas</div>
+        <table class="specs-table" id="modalSpecs"></table>
+
+        <div class="flex gap-3 mt-6">
+          <button onclick="addFromModal()" class="btn-magnetic btn-primary flex-1">
+            <span data-es="Agregar al Carrito" data-en="Add to Cart">Agregar al Carrito</span>
+          </button>
+          <a id="modalWa" href="#" target="_blank" class="btn-magnetic">
+            WhatsApp
+          </a>
+        </div>
+
+        <div class="ruo-warning-box">
+          <strong class="text-[#FF6B47] mono text-[10px] tracking-[0.2em] uppercase">⚠ For Research Use Only (RUO)</strong>
+          <p class="mt-2" data-es="Este compuesto es suministrado exclusivamente para uso en investigación científica in vitro e in vivo en modelos no humanos. No ha sido evaluado por la FDA ni aprobado para uso diagnóstico, terapéutico, veterinario ni en seres humanos." data-en="This compound is supplied exclusively for in vitro and in vivo scientific research use in non-human models. It has not been evaluated by the FDA nor approved for diagnostic, therapeutic, veterinary or human use.">
+            Este compuesto es suministrado exclusivamente para uso en investigación científica in vitro e in vivo en modelos no humanos. No ha sido evaluado por la FDA ni aprobado para uso diagnóstico, terapéutico, veterinario ni en seres humanos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- BUNDLE MODAL -->
+<div class="modal-overlay" id="bundleModal" onclick="closeBundleModal(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeBundleModal()">✕</button>
+    <div class="modal-grid">
+      <div class="modal-img-side">
+        <img id="bundleModalImg" src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22/%3E" alt="" />
+      </div>
+      <div class="modal-content-side">
+        <div class="cat-badge" style="border-color:rgba(255,107,71,0.4);color:var(--coral);" id="bundleModalTier"></div>
+        <h2 class="display text-5xl text-[#E8E4D9] mb-1" id="bundleModalName"></h2>
+        <p class="mono text-xs text-[#E8E4D9]/50 mb-6" id="bundleModalCompound"></p>
+
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-2" data-es="Incluye" data-en="Includes">Incluye</div>
+        <ul class="bundle-includes" id="bundleModalIncludes"></ul>
+
+        <!-- Upsell -->
+        <div class="upsell-box" id="upsellBox" onclick="toggleUpsell()">
+          <div class="upsell-check" id="upsellCheck"></div>
+          <div class="flex-grow">
+            <div class="display text-lg text-[#E8E4D9]" data-es="Agregar Fat Blaster 526mg" data-en="Add Fat Blaster 526mg">Agregar Fat Blaster 526mg</div>
+            <div class="mono text-[10px] text-[#E8E4D9]/50 tracking-wider uppercase" data-es="Mejora opcional" data-en="Optional upgrade">Mejora opcional</div>
+          </div>
+          <div class="display text-2xl text-[#FF6B47]">+$10</div>
+        </div>
+
+        <div class="flex items-center justify-between mb-4 pb-4 border-b border-[#00D4AA]/15">
+          <span class="mono text-xs tracking-[0.2em] uppercase text-[#E8E4D9]/60" data-es="Total del paquete" data-en="Bundle total">Total del paquete</span>
+          <span class="display text-4xl text-[#00D4AA]" id="bundleModalTotal"></span>
+        </div>
+
+        <button onclick="addBundleToCart()" class="btn-magnetic btn-primary w-full">
+          <span data-es="Agregar Paquete al Carrito" data-en="Add Bundle to Cart">Agregar Paquete al Carrito</span>
+        </button>
+
+        <div class="ruo-warning-box mt-6">
+          <strong class="text-[#FF6B47] mono text-[10px] tracking-[0.2em] uppercase">⚠ For Research Use Only (RUO)</strong>
+          <p class="mt-2" data-es="Todos los compuestos de este paquete son suministrados exclusivamente para uso en investigación científica. No para consumo humano." data-en="All compounds in this bundle are supplied exclusively for scientific research use. Not for human consumption.">
+            Todos los compuestos de este paquete son suministrados exclusivamente para uso en investigación científica. No para consumo humano.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============= PRODUCT DATA =============
+const PRODUCTS = [
+  // ═══════════ METABÓLICO ═══════════
+  {id:'tz',name:'TRL-2 TZ',sub:'Agonista dual GIP/GLP-1',cat:'Metabólico',isNew:false,
+   sizes:[{size:'10mg',price:44.84},{size:'30mg',price:67.26},{size:'60mg',price:89.69}],
+   cas:'2023788-19-2',formula:'C₂₂₅H₃₄₈N₄₈O₆₈',mw:'4813.46 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~5 días',syn:'TRL-2 TZ',
+   desc:'Compuesto peptídico de investigación que actúa como agonista dual de los receptores GIP y GLP-1. Utilizado en estudios preclínicos sobre señalización de incretinas, regulación de insulina dependiente de glucosa y homeostasis energética. Para uso exclusivo en investigación (RUO).'},
+  {id:'rt',name:'TRL-3 RT',sub:'Agonista triple GIP/GLP-1/Glucagón',cat:'Metabólico',isNew:false,
+   sizes:[{size:'10mg',price:58.3},{size:'20mg',price:94.17},{size:'30mg',price:103.14}],
+   cas:'2381731-67-3',formula:'C₂₂₄H₃₄₈N₄₈O₆₅S',mw:'4759.5 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~6 días',syn:'TRL-3 RT',
+   desc:'Compuesto peptídico de investigación diseñado como agonista trimodal de los receptores GIP, GLP-1 y glucagón. Empleado en estudios sobre activación simultánea de ejes hormonales metabólicos y termogénesis. Para uso exclusivo en investigación (RUO).'},
+  {id:'cagri',name:'Cagrilintide',sub:'Análogo de amilina de acción prolongada',cat:'Metabólico',isNew:false,
+   sizes:[{size:'5mg',price:58.3}],
+   cas:'2413049-82-6',formula:'C₁₆₇H₂₇₂N₄₈O₅₄S₂',mw:'3932.4 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~7 días',syn:'AM833',
+   desc:'Análogo de investigación de acción prolongada de la amilina humana. Utilizado en investigación sobre señalización de receptores de amilina, vaciamiento gástrico y homeostasis de glucosa. Para uso exclusivo en investigación (RUO).'},
+  {id:'lipoc',name:'Lipo-C + B12',sub:'Complejo lipotrópico con B12',cat:'Metabólico',isNew:true,
+   sizes:[{size:'216mg',price:44.84}],
+   cas:'N/A',formula:'Complejo lipotrópico',mw:'N/A',
+   pureza:'Verificado por lote · COA por lote',ap:'Solución',store:'2–8°C, proteger de la luz',hl:'N/A',syn:'MIC + B12',
+   desc:'Complejo lipotrópico de investigación que combina compuestos metabólicos con vitamina B12. Utilizado en estudios sobre metabolismo lipídico. Para uso exclusivo en investigación (RUO).'},
+  {id:'aod',name:'AOD-9604',sub:'Fragmento 176-191 de GH',cat:'Metabólico',isNew:true,
+   sizes:[{size:'5mg',price:58.3}],
+   cas:'221231-10-3',formula:'C₇₈H₁₂₃N₂₃O₂₃S₂',mw:'1815.08 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~30 min',syn:'AOD9604 · hGH Frag 176-191',
+   desc:'Fragmento peptídico de investigación derivado de la porción C-terminal de la hormona de crecimiento humana. Empleado en estudios sobre metabolismo lipídico y lipólisis. Para uso exclusivo en investigación (RUO).'},
+  {id:'fatblaster',name:'Fat Blaster',sub:'Complejo metabólico',cat:'Metabólico',isNew:true,
+   sizes:[{size:'526mg',price:58.3}],
+   cas:'N/A',formula:'Complejo peptídico',mw:'N/A',
+   pureza:'Verificado por lote · COA por lote',ap:'Solución',store:'2–8°C, proteger de la luz',hl:'N/A',syn:'Fat Blaster Blend',
+   desc:'Complejo de investigación formulado para estudios sobre metabolismo energético y lipólisis. Para uso exclusivo en investigación (RUO).'},
+
+  // ═══════════ GH / IGF ═══════════
+  {id:'cjc',name:'CJC-1295 + Ipamorelin',sub:'Combinación GH Axis · DAC',cat:'GH / IGF',isNew:false,
+   sizes:[{size:'10mg',price:62.78}],
+   cas:'863288-34-0 / 170851-70-4',formula:'Combinación péptida',mw:'3367.97 + 711.85 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~7 días / ~2 h',syn:'DAC-GRF + Ipamorelin',
+   desc:'Combinación de investigación de dos secretagogos de hormona de crecimiento. Utilizada en estudios sobre el eje somatotrópico y pulsatilidad de GH. Para uso exclusivo en investigación (RUO).'},
+  {id:'ipa',name:'Ipamorelin',sub:'Secretagogo selectivo de GH',cat:'GH / IGF',isNew:false,
+   sizes:[{size:'5mg',price:31.39}],
+   cas:'170851-70-4',formula:'C₃₈H₄₉N₉O₅',mw:'711.85 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~2 h',syn:'NNC 26-0161',
+   desc:'Pentapéptido de investigación que actúa como secretagogo selectivo de hormona de crecimiento. Empleado en estudios sobre liberación de GH sin afectar cortisol ni prolactina. Para uso exclusivo en investigación (RUO).'},
+  {id:'tes',name:'Tesamorelin',sub:'Análogo de GHRH',cat:'GH / IGF',isNew:false,
+   sizes:[{size:'10mg',price:62.78}],
+   cas:'218949-48-5',formula:'C₂₂₁H₃₆₆N₇₂O₆₇S',mw:'5135.9 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~26 min',syn:'TH9507',
+   desc:'Análogo estabilizado de investigación de la hormona liberadora de hormona de crecimiento (GHRH). Utilizado en estudios sobre estimulación endógena del eje GH/IGF-1. Para uso exclusivo en investigación (RUO).'},
+  {id:'kiss',name:'Kisspeptin',sub:'Regulador del eje reproductivo',cat:'GH / IGF',isNew:true,
+   sizes:[{size:'5mg',price:53.81}],
+   cas:'374675-21-5',formula:'C₆₃H₈₃N₁₇O₁₄',mw:'1302.5 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~28 min',syn:'Kisspeptin-10 · Metastin',
+   desc:'Péptido de investigación regulador de la señalización del eje hipotálamo-hipófisis-gonadal. Utilizado en estudios sobre liberación de GnRH. Para uso exclusivo en investigación (RUO).'},
+
+  // ═══════════ REPARACIÓN ═══════════
+  {id:'bpc',name:'BPC-157',sub:'Péptido de protección corporal',cat:'Reparación',isNew:false,
+   sizes:[{size:'5mg',price:31.39}],
+   cas:'137525-51-0',formula:'C₆₂H₉₈N₁₆O₂₂',mw:'1419.5 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~4 h',syn:'Body Protection Compound-157',
+   desc:'Péptido de investigación derivado de una secuencia parcial del jugo gástrico. Empleado en estudios sobre angiogénesis, migración celular y reparación de tejidos. Para uso exclusivo en investigación (RUO).'},
+  {id:'tb500',name:'TB-500',sub:'Fragmento de Timosina Beta-4',cat:'Reparación',isNew:true,
+   sizes:[{size:'5mg',price:31.39}],
+   cas:'77591-33-4',formula:'C₂₁₂H₃₅₀N₅₆O₇₈S',mw:'4963.4 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~2–3 días',syn:'Thymosin β4 Frag',
+   desc:'Péptido sintético de investigación correspondiente a la región activa de la Timosina Beta-4. Utilizado en estudios sobre regulación de actina, angiogénesis y migración celular. Para uso exclusivo en investigación (RUO).'},
+  {id:'bpctb',name:'BPC-157 + TB-500',sub:'Combinación de reparación',cat:'Reparación',isNew:false,
+   sizes:[{size:'10mg',price:58.3}],
+   cas:'137525-51-0 / 77591-33-4',formula:'Combinación péptida',mw:'1419.5 + 4963.4 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~4 h / ~2–3 días',syn:'BPC + TB Blend',
+   desc:'Combinación de investigación de dos péptidos empleados en estudios sobre reparación de tejidos, angiogénesis y modulación de la matriz extracelular. Para uso exclusivo en investigación (RUO).'},
+  {id:'kpv',name:'KPV',sub:'Tripéptido derivado de α-MSH',cat:'Reparación',isNew:true,
+   sizes:[{size:'10mg',price:49.33}],
+   cas:'67727-97-3',formula:'C₁₉H₂₆N₄O₄',mw:'374.4 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~Corto',syn:'Lys-Pro-Val',
+   desc:'Tripéptido de investigación derivado de la porción C-terminal de la α-MSH. Utilizado en estudios sobre modulación inflamatoria y señalización celular. Para uso exclusivo en investigación (RUO).'},
+
+  // ═══════════ NEURO ═══════════
+  {id:'semax',name:'Semax',sub:'Péptido nootrópico',cat:'Neuro',isNew:false,
+   sizes:[{size:'10mg',price:44.84}],
+   cas:'80714-61-0',formula:'C₃₇H₅₁N₉O₁₀S',mw:'813.9 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~Corto',syn:'ACTH(4-7) analog',
+   desc:'Péptido de investigación derivado de un fragmento de la ACTH. Empleado en estudios sobre BDNF, neuroprotección y modulación cognitiva. Para uso exclusivo en investigación (RUO).'},
+  {id:'selank',name:'Selank',sub:'Péptido ansiolítico',cat:'Neuro',isNew:false,
+   sizes:[{size:'10mg',price:44.84}],
+   cas:'129954-34-3',formula:'C₃₃H₅₇N₁₁O₉',mw:'751.9 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~Corto',syn:'Tuftsin analog',
+   desc:'Péptido de investigación análogo de la tuftsina. Utilizado en estudios sobre modulación de GABA, ansiedad y expresión de BDNF. Para uso exclusivo en investigación (RUO).'},
+  {id:'dsip',name:'DSIP',sub:'Péptido inductor del sueño delta',cat:'Neuro',isNew:false,
+   sizes:[{size:'10mg',price:44.84}],
+   cas:'62568-57-4',formula:'C₃₅H₄₈N₁₀O₁₅',mw:'848.8 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~Corto',syn:'Delta Sleep-Inducing Peptide',
+   desc:'Nonapéptido de investigación asociado a la regulación del sueño delta. Empleado en estudios sobre ritmos circadianos y neuromodulación. Para uso exclusivo en investigación (RUO).'},
+  {id:'epithal',name:'Epithalon',sub:'Tetrapéptido de telomerasa',cat:'Neuro',isNew:false,
+   sizes:[{size:'10mg',price:44.84}],
+   cas:'307297-39-8',formula:'C₁₄H₂₂N₄O₉',mw:'390.3 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~Corto',syn:'Epitalon · AEDG',
+   desc:'Tetrapéptido sintético de investigación. Utilizado en estudios sobre actividad de telomerasa, regulación de la glándula pineal y senescencia celular. Para uso exclusivo en investigación (RUO).'},
+
+  // ═══════════ MITOCONDRIAL ═══════════
+  {id:'motsc',name:'MOTS-c',sub:'Péptido mitocondrial',cat:'Mitocondrial',isNew:true,
+   sizes:[{size:'10mg',price:44.84}],
+   cas:'1627580-64-6',formula:'C₁₀₁H₁₇₂N₃₂O₂₆S₂',mw:'2174.6 g/mol',
+   pureza:'Verificado por lote · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~Corto',syn:'Mitochondrial ORF of 12S rRNA-c',
+   desc:'Péptido de investigación codificado por el genoma mitocondrial. Empleado en estudios sobre homeostasis metabólica, sensibilidad a insulina y función mitocondrial. Para uso exclusivo en investigación (RUO).'},
+  {id:'ss31',name:'SS-31',sub:'Péptido dirigido a cardiolipina',cat:'Mitocondrial',isNew:false,
+   sizes:[{size:'10mg',price:53.81}],
+   cas:'736992-21-5',formula:'C₃₂H₄₉N₉O₅',mw:'639.8 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado blanco',store:'-20°C, proteger de la luz',hl:'~Corto',syn:'Elamipretide · MTP-131',
+   desc:'Tetrapéptido de investigación con afinidad por la cardiolipina en la membrana mitocondrial interna. Utilizado en estudios sobre bioenergética y estrés oxidativo. Para uso exclusivo en investigación (RUO).'},
+  {id:'nad',name:'NAD+',sub:'Dinucleótido de nicotinamida y adenina',cat:'Mitocondrial',isNew:false,
+   sizes:[{size:'500mg',price:44.84}],
+   cas:'53-84-9',formula:'C₂₁H₂₇N₇O₁₄P₂',mw:'663.43 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado',store:'-20°C, proteger de la luz',hl:'N/A',syn:'Nicotinamide adenine dinucleotide',
+   desc:'Coenzima de investigación esencial en reacciones redox celulares. Empleada en estudios sobre metabolismo energético, sirtuinas y función mitocondrial. Para uso exclusivo en investigación (RUO).'},
+  {id:'amino1mq',name:'5-Amino 1MQ',sub:'Inhibidor selectivo NNMT',cat:'Mitocondrial',isNew:false,
+   sizes:[{size:'5mg',price:44.84}],
+   cas:'1334532-04-5',formula:'C₇H₉N₃',mw:'135.17 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo sólido cristalino',store:'-20°C, proteger de la luz',hl:'N/A',syn:'5-Amino-1-methylquinolinium',
+   desc:'Inhibidor selectivo de investigación de la enzima NNMT. Utilizado en estudios in vitro sobre metabolismo de metionina, ciclo de grupos metilo y regulación epigenética. Para uso exclusivo en investigación (RUO).'},
+
+  // ═══════════ PIEL / CABELLO ═══════════
+  {id:'ghkcu',name:'GHK-Cu',sub:'Péptido de cobre',cat:'Piel / Cabello',isNew:false,
+   sizes:[{size:'50mg',price:35.87}],
+   cas:'89030-95-5',formula:'C₁₄H₂₄N₆O₄Cu',mw:'403.9 g/mol',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo azul',store:'-20°C, proteger de la luz',hl:'~Corto',syn:'Copper Tripeptide-1',
+   desc:'Complejo de investigación de cobre y tripéptido GHK. Utilizado en estudios sobre remodelación de matriz extracelular, angiogénesis y reparación dérmica. Para uso exclusivo en investigación (RUO).'},
+  {id:'glow',name:'GLOW',sub:'Stack BPC-157 + GHK-Cu + TB-500',cat:'Piel / Cabello',isNew:true,
+   sizes:[{size:'50mg',price:71.75}],
+   cas:'N/A',formula:'Combinación péptida',mw:'N/A',
+   pureza:'Verificado por HPLC · COA por lote',ap:'Polvo liofilizado',store:'-20°C, proteger de la luz',hl:'N/A',syn:'GLOW Blend',
+   desc:'Combinación de investigación de tres péptidos (BPC-157, GHK-Cu y TB-500) empleada en estudios sobre reparación de tejidos y remodelación dérmica. Para uso exclusivo en investigación (RUO).'},
+  {id:'pinkgluta',name:'Pink Glutathione',sub:'Complejo antioxidante',cat:'Piel / Cabello',isNew:true,
+   sizes:[{size:'1200mg',price:53.81}],
+   cas:'70-18-8',formula:'C₁₀H₁₇N₃O₆S',mw:'307.32 g/mol',
+   pureza:'Verificado por lote · COA por lote',ap:'Polvo liofilizado',store:'-20°C, proteger de la luz',hl:'N/A',syn:'Pink GSH',
+   desc:'Complejo antioxidante de investigación basado en glutatión. Utilizado en estudios sobre estrés oxidativo y homeostasis redox dérmica. Para uso exclusivo en investigación (RUO).'},
+
+  // ═══════════ SUMINISTROS ═══════════
+  {id:'ara290',name:'ARA-290',sub:'Péptido derivado de EPO',cat:'Reparación',isNew:true,
+   sizes:[{size:'10mg',price:49.33}],
+   cas:'1208243-50-8',formula:'C₁₄₄H₂₄₄N₄₂O₄₂',mw:'2600 g/mol',
+   pureza:'99.8% · HPLC verificado · COA por lote',ap:'Polvo liofilizado blanco',store:'2-8°C refrigerado',hl:'N/A',syn:'Cibinetide · ARA290',
+   desc:'Péptido de investigación derivado de la eritropoyetina (secuencia no eritropoyética). Empleado en estudios sobre el sistema nervioso y receptores de reparación tisular. Para uso exclusivo en investigación (RUO).'},
+  {id:'dihexa',name:'Dihexa',sub:'Análogo de angiotensina IV',cat:'Neuro',isNew:true,
+   sizes:[{size:'10mg',price:80.72}],
+   cas:'1401708-83-5',formula:'C₃₃H₅₀N₄O₆',mw:'598.78 g/mol',
+   pureza:'≥98% · HPLC verificado · COA por lote',ap:'Polvo liofilizado blanco',store:'2-8°C refrigerado',hl:'N/A',syn:'N-hexanoic-Tyr-Ile-(6)-aminohexanoic amide · PNB-0408',
+   desc:'Péptido nootrópico de investigación, análogo de angiotensina IV. Empleado en estudios sobre plasticidad sináptica y factores de crecimiento neuronal. Para uso exclusivo en investigación (RUO).'},
+  {id:'thymalin',name:'Thymalin',sub:'Bioregulador tímico',cat:'Bioregulador',isNew:true,
+   sizes:[{size:'10mg',price:49.33}],
+   cas:'63958-90-7',formula:'Blend peptídico',mw:'N/A',
+   pureza:'≥98% · HPLC verificado · COA por lote',ap:'Polvo liofilizado blanco',store:'2-8°C refrigerado',hl:'N/A',syn:'Timalina · Thymus extract peptides',
+   desc:'Bioregulador peptídico de investigación derivado del timo. Empleado en estudios sobre la modulación del sistema inmune. Para uso exclusivo en investigación (RUO).'},
+  {id:'adamax',name:'Adamax',sub:'Bioregulador péptido',cat:'Bioregulador',isNew:true,
+   sizes:[{size:'5mg',price:40.36}],
+   cas:'N/A',formula:'Péptido de investigación',mw:'N/A',
+   pureza:'≥98% · HPLC verificado · COA por lote',ap:'Polvo liofilizado blanco',store:'2-8°C refrigerado',hl:'N/A',syn:'Adamax',
+   desc:'Bioregulador peptídico de investigación. Empleado en estudios de restauración de función orgánica específica. Para uso exclusivo en investigación (RUO).'},
+  {id:'cortagen',name:'Cortagen',sub:'Bioregulador cerebral',cat:'Bioregulador',isNew:true,
+   sizes:[{size:'20mg',price:62.78}],
+   cas:'N/A',formula:'Ala-Glu-Asp-Pro',mw:'430.4 g/mol',
+   pureza:'99.7% · HPLC verificado · COA por lote',ap:'Polvo liofilizado blanco',store:'2-8°C refrigerado',hl:'N/A',syn:'Cortagen',
+   desc:'Bioregulador peptídico de investigación derivado de la corteza cerebral. Empleado en estudios sobre neuroplasticidad. Para uso exclusivo en investigación (RUO).'},
+  {id:'vesugen',name:'Vesugen',sub:'Bioregulador vascular',cat:'Bioregulador',isNew:true,
+   sizes:[{size:'10mg',price:58.3}],
+   cas:'N/A',formula:'Lys-Glu-Asp',mw:'403.4 g/mol',
+   pureza:'≥98% · HPLC verificado · COA por lote',ap:'Polvo liofilizado blanco',store:'2-8°C refrigerado',hl:'N/A',syn:'Vesugen',
+   desc:'Bioregulador peptídico de investigación de la pared vascular. Empleado en estudios cardiovasculares. Para uso exclusivo en investigación (RUO).'},
+  {id:'lipofocus',name:'LIPO Focus',sub:'Blend lipotrópico + cognitivo',cat:'Metabólico',isNew:true,
+   sizes:[{size:'350mg/10ml',price:53.81}],
+   cas:'Blend',formula:'ATP · Eria Jarensis · L-Carnitina · MIC · Lidocaína',mw:'N/A',
+   pureza:'Grado laboratorio · Solución',ap:'Solución para investigación',store:'Temperatura ambiente',hl:'N/A',syn:'LIPO Focus',
+   desc:'Blend lipotrópico de investigación (ATP 50mg, Eria Jarensis 50mg, L-Carnitina 200mg, MIC Blend, Lidocaína 0.1%) con soporte cognitivo. Para uso exclusivo en investigación (RUO).'},
+  {id:'lipob',name:'Lipo-B',sub:'Lipotrópico foundational',cat:'Metabólico',isNew:true,
+   sizes:[{size:'120mg/10ml',price:26.91}],
+   cas:'Blend',formula:'Metionina · Colina · L-Carnitina · Dexpanthenol',mw:'N/A',
+   pureza:'Grado laboratorio · Solución',ap:'Solución para investigación',store:'Temperatura ambiente',hl:'N/A',syn:'Lipo-B · MIC',
+   desc:'Blend lipotrópico base de investigación (Metionina 15mg, Colina 50mg, L-Carnitina 50mg, Dexpanthenol 5mg). Para uso exclusivo en investigación (RUO).'},
+  {id:'lemonbottle',name:'Lemon Bottle Ananas',sub:'Fórmula lipotrópica',cat:'Metabólico',isNew:true,
+   sizes:[{size:'10mg/10ml',price:26.91}],
+   cas:'Blend',formula:'Solución lipotrópica',mw:'N/A',
+   pureza:'Grado laboratorio · Solución',ap:'Solución para investigación · Ananas',store:'Temperatura ambiente',hl:'N/A',syn:'Lemon Bottle · Ananas',
+   desc:'Fórmula lipotrópica de investigación, versión Ananas (piña). Empleada en estudios de reducción adiposa. Para uso exclusivo en investigación (RUO).'},
+  {id:'klow',name:'KLOW',sub:'Blend skin/beauty',cat:'Piel / Cabello',isNew:true,
+   sizes:[{size:'80mg',price:80.72}],
+   cas:'Blend',formula:'GHK-Cu · KPV · BPC-157 · TB-500',mw:'N/A',
+   pureza:'99.7% · HPLC verificado · COA por lote',ap:'Polvo liofilizado púrpura',store:'2-8°C refrigerado',hl:'N/A',syn:'KLOW blend',
+   desc:'Blend premium de investigación dermatológica y regenerativa (GHK-Cu 39.8mg, KPV 14.1mg, BPC-157 11.1mg, TB-500 16.1mg). Para uso exclusivo en investigación (RUO).'},
+  {id:'pt141',name:'PT-141',sub:'Agonista melanocortina',cat:'Otros',isNew:true,
+   sizes:[{size:'10mg',price:40.36}],
+   cas:'32780-32-8',formula:'C₅₀H₆₈N₁₄O₁₀',mw:'1025.2 g/mol',
+   pureza:'99.8% · HPLC verificado · COA por lote',ap:'Polvo liofilizado blanco',store:'2-8°C refrigerado',hl:'N/A',syn:'Bremelanotide · PT141',
+   desc:'Péptido de investigación agonista de receptores melanocortina. Empleado en estudios sobre receptores centrales. Para uso exclusivo en investigación (RUO).'},
+  {id:'vip',name:'VIP',sub:'Vasoactive Intestinal Peptide',cat:'Otros',isNew:true,
+   sizes:[{size:'10mg',price:80.72}],
+   cas:'37221-79-7',formula:'C₁₄₇H₂₃₇N₄₃O₄₃S',mw:'3326.8 g/mol',
+   pureza:'99.7% · HPLC verificado · COA por lote',ap:'Polvo liofilizado blanco',store:'2-8°C refrigerado',hl:'N/A',syn:'Vasoactive Intestinal Peptide · VIP',
+   desc:'Péptido intestinal vasoactivo de investigación. Empleado en estudios gastrointestinales e inmunológicos. Para uso exclusivo en investigación (RUO).'},
+  {id:'bacwater',name:'RS-h2o',sub:'Solución de reconstitución',cat:'Suministros',isNew:false,solvent:true,
+   sizes:[{size:'10ml',price:12.56},{size:'5ml',price:7.17},{size:'3ml',price:5.38}],
+   cas:'7732-18-5',formula:'H₂O + 0.9% alcohol bencílico',mw:'18.02 g/mol',
+   pureza:'Grado laboratorio',ap:'Solución transparente',store:'Temp. ambiente',hl:'N/A',syn:'BAC Water · Agua Bacteriostática',
+   desc:'Agua bacteriostática de investigación para reconstitución de compuestos liofilizados. Contiene 0.9% de alcohol bencílico. Para uso exclusivo en investigación (RUO).'},
+  {id:'aawater',name:'Agua para Acetato',sub:'Solución A.A. 2ml',cat:'Suministros',isNew:true,solvent:true,
+   sizes:[{size:'2ml',price:7.95}],
+   cas:'N/A',formula:'Solución de ácido acético',mw:'N/A',
+   pureza:'Grado laboratorio',ap:'Solución transparente',store:'Temp. ambiente',hl:'N/A',syn:'A.A. Water',
+   desc:'Solución de ácido acético de investigación para reconstitución de péptidos que requieren medio ácido. Para uso exclusivo en investigación (RUO).'}
+];
+
+// ============= BUNDLES =============
+const BUNDLES = [
+  { id:'bundle-starter-tz10', tier:'Starter', name:'Starter Bundle', compound:'TRL-2 TZ 10mg',
+    price:89, img:'assets/images/bundles/bundle-starter-tz10.jpg',
+    includes:['TRL-2 TZ 10mg','Lipo-C + B12 216mg','BAC Water 3mL'] },
+  { id:'bundle-starter-rt10', tier:'Starter', name:'Starter Bundle', compound:'TRL-3 RT 10mg',
+    price:99, img:'assets/images/bundles/bundle-starter-rt10.jpg',
+    includes:['TRL-3 RT 10mg','Lipo-C + B12 216mg','BAC Water 3mL'] },
+  { id:'bundle-aggressive-tz30', tier:'Aggressive', name:'Aggressive Bundle', compound:'TRL-2 TZ 30mg',
+    price:109, img:'assets/images/bundles/bundle-aggressive-tz30.jpg',
+    includes:['TRL-2 TZ 30mg','Lipo-C + B12 216mg','BAC Water 3mL'] },
+  { id:'bundle-elite-tz60', tier:'Elite', name:'Elite Bundle', compound:'TRL-2 TZ 60mg',
+    price:129, img:'assets/images/bundles/bundle-elite-tz60.jpg',
+    includes:['TRL-2 TZ 60mg','Lipo-C + B12 216mg','BAC Water 3mL'] },
+];
+const FAT_BLASTER_UPSELL = 10;
+let currentBundle = null;
+let upsellSelected = false;
+let activeFilter = 'all';
+let currentModalProduct = null;
+let currentModalSize = null;
+
+// ============= CART =============
+function getCart() {
+  try { return JSON.parse(localStorage.getItem('trl_cart') || '[]'); }
+  catch(e) { return []; }
+}
+function saveCart(cart) {
+  localStorage.setItem('trl_cart', JSON.stringify(cart));
+  updateCartUI();
+}
+function addToCart(productId, size, price) {
+  const cart = getCart();
+  const existing = cart.find(i => i.id === productId && i.size === size);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({ id: productId, size, price, qty: 1 });
+  }
+  saveCart(cart);
+  const product = PRODUCTS.find(p => p.id === productId);
+  showToast(currentLang === 'es' ? `${product.name} (${size}) agregado` : `${product.name} (${size}) added`);
+}
+function removeFromCart(productId, size) {
+  let cart = getCart();
+  cart = cart.filter(i => !(i.id === productId && i.size === size));
+  saveCart(cart);
+}
+function changeQty(productId, size, delta) {
+  const cart = getCart();
+  const item = cart.find(i => i.id === productId && i.size === size);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty < 1) {
+    removeFromCart(productId, size);
+  } else {
+    saveCart(cart);
+  }
+}
+function cartTotal() {
+  return getCart().reduce((sum, i) => sum + i.price * i.qty, 0);
+}
+function cartCount() {
+  return getCart().reduce((sum, i) => sum + i.qty, 0);
+}
+
+function updateCartUI() {
+  const count = cartCount();
+  const fab = document.getElementById('cartFab');
+  const countEl = document.getElementById('cartCount');
+  const itemCountEl = document.getElementById('cartItemCount');
+  countEl.textContent = count;
+  itemCountEl.textContent = count;
+  if (count === 0) fab.classList.add('empty');
+  else fab.classList.remove('empty');
+
+  renderCartItems();
+  document.getElementById('cartTotal').textContent = '$' + cartTotal().toFixed(2);
+  document.getElementById('cartFooter').style.display = count > 0 ? 'block' : 'none';
+}
+
+function renderCartItems() {
+  const body = document.getElementById('cartBody');
+  const cart = getCart();
+  if (cart.length === 0) {
+    body.innerHTML = `
+      <div class="cart-empty">
+        <div class="text-5xl mb-4 opacity-30">∅</div>
+        <p class="display text-2xl text-[#E8E4D9]/60 mb-2">${currentLang === 'es' ? 'Carrito vacío' : 'Empty cart'}</p>
+        <p class="text-xs text-[#E8E4D9]/40">${currentLang === 'es' ? 'Explora el catálogo para agregar compuestos.' : 'Browse the catalog to add compounds.'}</p>
+      </div>`;
+    return;
+  }
+  body.innerHTML = cart.map(item => {
+    // Bundle items carry their own name/price and aren't in PRODUCTS
+    if (item.bundleName) {
+      const bid = item.id.replace('-fb','');
+      const b = BUNDLES.find(x => x.id === bid);
+      const img = b ? b.img : '';
+      return `
+      <div class="cart-item">
+        <div class="cart-item-img">
+          <img src="${img}" alt="${item.bundleName}" onerror="this.style.display='none'" />
+        </div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.bundleName}</div>
+          <div class="cart-item-meta">${currentLang === 'es' ? 'Paquete' : 'Bundle'}</div>
+          <div class="cart-item-controls">
+            <button class="qty-btn" onclick="changeQty('${item.id}','${item.size}',-1)">−</button>
+            <span class="qty-val">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty('${item.id}','${item.size}',1)">+</button>
+            <button class="cart-item-remove" onclick="removeFromCart('${item.id}','${item.size}')">${currentLang === 'es' ? 'Eliminar' : 'Remove'}</button>
+          </div>
+          <div class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</div>
+        </div>
+      </div>`;
+    }
+    const product = PRODUCTS.find(p => p.id === item.id);
+    if (!product) return '';
+    return `
+      <div class="cart-item">
+        <div class="cart-item-img">
+          <img src="assets/images/vials/${product.id}.jpg" alt="${product.name}" onerror="this.style.display='none'" />
+        </div>
+        <div class="cart-item-info">
+          <div class="cart-item-name">${product.name}</div>
+          <div class="cart-item-meta">${item.size} · ${product.cat}</div>
+          <div class="cart-item-controls">
+            <button class="qty-btn" onclick="changeQty('${item.id}','${item.size}',-1)">−</button>
+            <span class="qty-val">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty('${item.id}','${item.size}',1)">+</button>
+            <button class="cart-item-remove" onclick="removeFromCart('${item.id}','${item.size}')">${currentLang === 'es' ? 'Eliminar' : 'Remove'}</button>
+          </div>
+          <div class="cart-item-price">$${(item.price * item.qty).toFixed(2)}</div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function openCart() {
+  document.getElementById('cartDrawer').classList.add('open');
+  document.getElementById('cartOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeCart() {
+  document.getElementById('cartDrawer').classList.remove('open');
+  document.getElementById('cartOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function goToCheckout() {
+  window.location.href = 'checkout.html';
+}
+
+function orderViaWhatsApp() {
+  const cart = getCart();
+  let msg = currentLang === 'es' ? 'Hola, me interesa esta orden de Tropical Research Labs:%0A%0A' : 'Hello, I am interested in this order from Tropical Research Labs:%0A%0A';
+  cart.forEach(item => {
+    if (item.bundleName) {
+      msg += `• ${item.bundleName} x${item.qty} - $${(item.price * item.qty).toFixed(2)}%0A`;
+    } else {
+      const product = PRODUCTS.find(p => p.id === item.id);
+      if (product) msg += `• ${product.name} (${item.size}) x${item.qty} - $${(item.price * item.qty).toFixed(2)}%0A`;
+    }
+  });
+  msg += `%0A${currentLang === 'es' ? 'Total' : 'Total'}: $${cartTotal().toFixed(2)}`;
+  window.open(`https://wa.me/19395991835?text=${msg}`, '_blank');
+}
+
+// ============= RENDER =============
+// ============= BUNDLES =============
+function renderBundles() {
+  const grid = document.getElementById('bundleGrid');
+  if (!grid) return;
+  grid.innerHTML = BUNDLES.map(b => `
+    <div class="bundle-card" onclick="openBundle('${b.id}')">
+      <span class="bundle-badge">${b.tier}</span>
+      <img src="${b.img}" alt="${b.name} ${b.compound}" loading="lazy"
+        onerror="this.style.aspectRatio='4/5';this.style.background='linear-gradient(135deg,#0A1628,#0F1F38)';this.removeAttribute('src')">
+      <div class="bundle-info">
+        <div class="bundle-tier">${b.compound}</div>
+        <div class="bundle-name">${b.name}</div>
+        <div class="bundle-price">$${b.price}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openBundle(id) {
+  const b = BUNDLES.find(x => x.id === id);
+  if (!b) return;
+  currentBundle = b;
+  upsellSelected = false;
+
+  document.getElementById('bundleModalImg').src = b.img;
+  document.getElementById('bundleModalImg').alt = b.name + ' ' + b.compound;
+  document.getElementById('bundleModalTier').textContent = b.tier + ' · RUO';
+  document.getElementById('bundleModalName').textContent = b.name;
+  document.getElementById('bundleModalCompound').textContent = b.compound;
+  document.getElementById('bundleModalIncludes').innerHTML =
+    b.includes.map(i => `<li>${i}</li>`).join('');
+
+  document.getElementById('upsellBox').classList.remove('active');
+  document.getElementById('upsellCheck').textContent = '';
+  updateBundleTotal();
+
+  document.getElementById('bundleModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function toggleUpsell() {
+  upsellSelected = !upsellSelected;
+  const box = document.getElementById('upsellBox');
+  const check = document.getElementById('upsellCheck');
+  box.classList.toggle('active', upsellSelected);
+  check.textContent = upsellSelected ? '✓' : '';
+  updateBundleTotal();
+}
+
+function updateBundleTotal() {
+  if (!currentBundle) return;
+  const total = currentBundle.price + (upsellSelected ? FAT_BLASTER_UPSELL : 0);
+  document.getElementById('bundleModalTotal').textContent = '$' + total.toFixed(2);
+}
+
+function addBundleToCart() {
+  if (!currentBundle) return;
+  const total = currentBundle.price + (upsellSelected ? FAT_BLASTER_UPSELL : 0);
+  const label = currentBundle.name + ' (' + currentBundle.compound + ')' +
+    (upsellSelected ? ' + Fat Blaster 526mg' : '');
+  const cart = getCart();
+  // Bundles are unique line items (include upsell state in the id)
+  const cartId = currentBundle.id + (upsellSelected ? '-fb' : '');
+  const existing = cart.find(i => i.id === cartId);
+  if (existing) { existing.qty++; }
+  else { cart.push({ id: cartId, size: 'Bundle', price: total, qty: 1, bundleName: label }); }
+  saveCart(cart);
+  showToast(currentLang === 'es' ? `${label} agregado` : `${label} added`);
+  closeBundleModal();
+}
+
+function closeBundleModal(e) {
+  if (e && e.target && e.currentTarget !== e.target) return;
+  document.getElementById('bundleModal').classList.remove('open');
+  document.body.style.overflow = '';
+  currentBundle = null;
+  upsellSelected = false;
+}
+
+function renderGrid() {
+  const grid = document.getElementById('productGrid');
+  const filtered = activeFilter === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === activeFilter);
+  const emptyState = document.getElementById('emptyState');
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '';
+    emptyState.classList.remove('hidden');
+    return;
+  }
+  emptyState.classList.add('hidden');
+
+  grid.innerHTML = filtered.map(p => {
+    const lowestPrice = Math.min(...p.sizes.map(s => s.price));
+    return `
+      <div class="product-card" onclick="openModal('${p.id}')">
+        <div class="vial-container">
+          ${p.isNew ? `<span class="new-stamp">${currentLang === 'es' ? 'Nuevo' : 'New'}</span>` : ''}
+          <span class="ruo-stamp">RUO</span>
+          <img class="vial-image" src="assets/images/vials/${p.id}.jpg" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="vial-fallback" style="display:none;">
+            <svg width="60" height="140" viewBox="0 0 60 140" fill="none">
+              <rect x="20" y="0" width="20" height="16" fill="#0F1F38" stroke="#00D4AA" stroke-width="1"/>
+              <rect x="20" y="14" width="20" height="5" fill="#00D4AA" opacity="0.4"/>
+              <path d="M 14 19 L 14 132 Q 14 138, 20 138 L 40 138 Q 46 138, 46 132 L 46 19 Z" fill="rgba(0,212,170,0.05)" stroke="#00D4AA" stroke-width="1"/>
+              <path d="M 14 70 L 14 132 Q 14 138, 20 138 L 40 138 Q 46 138, 46 132 L 46 70 Z" fill="rgba(0,212,170,0.3)"/>
+              <rect x="16" y="78" width="28" height="40" fill="#0A1628" stroke="#00D4AA" stroke-width="0.5"/>
+              <text x="30" y="92" text-anchor="middle" fill="#00D4AA" font-family="Space Mono" font-size="6" font-weight="700">TRL</text>
+              <text x="30" y="104" text-anchor="middle" fill="#E8E4D9" font-family="Space Mono" font-size="4">${p.name.substring(0,8)}</text>
+            </svg>
+          </div>
+        </div>
+        <div class="product-body">
+          <span class="cat-badge">${p.cat}</span>
+          <h3 class="product-name">${p.name}</h3>
+          <p class="product-sub">${p.sub}</p>
+          <div class="size-row">
+            ${p.sizes.map(s => `<span class="size-tag">${s.size}</span>`).join('')}
+          </div>
+          <div class="price-row">
+            <div>
+              <div class="mono text-[9px] tracking-[0.2em] uppercase text-[#E8E4D9]/40 mb-1">${currentLang === 'es' ? 'Desde' : 'From'}</div>
+              <div class="price-display">$${Math.floor(lowestPrice)}<span class="cents">.${(lowestPrice % 1).toFixed(2).slice(2)}</span></div>
+            </div>
+            <div class="mono text-[9px] tracking-[0.2em] uppercase text-[#00D4AA]">${p.pureza}</div>
+          </div>
+          <div class="product-actions" onclick="event.stopPropagation()">
+            <button class="btn-add" onclick="quickAdd('${p.id}')"><span>${currentLang === 'es' ? 'Agregar' : 'Add'}</span></button>
+            <button class="btn-detail" onclick="openModal('${p.id}')">${currentLang === 'es' ? 'Detalles' : 'Details'}</button>
+          </div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function filterCat(cat, btn) {
+  activeFilter = cat;
+  document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid();
+  // Smooth scroll to grid top
+  window.scrollTo({ top: document.querySelector('.filter-bar').offsetTop - 60, behavior: 'smooth' });
+}
+
+function quickAdd(productId) {
+  const product = PRODUCTS.find(p => p.id === productId);
+  if (!product) return;
+  // Add the smallest size by default
+  const smallest = product.sizes[0];
+  addToCart(productId, smallest.size, smallest.price);
+}
+
+// ============= MODAL =============
+function openModal(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  currentModalProduct = p;
+  currentModalSize = p.sizes[0];
+
+  document.getElementById('modalImg').src = `assets/images/vials/${p.id}.jpg`;
+  document.getElementById('modalImg').alt = p.name;
+  document.getElementById('modalCat').textContent = p.cat + ' · RUO';
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalSub').textContent = p.sub;
+
+  document.getElementById('modalSizes').innerHTML = p.sizes.map((s, i) => `
+    <button class="size-tag ${i === 0 ? 'selected' : ''}" onclick="selectSize('${s.size}', ${s.price}, this)" style="cursor:pointer;padding:8px 16px;">
+      ${s.size} · $${s.price.toFixed(2)}
+    </button>
+  `).join('');
+
+  document.getElementById('modalDesc').textContent = p.desc;
+  document.getElementById('modalSpecs').innerHTML = `
+    <tr><td>${currentLang === 'es' ? 'CAS Number' : 'CAS Number'}</td><td>${p.cas}</td></tr>
+    <tr><td>${currentLang === 'es' ? 'Fórmula Molecular' : 'Molecular Formula'}</td><td>${p.formula}</td></tr>
+    <tr><td>${currentLang === 'es' ? 'Peso Molecular' : 'Molecular Weight'}</td><td>${p.mw}</td></tr>
+    <tr><td>${currentLang === 'es' ? 'Pureza' : 'Purity'}</td><td>${p.pureza}</td></tr>
+    <tr><td>${currentLang === 'es' ? 'Apariencia' : 'Appearance'}</td><td>${p.ap}</td></tr>
+    <tr><td>${currentLang === 'es' ? 'Almacenamiento' : 'Storage'}</td><td>${p.store}</td></tr>
+    <tr><td>${currentLang === 'es' ? 'Vida Media' : 'Half-Life'}</td><td>${p.hl}</td></tr>
+    <tr><td>${currentLang === 'es' ? 'Sinónimos' : 'Synonyms'}</td><td>${p.syn}</td></tr>
+  `;
+
+  const msg = encodeURIComponent(`Hola, me interesa información sobre ${p.name} (${p.sizes[0].size}) de Tropical Research Labs.`);
+  document.getElementById('modalWa').href = `https://wa.me/19395991835?text=${msg}`;
+
+  document.getElementById('productModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function selectSize(size, price, btn) {
+  currentModalSize = { size, price };
+  document.querySelectorAll('#modalSizes .size-tag').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+}
+
+function addFromModal() {
+  if (!currentModalProduct || !currentModalSize) return;
+  addToCart(currentModalProduct.id, currentModalSize.size, currentModalSize.price);
+}
+
+function closeModal(e) {
+  if (e && e.target && e.currentTarget !== e.target) return;
+  document.getElementById('productModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ============= TOAST =============
+let toastTimer;
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2500);
+}
+
+// ============= BILINGUAL =============
+let currentLang = localStorage.getItem('trl_lang') || 'es';
+
+function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('trl_lang', lang);
+  document.getElementById('htmlRoot').setAttribute('lang', lang);
+
+  const langCurrent = document.getElementById('langCurrent');
+  const langOther = document.getElementById('langOther');
+  if (langCurrent && langOther) {
+    langCurrent.textContent = lang.toUpperCase();
+    langOther.textContent = (lang === 'es' ? 'EN' : 'ES');
+  }
+
+  document.querySelectorAll('[data-es]').forEach(el => {
+    const value = el.getAttribute(`data-${lang}`);
+    if (value !== null) el.textContent = value;
+  });
+
+  document.querySelectorAll('[data-es-html]').forEach(el => {
+    const value = el.getAttribute(`data-${lang}-html`);
+    if (value !== null) el.innerHTML = value;
+  });
+
+  // Re-render dynamic content
+  renderGrid();
+  renderBundles();
+  renderCartItems();
+}
+
+function toggleLang() {
+  const newLang = (currentLang === 'es') ? 'en' : 'es';
+  applyLanguage(newLang);
+}
+
+// ============= INIT =============
+function updateCounts() {
+  const setCount = (id, n) => { const el = document.getElementById('count-' + id); if (el) el.textContent = n; };
+  setCount('all', PRODUCTS.length);
+  const cats = {};
+  PRODUCTS.forEach(p => { cats[p.cat] = (cats[p.cat] || 0) + 1; });
+  Object.keys(cats).forEach(c => setCount(c, cats[c]));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  applyLanguage(currentLang);
+  renderGrid();
+  renderBundles();
+  updateCartUI();
+  updateCounts();
+
+  // Check URL hash for category filter
+  if (window.location.hash) {
+    const hash = window.location.hash.substring(1);
+    const map = {
+      'healing': 'Reparación',
+      'recuperacion': 'Reparación',
+      'reparacion': 'Reparación',
+      'growth': 'GH / IGF',
+      'cognitive': 'Neuro',
+      'neuro': 'Neuro',
+      'longevity': 'Mitocondrial',
+      'mitochondrial': 'Mitocondrial',
+      'cosmetic': 'Piel / Cabello',
+      'skin': 'Piel / Cabello',
+      'metabolic': 'Metabólico',
+      'supplies': 'Suministros'
+    };
+    const cat = map[hash] || hash;
+    const btn = document.querySelector(`[data-cat="${cat}"]`);
+    if (btn) filterCat(cat, btn);
+  }
+});
+
+window.addEventListener('load', () => {
+  initAnimations();
+});
+
+function initAnimations() {
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.to('.reveal-text-inner', {
+    y: 0, duration: 1.2, ease: 'power4.out', stagger: 0.1, delay: 0.2
+  });
+
+  gsap.utils.toArray('.reveal-up').forEach((el) => {
+    gsap.to(el, {
+      opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+    });
+  });
+
+  ScrollTrigger.create({
+    start: 'top -100', end: 99999,
+    onUpdate: (self) => {
+      const nav = document.getElementById('mainNav');
+      if (self.scroll() > 100) {
+        nav.style.background = 'rgba(5, 8, 16, 0.95)';
+        nav.style.backdropFilter = 'blur(20px)';
+        nav.style.borderBottom = '1px solid rgba(0,212,170,0.1)';
+        nav.style.padding = '16px 48px';
+      } else {
+        nav.style.background = 'transparent';
+        nav.style.backdropFilter = 'none';
+        nav.style.borderBottom = 'none';
+        nav.style.padding = '24px 48px';
+      }
+    }
+  });
+}
+
+// Cursor
+const cursorDot = document.getElementById('cursorDot');
+const cursorRing = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursorDot.style.left = mouseX + 'px';
+  cursorDot.style.top = mouseY + 'px';
+});
+function animateRing() {
+  ringX += (mouseX - ringX) * 0.15;
+  ringY += (mouseY - ringY) * 0.15;
+  cursorRing.style.left = ringX + 'px';
+  cursorRing.style.top = ringY + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+document.addEventListener('mouseover', (e) => {
+  if (e.target.closest('a, button, .product-card, .filter-pill, .size-tag, .cart-item')) {
+    document.body.classList.add('cursor-hover');
+  }
+});
+document.addEventListener('mouseout', (e) => {
+  if (!e.relatedTarget || !e.relatedTarget.closest('a, button, .product-card, .filter-pill, .size-tag, .cart-item')) {
+    document.body.classList.remove('cursor-hover');
+  }
+});
+
+// ESC to close modal/cart
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    document.getElementById('productModal').classList.remove('open');
+    closeCart();
+    document.body.style.overflow = '';
+  }
+});
+</script>
+
+
+<script>
+function toggleMobileMenu(open) {
+  const m = document.getElementById('mobileMenu');
+  if (!m) return;
+  const willOpen = (typeof open === 'boolean') ? open : !m.classList.contains('open');
+  m.classList.toggle('open', willOpen);
+  document.body.style.overflow = willOpen ? 'hidden' : '';
+}
+</script>
+</body>
+</html>

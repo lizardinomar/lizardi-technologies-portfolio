@@ -1,0 +1,56 @@
+# ============================================
+# Tropical Research Labs — trlpr.com
+# Security headers + CSP · Apache/Hostinger
+# ============================================
+
+<IfModule mod_headers.c>
+  # HSTS — force HTTPS for 2 years, include subdomains, preload-eligible
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+
+  # MIME sniffing protection
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Clickjacking protection (legacy; CSP frame-ancestors is the modern equivalent)
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Referrer policy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Permissions policy — lock down unused browser features
+  Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=(self)"
+
+  # Content Security Policy
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.tailwindcss.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://api.web3forms.com; frame-src https://pay.bankful.com; form-action 'self' https://api.web3forms.com https://pay.bankful.com; frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+
+  # Strip hosting fingerprint headers
+  Header always unset platform
+  Header always unset panel
+  Header always unset X-Powered-By
+  Header unset platform
+  Header unset panel
+  Header unset X-Powered-By
+</IfModule>
+
+# Disable server signature
+ServerSignature Off
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType application/pdf "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType application/pdf .pdf
+</IfModule>
+
+ErrorDocument 404 /index.html

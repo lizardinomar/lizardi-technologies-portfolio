@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="es" id="htmlRoot">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#050810" />
+<title>Gracias · Tropical Research Labs</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  :root {
+    --void: #050810;
+    --navy: #0A1628;
+    --teal: #00D4AA;
+    --coral: #FF6B47;
+    --bone: #E8E4D9;
+  }
+  * { -webkit-font-smoothing: antialiased; }
+  html, body {
+    background: var(--void); color: var(--bone);
+    font-family: 'Inter', sans-serif; min-height: 100vh;
+  }
+  .display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
+  .mono { font-family: 'Space Mono', monospace; }
+
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    pointer-events: none; z-index: 100; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  .orb { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; opacity: 0.4; }
+  .orb-teal { background: radial-gradient(circle, rgba(0,212,170,0.5) 0%, transparent 70%); }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0,212,170,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,170,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .success-icon {
+    width: 100px; height: 100px;
+    border: 1px solid var(--teal);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 32px;
+    position: relative;
+    animation: success-pop 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @keyframes success-pop {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .success-icon::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 1px solid rgba(0,212,170,0.2);
+    border-radius: 50%;
+    animation: pulse-ring 2s infinite;
+  }
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.4); opacity: 0; }
+  }
+
+  .order-card {
+    padding: 40px;
+    background: linear-gradient(180deg, rgba(15,31,56,0.5), rgba(10,22,40,0.8));
+    border: 1px solid rgba(0,212,170,0.25);
+    position: relative;
+  }
+  .order-card::before, .order-card::after {
+    content: ''; position: absolute; width: 24px; height: 24px;
+    border: 1px solid var(--teal);
+  }
+  .order-card::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+  .order-card::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+  .info-row {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(232,228,217,0.06);
+  }
+  .info-row:last-child { border-bottom: none; }
+  .info-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(232,228,217,0.5);
+  }
+  .info-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--bone);
+    text-align: right;
+  }
+
+  .payment-instructions {
+    padding: 24px;
+    background: rgba(255,107,71,0.06);
+    border: 1px solid rgba(255,107,71,0.25);
+    border-left: 3px solid var(--coral);
+    margin-top: 24px;
+  }
+  .payment-instructions strong {
+    color: var(--coral);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 12px;
+  }
+  .payment-detail-block {
+    margin-top: 16px;
+    padding: 16px;
+    background: rgba(5,8,16,0.6);
+    border: 1px dashed rgba(232,228,217,0.2);
+  }
+  .payment-detail-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(232,228,217,0.5);
+    margin-bottom: 4px;
+  }
+  .payment-detail-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: var(--bone);
+    letter-spacing: 0.02em;
+    word-break: break-all;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .payment-detail-value:hover { color: var(--teal); }
+  .payment-detail-value.copied { color: var(--teal); }
+  .payment-detail-value.copied::after {
+    content: ' ✓';
+    color: var(--teal);
+  }
+
+  .btn-primary {
+    background: var(--teal); color: var(--void);
+    padding: 16px 32px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase;
+    font-weight: 700;
+    display: inline-flex; align-items: center; gap: 12px;
+    transition: all 0.3s;
+    border: 1px solid var(--teal);
+  }
+  .btn-primary:hover { background: var(--coral); border-color: var(--coral); color: var(--bone); }
+
+  .btn-secondary {
+    background: transparent; border: 1px solid rgba(232,228,217,0.2); color: var(--bone);
+    padding: 16px 32px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px; letter-spacing: 0.25em; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 12px;
+    transition: all 0.3s;
+  }
+  .btn-secondary:hover { border-color: var(--teal); color: var(--teal); }
+
+  .step-list {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+    margin-top: 16px;
+  }
+  .step-list li {
+    counter-increment: step;
+    padding: 12px 0 12px 40px;
+    position: relative;
+    font-size: 13px;
+    color: rgba(232,228,217,0.75);
+    line-height: 1.6;
+  }
+  .step-list li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 24px; height: 24px;
+    border: 1px solid var(--teal);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--teal);
+    font-weight: 700;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .cursor-dot, .cursor-ring { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="px-6 md:px-12 py-6 border-b border-[#00D4AA]/10 relative z-10">
+  <div class="max-w-4xl mx-auto flex items-center justify-between">
+    <a href="index.html" class="block">
+      <img src="assets/images/logo-wordmark.png" alt="Tropical Research Labs" class="h-10 md:h-12 w-auto" />
+    </a>
+    <button onclick="toggleLang()" id="langToggle" class="mono text-xs tracking-[0.2em] uppercase text-[#E8E4D9]/60 hover:text-[#00D4AA] transition cursor-pointer">
+      <span id="langCurrent">ES</span> <span class="text-[#E8E4D9]/30">/</span> <span id="langOther">EN</span>
+    </button>
+  </div>
+</nav>
+
+<section class="relative py-20 px-6 md:px-12 overflow-hidden">
+  <div class="absolute inset-0 grid-bg opacity-30"></div>
+  <div class="orb orb-teal" style="width: 700px; height: 700px; top: -200px; left: 50%; transform: translateX(-50%);"></div>
+
+  <div class="relative z-10 max-w-3xl mx-auto">
+
+    <!-- Success Icon -->
+    <div class="success-icon">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="#00D4AA" stroke-width="2">
+        <path d="M8 18 L15 25 L28 11" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- Heading -->
+    <div class="text-center mb-12">
+      <div class="mono text-[11px] tracking-[0.4em] uppercase text-[#00D4AA] mb-4">
+        <span id="statusEyebrow" data-es="Orden Recibida" data-en="Order Received">Orden Recibida</span>
+      </div>
+      <h1 class="display text-5xl md:text-7xl text-[#E8E4D9] leading-[0.9] mb-6">
+        <span data-es="Gracias por tu" data-en="Thank you for">Gracias por tu</span><br/>
+        <span style="color: var(--coral); font-style: italic;" data-es="confianza." data-en="your trust.">confianza.</span>
+      </h1>
+      <p class="text-base text-[#E8E4D9]/65 max-w-md mx-auto leading-relaxed" id="statusDescription">
+        Tu orden ha sido recibida. Revisa los detalles a continuación.
+      </p>
+    </div>
+
+    <!-- Order Card -->
+    <div class="order-card mb-8">
+      <div class="info-row">
+        <span class="info-label" data-es="Número de Orden" data-en="Order Number">Número de Orden</span>
+        <span class="info-value display text-2xl" style="color: var(--teal);" id="orderId">—</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label" data-es="Cliente" data-en="Customer">Cliente</span>
+        <span class="info-value" id="customerName">—</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Email</span>
+        <span class="info-value" id="customerEmail">—</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label" data-es="Total" data-en="Total">Total</span>
+        <span class="info-value display text-2xl" id="orderTotal">$0.00</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label" data-es="Método de Pago" data-en="Payment Method">Método de Pago</span>
+        <span class="info-value" id="paymentMethod">—</span>
+      </div>
+    </div>
+
+    <!-- Payment Instructions (varies by method) -->
+    <div id="paymentInstructions"></div>
+
+    <!-- Next Steps -->
+    <div class="mt-12">
+      <h2 class="display text-3xl text-[#E8E4D9] mb-4" data-es="Próximos pasos" data-en="Next steps">Próximos pasos</h2>
+      <ol class="step-list" id="nextSteps"></ol>
+    </div>
+
+    <!-- Actions -->
+    <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="catalogo.html" class="btn-primary">
+        <span data-es="Continuar Comprando" data-en="Continue Shopping">Continuar Comprando</span>
+        <span>→</span>
+      </a>
+      <a href="https://wa.me/19395991835" target="_blank" class="btn-secondary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+        <span data-es="Soporte por WhatsApp" data-en="WhatsApp Support">Soporte por WhatsApp</span>
+      </a>
+    </div>
+
+    <!-- RUO footer note -->
+    <div class="mt-16 p-5 border border-[#FF6B47]/15 bg-[#FF6B47]/5">
+      <p class="text-xs text-[#E8E4D9]/60 leading-relaxed text-center" data-es-html="<strong class='text-[#FF6B47]'>Research Use Only.</strong> Esta orden contiene compuestos para investigación científica de laboratorio únicamente. No para uso humano, veterinario, ni terapéutico." data-en-html="<strong class='text-[#FF6B47]'>Research Use Only.</strong> This order contains compounds for laboratory scientific research only. Not for human, veterinary, or therapeutic use.">
+        <strong class="text-[#FF6B47]">Research Use Only.</strong> Esta orden contiene compuestos para investigación científica de laboratorio únicamente. No para uso humano, veterinario, ni terapéutico.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="border-t border-[#00D4AA]/10 px-6 md:px-12 py-8 mono text-[10px] tracking-[0.2em] uppercase text-[#E8E4D9]/40 mt-12">
+  <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between gap-4">
+    <div>© 2026 Tropical Research Labs LLC</div>
+    <div class="flex gap-6">
+      <a href="terminos.html" class="hover:text-[#00D4AA]" data-es="Términos" data-en="Terms">Términos</a>
+      <a href="privacidad.html" class="hover:text-[#00D4AA]" data-es="Privacidad" data-en="Privacy">Privacidad</a>
+      <a href="envios.html" class="hover:text-[#00D4AA]" data-es="Envíos" data-en="Shipping">Envíos</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+let currentLang = localStorage.getItem('trl_lang') || 'es';
+
+const TRANSLATIONS = {
+  es: {
+    statusReceived: 'Orden Recibida',
+    statusConfirmed: 'Pago Confirmado',
+    statusCancelled: 'Pago Cancelado',
+    descReceived: 'Tu orden ha sido recibida. El equipo recibió todos los detalles y se comunicará contigo en breve.',
+    descConfirmed: 'Tu pago fue procesado exitosamente. Recibirás un email de confirmación en breve.',
+    descCancelled: 'Tu pago fue cancelado. Tu orden sigue activa, puedes intentar de nuevo o usar otro método.',
+    descCard: 'Tu orden fue registrada y procesada a través de nuestro procesador de pago seguro.',
+    descAth: 'Sigue las instrucciones a continuación para completar tu pago vía ATH Móvil.',
+    descCrypto: 'Coordina el pago en criptomoneda directamente con Carlos por WhatsApp.',
+    methodCard: 'Tarjeta de Crédito / Débito (Evertec)',
+    methodAth: 'ATH Móvil',
+    methodCrypto: 'Criptomoneda',
+    steps: {
+      card: [
+        'Tu pago fue procesado exitosamente por nuestro procesador seguro.',
+        'Recibirás un email de confirmación de pago en los próximos minutos.',
+        'Tu orden será procesada y despachada en 1-3 días hábiles.',
+        'Recibirás un número de rastreo por email cuando tu paquete sea despachado.'
+      ],
+      ath: [
+        'Envía el pago total a (939) 599-1835 vía ATH Móvil.',
+        'En el concepto del pago, incluye tu número de orden.',
+        'Toma captura del comprobante y envíalo por WhatsApp al (939) 599-1835.',
+        'Una vez verificado el pago, tu orden será procesada en 1-3 días hábiles.'
+      ],
+      crypto: [
+        'Escríbele directamente a Carlos por WhatsApp al (939) 599-1835 para coordinar el pago en criptomoneda.',
+        'Incluye tu número de orden en el mensaje.',
+        'Recibirás la dirección de wallet y el monto exacto por mensaje directo.',
+        'Una vez verificada la transacción, tu orden será procesada en 1-3 días hábiles.'
+      ]
+    },
+    copy: 'Toca para copiar',
+    copied: 'Copiado',
+    athInstruction: 'Envía $%TOTAL% a:',
+    cryptoInstruction: 'Total a pagar:',
+    includeRef: 'Incluye en el concepto:',
+    walletNote: 'Coordina el pago en cripto directamente con Carlos por WhatsApp'
+  },
+  en: {
+    statusReceived: 'Order Received',
+    statusConfirmed: 'Payment Confirmed',
+    statusCancelled: 'Payment Cancelled',
+    descReceived: 'Your order has been received. The team received all the details and will contact you shortly.',
+    descConfirmed: 'Your payment was processed successfully. You will receive a confirmation email shortly.',
+    descCancelled: 'Your payment was cancelled. Your order is still active, you can try again or use another method.',
+    descCard: 'Your order was registered and processed through our secure payment processor.',
+    descAth: 'Follow the instructions below to complete your payment via ATH Móvil.',
+    descCrypto: 'Coordinate your cryptocurrency payment directly with Carlos via WhatsApp.',
+    methodCard: 'Credit / Debit Card (Evertec)',
+    methodAth: 'ATH Móvil',
+    methodCrypto: 'Cryptocurrency',
+    steps: {
+      card: [
+        'Your payment was successfully processed by our secure processor.',
+        'You will receive a payment confirmation email in the next few minutes.',
+        'Your order will be processed and shipped within 1-3 business days.',
+        'You will receive a tracking number by email when your package is shipped.'
+      ],
+      ath: [
+        'Send the total payment to (939) 599-1835 via ATH Móvil.',
+        'In the payment concept, include your order number.',
+        'Take a screenshot of the receipt and send it via WhatsApp to (939) 599-1835.',
+        'Once payment is verified, your order will be processed within 1-3 business days.'
+      ],
+      crypto: [
+        'Message Carlos directly on WhatsApp at (939) 599-1835 to coordinate the cryptocurrency payment.',
+        'Include your order number in the message.',
+        'You will receive the wallet address and exact amount via direct message.',
+        'Once the transaction is verified, your order will be processed within 1-3 business days.'
+      ]
+    },
+    copy: 'Tap to copy',
+    copied: 'Copied',
+    athInstruction: 'Send $%TOTAL% to:',
+    cryptoInstruction: 'Total to pay:',
+    includeRef: 'Include in memo:',
+    walletNote: 'Coordinate the crypto payment directly with Carlos via WhatsApp'
+  }
+};
+
+// ============= URL PARAMS =============
+function getParam(name) {
+  return new URLSearchParams(window.location.search).get(name);
+}
+
+// ============= COPY TO CLIPBOARD =============
+function copyText(el, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    el.classList.add('copied');
+    setTimeout(() => el.classList.remove('copied'), 2000);
+  });
+}
+
+// ============= RENDER =============
+const P2P_WORKER_URL = "https://trl-payments.tropicalresearchlabs.workers.dev";
+
+async function render() {
+  const T = TRANSLATIONS[currentLang];
+  const orderParam = getParam('order') || getParam('ref');
+  const methodParam = getParam('method');
+
+  // Get order data from localStorage
+  let order = null;
+  try {
+    order = JSON.parse(localStorage.getItem('trl_last_order') || 'null');
+  } catch(e) {}
+
+  if (!order) {
+    document.getElementById('orderId').textContent = orderParam || '—';
+    document.getElementById('customerName').textContent = '—';
+    document.getElementById('customerEmail').textContent = '—';
+    document.getElementById('orderTotal').textContent = '—';
+    document.getElementById('paymentMethod').textContent = '—';
+    return;
+  }
+
+  const method = methodParam || order.method;
+
+  // Populate order card
+  document.getElementById('orderId').textContent = order.orderId;
+  document.getElementById('customerName').textContent = order.name;
+  document.getElementById('customerEmail').textContent = order.email;
+  document.getElementById('orderTotal').textContent = '$' + order.total.toFixed(2);
+
+  let methodLabel = T.methodCard;
+  if (method === 'ath') methodLabel = T.methodAth;
+  if (method === 'crypto') methodLabel = T.methodCrypto;
+  document.getElementById('paymentMethod').textContent = methodLabel;
+
+  let eyebrow, description;
+
+  // For CARD payments, query the REAL transaction status from PlacetoPay
+  // (via the Worker) — never assume success. This satisfies Evertec's
+  // requirement that the return page shows the actual transaction state.
+  if (method === 'card') {
+    const requestId = localStorage.getItem('trl_p2p_request');
+    let realStatus = 'PENDING';
+
+    if (requestId) {
+      try {
+        const res = await fetch(`${P2P_WORKER_URL}/status`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ requestId: requestId })
+        });
+        const data = await res.json();
+        realStatus = (data.status || 'PENDING').toUpperCase();
+      } catch (e) {
+        console.error('Status check failed:', e);
+        realStatus = 'PENDING';
+      }
+    }
+
+    if (realStatus === 'APPROVED') {
+      eyebrow = T.statusConfirmed;
+      description = T.descConfirmed;
+    } else if (realStatus === 'REJECTED' || realStatus === 'DECLINED') {
+      eyebrow = currentLang === 'es' ? 'Pago Rechazado' : 'Payment Declined';
+      description = currentLang === 'es'
+        ? 'Tu pago fue rechazado por el procesador. No se realizó ningún cargo. Puedes intentar de nuevo o usar otro método de pago.'
+        : 'Your payment was declined by the processor. No charge was made. You can try again or use another payment method.';
+    } else {
+      // PENDING or unknown
+      eyebrow = currentLang === 'es' ? 'Pago Pendiente' : 'Payment Pending';
+      description = currentLang === 'es'
+        ? 'Tu pago está siendo procesado. Recibirás una confirmación por email una vez se complete.'
+        : 'Your payment is being processed. You will receive an email confirmation once it completes.';
+    }
+  } else {
+    eyebrow = T.statusReceived;
+    if (method === 'ath') description = T.descAth;
+    else if (method === 'crypto') description = T.descCrypto;
+    else description = T.descReceived;
+  }
+  document.getElementById('statusEyebrow').textContent = eyebrow;
+  document.getElementById('statusDescription').textContent = description;
+
+  // Render payment-specific instructions
+  const instructionsEl = document.getElementById('paymentInstructions');
+  let instructionsHTML = '';
+
+  if (method === 'ath') {
+    instructionsHTML = `
+      <div class="payment-instructions">
+        <strong>${T.athInstruction.replace('%TOTAL%', order.total.toFixed(2))}</strong>
+        <div class="payment-detail-block">
+          <div class="payment-detail-label">ATH Móvil</div>
+          <div class="payment-detail-value" onclick="copyText(this, '9395991835')">(939) 599-1835</div>
+        </div>
+        <div class="payment-detail-block">
+          <div class="payment-detail-label">${T.includeRef}</div>
+          <div class="payment-detail-value" onclick="copyText(this, '${order.orderId}')">${order.orderId}</div>
+        </div>
+      </div>`;
+  } else if (method === 'crypto') {
+    instructionsHTML = `
+      <div class="payment-instructions">
+        <strong>${T.cryptoInstruction}</strong>
+        <div class="payment-detail-block">
+          <div class="payment-detail-label">USD</div>
+          <div class="payment-detail-value">$${order.total.toFixed(2)}</div>
+        </div>
+        <div class="payment-detail-block">
+          <div class="payment-detail-label">WhatsApp — Carlos</div>
+          <div class="payment-detail-value" onclick="copyText(this, '9395991835')">(939) 599-1835</div>
+        </div>
+        <p class="mt-4 text-xs text-[#E8E4D9]/60 italic">${T.walletNote}</p>
+      </div>`;
+  }
+
+  instructionsEl.innerHTML = instructionsHTML;
+
+  // Render next steps
+  const stepsEl = document.getElementById('nextSteps');
+  const steps = T.steps[method] || T.steps.card;
+  stepsEl.innerHTML = steps.map(s => `<li>${s}</li>`).join('');
+}
+
+// ============= BILINGUAL =============
+function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('trl_lang', lang);
+  document.getElementById('htmlRoot').setAttribute('lang', lang);
+
+  const langCurrent = document.getElementById('langCurrent');
+  const langOther = document.getElementById('langOther');
+  if (langCurrent && langOther) {
+    langCurrent.textContent = lang.toUpperCase();
+    langOther.textContent = (lang === 'es' ? 'EN' : 'ES');
+  }
+
+  document.querySelectorAll('[data-es]').forEach(el => {
+    const value = el.getAttribute(`data-${lang}`);
+    if (value !== null) el.textContent = value;
+  });
+  document.querySelectorAll('[data-es-html]').forEach(el => {
+    const value = el.getAttribute(`data-${lang}-html`);
+    if (value !== null) el.innerHTML = value;
+  });
+
+  render();
+}
+
+function toggleLang() {
+  const newLang = (currentLang === 'es') ? 'en' : 'es';
+  applyLanguage(newLang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  applyLanguage(currentLang);
+});
+</script>
+
+</body>
+</html>

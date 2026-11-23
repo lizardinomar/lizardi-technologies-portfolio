@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="es" id="htmlRoot">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#050810" />
+<title>Checkout · Tropical Research Labs</title>
+<meta name="description" content="Finaliza tu orden de compuestos de investigación. Pago seguro." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+  :root {
+    --void: #050810;
+    --navy: #0A1628;
+    --navy-light: #0F1F38;
+    --teal: #00D4AA;
+    --coral: #FF6B47;
+    --bone: #E8E4D9;
+  }
+
+  * { -webkit-font-smoothing: antialiased; }
+
+  html, body {
+    background: var(--void); color: var(--bone);
+    font-family: 'Inter', sans-serif; min-height: 100vh;
+  }
+  .display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
+  .mono { font-family: 'Space Mono', monospace; }
+
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    pointer-events: none; z-index: 100; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  .orb { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; opacity: 0.3; }
+  .orb-teal { background: radial-gradient(circle, rgba(0,212,170,0.6) 0%, transparent 70%); }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0,212,170,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,170,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .section-eyebrow {
+    font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.4em; text-transform: uppercase;
+    color: var(--teal); display: flex; align-items: center; gap: 16px;
+  }
+  .section-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--teal); }
+
+  .step-badge {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: 'Space Mono', monospace; font-size: 10px;
+    letter-spacing: 0.3em; text-transform: uppercase; color: var(--teal);
+    margin-bottom: 16px;
+  }
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 1px solid rgba(0,212,170,0.4);
+    background: rgba(0,212,170,0.08);
+    color: var(--teal); font-weight: 700;
+  }
+
+  .form-section {
+    padding: 36px;
+    background: linear-gradient(180deg, rgba(15,31,56,0.4), rgba(10,22,40,0.6));
+    border: 1px solid rgba(0,212,170,0.15);
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .form-group { margin-bottom: 20px; }
+  .form-label {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .form-label .required { color: var(--coral); margin-left: 4px; }
+  .form-input, .form-textarea, .form-select {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(5,8,16,0.6);
+    border: 1px solid rgba(232,228,217,0.15);
+    color: var(--bone);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    transition: all 0.3s;
+    outline: none;
+  }
+  .form-input:focus, .form-textarea:focus, .form-select:focus {
+    border-color: var(--teal);
+    background: rgba(5,8,16,0.9);
+    box-shadow: 0 0 0 3px rgba(0,212,170,0.1);
+  }
+  .form-input::placeholder, .form-textarea::placeholder { color: rgba(232,228,217,0.3); }
+  .form-textarea { min-height: 100px; resize: vertical; font-family: 'Inter', sans-serif; }
+  .form-select {
+    cursor: pointer; appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%2300D4AA' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+  .form-select option { background: var(--navy); color: var(--bone); }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .form-row-3 { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 14px; }
+  @media (max-width: 640px) {
+    .form-row, .form-row-3 { grid-template-columns: 1fr; }
+  }
+
+  /* PAYMENT METHOD CARDS */
+  .ship-methods { display: flex; flex-direction: column; gap: 8px; }
+  .ship-option {
+    cursor: pointer; padding: 16px 18px;
+    border: 1px solid rgba(232,228,217,0.15);
+    background: rgba(5,8,16,0.4); transition: all 0.3s;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .ship-option:hover { border-color: rgba(0,212,170,0.4); background: rgba(15,31,56,0.4); }
+  .ship-option.selected {
+    border-color: var(--teal); background: rgba(0,212,170,0.08);
+    box-shadow: 0 0 0 1px var(--teal) inset;
+  }
+  .ship-option input[type="radio"] { display: none; }
+  .ship-radio {
+    width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+    border: 2px solid rgba(232,228,217,0.3); position: relative; transition: all 0.25s;
+  }
+  .ship-option.selected .ship-radio { border-color: var(--teal); }
+  .ship-option.selected .ship-radio::after {
+    content: ''; position: absolute; inset: 3px; border-radius: 50%; background: var(--teal);
+  }
+  .pay-option {
+    cursor: pointer;
+    padding: 20px;
+    border: 1px solid rgba(232,228,217,0.15);
+    background: rgba(5,8,16,0.4);
+    transition: all 0.3s;
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 8px;
+  }
+  .pay-option:hover { border-color: rgba(0,212,170,0.4); background: rgba(15,31,56,0.4); }
+  .pay-option.selected {
+    border-color: var(--teal);
+    background: rgba(0,212,170,0.08);
+    box-shadow: 0 0 0 1px var(--teal) inset;
+  }
+  .pay-option input[type="radio"] {
+    width: 18px; height: 18px;
+    accent-color: var(--teal);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .pay-icon {
+    width: 44px; height: 44px;
+    border: 1px solid rgba(0,212,170,0.2);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    background: rgba(15,31,56,0.4);
+  }
+  .pay-option.selected .pay-icon {
+    border-color: var(--teal);
+    background: rgba(0,212,170,0.12);
+  }
+  .pay-info { flex-grow: 1; min-width: 0; }
+  .pay-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: var(--bone);
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+  .pay-desc {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: rgba(232,228,217,0.5);
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+  }
+  .pay-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 999px;
+    flex-shrink: 0;
+  }
+  .pay-badge.primary {
+    background: var(--teal); color: var(--void); font-weight: 700;
+  }
+  .pay-badge.alt {
+    background: rgba(255,107,71,0.12); color: var(--coral);
+    border: 1px solid rgba(255,107,71,0.3);
+  }
+
+  /* SHIPPING PROTECTION TOGGLE */
+  .toggle-option {
+    cursor: pointer;
+    padding: 20px;
+    border: 1px solid rgba(232,228,217,0.15);
+    background: rgba(5,8,16,0.4);
+    transition: all 0.3s;
+    display: flex; align-items: flex-start; gap: 16px;
+  }
+  .toggle-option:hover { border-color: rgba(0,212,170,0.4); }
+  .toggle-option.selected { border-color: var(--teal); background: rgba(0,212,170,0.06); }
+  .toggle-switch {
+    width: 44px; height: 24px;
+    background: rgba(232,228,217,0.15);
+    border-radius: 999px;
+    position: relative;
+    transition: background 0.3s;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .toggle-switch::after {
+    content: '';
+    position: absolute;
+    top: 2px; left: 2px;
+    width: 20px; height: 20px;
+    background: var(--bone);
+    border-radius: 50%;
+    transition: transform 0.3s cubic-bezier(0.7,0,0.3,1);
+  }
+  .toggle-option.selected .toggle-switch { background: var(--teal); }
+  .toggle-option.selected .toggle-switch::after {
+    transform: translateX(20px);
+    background: var(--void);
+  }
+
+  /* CHECKBOXES */
+  .check-row {
+    display: flex; align-items: flex-start; gap: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+  }
+  .check-row input[type="checkbox"] {
+    margin-top: 4px;
+    accent-color: var(--teal);
+    width: 16px; height: 16px;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  /* ORDER SUMMARY */
+  .summary-card {
+    padding: 32px;
+    background: linear-gradient(180deg, rgba(15,31,56,0.5), rgba(10,22,40,0.8));
+    border: 1px solid rgba(0,212,170,0.2);
+    position: sticky;
+    top: 24px;
+  }
+  @media (max-width: 768px) { .summary-card { position: static; } }
+
+  .summary-item {
+    display: flex; gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(232,228,217,0.05);
+  }
+  .summary-item:last-child { border-bottom: none; }
+  .summary-img {
+    width: 56px; height: 72px;
+    background: rgba(5,8,16,0.6);
+    border: 1px solid rgba(0,212,170,0.15);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+  .summary-img img { width: 100%; height: 100%; object-fit: contain; }
+  .summary-info { flex-grow: 1; min-width: 0; }
+  .summary-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--bone);
+    line-height: 1.1;
+  }
+  .summary-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: rgba(232,228,217,0.5);
+    margin-top: 3px;
+  }
+  .summary-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--bone);
+    margin-top: 4px;
+  }
+
+  .total-line {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 8px 0;
+  }
+  .total-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(232,228,217,0.6);
+  }
+  .total-val {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--bone);
+  }
+  .total-final {
+    padding-top: 16px;
+    margin-top: 8px;
+    border-top: 1px solid rgba(0,212,170,0.2);
+  }
+  .total-final .total-label {
+    font-size: 13px;
+    color: var(--bone);
+    font-weight: 700;
+  }
+  .total-final .total-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    color: var(--teal);
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 20px 24px;
+    background: var(--teal);
+    color: var(--void);
+    border: 1px solid var(--teal);
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+  }
+  .btn-submit::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--coral);
+    transform: translateY(101%);
+    transition: transform 0.4s cubic-bezier(0.7,0,0.3,1);
+  }
+  .btn-submit span { position: relative; z-index: 1; }
+  .btn-submit:hover::before { transform: translateY(0); }
+  .btn-submit:hover { color: var(--bone); }
+  .btn-submit:disabled {
+    background: rgba(232,228,217,0.1);
+    border-color: rgba(232,228,217,0.15);
+    color: rgba(232,228,217,0.4);
+    cursor: not-allowed;
+  }
+  .btn-submit:disabled::before { display: none; }
+
+  .secure-badge {
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(232,228,217,0.4);
+    margin-top: 16px;
+  }
+
+  .ruo-disclaimer {
+    margin-top: 24px;
+    padding: 16px 20px;
+    background: rgba(255,107,71,0.05);
+    border: 1px solid rgba(255,107,71,0.2);
+    border-left: 3px solid var(--coral);
+    font-size: 11px;
+    line-height: 1.6;
+    color: rgba(232,228,217,0.7);
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 100px 20px;
+  }
+
+  .form-error {
+    display: none;
+    padding: 16px 20px;
+    background: rgba(255,107,71,0.1);
+    border: 1px solid rgba(255,107,71,0.4);
+    color: var(--coral);
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+  .form-error.show { display: block; }
+
+  /* Loading state */
+  .processing {
+    position: fixed; inset: 0;
+    background: rgba(5,8,16,0.95);
+    backdrop-filter: blur(20px);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .processing.show { display: flex; }
+  .processing-spinner {
+    width: 60px; height: 60px;
+    border: 2px solid rgba(0,212,170,0.2);
+    border-top-color: var(--teal);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 24px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .cursor-dot, .cursor-ring { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PROCESSING OVERLAY -->
+<div class="processing" id="processing">
+  <div class="processing-spinner"></div>
+  <div class="display text-2xl text-[#E8E4D9] mb-2" data-es="Procesando orden..." data-en="Processing order...">Procesando orden...</div>
+  <div class="mono text-xs tracking-[0.2em] uppercase text-[#E8E4D9]/50" data-es="No cierres esta ventana" data-en="Do not close this window">No cierres esta ventana</div>
+</div>
+
+<!-- NAV -->
+<nav class="px-6 md:px-12 py-6 border-b border-[#00D4AA]/10 relative z-10">
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <a href="index.html" class="block">
+      <img src="assets/images/logo-wordmark.png" alt="Tropical Research Labs" class="h-10 md:h-12 w-auto" />
+    </a>
+    <div class="flex items-center gap-6">
+      <button onclick="toggleLang()" id="langToggle" class="mono text-xs tracking-[0.2em] uppercase text-[#E8E4D9]/60 hover:text-[#00D4AA] transition cursor-pointer">
+        <span id="langCurrent">ES</span> <span class="text-[#E8E4D9]/30">/</span> <span id="langOther">EN</span>
+      </button>
+      <a href="catalogo.html" class="mono text-xs tracking-[0.2em] uppercase text-[#E8E4D9]/60 hover:text-[#00D4AA]">
+        <span data-es="← Catálogo" data-en="← Catalog">← Catálogo</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="relative pt-16 pb-12 px-6 md:px-12 overflow-hidden">
+  <div class="absolute inset-0 grid-bg opacity-30"></div>
+  <div class="orb orb-teal" style="width: 600px; height: 600px; top: -200px; right: -100px;"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto">
+    <div class="section-eyebrow mb-6"><span data-es="Checkout · Orden Final" data-en="Checkout · Final Order">Checkout · Orden Final</span></div>
+    <h1 class="display text-5xl md:text-7xl leading-[0.9] text-[#E8E4D9]">
+      <span data-es="Finalizar" data-en="Complete your">Finalizar</span><br/>
+      <span style="color: var(--coral); font-style: italic;" data-es="tu orden." data-en="order.">tu orden.</span>
+    </h1>
+    <p class="mt-6 text-base text-[#E8E4D9]/60 max-w-xl" data-es="Completa tu información de envío y método de pago. Tu orden será procesada de inmediato." data-en="Complete your shipping information and payment method. Your order will be processed immediately.">
+      Completa tu información de envío y método de pago. Tu orden será procesada de inmediato.
+    </p>
+  </div>
+</section>
+
+<!-- EMPTY STATE -->
+<section id="emptySection" class="hidden px-6 md:px-12 py-12">
+  <div class="max-w-3xl mx-auto empty-state">
+    <div class="text-6xl mb-6 opacity-30">∅</div>
+    <h2 class="display text-4xl text-[#E8E4D9]/60 mb-4" data-es="Tu carrito está vacío" data-en="Your cart is empty">Tu carrito está vacío</h2>
+    <p class="text-sm text-[#E8E4D9]/40 mb-10" data-es="Agrega compuestos a tu carrito para finalizar tu orden." data-en="Add compounds to your cart to complete your order.">Agrega compuestos a tu carrito para finalizar tu orden.</p>
+    <a href="catalogo.html" class="inline-flex items-center gap-3 px-8 py-4 bg-[#00D4AA] text-[#050810] mono text-xs tracking-[0.25em] uppercase font-bold hover:bg-[#FF6B47] hover:text-[#E8E4D9] transition">
+      <span data-es="Ir al Catálogo" data-en="Go to Catalog">Ir al Catálogo</span>
+      <span>→</span>
+    </a>
+  </div>
+</section>
+
+<!-- MAIN CHECKOUT -->
+<section id="checkoutSection" class="px-6 md:px-12 py-12">
+  <div class="max-w-7xl mx-auto">
+    <form id="checkoutForm" class="grid md:grid-cols-12 gap-8">
+
+      <!-- LEFT: FORM -->
+      <div class="md:col-span-7 space-y-4">
+
+        <!-- Web3Forms hidden fields -->
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" id="emailSubject" value="🛒 Nueva Orden · TRL">
+        <input type="hidden" name="from_name" value="TRL Checkout">
+        <input type="hidden" name="order_id" id="orderIdField">
+        <input type="hidden" name="order_summary" id="orderSummaryField">
+        <input type="hidden" name="order_total" id="orderTotalField">
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none;">
+
+        <!-- STEP 1: Contact -->
+        <div class="form-section">
+          <div class="step-badge">
+            <span class="step-num">1</span>
+            <span data-es="Información de Contacto" data-en="Contact Information">Información de Contacto</span>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label"><span data-es="Nombre" data-en="First name">Nombre</span><span class="required">*</span></label>
+              <input type="text" name="first_name" required class="form-input" placeholder="Juan" aria-label="Nombre">
+            </div>
+            <div class="form-group">
+              <label class="form-label"><span data-es="Apellido" data-en="Last name">Apellido</span><span class="required">*</span></label>
+              <input type="text" name="last_name" required class="form-input" placeholder="Pérez" aria-label="Apellido">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Email<span class="required">*</span></label>
+              <input type="email" name="email" required class="form-input" placeholder="tu@email.com" aria-label="Email">
+            </div>
+            <div class="form-group">
+              <label class="form-label"><span data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp">Teléfono / WhatsApp</span><span class="required">*</span></label>
+              <input type="tel" name="phone" required class="form-input" placeholder="(939) 555-1234" aria-label="Teléfono / WhatsApp" pattern="[\(]?[0-9]{3}[\)]?[\s\-]?[0-9]{3}[\s\-]?[0-9]{4}" minlength="10" maxlength="20" title="Ingresa un teléfono válido de 10 dígitos, ej: (939) 555-1234" oninput="validatePhone(this)">
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Shipping -->
+        <div class="form-section">
+          <div class="step-badge">
+            <span class="step-num">2</span>
+            <span data-es="Dirección de Envío" data-en="Shipping Address">Dirección de Envío</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"><span data-es="Dirección" data-en="Street address">Dirección</span><span class="required">*</span></label>
+            <input type="text" name="address_line1" required class="form-input" data-es-placeholder="Calle, número" data-en-placeholder="Street, number" placeholder="Calle, número" aria-label="Dirección">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"><span data-es="Apt / Suite / Otro (opcional)" data-en="Apt / Suite / Other (optional)">Apt / Suite / Otro (opcional)</span></label>
+            <input type="text" name="address_line2" class="form-input" data-es-placeholder="Apto 4B, Edificio Centro" data-en-placeholder="Apt 4B, Center Bldg" placeholder="Apto 4B, Edificio Centro" aria-label="Dirección línea 2">
+          </div>
+
+          <div class="form-row-3">
+            <div class="form-group">
+              <label class="form-label"><span data-es="Ciudad" data-en="City">Ciudad</span><span class="required">*</span></label>
+              <input type="text" name="city" required class="form-input" placeholder="San Juan" aria-label="Ciudad">
+            </div>
+            <div class="form-group">
+              <label class="form-label"><span data-es="Estado" data-en="State">Estado</span><span class="required">*</span></label>
+              <input type="text" name="state" required class="form-input" placeholder="PR" aria-label="Estado">
+            </div>
+            <div class="form-group">
+              <label class="form-label"><span data-es="Código Postal" data-en="ZIP Code">Código Postal</span><span class="required">*</span></label>
+              <input type="text" name="zip" required class="form-input" placeholder="00901" aria-label="Código postal">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"><span data-es="País" data-en="Country">País</span><span class="required">*</span></label>
+            <select name="country" required class="form-select" id="countrySelect" onchange="recalculateTotal()" aria-label="País">
+              <option value="" disabled selected data-es="Selecciona tu ubicación" data-en="Select your location">Selecciona tu ubicación</option>
+              <option value="PR" data-es="Puerto Rico" data-en="Puerto Rico">Puerto Rico</option>
+              <option value="US" data-es="Estados Unidos Continental" data-en="Continental United States">Estados Unidos Continental</option>
+              <option value="INT" data-es="Internacional" data-en="International">Internacional</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label"><span data-es="Instrucciones especiales (opcional)" data-en="Special instructions (optional)">Instrucciones especiales (opcional)</span></label>
+            <textarea name="notes" class="form-textarea" data-es-placeholder="Notas para el envío, referencias, horarios..." data-en-placeholder="Shipping notes, references, hours..." placeholder="Notas para el envío, referencias, horarios..." aria-label="Notas"></textarea>
+          </div>
+        </div>
+
+        <!-- STEP 3: Shipping Method -->
+        <div class="form-section">
+          <div class="step-badge">
+            <span class="step-num">3</span>
+            <span data-es="Método de Envío" data-en="Shipping Method">Método de Envío</span>
+          </div>
+
+          <div class="ship-methods">
+            <!-- Standard shipping (free PR / paid elsewhere) -->
+            <label class="ship-option selected" id="shipStandardLabel" data-method="standard">
+              <input type="radio" name="shipping_method" value="standard" checked onchange="selectShipping(this)">
+              <div class="ship-radio"></div>
+              <div class="flex-grow">
+                <div class="flex items-center justify-between gap-3">
+                  <div class="display text-lg text-[#E8E4D9]" data-es="Envío Estándar" data-en="Standard Shipping">Envío Estándar</div>
+                  <div class="display text-lg" style="color: var(--teal);" id="standardPriceLabel">GRATIS</div>
+                </div>
+                <div class="mt-2 space-y-1">
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="text-[#E8E4D9]/70" data-es="🇵🇷 Puerto Rico" data-en="🇵🇷 Puerto Rico">🇵🇷 Puerto Rico</span>
+                    <span class="display" style="color: var(--teal);" data-es="GRATIS" data-en="FREE">GRATIS</span>
+                  </div>
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="text-[#E8E4D9]/70" data-es="🇺🇸 Estados Unidos / Territorios" data-en="🇺🇸 United States / Territories">🇺🇸 Estados Unidos / Territorios</span>
+                    <span class="display text-[#E8E4D9]">$14.00</span>
+                  </div>
+                </div>
+                <p class="text-xs text-[#E8E4D9]/50 mt-2" data-es="USPS · 3–5 días hábiles · Con rastreo." data-en="USPS · 3–5 business days · With tracking.">USPS · 3–5 días hábiles · Con rastreo.</p>
+              </div>
+            </label>
+
+            <!-- Priority Mail -->
+            <label class="ship-option" id="shipPriorityLabel" data-method="priority">
+              <input type="radio" name="shipping_method" value="priority" onchange="selectShipping(this)">
+              <div class="ship-radio"></div>
+              <div class="flex-grow">
+                <div class="flex items-center justify-between gap-3">
+                  <div class="display text-lg text-[#E8E4D9]" data-es="Priority Mail" data-en="Priority Mail">Priority Mail</div>
+                  <div class="display text-lg" style="color: var(--teal);">+$18.00</div>
+                </div>
+                <p class="text-xs text-[#E8E4D9]/60 mt-1" data-es="USPS Priority · 1–3 días hábiles · Entrega más rápida con rastreo." data-en="USPS Priority · 1–3 business days · Faster delivery with tracking.">USPS Priority · 1–3 días hábiles · Entrega más rápida con rastreo.</p>
+              </div>
+            </label>
+
+            <!-- Pickup -->
+            <label class="ship-option" id="shipPickupLabel" data-method="pickup">
+              <input type="radio" name="shipping_method" value="pickup" onchange="selectShipping(this)">
+              <div class="ship-radio"></div>
+              <div class="flex-grow">
+                <div class="flex items-center justify-between gap-3">
+                  <div class="display text-lg text-[#E8E4D9]" data-es="Recoger en Persona" data-en="In-Person Pickup">Recoger en Persona</div>
+                  <div class="display text-lg" style="color: var(--teal);">$0.00</div>
+                </div>
+                <p class="text-xs text-[#E8E4D9]/60 mt-1" data-es="Pickup · coordinar por WhatsApp luego de ordenar." data-en="Pickup · coordinate via WhatsApp after ordering.">Pickup · coordinar por WhatsApp luego de ordenar.</p>
+              </div>
+            </label>
+          </div>
+
+          <!-- Insurance toggle -->
+          <label class="toggle-option mt-4" id="shippingProtectionLabel">
+            <input type="checkbox" name="shipping_protection" id="shippingProtection" onchange="toggleProtection()" style="display:none;">
+            <div class="toggle-switch"></div>
+            <div class="flex-grow">
+              <div class="flex items-center justify-between mb-2 gap-3">
+                <div class="display text-xl text-[#E8E4D9]" data-es="Seguro de Envío" data-en="Shipping Insurance">Seguro de Envío</div>
+                <div class="display text-2xl" style="color: var(--teal);">+$5.00</div>
+              </div>
+              <p class="text-xs text-[#E8E4D9]/60 leading-relaxed" data-es="Cubre tu paquete contra pérdida, daño o problemas de entrega durante el tránsito. Reenvío gratuito si algo sale mal." data-en="Covers your package against loss, damage or delivery issues during transit. Free reshipment if anything goes wrong.">
+                Cubre tu paquete contra pérdida, daño o problemas de entrega durante el tránsito. Reenvío gratuito si algo sale mal.
+              </p>
+            </div>
+          </label>
+        </div>
+
+        <!-- STEP 4: Payment Method -->
+        <div class="form-section">
+          <div class="step-badge">
+            <span class="step-num">4</span>
+            <span data-es="Método de Pago" data-en="Payment Method">Método de Pago</span>
+          </div>
+
+          <!-- Card (Evertec / PlacetoPay) -->
+          <label class="pay-option selected" data-method="card">
+            <input type="radio" name="payment_method" value="card" checked onchange="selectPayment(this)">
+            <div class="pay-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="1.5">
+                <rect x="2" y="6" width="20" height="14" rx="2"/>
+                <line x1="2" y1="11" x2="22" y2="11"/>
+                <line x1="6" y1="16" x2="10" y2="16"/>
+              </svg>
+            </div>
+            <div class="pay-info">
+              <div class="pay-name" data-es="Tarjeta de Crédito / Débito" data-en="Credit / Debit Card">Tarjeta de Crédito / Débito</div>
+              <div class="pay-desc" data-es="Procesado por Evertec · Visa · Mastercard · Amex" data-en="Processed by Evertec · Visa · Mastercard · Amex">Procesado por Evertec · Visa · Mastercard · Amex</div>
+            </div>
+            <span class="pay-badge primary" data-es="Recomendado" data-en="Recommended">Recomendado</span>
+          </label>
+
+          <!-- ATH Móvil -->
+          <label class="pay-option" data-method="ath">
+            <input type="radio" name="payment_method" value="ath" onchange="selectPayment(this)">
+            <div class="pay-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="1.5">
+                <rect x="5" y="2" width="14" height="20" rx="2"/>
+                <line x1="9" y1="18" x2="15" y2="18"/>
+              </svg>
+            </div>
+            <div class="pay-info">
+              <div class="pay-name">ATH Móvil</div>
+              <div class="pay-desc" data-es="Envía pago directo · Solo Puerto Rico" data-en="Direct payment · Puerto Rico only">Envía pago directo · Solo Puerto Rico</div>
+            </div>
+            <span class="pay-badge alt">PR</span>
+          </label>
+
+          <!-- Crypto -->
+          <label class="pay-option" data-method="crypto">
+            <input type="radio" name="payment_method" value="crypto" onchange="selectPayment(this)">
+            <div class="pay-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D4AA" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M9 8h4.5a2 2 0 0 1 0 4H9zm0 4h5a2 2 0 0 1 0 4H9zM10 6v2m4-2v2m-4 10v2m4-2v2"/>
+              </svg>
+            </div>
+            <div class="pay-info">
+              <div class="pay-name" data-es="Criptomoneda" data-en="Cryptocurrency">Criptomoneda</div>
+              <div class="pay-desc" data-es="Coordinar por WhatsApp" data-en="Coordinate via WhatsApp">Coordinar por WhatsApp</div>
+            </div>
+            <span class="pay-badge alt">Crypto</span>
+          </label>
+
+          <p class="mono text-[10px] tracking-[0.2em] uppercase text-[#E8E4D9]/40 mt-4" data-es="* Métodos alternativos requieren confirmación manual por parte del laboratorio" data-en="* Alternative methods require manual confirmation from the lab">
+            * Métodos alternativos requieren confirmación manual por parte del laboratorio
+          </p>
+        </div>
+
+        <!-- STEP 5: Compliance -->
+        <div class="form-section">
+          <div class="step-badge">
+            <span class="step-num">5</span>
+            <span data-es="Confirmación &amp; Términos" data-en="Confirmation &amp; Terms">Confirmación &amp; Términos</span>
+          </div>
+
+          <label class="check-row">
+            <input type="checkbox" name="age_confirm" required>
+            <span class="text-xs text-[#E8E4D9]/70 leading-relaxed" data-es="Confirmo que tengo 21 años o más conforme a las regulaciones aplicables." data-en="I confirm that I am 21 years of age or older as required by applicable regulations.">
+              Confirmo que tengo 21 años o más conforme a las regulaciones aplicables.
+            </span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" name="ruo_confirm" required>
+            <span class="text-xs text-[#E8E4D9]/70 leading-relaxed" data-es-html="Reconozco que los productos son <strong class='text-[#FF6B47]'>Research Use Only</strong> y los adquiero exclusivamente para uso en investigación científica de laboratorio." data-en-html="I acknowledge that the products are <strong class='text-[#FF6B47]'>Research Use Only</strong> and I am acquiring them exclusively for laboratory scientific research use.">
+              Reconozco que los productos son <strong class="text-[#FF6B47]">Research Use Only</strong> y los adquiero exclusivamente para uso en investigación científica de laboratorio.
+            </span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" name="terms_confirm" required>
+            <span class="text-xs text-[#E8E4D9]/70 leading-relaxed" data-es-html="Acepto los <a href='terminos.html' target='_blank' class='text-[#00D4AA] underline'>Términos y Condiciones</a>, la <a href='privacidad.html' target='_blank' class='text-[#00D4AA] underline'>Política de Privacidad</a>, y la <a href='envios.html' target='_blank' class='text-[#00D4AA] underline'>Política de Envíos</a>." data-en-html="I accept the <a href='terminos.html' target='_blank' class='text-[#00D4AA] underline'>Terms &amp; Conditions</a>, <a href='privacidad.html' target='_blank' class='text-[#00D4AA] underline'>Privacy Policy</a>, and <a href='envios.html' target='_blank' class='text-[#00D4AA] underline'>Shipping Policy</a>.">
+              Acepto los <a href="terminos.html" target="_blank" class="text-[#00D4AA] underline">Términos y Condiciones</a>, la <a href="privacidad.html" target="_blank" class="text-[#00D4AA] underline">Política de Privacidad</a>, y la <a href="envios.html" target="_blank" class="text-[#00D4AA] underline">Política de Envíos</a>.
+            </span>
+          </label>
+
+          <label class="check-row">
+            <input type="checkbox" name="import_confirm" required>
+            <span class="text-xs text-[#E8E4D9]/70 leading-relaxed" data-es="Asumo plena responsabilidad por el cumplimiento de las leyes de importación y regulaciones aplicables en mi jurisdicción." data-en="I assume full responsibility for compliance with import laws and applicable regulations in my jurisdiction.">
+              Asumo plena responsabilidad por el cumplimiento de las leyes de importación y regulaciones aplicables en mi jurisdicción.
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <!-- RIGHT: ORDER SUMMARY -->
+      <div class="md:col-span-5">
+        <div class="summary-card">
+          <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-2" data-es="Resumen de Orden" data-en="Order Summary">Resumen de Orden</div>
+          <div class="display text-3xl text-[#E8E4D9] mb-1"><span id="itemCount">0</span> <span class="text-base text-[#E8E4D9]/50" data-es="items" data-en="items">items</span></div>
+          <div class="mono text-[10px] tracking-[0.2em] uppercase text-[#E8E4D9]/40 mb-6" id="orderNumber">ORDER #TRL-2026-0000</div>
+
+          <div id="summaryItems" class="mb-6"></div>
+
+          <!-- Affiliate coupon -->
+          <div class="mb-4 pb-4 border-b border-[#00D4AA]/10">
+            <label class="mono text-[10px] tracking-[0.2em] uppercase text-[#E8E4D9]/50 mb-2 block" data-es="Código de descuento" data-en="Discount code">Código de descuento</label>
+            <div class="flex gap-2">
+              <input type="text" id="couponInput" class="form-input flex-grow" style="text-transform:uppercase;" placeholder="MARIA15" aria-label="Código de descuento" oninput="this.value=this.value.toUpperCase()">
+              <button type="button" onclick="applyCoupon()" class="btn-magnetic btn-primary px-5" style="white-space:nowrap;">
+                <span data-es="Aplicar" data-en="Apply">Aplicar</span>
+              </button>
+            </div>
+            <p id="couponMsg" class="text-xs mt-2" style="display:none;"></p>
+            <input type="hidden" name="affiliate_code" id="affiliateCodeField">
+          </div>
+
+          <div class="space-y-1 pb-4 border-b border-[#00D4AA]/10">
+            <div class="total-line">
+              <span class="total-label">Subtotal</span>
+              <span class="total-val" id="subtotalVal">$0.00</span>
+            </div>
+            <div class="total-line" id="discountRow" style="display:none;">
+              <span class="total-label" style="color:var(--teal);"><span data-es="Descuento" data-en="Discount">Descuento</span> (<span id="discountCode"></span>)</span>
+              <span class="total-val" style="color:var(--teal);" id="discountVal">-$0.00</span>
+            </div>
+            <div class="total-line" id="ivuRow">
+              <span class="total-label">IVU (11.5%)</span>
+              <span class="total-val" id="ivuVal">$0.00</span>
+            </div>
+            <div class="total-line" id="protectionRow" style="display:none;">
+              <span class="total-label" data-es="Seguro de Envío" data-en="Shipping Insurance">Seguro de Envío</span>
+              <span class="total-val" id="protectionVal">$5.00</span>
+            </div>
+            <div class="total-line" id="shippingRow">
+              <span class="total-label" data-es="Envío" data-en="Shipping">Envío</span>
+              <span class="total-val text-[#00D4AA] mono text-[11px] uppercase tracking-wider" id="shippingVal" data-es="Según ubicación" data-en="By location">Según ubicación</span>
+            </div>
+          </div>
+
+          <div class="total-final total-line">
+            <span class="total-label">Total</span>
+            <span class="total-val" id="totalVal">$0.00</span>
+          </div>
+
+          <div class="form-error" id="formError">
+            <span data-es="Hubo un error al procesar tu orden. Por favor intenta de nuevo o contáctanos por WhatsApp." data-en="There was an error processing your order. Please try again or contact us via WhatsApp.">
+              Hubo un error al procesar tu orden. Por favor intenta de nuevo o contáctanos por WhatsApp.
+            </span>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn-submit mt-6">
+            <span id="submitText" data-es="Confirmar y Pagar" data-en="Confirm &amp; Pay">Confirmar y Pagar</span>
+            <span>→</span>
+          </button>
+
+          <div class="secure-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2"/>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            <span data-es="Pago seguro · SSL Encriptado" data-en="Secure payment · SSL Encrypted">Pago seguro · SSL Encriptado</span>
+          </div>
+
+          <div class="ruo-disclaimer">
+            <strong class="text-[#FF6B47] mono text-[10px] tracking-[0.2em] uppercase">⚠ Research Use Only</strong>
+            <p class="mt-2" data-es="Todos los productos son estrictamente para uso en investigación científica de laboratorio. No para uso humano, veterinario, diagnóstico ni terapéutico." data-en="All products are strictly for laboratory scientific research use. Not for human, veterinary, diagnostic or therapeutic use.">
+              Todos los productos son estrictamente para uso en investigación científica de laboratorio. No para uso humano, veterinario, diagnóstico ni terapéutico.
+            </p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t border-[#00D4AA]/10 px-6 md:px-12 py-8 mono text-[10px] tracking-[0.2em] uppercase text-[#E8E4D9]/40 mt-20">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-4">
+    <div>© 2026 Tropical Research Labs LLC</div>
+    <div class="flex gap-6 flex-wrap">
+      <a href="terminos.html" class="hover:text-[#00D4AA]" data-es="Términos" data-en="Terms">Términos</a>
+      <a href="privacidad.html" class="hover:text-[#00D4AA]" data-es="Privacidad" data-en="Privacy">Privacidad</a>
+      <a href="envios.html" class="hover:text-[#00D4AA]" data-es="Envíos" data-en="Shipping">Envíos</a>
+      <a href="disclaimer.html" class="hover:text-[#00D4AA]">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ============================================================
+// CONFIG — REPLACE BEFORE LAUNCH
+// ============================================================
+
+// Will receive amount, order_id, customer_email, return_url as query params
+// PlacetoPay (Evertec) — Cloudflare Worker that creates the payment session
+const P2P_WORKER_URL = "https://trl-payments.tropicalresearchlabs.workers.dev";
+
+// Web3Forms — Carlos signs up at web3forms.com to get key
+// Already referenced in hidden form field above
+
+// Return URL after payment success
+const RETURN_URL = window.location.origin + "/gracias.html";
+
+// IVU rate for Puerto Rico
+const IVU_RATE = 0.115;
+
+// Shipping protection cost
+const PROTECTION_COST = 5.00;
+
+// Shipping costs
+const PRIORITY_COST = 18.00;
+const STANDARD_COST_NONPR = 14.00; // standard shipping outside Puerto Rico
+// Standard shipping is FREE within Puerto Rico, $14 for US/territories/international
+
+// Product IDs considered "solvent only" (BAC water / reconstitution)
+const SOLVENT_IDS = ['bacwater', 'aawater'];
+
+// Affiliate codes now live in the D1 database (managed via panel.html).
+
+let appliedCoupon = null;
+let currentDiscount = 0;
+
+// ============================================================
+
+// Product data (subset for checkout display)
+const PRODUCT_NAMES = {
+  'tz':'TRL-2 TZ','rt':'TRL-3 RT','cagri':'Cagrilintide','lipoc':'Lipo-C + B12','aod':'AOD-9604','fatblaster':'Fat Blaster',
+  'cjc':'CJC-1295 + Ipamorelin','ipa':'Ipamorelin','tes':'Tesamorelin','kiss':'Kisspeptin',
+  'bpc':'BPC-157','tb500':'TB-500','bpctb':'BPC-157 + TB-500','kpv':'KPV',
+  'semax':'Semax','selank':'Selank','dsip':'DSIP','epithal':'Epithalon',
+  'motsc':'MOTS-c','ss31':'SS-31','nad':'NAD+','amino1mq':'5-Amino 1MQ',
+  'ghkcu':'GHK-Cu','glow':'GLOW','pinkgluta':'Pink Glutathione',
+  'ara290':'ARA-290','dihexa':'Dihexa','thymalin':'Thymalin','adamax':'Adamax','cortagen':'Cortagen','vesugen':'Vesugen',
+  'lipofocus':'LIPO Focus','lipob':'Lipo-B','lemonbottle':'Lemon Bottle Ananas','klow':'KLOW','pt141':'PT-141','vip':'VIP',
+  'bacwater':'RS-h2o','aawater':'Agua para Acetato'
+};
+
+let currentLang = localStorage.getItem('trl_lang') || 'es';
+let selectedPayment = 'card';
+let protectionEnabled = false;
+let selectedShipping = 'standard';
+let currentTotal = 0;
+let currentSubtotal = 0;
+let currentIVU = 0;
+let orderId = '';
+
+// ============= ORDER ID GENERATOR =============
+// Static sites have no shared server, so a localStorage counter would reset
+// per browser (every customer would get -0001). Instead we build a globally
+// unique ID from the date + a base-36 timestamp slice + random chars.
+function generateOrderId() {
+  const now = new Date();
+  const year = now.getFullYear();
+  // day-of-year (001-366) so IDs sort roughly by date
+  const start = new Date(year, 0, 0);
+  const doy = Math.floor((now - start) / 86400000).toString().padStart(3, '0');
+  // last 4 chars of base-36 timestamp (ms) — changes every few ms
+  const ts = now.getTime().toString(36).slice(-4).toUpperCase();
+  // 2 random base-36 chars to avoid collisions on simultaneous orders
+  const rnd = Math.random().toString(36).slice(2, 4).toUpperCase();
+  return `TRL-${year}-${doy}${ts}${rnd}`;
+}
+
+// ============= CART =============
+function getCart() {
+  try { return JSON.parse(localStorage.getItem('trl_cart') || '[]'); }
+  catch(e) { return []; }
+}
+
+function clearCart() {
+  localStorage.removeItem('trl_cart');
+}
+
+// ============= RENDER SUMMARY =============
+function renderSummary() {
+  const cart = getCart();
+  const itemsEl = document.getElementById('summaryItems');
+  const checkoutSection = document.getElementById('checkoutSection');
+  const emptySection = document.getElementById('emptySection');
+
+  if (cart.length === 0) {
+    checkoutSection.classList.add('hidden');
+    emptySection.classList.remove('hidden');
+    return;
+  }
+
+  emptySection.classList.add('hidden');
+  checkoutSection.classList.remove('hidden');
+
+  const itemCount = cart.reduce((s,i) => s + i.qty, 0);
+  document.getElementById('itemCount').textContent = itemCount;
+
+  itemsEl.innerHTML = cart.map(item => {
+    const name = item.bundleName || PRODUCT_NAMES[item.id] || item.id;
+    return `
+      <div class="summary-item">
+        <div class="summary-img">
+          <img src="assets/images/vials/${item.id}.jpg" alt="${name}" onerror="this.style.display='none'" />
+        </div>
+        <div class="summary-info">
+          <div class="summary-name">${name}</div>
+          <div class="summary-meta">${item.size} · Qty ${item.qty}</div>
+          <div class="summary-price">$${(item.price * item.qty).toFixed(2)}</div>
+        </div>
+      </div>`;
+  }).join('');
+
+  recalculateTotal();
+}
+
+// ============= CART HELPERS =============
+// True if cart contains ONLY solvent items (BAC water / reconstitution)
+function isSolventOnly() {
+  const cart = getCart();
+  if (cart.length === 0) return false;
+  return cart.every(i => SOLVENT_IDS.includes(i.id));
+}
+
+// ============= CALCULATIONS =============
+function recalculateTotal() {
+  const cart = getCart();
+  const subtotal = cart.reduce((s,i) => s + i.price * i.qty, 0);
+  const country = document.getElementById('countrySelect').value;
+
+  // Affiliate discount (applied to subtotal, before IVU)
+  const discount = appliedCoupon ? subtotal * appliedCoupon.discount : 0;
+  const discountedSubtotal = subtotal - discount;
+
+  const ivu = country === 'PR' ? discountedSubtotal * IVU_RATE : 0;
+  const protection = protectionEnabled ? PROTECTION_COST : 0;
+
+  // Shipping cost based on selected method + country
+  // Standard: FREE in PR, $14 elsewhere. Priority: $18 anywhere. Pickup: $0.
+  let shipping = 0;
+  if (selectedShipping === 'priority') shipping = PRIORITY_COST;
+  else if (selectedShipping === 'pickup') shipping = 0;
+  else shipping = (country === 'PR') ? 0 : STANDARD_COST_NONPR;
+
+  const total = discountedSubtotal + ivu + protection + shipping;
+
+  currentSubtotal = subtotal;
+  currentDiscount = discount;
+  currentIVU = ivu;
+  currentTotal = total;
+
+  document.getElementById('subtotalVal').textContent = '$' + subtotal.toFixed(2);
+  document.getElementById('ivuVal').textContent = '$' + ivu.toFixed(2);
+  document.getElementById('totalVal').textContent = '$' + total.toFixed(2);
+
+  // Discount row
+  const discountRow = document.getElementById('discountRow');
+  if (appliedCoupon && discount > 0) {
+    discountRow.style.display = 'flex';
+    document.getElementById('discountCode').textContent = appliedCoupon.code;
+    document.getElementById('discountVal').textContent = '-$' + discount.toFixed(2);
+  } else {
+    discountRow.style.display = 'none';
+  }
+
+  // Hide IVU row if not PR
+  document.getElementById('ivuRow').style.display = country === 'PR' ? 'flex' : 'none';
+
+  // Show/hide protection row
+  document.getElementById('protectionRow').style.display = protectionEnabled ? 'flex' : 'none';
+
+  // Update shipping row label + value
+  const shipRow = document.getElementById('shippingRow');
+  const shipVal = document.getElementById('shippingVal');
+  if (shipRow && shipVal) {
+    if (selectedShipping === 'priority') {
+      shipVal.textContent = '+$' + PRIORITY_COST.toFixed(2);
+    } else if (selectedShipping === 'pickup') {
+      shipVal.textContent = 'Pickup';
+    } else {
+      // standard: free in PR, $14 elsewhere
+      shipVal.textContent = (country === 'PR')
+        ? (currentLang === 'es' ? 'GRATIS' : 'FREE')
+        : '+$' + STANDARD_COST_NONPR.toFixed(2);
+    }
+  }
+
+  // Update the standard option's own price label based on country
+  const stdLabel = document.getElementById('standardPriceLabel');
+  if (stdLabel) {
+    if (country === 'PR') {
+      stdLabel.textContent = currentLang === 'es' ? 'GRATIS' : 'FREE';
+    } else if (country === '') {
+      // No country chosen yet — prompt selection instead of a confusing combined price
+      stdLabel.textContent = currentLang === 'es' ? 'Según ubicación' : 'By location';
+    } else {
+      stdLabel.textContent = '$' + STANDARD_COST_NONPR.toFixed(2);
+    }
+  }
+}
+
+// ============= SHIPPING METHOD SELECT =============
+// ============= PHONE VALIDATION =============
+function validatePhone(input) {
+  const digits = input.value.replace(/\D/g, '');
+  const valid = digits.length === 10 || (digits.length === 11 && digits[0] === '1');
+  if (input.value.length > 0 && !valid) {
+    input.setCustomValidity(currentLang === 'es'
+      ? 'Ingresa un teléfono válido de 10 dígitos'
+      : 'Enter a valid 10-digit phone number');
+    input.style.borderColor = 'var(--coral)';
+  } else {
+    input.setCustomValidity('');
+    input.style.borderColor = '';
+  }
+}
+
+function selectShipping(input) {
+  selectedShipping = input.value;
+  document.querySelectorAll('.ship-option').forEach(el => el.classList.remove('selected'));
+  input.closest('.ship-option').classList.add('selected');
+  recalculateTotal();
+}
+
+// ============= AFFILIATE COUPON =============
+async function applyCoupon() {
+  const input = document.getElementById('couponInput');
+  const code = (input.value || '').trim().toUpperCase();
+
+  if (!code) {
+    showCouponMsg(currentLang === 'es' ? 'Escribe un código.' : 'Enter a code.', false);
+    return;
+  }
+
+  showCouponMsg(currentLang === 'es' ? 'Verificando…' : 'Checking…', true);
+
+  try {
+    const res = await fetch(P2P_WORKER_URL + '/affiliate/validate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code })
+    });
+    const data = await res.json();
+
+    if (data.valid) {
+      appliedCoupon = { code: data.code, discount: data.discount, affiliate: data.affiliate };
+      document.getElementById('affiliateCodeField').value = data.code + ' (' + data.affiliate + ')';
+      showCouponMsg(
+        (currentLang === 'es' ? '✓ Código aplicado: ' : '✓ Code applied: ') + (data.discount * 100) + '% ' + (currentLang === 'es' ? 'de descuento' : 'off'),
+        true
+      );
+      input.disabled = true;
+    } else {
+      appliedCoupon = null;
+      document.getElementById('affiliateCodeField').value = '';
+      showCouponMsg(currentLang === 'es' ? '✗ Código inválido.' : '✗ Invalid code.', false);
+    }
+  } catch (e) {
+    appliedCoupon = null;
+    showCouponMsg(currentLang === 'es' ? '✗ Error verificando el código. Intenta de nuevo.' : '✗ Error checking code. Try again.', false);
+  }
+  recalculateTotal();
+}
+
+function showCouponMsg(text, ok) {
+  const msg = document.getElementById('couponMsg');
+  msg.textContent = text;
+  msg.style.display = 'block';
+  msg.style.color = ok ? 'var(--teal)' : 'var(--coral)';
+}
+
+// ============= PAYMENT METHOD SELECT =============
+function selectPayment(input) {
+  selectedPayment = input.value;
+  document.querySelectorAll('.pay-option').forEach(el => el.classList.remove('selected'));
+  input.closest('.pay-option').classList.add('selected');
+
+  // Update submit button text based on method
+  const text = document.getElementById('submitText');
+  const lang = currentLang;
+  if (selectedPayment === 'card') {
+    text.textContent = lang === 'es' ? 'Confirmar y Pagar' : 'Confirm & Pay';
+  } else {
+    text.textContent = lang === 'es' ? 'Confirmar Orden' : 'Confirm Order';
+  }
+}
+
+// ============= PROTECTION TOGGLE =============
+function toggleProtection() {
+  const checkbox = document.getElementById('shippingProtection');
+  protectionEnabled = checkbox.checked;
+  const label = document.getElementById('shippingProtectionLabel');
+  if (protectionEnabled) {
+    label.classList.add('selected');
+  } else {
+    label.classList.remove('selected');
+  }
+  recalculateTotal();
+}
+
+// ============= BUILD ORDER SUMMARY (for email) =============
+function buildOrderSummary() {
+  const cart = getCart();
+  let summary = '';
+
+  cart.forEach(item => {
+    const name = item.bundleName || PRODUCT_NAMES[item.id] || item.id;
+    summary += `${name} (${item.size}) x${item.qty} — $${(item.price * item.qty).toFixed(2)}\n`;
+  });
+
+  summary += `\n────────────────\n`;
+  summary += `Subtotal: $${currentSubtotal.toFixed(2)}\n`;
+  if (appliedCoupon && currentDiscount > 0) {
+    summary += `AFILIADO: ${appliedCoupon.code} (${appliedCoupon.affiliate})\n`;
+    summary += `Descuento cliente (${appliedCoupon.discount * 100}%): -$${currentDiscount.toFixed(2)}\n`;
+    summary += `>> Comisión afiliado 5%: $${(currentSubtotal * 0.05).toFixed(2)} (calcular/pagar manual)\n`;
+  }
+  if (currentIVU > 0) {
+    summary += `IVU (11.5%): $${currentIVU.toFixed(2)}\n`;
+  }
+  // Shipping method
+  const shipCountry = document.getElementById('countrySelect').value;
+  let shipLabel;
+  if (selectedShipping === 'priority') shipLabel = `Priority Mail (+$${PRIORITY_COST.toFixed(2)})`;
+  else if (selectedShipping === 'pickup') shipLabel = 'Pickup - coordinar';
+  else shipLabel = (shipCountry === 'PR') ? 'Standard (GRATIS - PR)' : `Standard (+$${STANDARD_COST_NONPR.toFixed(2)})`;
+  summary += `Shipping: ${shipLabel}\n`;
+  if (protectionEnabled) {
+    summary += `Shipping Insurance: $${PROTECTION_COST.toFixed(2)}\n`;
+  }
+  summary += `TOTAL: $${currentTotal.toFixed(2)}\n\n`;
+  summary += `Payment Method: ${selectedPayment.toUpperCase()}\n`;
+  summary += `Order ID: ${orderId}`;
+
+  return summary;
+}
+
+// ============= PLACETOPAY (EVERTEC) =============
+async function redirectToPlaceToPay(formData) {
+  // Save order info so gracias.html can confirm it after the customer returns
+  const orderData = {
+    orderId: orderId,
+    total: currentTotal,
+    method: 'card',
+    email: formData.get('email'),
+    name: `${formData.get('first_name')} ${formData.get('last_name')}`
+  };
+  localStorage.setItem('trl_last_order', JSON.stringify(orderData));
+
+  try {
+    const res = await fetch(P2P_WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        reference: orderId,
+        total: currentTotal.toFixed(2),
+        buyerEmail: formData.get('email'),
+        buyerName: `${formData.get('first_name')} ${formData.get('last_name')}`,
+        description: `Orden ${orderId}`,
+        expirationMinutes: 30,
+        affiliateCode: appliedCoupon ? appliedCoupon.code : null,
+        commissionBase: appliedCoupon ? (currentSubtotal - currentDiscount) : null
+      })
+    });
+
+    let data;
+    try {
+      data = await res.json();
+    } catch (parseErr) {
+      throw new Error(`El servidor de pago respondió con un formato inesperado (HTTP ${res.status}). Revisa que el Worker esté desplegado.`);
+    }
+
+    if (data.processUrl) {
+      // Store requestId so gracias.html can verify payment status
+      localStorage.setItem('trl_p2p_request', data.requestId || '');
+      clearCart();
+      window.location.href = data.processUrl;
+    } else {
+      throw new Error(data.error || data.raw?.status?.message || 'El procesador no devolvió una URL de pago.');
+    }
+  } catch (err) {
+    console.error('PlacetoPay error:', err);
+    document.getElementById('processing').classList.remove('show');
+    // Show the real reason so it's diagnosable
+    const errEl = document.getElementById('formError');
+    const span = errEl.querySelector('span');
+    if (span) {
+      span.textContent = (currentLang === 'es'
+        ? 'Error de pago: ' : 'Payment error: ') + err.message
+        + (currentLang === 'es'
+            ? ' — O usa ATH Móvil / WhatsApp.'
+            : ' — Or use ATH Móvil / WhatsApp.');
+    }
+    errEl.classList.add('show');
+    window.scrollTo({ top: errEl.offsetTop - 100, behavior: 'smooth' });
+  }
+}
+
+function redirectToThankYou(method, formData) {
+  // Save order info for thank-you page
+  const orderData = {
+    orderId: orderId,
+    total: currentTotal,
+    method: method,
+    email: formData.get('email'),
+    name: `${formData.get('first_name')} ${formData.get('last_name')}`
+  };
+  localStorage.setItem('trl_last_order', JSON.stringify(orderData));
+  clearCart();
+
+  window.location.href = `gracias.html?order=${orderId}&method=${method}`;
+}
+
+// ============= FORM SUBMIT =============
+const form = document.getElementById('checkoutForm');
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  // Hide previous error
+  document.getElementById('formError').classList.remove('show');
+
+  // Generate order ID
+  orderId = generateOrderId();
+  document.getElementById('orderIdField').value = orderId;
+  document.getElementById('orderTotalField').value = '$' + currentTotal.toFixed(2);
+  document.getElementById('orderSummaryField').value = buildOrderSummary();
+  document.getElementById('emailSubject').value = `🛒 Nueva Orden ${orderId} · TRL · $${currentTotal.toFixed(2)}`;
+
+  // Show processing overlay
+  document.getElementById('processing').classList.add('show');
+
+  const formData = new FormData(form);
+  let web3formsSucceeded = false;
+
+  // Try Web3Forms — but don't block redirect on failure for alt payment methods
+  try {
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formData
+    });
+    const data = await response.json();
+    web3formsSucceeded = data.success === true;
+  } catch (err) {
+    console.warn('Web3Forms unavailable:', err);
+    web3formsSucceeded = false;
+  }
+
+  // ROUTING LOGIC:
+  // - Card (PlacetoPay/Evertec): proceed to payment regardless of Web3Forms.
+  //   The payment session is what matters; the order email is a bonus notification.
+  // - Alt methods (ATH/Crypto): Proceeds regardless, customer + Carlos coordinate via WhatsApp anyway
+  if (selectedPayment === 'card') {
+    redirectToPlaceToPay(formData);
+  } else {
+    // Alt payment methods always proceed — customer gets instructions on gracias.html
+    // and can coordinate with Carlos via WhatsApp/email regardless of Web3Forms status
+    setTimeout(() => redirectToThankYou(selectedPayment, formData), 800);
+  }
+});
+
+// ============= BILINGUAL =============
+function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('trl_lang', lang);
+  document.getElementById('htmlRoot').setAttribute('lang', lang);
+
+  const langCurrent = document.getElementById('langCurrent');
+  const langOther = document.getElementById('langOther');
+  if (langCurrent && langOther) {
+    langCurrent.textContent = lang.toUpperCase();
+    langOther.textContent = (lang === 'es' ? 'EN' : 'ES');
+  }
+
+  document.querySelectorAll('[data-es]').forEach(el => {
+    const value = el.getAttribute(`data-${lang}`);
+    if (value !== null) el.textContent = value;
+  });
+
+  document.querySelectorAll('[data-es-html]').forEach(el => {
+    const value = el.getAttribute(`data-${lang}-html`);
+    if (value !== null) el.innerHTML = value;
+  });
+
+  document.querySelectorAll('[data-es-placeholder]').forEach(el => {
+    const value = el.getAttribute(`data-${lang}-placeholder`);
+    if (value !== null) el.setAttribute('placeholder', value);
+  });
+}
+
+function toggleLang() {
+  const newLang = (currentLang === 'es') ? 'en' : 'es';
+  applyLanguage(newLang);
+}
+
+// ============= INIT =============
+document.addEventListener('DOMContentLoaded', () => {
+  applyLanguage(currentLang);
+  renderSummary();
+
+  // Preview order ID (a fresh unique one is generated again on submit)
+  document.getElementById('orderNumber').textContent = 'ORDER #' + generateOrderId();
+});
+</script>
+
+</body>
+</html>

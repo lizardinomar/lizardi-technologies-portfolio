@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /gracias.html
+Disallow: /checkout.html
+
+Sitemap: https://trlpr.com/sitemap.xml

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es" id="htmlRoot">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#050810" />
+<title>Política de Envíos · Tropical Research Labs</title>
+<meta name="description" content="Política de Envíos de Tropical Research Labs." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --void:#050810; --navy:#0A1628; --navy-light:#0F1F38;
+    --teal:#00D4AA; --coral:#FF6B47; --bone:#E8E4D9;
+  }
+  * { -webkit-font-smoothing: antialiased; }
+  html, body {
+    background: var(--void); color: var(--bone);
+    font-family: 'Inter', sans-serif; overflow-x: hidden; cursor: none;
+  }
+  .cursor-dot { position: fixed; width:6px; height:6px; background:var(--teal); border-radius:50%;
+    pointer-events:none; z-index:9999; transform:translate(-50%,-50%);
+    transition:width .2s,height .2s,background .2s; mix-blend-mode:difference; }
+  .cursor-ring { position:fixed; width:40px; height:40px; border:1px solid rgba(0,212,170,.4);
+    border-radius:50%; pointer-events:none; z-index:9998; transform:translate(-50%,-50%);
+    transition:width .3s,height .3s,border-color .3s; }
+  .cursor-hover .cursor-dot { width:12px; height:12px; background:var(--coral); }
+  .cursor-hover .cursor-ring { width:60px; height:60px; border-color:var(--coral); }
+  @media (max-width:768px) { html,body{cursor:auto;} .cursor-dot,.cursor-ring{display:none;} }
+  .display { font-family:'Bebas Neue',sans-serif; letter-spacing:.02em; }
+  .mono { font-family:'Space Mono',monospace; }
+  body::before { content:''; position:fixed; inset:0; z-index:1; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E"); }
+  .nav-link { position:relative; font-family:'Space Mono',monospace; font-size:11px;
+    letter-spacing:.2em; text-transform:uppercase; color:rgba(232,228,217,.7); transition:color .3s; }
+  .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:1px;
+    background:var(--teal); transition:width .3s; }
+  .nav-link:hover { color:var(--bone); } .nav-link:hover::after { width:100%; }
+  .nav-link.active { color:var(--teal); }
+  .btn-magnetic { position:relative; display:inline-flex; align-items:center; justify-content:center;
+    gap:12px; padding:14px 28px; font-family:'Space Mono',monospace; font-size:11px;
+    letter-spacing:.2em; text-transform:uppercase; transition:all .3s; }
+  .btn-primary { background:var(--teal); color:var(--void); border:1px solid var(--teal); font-weight:700; }
+  .btn-primary:hover { background:transparent; color:var(--teal); }
+  .footer-link { position:relative; color:rgba(232,228,217,.6); transition:color .3s; }
+  .footer-link:hover { color:var(--teal); }
+  .compliance-pill { display:inline-flex; align-items:center; gap:8px; padding:6px 14px;
+    border:1px solid rgba(232,228,217,.15); border-radius:999px; font-family:'Space Mono',monospace;
+    font-size:10px; letter-spacing:.15em; text-transform:uppercase; color:rgba(232,228,217,.6); }
+  @media (max-width:768px) { .nav-desktop{display:none;} }
+
+  /* ---- legal page specifics ---- */
+  .legal-orb { position:fixed; border-radius:50%; filter:blur(120px); opacity:.5; z-index:0; pointer-events:none; }
+  .legal-hero-num { font-family:'Space Mono',monospace; font-size:11px; letter-spacing:.3em;
+    text-transform:uppercase; color:var(--teal); }
+  .legal-body { max-width:780px; }
+  .legal-body h2 { font-family:'Bebas Neue',sans-serif; font-size:28px; letter-spacing:.02em;
+    color:var(--bone); margin:48px 0 16px; display:flex; align-items:baseline; gap:14px; scroll-margin-top:120px; }
+  .legal-body h2 .sec-num { font-family:'Space Mono',monospace; font-size:13px; color:var(--teal); opacity:.7; }
+  .legal-body h3 { font-family:'Space Mono',monospace; font-size:13px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--teal); margin:28px 0 10px; }
+  .legal-body p { font-size:15px; line-height:1.8; color:rgba(232,228,217,.72); margin-bottom:14px; }
+  .legal-body ul { margin:0 0 18px; padding:0; list-style:none; }
+  .legal-body li { font-size:15px; line-height:1.75; color:rgba(232,228,217,.72);
+    padding-left:22px; position:relative; margin-bottom:10px; }
+  .legal-body li::before { content:''; position:absolute; left:0; top:11px; width:6px; height:6px;
+    background:var(--teal); opacity:.6; }
+  .legal-body strong { color:var(--bone); font-weight:600; }
+  .legal-body a { color:var(--teal); text-decoration:underline; }
+  .legal-callout { border:1px solid rgba(0,212,170,.2); background:rgba(0,212,170,.04);
+    padding:20px 24px; margin:24px 0; border-radius:4px; }
+  .legal-callout.warn { border-color:rgba(255,107,71,.25); background:rgba(255,107,71,.05); }
+  .legal-callout p:last-child { margin-bottom:0; }
+  .toc { border:1px solid rgba(232,228,217,.1); background:rgba(10,22,40,.4); padding:24px 28px;
+    margin-bottom:48px; border-radius:4px; }
+  .toc-title { font-family:'Space Mono',monospace; font-size:10px; letter-spacing:.3em;
+    text-transform:uppercase; color:var(--teal); margin-bottom:16px; }
+  .toc a { display:block; font-size:13px; color:rgba(232,228,217,.6); padding:4px 0;
+    transition:color .25s, padding-left .25s; }
+  .toc a:hover { color:var(--teal); padding-left:6px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .cursor-dot, .cursor-ring { display: none !important; }
+  }
+</style>
+
+<style>
+/* ===== MOBILE NAV FIX + MENU ===== */
+@media (max-width: 900px) {
+  .nav-desktop { display: none !important; }
+}
+.nav-burger { display: none; background: none; border: 1px solid rgba(232,228,217,.25); border-radius: 6px; padding: 9px 10px; cursor: pointer; }
+.nav-burger span { display: block; width: 20px; height: 2px; background: #E8E4D9; margin: 4px 0; border-radius: 2px; }
+@media (max-width: 900px) { .nav-burger { display: block; } }
+.mobile-menu { position: fixed; inset: 0; z-index: 70; background: rgba(5,8,16,.98); backdrop-filter: blur(8px); display: none; flex-direction: column; padding: 24px; overflow-y: auto; }
+.mobile-menu.open { display: flex; }
+.mm-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
+.mm-close { background: none; border: 1px solid rgba(232,228,217,.25); border-radius: 6px; color: #E8E4D9; font-size: 16px; padding: 8px 13px; cursor: pointer; }
+.mm-links { display: flex; flex-direction: column; gap: 4px; }
+.mm-links a { font-family: 'Bebas Neue', sans-serif; font-size: 42px; letter-spacing: .03em; color: #E8E4D9; text-decoration: none; padding: 10px 4px; border-bottom: 1px solid rgba(232,228,217,.08); transition: color .2s; }
+.mm-links a:hover { color: #00D4AA; }
+.mm-links a.mm-panel { color: #00D4AA; }
+.mm-links a.mm-cta { color: #050810; background: #00D4AA; text-align: center; border-radius: 6px; margin-top: 18px; border: none; padding: 14px; }
+</style>
+</head>
+<body>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<div class="legal-orb" style="width:500px;height:500px;background:rgba(0,212,170,.12);top:-120px;right:-150px;"></div>
+<div class="legal-orb" style="width:400px;height:400px;background:rgba(255,107,71,.06);bottom:10%;left:-180px;"></div>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-6 transition-all" id="mainNav">
+  <div class="flex items-center justify-between">
+    <a href="index.html" class="block">
+      <img src="assets/images/logo-wordmark.png" alt="Tropical Research Labs" class="h-10 md:h-12 w-auto" onerror="this.outerHTML='<span class=&quot;display text-2xl text-[#E8E4D9]&quot;>TROPICAL <span style=&quot;color:var(--teal)&quot;>RESEARCH LABS</span></span>'" />
+    </a>
+    <div class="nav-desktop flex items-center gap-10">
+      <a href="catalogo.html" class="nav-link" data-es="Catálogo" data-en="Catalog">Catálogo</a>
+      <a href="coas.html" class="nav-link">COAs</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contacto.html" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a>
+      <a href="panel.html" class="nav-link" data-es="Panel" data-en="Panel">Panel</a>
+    </div>
+    <div class="flex items-center gap-6">
+      <button onclick="toggleLang()" id="langToggle" class="mono text-xs tracking-[0.2em] uppercase text-[#E8E4D9]/60 hover:text-[#00D4AA] transition cursor-pointer">
+        <span id="langCurrent">ES</span> <span class="text-[#E8E4D9]/30">/</span> <span id="langOther">EN</span>
+      </button>
+      <button class="nav-burger" onclick="toggleMobileMenu(true)" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="catalogo.html" class="hidden md:inline-flex btn-magnetic btn-primary text-xs">Shop</a>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-head">
+    <a href="index.html"><img src="assets/images/logo-wordmark.png" alt="Tropical Research Labs" style="height:36px;width:auto;"></a>
+    <button class="mm-close" onclick="toggleMobileMenu(false)" aria-label="Cerrar menú">✕</button>
+  </div>
+  <nav class="mm-links">
+    <a href="catalogo.html" data-es="Catálogo" data-en="Catalog">Catálogo</a>
+    <a href="coas.html">COAs</a>
+    <a href="about.html">About</a>
+    <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+    <a href="panel.html" class="mm-panel" data-es="Panel de Afiliados" data-en="Affiliate Panel">Panel de Afiliados</a>
+    <a href="catalogo.html" class="mm-cta" data-es="Shop" data-en="Shop">Shop</a>
+  </nav>
+</div>
+
+
+<!-- HERO -->
+<section class="relative z-10 px-6 md:px-12 pt-40 pb-12">
+  <div class="max-w-7xl mx-auto">
+    <div class="legal-hero-num mb-5">/ Legal — Envíos</div>
+    <h1 class="display text-5xl md:text-7xl text-[#E8E4D9] leading-none mb-6" data-es="Política de Envíos" data-en="Shipping Policy">Política de Envíos</h1>
+    <p class="text-sm text-[#E8E4D9]/45 mono tracking-wider">Última actualización: Mayo 2026</p>
+  </div>
+</section>
+
+<!-- BODY -->
+<section class="relative z-10 px-6 md:px-12 pb-32">
+  <div class="max-w-7xl mx-auto">
+    <div class="legal-body">
+      <div class="toc">
+        <div class="toc-title" data-es="Contenido" data-en="Contents">Contenido</div>
+        <a href="#sec-1">1. Área de Servicio</a>
+        <a href="#sec-2">2. Tiempos de Procesamiento</a>
+        <a href="#sec-3">3. Métodos de Envío</a>
+        <a href="#sec-4">4. Seguro de Envío</a>
+        <a href="#sec-5">5. Números de Rastreo</a>
+        <a href="#sec-6">6. Direcciones Incorrectas</a>
+        <a href="#sec-7">7. Pedidos No Reclamados o Devueltos</a>
+        <a href="#sec-8">8. Cumplimiento de Importación</a>
+        <a href="#sec-9">9. Contacto para Problemas de Envío</a>
+      </div>
+<h2 id="sec-1"><span class="sec-num">1</span><span>Área de Servicio</span></h2>
+<p>TRL envía actualmente a todas las direcciones dentro de los Estados Unidos, incluyendo Puerto Rico, y a jurisdicciones internacionales seleccionadas. Es responsabilidad del comprador verificar que la importación de productos de investigación es legal en su jurisdicción antes de realizar una compra.</p>
+<h2 id="sec-2"><span class="sec-num">2</span><span>Tiempos de Procesamiento</span></h2>
+<p>Los pedidos se procesan en un plazo de 1 a 3 días hábiles tras la confirmación del pago. Los pedidos realizados durante fines de semana o días festivos se procesan el siguiente día hábil.</p>
+
+<h2 id="sec-3"><span class="sec-num">3</span><span>Métodos de Envío</span></h2>
+<p>TRL utiliza transportistas de confianza para el envío de pedidos. Las opciones disponibles se muestran al momento de la compra. Los tiempos de entrega son estimados y no están garantizados por TRL.</p>
+<ul><li><strong>Envío Estándar:</strong> GRATIS dentro de Puerto Rico · +$14.00 a Estados Unidos y territorios. USPS · 3–5 días hábiles estimados · con rastreo.</li></ul>
+<ul><li><strong>Priority Mail (+$18.00):</strong> USPS Priority · 1–3 días hábiles estimados, con rastreo.</li></ul>
+<ul><li><strong>Recoger en Persona ($0.00):</strong> opción de pickup, coordinada por WhatsApp luego de realizar la orden.</li></ul>
+<ul><li>Envíos internacionales: según disponibilidad y regulaciones del destino.</li></ul>
+<h2 id="sec-4"><span class="sec-num">4</span><span>Seguro de Envío</span></h2>
+<p>TRL ofrece un seguro de envío opcional (+$5.00) durante el proceso de pago. Este seguro cubre pérdida o daño durante el tránsito por parte del transportista. No cubre retenciones ni confiscaciones aduaneras.</p>
+<p>Si su orden llega dañada o comprometida, contáctenos inmediatamente con su número de orden y fotografías claras del problema en <a href="mailto:tropicalresearchlabs@gmail.com">tropicalresearchlabs@gmail.com</a>. Revisaremos su caso y gestionaremos un reenvío o solución apropiada.</p>
+<h2 id="sec-5"><span class="sec-num">5</span><span>Números de Rastreo</span></h2>
+<p>Una vez procesado y enviado su pedido, recibirá un número de rastreo por correo electrónico. TRL no es responsable de retrasos en la entrega causados por el transportista, condiciones climáticas, retenciones en aduana u otras circunstancias fuera de nuestro control.</p>
+<h2 id="sec-6"><span class="sec-num">6</span><span>Direcciones Incorrectas</span></h2>
+<p>TRL no es responsable de pedidos enviados a direcciones incorrectas proporcionadas por el cliente. Verifique su dirección de envío cuidadosamente antes de completar su compra. Si necesita corregir una dirección, contáctenos inmediatamente en <a href="mailto:tropicalresearchlabs@gmail.com">tropicalresearchlabs@gmail.com</a>.</p>
+<h2 id="sec-7"><span class="sec-num">7</span><span>Pedidos No Reclamados o Devueltos</span></h2>
+<p>Si un paquete es devuelto a TRL por no poder ser entregado (dirección incorrecta, no reclamado, etc.), el cliente será responsable de los costos de reenvío. TRL no emite reembolsos por pedidos no reclamados o devueltos.</p>
+<h2 id="sec-8"><span class="sec-num">8</span><span>Cumplimiento de Importación</span></h2>
+<p>El cliente es el único responsable de cumplir con todas las leyes y regulaciones de importación aplicables en su país o jurisdicción, y de verificar la legalidad de la importación antes de comprar. TRL no asume responsabilidad por artículos retenidos, confiscados o destruidos por autoridades aduaneras o de cualquier otra índole. TRL no reenvía ni reembolsa pedidos retenidos, confiscados o destruidos por aduana.</p>
+<h2 id="sec-9"><span class="sec-num">9</span><span>Contacto para Problemas de Envío</span></h2>
+<p><strong>Tropical Research Labs (TRL)</strong></p>
+<p>Email: <a href="mailto:tropicalresearchlabs@gmail.com">tropicalresearchlabs@gmail.com</a></p>
+<p>Teléfono: (939) 599-1835 · WhatsApp: (939) 599-1835</p>
+<p>Tiempo de respuesta: dentro de 24-48 horas en días hábiles.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="relative z-10 border-t border-[#00D4AA]/15 px-6 md:px-12 py-16" style="background:#030509;">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16 pb-12 border-b border-[#E8E4D9]/5">
+      <a href="index.html" class="inline-block">
+        <img src="assets/images/logo-wordmark.png" alt="Tropical Research Labs" class="h-20 md:h-28 w-auto" onerror="this.outerHTML='<span class=&quot;display text-4xl text-[#E8E4D9]&quot;>TROPICAL <span style=&quot;color:var(--teal)&quot;>RESEARCH LABS</span></span>'" />
+      </a>
+    </div>
+    <div class="grid md:grid-cols-12 gap-12 mb-16">
+      <div class="md:col-span-4">
+        <p class="text-sm text-[#E8E4D9]/50 leading-relaxed max-w-sm mb-6" data-es="Compuestos peptídicos de grado científico para investigación de laboratorio. Operando desde Puerto Rico bajo estándares de pureza HPLC verificados." data-en="Scientific-grade peptide compounds for laboratory research. Operating from Puerto Rico under verified HPLC purity standards.">Compuestos peptídicos de grado científico para investigación de laboratorio. Operando desde Puerto Rico bajo estándares de pureza HPLC verificados.</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="compliance-pill">RUO Peptides</span>
+        </div>
+      </div>
+      <div class="md:col-span-2">
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-4">Shop</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="catalogo.html" class="footer-link" data-es="Catálogo" data-en="Catalog">Catálogo</a></li>
+          <li><a href="coas.html" class="footer-link">COAs</a></li>
+          <li><a href="afiliados.html" class="footer-link" data-es="Afiliados" data-en="Affiliates">Afiliados</a></li>
+          <li><a href="contacto.html" class="footer-link" data-es="Soporte" data-en="Support">Soporte</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-2">
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-4">Lab</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="about.html" class="footer-link">About</a></li>
+          <li><a href="coas.html" class="footer-link" data-es="Verificación" data-en="Verification">Verificación</a></li>
+          <li><a href="contacto.html" class="footer-link" data-es="Contacto" data-en="Contact">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-2">
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-4">Legal</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="disclaimer.html" class="footer-link">Disclaimer</a></li>
+          <li><a href="terminos.html" class="footer-link" data-es="Términos" data-en="Terms">Términos</a></li>
+          <li><a href="privacidad.html" class="footer-link" data-es="Privacidad" data-en="Privacy">Privacidad</a></li>
+          <li><a href="envios.html" class="footer-link" data-es="Envíos" data-en="Shipping">Envíos</a></li>
+          <li><a href="accesibilidad.html" class="footer-link" data-es="Accesibilidad" data-en="Accessibility">Accesibilidad</a></li>
+        </ul>
+      </div>
+      <div class="md:col-span-2">
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-4" data-es="Contacto" data-en="Contact">Contacto</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://wa.me/19395991835" class="footer-link">WhatsApp</a></li>
+          <li><a href="mailto:tropicalresearchlabs@gmail.com" class="footer-link">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mono text-[10px] tracking-[0.2em] uppercase text-[#E8E4D9]/40">
+      <div>© 2026 Tropical Research Labs LLC · All Rights Reserved</div>
+      <div class="flex items-center gap-6">
+        <span>Puerto Rico, USA</span>
+        <a href="tel:+19395991835" class="footer-link">(939) 599-1835</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  let currentLang = localStorage.getItem('trl_lang') || 'es';
+  function applyLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem('trl_lang', lang);
+    document.getElementById('htmlRoot').setAttribute('lang', lang);
+    const c=document.getElementById('langCurrent'), o=document.getElementById('langOther');
+    if(c&&o){c.textContent=lang.toUpperCase(); o.textContent=(lang==='es'?'EN':'ES');}
+    document.querySelectorAll('[data-es]').forEach(el=>{const v=el.getAttribute('data-'+lang); if(v!==null) el.textContent=v;});
+    document.querySelectorAll('[data-es-html]').forEach(el=>{const v=el.getAttribute('data-'+lang+'-html'); if(v!==null) el.innerHTML=v;});
+  }
+  function toggleLang(){ applyLanguage(currentLang==='es'?'en':'es'); }
+  document.addEventListener('DOMContentLoaded', ()=>applyLanguage(currentLang));
+
+  // nav scroll
+  window.addEventListener('scroll', ()=>{
+    const nav=document.getElementById('mainNav');
+    if(window.scrollY>100){ nav.style.background='rgba(5,8,16,0.85)'; nav.style.backdropFilter='blur(20px)';
+      nav.style.borderBottom='1px solid rgba(0,212,170,0.1)'; nav.style.padding='16px 48px'; }
+    else { nav.style.background='transparent'; nav.style.backdropFilter='none';
+      nav.style.borderBottom='none'; nav.style.padding='24px 48px'; }
+  });
+
+  // cursor
+  const cursorDot=document.getElementById('cursorDot'), cursorRing=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursorDot.style.left=mx+'px';cursorDot.style.top=my+'px';});
+  (function ring(){ rx+=(mx-rx)*.15; ry+=(my-ry)*.15; cursorRing.style.left=rx+'px'; cursorRing.style.top=ry+'px'; requestAnimationFrame(ring); })();
+  document.querySelectorAll('a,button').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
+  });
+  // smooth anchor scroll for TOC
+  document.querySelectorAll('.toc a').forEach(a=>{
+    a.addEventListener('click',e=>{ e.preventDefault();
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t) t.scrollIntoView({behavior:'smooth'}); });
+  });
+</script>
+
+<script>
+function toggleMobileMenu(open) {
+  const m = document.getElementById('mobileMenu');
+  if (!m) return;
+  const willOpen = (typeof open === 'boolean') ? open : !m.classList.contains('open');
+  m.classList.toggle('open', willOpen);
+  document.body.style.overflow = willOpen ? 'hidden' : '';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="es" id="htmlRoot">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#050810" />
+<title>Certificados de Análisis · Tropical Research Labs</title>
+<meta name="description" content="Certificados de Análisis (COAs) verificados por laboratorios independientes. HPLC-MS, pureza documentada por lote. BTLabs." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+  :root {
+    --void: #050810;
+    --navy: #0A1628;
+    --navy-light: #0F1F38;
+    --teal: #00D4AA;
+    --coral: #FF6B47;
+    --bone: #E8E4D9;
+  }
+
+  * { -webkit-font-smoothing: antialiased; }
+
+  html, body {
+    background: var(--void); color: var(--bone);
+    font-family: 'Inter', sans-serif; overflow-x: hidden; cursor: none;
+  }
+
+  .cursor-dot {
+    position: fixed; width: 6px; height: 6px;
+    background: var(--teal); border-radius: 50%;
+    pointer-events: none; z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background 0.2s;
+    mix-blend-mode: difference;
+  }
+  .cursor-ring {
+    position: fixed; width: 40px; height: 40px;
+    border: 1px solid rgba(0, 212, 170, 0.4); border-radius: 50%;
+    pointer-events: none; z-index: 9998;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s, height 0.3s, border-color 0.3s;
+  }
+  .cursor-hover .cursor-dot { width: 12px; height: 12px; background: var(--coral); }
+  .cursor-hover .cursor-ring { width: 60px; height: 60px; border-color: var(--coral); }
+  @media (max-width: 768px) {
+    html, body { cursor: auto; }
+    .cursor-dot, .cursor-ring { display: none; }
+  }
+
+  .display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.02em; }
+  .mono { font-family: 'Space Mono', monospace; }
+
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    pointer-events: none; z-index: 100; opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mix-blend-mode: overlay;
+  }
+
+  .orb { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; opacity: 0.3; }
+  .orb-teal { background: radial-gradient(circle, rgba(0,212,170,0.6) 0%, transparent 70%); }
+  .orb-coral { background: radial-gradient(circle, rgba(255,107,71,0.4) 0%, transparent 70%); }
+
+  .gradient-line { height: 1px; background: linear-gradient(90deg, transparent, rgba(0,212,170,0.4), transparent); }
+
+  .btn-magnetic {
+    position: relative; display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+    padding: 18px 36px; background: transparent; border: 1px solid var(--teal); color: var(--bone);
+    font-family: 'Space Mono', monospace; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
+    overflow: hidden; transition: color 0.4s; z-index: 1; cursor: pointer;
+  }
+  .btn-magnetic::before {
+    content: ''; position: absolute; inset: 0; background: var(--teal);
+    transform: translateY(101%); transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1); z-index: -1;
+  }
+  .btn-magnetic:hover { color: var(--void); }
+  .btn-magnetic:hover::before { transform: translateY(0); }
+  .btn-primary { background: var(--teal); color: var(--void); border: 1px solid var(--teal); font-weight: 700; }
+  .btn-primary::before { background: var(--coral); }
+  .btn-primary:hover { color: var(--bone); }
+
+  .reveal-up { opacity: 0; transform: translateY(40px); }
+  .reveal-text-line { overflow: hidden; }
+  .reveal-text-inner { display: inline-block; transform: translateY(110%); }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 11vw, 160px);
+    line-height: 0.88; letter-spacing: -0.01em;
+  }
+
+  .status-badge {
+    display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px;
+    border: 1px solid rgba(0,212,170,0.3); border-radius: 999px;
+    font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--teal);
+  }
+  .status-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--teal); box-shadow: 0 0 8px var(--teal); animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0,212,170,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,170,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .footer-link { position: relative; color: rgba(232,228,217,0.6); transition: color 0.3s; }
+  .footer-link:hover { color: var(--teal); }
+  .footer-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 1px; background: var(--teal); transition: width 0.3s; }
+  .footer-link:hover::after { width: 100%; }
+
+  .num-badge { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--teal); opacity: 0.6; }
+
+  .underline-gradient {
+    background: linear-gradient(90deg, var(--teal), var(--coral));
+    background-clip: text; -webkit-background-clip: text; color: transparent;
+  }
+
+  .nav-link {
+    position: relative; font-family: 'Space Mono', monospace; font-size: 11px;
+    letter-spacing: 0.2em; text-transform: uppercase; color: rgba(232,228,217,0.7);
+    transition: color 0.3s; padding: 8px 0;
+  }
+  .nav-link:hover { color: var(--teal); }
+  .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--teal); transition: width 0.3s; }
+  .nav-link:hover::after { width: 100%; }
+  .nav-link.active { color: var(--teal); }
+  .nav-link.active::after { width: 100%; }
+
+  .section-eyebrow {
+    font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.4em;
+    text-transform: uppercase; color: var(--teal); display: flex; align-items: center; gap: 16px;
+  }
+  .section-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--teal); }
+
+  .compliance-pill {
+    display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px;
+    border: 1px solid rgba(232,228,217,0.15); border-radius: 999px;
+    font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.25em;
+    text-transform: uppercase; color: rgba(232,228,217,0.6);
+  }
+
+  /* FILTER BAR */
+  .filter-bar {
+    position: sticky; top: 80px; z-index: 40;
+    background: rgba(5, 8, 16, 0.95); backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(0,212,170,0.1); border-bottom: 1px solid rgba(0,212,170,0.1);
+    padding: 20px 0;
+  }
+  .filter-pill {
+    font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 8px 18px; border: 1px solid rgba(232,228,217,0.15); color: rgba(232,228,217,0.55);
+    border-radius: 999px; cursor: pointer; transition: all 0.3s; white-space: nowrap;
+  }
+  .filter-pill:hover { border-color: rgba(0,212,170,0.5); color: var(--teal); }
+  .filter-pill.active { background: var(--teal); border-color: var(--teal); color: var(--void); font-weight: 700; }
+  .filter-pill .count { margin-left: 6px; padding: 2px 6px; background: rgba(232,228,217,0.1); border-radius: 999px; font-size: 9px; }
+  .filter-pill.active .count { background: rgba(5, 8, 16, 0.15); }
+
+  .filter-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .filter-scroll::-webkit-scrollbar { display: none; }
+
+  /* COA CARD */
+  .coa-card {
+    position: relative;
+    background: linear-gradient(180deg, rgba(15,31,56,0.4) 0%, rgba(10,22,40,0.7) 100%);
+    border: 1px solid rgba(0,212,170,0.15);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden; display: flex; flex-direction: column; cursor: pointer;
+  }
+  .coa-card::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    transform: translateX(-100%); transition: transform 0.8s;
+  }
+  .coa-card:hover {
+    transform: translateY(-6px); border-color: rgba(0,212,170,0.5);
+    box-shadow: 0 30px 60px -20px rgba(0,212,170,0.15);
+  }
+  .coa-card:hover::before { transform: translateX(100%); }
+
+  .coa-thumb {
+    position: relative; width: 100%; aspect-ratio: 3 / 4; overflow: hidden;
+    background: #fff;
+    border-bottom: 1px solid rgba(0,212,170,0.15);
+  }
+  .coa-thumb img {
+    width: 100%; height: 100%; object-fit: cover; object-position: top;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: grayscale(0.1);
+  }
+  .coa-card:hover .coa-thumb img { transform: scale(1.04); }
+  .coa-thumb-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(5,8,16,0.85) 100%);
+    display: flex; align-items: flex-end; justify-content: center;
+    padding-bottom: 16px; opacity: 0; transition: opacity 0.4s;
+  }
+  .coa-card:hover .coa-thumb-overlay { opacity: 1; }
+  .view-pill {
+    padding: 10px 24px; background: var(--teal); color: var(--void);
+    font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; font-weight: 700;
+  }
+
+  .pass-badge {
+    position: absolute; top: 12px; right: 12px; z-index: 2;
+    display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px;
+    background: rgba(0,212,170,0.9); color: var(--void);
+    font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.2em;
+    text-transform: uppercase; font-weight: 700; backdrop-filter: blur(4px);
+  }
+  .dual-badge {
+    position: absolute; top: 42px; right: 12px; z-index: 2;
+    display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px;
+    background: rgba(5,8,16,0.85); color: #00D4AA; border: 1px solid rgba(0,212,170,0.4);
+    font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.15em;
+    text-transform: uppercase; font-weight: 700; backdrop-filter: blur(4px);
+  }
+  .lab-badge {
+    position: absolute; top: 12px; left: 12px; z-index: 2;
+    padding: 5px 10px; background: rgba(5,8,16,0.8); color: var(--bone);
+    font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.15em;
+    text-transform: uppercase; backdrop-filter: blur(4px);
+    border: 1px solid rgba(232,228,217,0.2);
+  }
+
+  .coa-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
+  .cat-badge {
+    display: inline-block; padding: 3px 10px; border: 1px solid rgba(0,212,170,0.3);
+    color: var(--teal); font-family: 'Space Mono', monospace; font-size: 9px;
+    letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 10px; align-self: flex-start;
+  }
+  .coa-name {
+    font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.02em;
+    color: var(--bone); line-height: 1; margin-bottom: 12px;
+  }
+  .coa-meta-row {
+    display: flex; justify-content: space-between; padding: 8px 0;
+    border-top: 1px solid rgba(232,228,217,0.06);
+  }
+  .coa-meta-label {
+    font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: rgba(232,228,217,0.4);
+  }
+  .coa-meta-val {
+    font-family: 'Space Mono', monospace; font-size: 11px; color: var(--bone); font-weight: 700;
+  }
+  .purity-val { color: var(--teal); }
+
+  .coa-actions { display: flex; gap: 6px; margin-top: 16px; }
+  .btn-view {
+    flex: 1; padding: 12px; background: var(--teal); color: var(--void); border: none;
+    font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 0.2em;
+    text-transform: uppercase; font-weight: 700; cursor: pointer; transition: all 0.3s;
+    position: relative; overflow: hidden;
+  }
+  .btn-view::before {
+    content: ''; position: absolute; inset: 0; background: var(--coral);
+    transform: translateY(101%); transition: transform 0.3s cubic-bezier(0.7,0,0.3,1);
+  }
+  .btn-view span { position: relative; z-index: 1; }
+  .btn-view:hover::before { transform: translateY(0); }
+  .btn-view:hover { color: var(--bone); }
+  .btn-download {
+    padding: 12px 16px; background: transparent; border: 1px solid rgba(232,228,217,0.2);
+    color: var(--bone); font-family: 'Space Mono', monospace; font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase; cursor: pointer; transition: all 0.3s;
+    display: flex; align-items: center; gap: 6px; text-decoration: none;
+  }
+  .btn-download:hover { border-color: var(--teal); color: var(--teal); }
+
+  /* MODAL */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(5,8,16,0.92); backdrop-filter: blur(20px);
+    z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.4s;
+    overflow-y: auto; padding: 40px 24px;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+  .modal {
+    max-width: 900px; margin: 0 auto; background: var(--void);
+    border: 1px solid rgba(0,212,170,0.3); transform: scale(0.95);
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); position: relative;
+  }
+  .modal-overlay.open .modal { transform: scale(1); }
+  .modal-header {
+    padding: 24px 32px; border-bottom: 1px solid rgba(0,212,170,0.15);
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    position: sticky; top: 0; background: var(--void); z-index: 5;
+  }
+  .modal-close {
+    width: 40px; height: 40px; border: 1px solid rgba(232,228,217,0.3); background: transparent;
+    color: var(--bone); font-size: 18px; border-radius: 50%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; transition: all 0.3s; flex-shrink: 0;
+  }
+  .modal-close:hover { background: var(--coral); border-color: var(--coral); color: var(--bone); }
+  .modal-tabs {
+    display: flex; gap: 0; border-bottom: 1px solid rgba(0,212,170,0.15);
+    background: #0A1628; padding: 0 1.5rem;
+  }
+  .modal-tab {
+    padding: 0.85rem 1.25rem; font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: 0.05em; text-transform: uppercase;
+    color: rgba(232,228,217,0.5); background: none; border: none; cursor: pointer;
+    border-bottom: 2px solid transparent; transition: all 0.25s; white-space: nowrap;
+  }
+  .modal-tab:hover { color: rgba(232,228,217,0.85); }
+  .modal-tab.active { color: #00D4AA; border-bottom-color: #00D4AA; }
+  .modal-pdf {
+    width: 100%; height: 75vh; border: none; background: #525659;
+  }
+  .modal-pdf-img {
+    width: 100%; display: block;
+  }
+
+  /* INFO BANNER */
+  .info-banner {
+    background: linear-gradient(90deg, rgba(0,212,170,0.06), rgba(0,212,170,0.02), rgba(0,212,170,0.06));
+    border-top: 1px solid rgba(0,212,170,0.2); border-bottom: 1px solid rgba(0,212,170,0.2);
+    padding: 16px 24px; text-align: center;
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: rgba(232,228,217,0.35);
+  }
+
+  @media (max-width: 768px) {
+    .hero-title { font-size: 56px; }
+    .nav-desktop { display: none; }
+    .modal-pdf { height: 60vh; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .cursor-dot, .cursor-ring { display: none !important; }
+  }
+</style>
+
+<style>
+/* ===== MOBILE NAV FIX + MENU ===== */
+@media (max-width: 900px) {
+  .nav-desktop { display: none !important; }
+}
+.nav-burger { display: none; background: none; border: 1px solid rgba(232,228,217,.25); border-radius: 6px; padding: 9px 10px; cursor: pointer; }
+.nav-burger span { display: block; width: 20px; height: 2px; background: #E8E4D9; margin: 4px 0; border-radius: 2px; }
+@media (max-width: 900px) { .nav-burger { display: block; } }
+.mobile-menu { position: fixed; inset: 0; z-index: 70; background: rgba(5,8,16,.98); backdrop-filter: blur(8px); display: none; flex-direction: column; padding: 24px; overflow-y: auto; }
+.mobile-menu.open { display: flex; }
+.mm-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; }
+.mm-close { background: none; border: 1px solid rgba(232,228,217,.25); border-radius: 6px; color: #E8E4D9; font-size: 16px; padding: 8px 13px; cursor: pointer; }
+.mm-links { display: flex; flex-direction: column; gap: 4px; }
+.mm-links a { font-family: 'Bebas Neue', sans-serif; font-size: 42px; letter-spacing: .03em; color: #E8E4D9; text-decoration: none; padding: 10px 4px; border-bottom: 1px solid rgba(232,228,217,.08); transition: color .2s; }
+.mm-links a:hover { color: #00D4AA; }
+.mm-links a.mm-panel { color: #00D4AA; }
+.mm-links a.mm-cta { color: #050810; background: #00D4AA; text-align: center; border-radius: 6px; margin-top: 18px; border: none; padding: 14px; }
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-6 transition-all" id="mainNav">
+  <div class="flex items-center justify-between">
+    <a href="index.html" class="block">
+      <img src="assets/images/logo-wordmark.png" alt="Tropical Research Labs" class="h-10 md:h-12 w-auto" />
+    </a>
+    <div class="nav-desktop flex items-center gap-10">
+      <a href="catalogo.html" class="nav-link" data-es="Catálogo" data-en="Catalog">Catálogo</a>
+      <a href="coas.html" class="nav-link active">COAs</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contacto.html" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a>
+      <a href="panel.html" class="nav-link" data-es="Panel" data-en="Panel">Panel</a>
+    </div>
+    <div class="flex items-center gap-6">
+      <button onclick="toggleLang()" id="langToggle" class="mono text-xs tracking-[0.2em] uppercase text-[#E8E4D9]/60 hover:text-[#00D4AA] transition cursor-pointer">
+        <span id="langCurrent">ES</span> <span class="text-[#E8E4D9]/30">/</span> <span id="langOther">EN</span>
+      </button>
+      <button class="nav-burger" onclick="toggleMobileMenu(true)" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="catalogo.html" class="hidden md:inline-flex btn-magnetic btn-primary text-xs">Shop</a>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mm-head">
+    <a href="index.html"><img src="assets/images/logo-wordmark.png" alt="Tropical Research Labs" style="height:36px;width:auto;"></a>
+    <button class="mm-close" onclick="toggleMobileMenu(false)" aria-label="Cerrar menú">✕</button>
+  </div>
+  <nav class="mm-links">
+    <a href="catalogo.html" data-es="Catálogo" data-en="Catalog">Catálogo</a>
+    <a href="coas.html">COAs</a>
+    <a href="about.html">About</a>
+    <a href="contacto.html" data-es="Contacto" data-en="Contact">Contacto</a>
+    <a href="panel.html" class="mm-panel" data-es="Panel de Afiliados" data-en="Affiliate Panel">Panel de Afiliados</a>
+    <a href="catalogo.html" class="mm-cta" data-es="Shop" data-en="Shop">Shop</a>
+  </nav>
+</div>
+
+
+<!-- HERO -->
+<section class="relative pt-40 pb-16 px-6 md:px-12 overflow-hidden">
+  <div class="absolute inset-0 grid-bg opacity-50"></div>
+  <div class="orb orb-teal" style="width: 600px; height: 600px; top: -200px; right: -150px;"></div>
+
+  <div class="vertical-text absolute left-6 top-1/2 -translate-y-1/2 hidden lg:block" data-es="VERIFICADO POR BTLABS · FLORIDA" data-en="VERIFIED BY BTLABS · FLORIDA">VERIFICADO POR BTLABS · FLORIDA</div>
+
+  <div class="relative z-10 max-w-7xl mx-auto">
+    <div class="reveal-up mb-8">
+      <span class="status-badge">
+        <span class="status-dot"></span>
+        <span data-es="Certificados de Análisis" data-en="Certificates of Analysis">Certificados de Análisis</span>
+      </span>
+    </div>
+
+    <h1 class="hero-title text-[#E8E4D9] mb-8">
+      <div class="reveal-text-line"><span class="reveal-text-inner" data-es="Pureza" data-en="Purity">Pureza</span></div>
+      <div class="reveal-text-line"><span class="reveal-text-inner" style="font-style: italic; color: var(--coral);" data-es="verificada." data-en="verified.">verificada.</span></div>
+    </h1>
+
+    <p class="text-base md:text-lg text-[#E8E4D9]/70 leading-relaxed max-w-2xl reveal-up" data-es="Cada lote es verificado de forma independiente por BTLabs (West Palm Beach, FL) mediante análisis HPLC y FTIR. Identidad, pureza, potencia y composición documentadas. Todos los certificados son públicos." data-en="Every batch is independently verified by BTLabs (West Palm Beach, FL) via HPLC and FTIR analysis. Identity, purity, potency and composition documented. All certificates are public.">
+      Cada lote es verificado de forma independiente por BTLabs (West Palm Beach, FL) mediante análisis HPLC y FTIR. Identidad, pureza, potencia y composición documentadas. Todos los certificados son públicos.
+    </p>
+
+    <!-- Stats -->
+    <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 reveal-up">
+      <div class="border-l border-[#00D4AA]/30 pl-4">
+        <div class="num-badge mb-2">/01</div>
+        <div class="display text-4xl text-[#E8E4D9]" id="statCount">18</div>
+        <div class="mono text-[10px] tracking-[0.2em] uppercase text-[#E8E4D9]/50 mt-1" data-es="Certificados" data-en="Certificates">Certificados</div>
+      </div>
+      <div class="border-l border-[#00D4AA]/30 pl-4">
+        <div class="num-badge mb-2">/02</div>
+        <div class="display text-4xl text-[#E8E4D9]">&gt;99%</div>
+        <div class="mono text-[10px] tracking-[0.2em] uppercase text-[#E8E4D9]/50 mt-1" data-es="Pureza Media" data-en="Avg Purity">Pureza Media</div>
+      </div>
+      <div class="border-l border-[#00D4AA]/30 pl-4">
+        <div class="num-badge mb-2">/03</div>
+        <div class="display text-4xl text-[#E8E4D9]">HPLC</div>
+        <div class="mono text-[10px] tracking-[0.2em] uppercase text-[#E8E4D9]/50 mt-1" data-es="+ Endotoxinas" data-en="+ Endotoxins">+ Endotoxinas</div>
+      </div>
+      <div class="border-l border-[#00D4AA]/30 pl-4">
+        <div class="num-badge mb-2">/04</div>
+        <div class="display text-4xl text-[#E8E4D9]">3rd</div>
+        <div class="mono text-[10px] tracking-[0.2em] uppercase text-[#E8E4D9]/50 mt-1" data-es="Party Lab" data-en="Party Lab">Party Lab</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFO BANNER -->
+<div class="info-banner">
+  <span class="mono text-[10px] tracking-[0.25em] uppercase text-[#00D4AA]" data-es="Verificado independientemente por BTLabs · 5730 Corporate Way, West Palm Beach, FL" data-en="Independently verified by BTLabs · 5730 Corporate Way, West Palm Beach, FL">
+    Verificado independientemente por BTLabs · 5730 Corporate Way, West Palm Beach, FL
+  </span>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <div class="max-w-7xl mx-auto px-6 md:px-12">
+    <div class="filter-scroll flex gap-2" id="filterBar"></div>
+  </div>
+</div>
+
+<!-- COA GRID -->
+<section class="px-6 md:px-12 py-12 min-h-screen">
+  <div class="max-w-7xl mx-auto">
+    <div id="coaGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="relative py-24 px-6 md:px-12 border-t border-[#00D4AA]/15 overflow-hidden">
+  <div class="orb orb-coral" style="width: 500px; height: 500px; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+    <h2 class="display text-4xl md:text-6xl text-[#E8E4D9] mb-6 reveal-up">
+      <span data-es="¿Necesitas un COA específico" data-en="Need a specific COA">¿Necesitas un COA específico</span><br/>
+      <span style="color: var(--coral); font-style: italic;" data-es="por lote?" data-en="by batch?">por lote?</span>
+    </h2>
+    <p class="text-base text-[#E8E4D9]/60 mb-10 max-w-xl mx-auto reveal-up" data-es="Si necesitas el certificado de un lote anterior o documentación adicional, contáctanos con tu número de lote." data-en="If you need a certificate for a previous batch or additional documentation, contact us with your batch number.">
+      Si necesitas el certificado de un lote anterior o documentación adicional, contáctanos con tu número de lote.
+    </p>
+    <a href="https://wa.me/19395991835?text=Hola%2C%20necesito%20un%20COA%20espec%C3%ADfico" class="btn-magnetic reveal-up">
+      <span data-es="Solicitar por WhatsApp" data-en="Request via WhatsApp">Solicitar por WhatsApp</span>
+      <span>→</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="relative border-t border-[#00D4AA]/15 px-6 md:px-12 py-16" style="background: #030509;">
+  <div class="max-w-7xl mx-auto">
+    <div class="mb-16 pb-12 border-b border-[#E8E4D9]/5">
+      <a href="index.html" class="inline-block">
+        <img src="assets/images/logo-wordmark.png" alt="Tropical Research Labs" class="h-20 md:h-28 w-auto" />
+      </a>
+    </div>
+
+    <div class="grid md:grid-cols-12 gap-12 mb-16">
+      <div class="md:col-span-4">
+        <p class="text-sm text-[#E8E4D9]/50 leading-relaxed max-w-sm mb-6" data-es="Compuestos peptídicos de grado científico para investigación de laboratorio. Operando desde Puerto Rico bajo estándares de pureza HPLC verificados." data-en="Scientific-grade peptide compounds for laboratory research. Operating from Puerto Rico under verified HPLC purity standards.">
+          Compuestos peptídicos de grado científico para investigación de laboratorio. Operando desde Puerto Rico bajo estándares de pureza HPLC verificados.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          <span class="compliance-pill">RUO Peptides</span>
+        </div>
+      </div>
+
+      <div class="md:col-span-2">
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-4">Shop</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="catalogo.html" class="footer-link" data-es="Catálogo" data-en="Catalog">Catálogo</a></li>
+          <li><a href="coas.html" class="footer-link">COAs</a></li>
+          <li><a href="afiliados.html" class="footer-link" data-es="Afiliados" data-en="Affiliates">Afiliados</a></li>
+          <li><a href="catalogo.html" class="footer-link" data-es="Pagos" data-en="Payments">Pagos</a></li>
+          <li><a href="contacto.html" class="footer-link" data-es="Soporte" data-en="Support">Soporte</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-4">Lab</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="about.html" class="footer-link">About</a></li>
+          <li><a href="coas.html" class="footer-link" data-es="Verificación" data-en="Verification">Verificación</a></li>
+          <li><a href="contacto.html" class="footer-link" data-es="Contacto" data-en="Contact">Contacto</a></li>
+          <li><a href="contacto.html" class="footer-link" data-es="Afiliados" data-en="Affiliates">Afiliados</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-4">Legal</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="disclaimer.html" class="footer-link">Disclaimer</a></li>
+          <li><a href="terminos.html" class="footer-link" data-es="Términos" data-en="Terms">Términos</a></li>
+          <li><a href="privacidad.html" class="footer-link" data-es="Privacidad" data-en="Privacy">Privacidad</a></li>
+          <li><a href="envios.html" class="footer-link" data-es="Envíos" data-en="Shipping">Envíos</a></li>
+          <li><a href="accesibilidad.html" class="footer-link" data-es="Accesibilidad" data-en="Accessibility">Accesibilidad</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-2">
+        <div class="mono text-[10px] tracking-[0.3em] uppercase text-[#00D4AA] mb-4" data-es="Contacto" data-en="Contact">Contacto</div>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://wa.me/19395991835" class="footer-link">WhatsApp</a></li>
+          <li><a href="mailto:tropicalresearchlabs@gmail.com" class="footer-link">Email</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-[#E8E4D9]/10 pt-8 mb-8">
+      <div class="p-6 border border-[#FF6B47]/20 bg-[#FF6B47]/5 mb-6">
+        <div class="flex items-start gap-3">
+          <span class="text-[#FF6B47] text-xl">⚠</span>
+          <div class="space-y-3 text-xs text-[#E8E4D9]/70 leading-relaxed">
+            <p data-es-html="<strong class='text-[#FF6B47]'>Research Use Only · Not for Human Use.</strong> Todos los productos vendidos por Tropical Research Labs son estrictamente para uso en laboratorio y propósitos de investigación científica únicamente." data-en-html="<strong class='text-[#FF6B47]'>Research Use Only · Not for Human Use.</strong> All products sold by Tropical Research Labs are strictly for laboratory use and scientific research purposes only.">
+              <strong class="text-[#FF6B47]">Research Use Only · Not for Human Use.</strong> Todos los productos vendidos por Tropical Research Labs son estrictamente para uso en laboratorio y propósitos de investigación científica únicamente.
+            </p>
+            <p data-es-html="Los certificados de análisis relacionan únicamente a los lotes específicos probados. <strong class='text-[#E8E4D9]'>TRL NO es una farmacia 503A ni una instalación 503B</strong>. Los productos no han sido evaluados por la FDA." data-en-html="Certificates of analysis relate only to the specific batches tested. <strong class='text-[#E8E4D9]'>TRL is NOT a 503A pharmacy nor a 503B facility</strong>. Products have not been evaluated by the FDA.">
+              Los certificados de análisis relacionan únicamente a los lotes específicos probados. <strong class="text-[#E8E4D9]">TRL NO es una farmacia 503A ni una instalación 503B</strong>. Los productos no han sido evaluados por la FDA.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mono text-[10px] tracking-[0.2em] uppercase text-[#E8E4D9]/40">
+      <div>© 2026 Tropical Research Labs LLC · All Rights Reserved</div>
+      <div class="flex items-center gap-6">
+        <span>Puerto Rico, USA</span>
+        <a href="tel:+19395991835" class="footer-link">(939) 599-1835</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- COA MODAL -->
+<div class="modal-overlay" id="coaModal" onclick="closeModal(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header">
+      <div>
+        <div class="mono text-[10px] tracking-[0.2em] uppercase text-[#00D4AA]" id="modalLab">BTLabs · Certificate of Analysis</div>
+        <div class="display text-2xl text-[#E8E4D9]" id="modalTitle">—</div>
+      </div>
+      <div class="flex items-center gap-3">
+        <a id="modalDownload" href="#" download class="btn-download">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          <span data-es="Descargar" data-en="Download">Descargar</span>
+        </a>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+    </div>
+    <div class="modal-tabs" id="modalTabs">
+      <button class="modal-tab active" id="tabPurity" onclick="switchCert('purity')">
+        <span data-es="Pureza · HPLC" data-en="Purity · HPLC">Pureza · HPLC</span>
+      </button>
+      <button class="modal-tab" id="tabEndo" onclick="switchCert('endo')">
+        <span data-es="Endotoxinas · USP &lt;85&gt;" data-en="Endotoxins · USP &lt;85&gt;">Endotoxinas · USP &lt;85&gt;</span>
+      </button>
+    </div>
+    <iframe class="modal-pdf" id="modalPdf" src=""></iframe>
+  </div>
+</div>
+
+<script>
+// ============= COA DATA =============
+const COAS = [
+  {id:'tz', name:'TRL-2 TZ', cat:'Metabólico', lot:'L-TZ-2605-01', purity:'99.8', date:'6/12/2026', report:'BTL26699-1', endo:true},
+  {id:'rt', name:'TRL-3 RT', cat:'Metabólico', lot:'L-RT-2605-01', purity:'99.6', date:'6/12/2026', report:'BTL26699-2', endo:true},
+  {id:'cagri', name:'Cagrilintide', cat:'Metabólico', lot:'L-CG-2605-01', purity:'99.6', date:'6/12/2026', report:'BTL26699-3', endo:true},
+  {id:'amino1mq', name:'5-Amino-1MQ', cat:'Metabólico', lot:'L-AM-2605-01', purity:'99.9', date:'6/12/2026', report:'BTL26699-9', endo:true},
+  {id:'cjc', name:'CJC-1295 + Ipamorelin', cat:'GH Axis', lot:'L-CJI-2605-01', purity:'99.8', date:'6/12/2026', report:'BTL26699-11'},
+  {id:'ipa', name:'Ipamorelin', cat:'GH Axis', lot:'L-IP-2605-01', purity:'99.9', date:'6/12/2026', report:'BTL26699-4', endo:true},
+  {id:'tes', name:'Tesamorelin', cat:'GH Axis', lot:'L-TS-2605-01', purity:'99.6', date:'6/12/2026', report:'BTL26699-5', endo:true},
+  {id:'ss31', name:'SS-31', cat:'Longevidad', lot:'L-SS-2605-01', purity:'99.9', date:'6/12/2026', report:'BTL26699-18'},
+  {id:'nad', name:'NAD+', cat:'Longevidad', lot:'L-ND-2605-01', purity:'99.9', date:'6/12/2026', report:'BTL26699-8', endo:true},
+  {id:'epithal', name:'Epithalon', cat:'Longevidad', lot:'L-EP-2605-01', purity:'99.6', date:'6/12/2026', report:'BTL26699-10', endo:true},
+  {id:'bpc', name:'BPC-157', cat:'Recuperación', lot:'L-BPC-2605-01', purity:'99.6', date:'6/12/2026', report:'BTL26699-12'},
+  {id:'bpctb', name:'BPC-157 + TB-500', cat:'Recuperación', lot:'L-TBB-2605-01', purity:'99.6', date:'6/12/2026', report:'BTL26699-13'},
+  {id:'ghkcu', name:'GHK-Cu', cat:'Piel', lot:'L-GH-2605-01', purity:'99.6', date:'6/12/2026', report:'BTL26699-6', endo:true},
+  {id:'semax', name:'Semax', cat:'Neuro/Cognitivo', lot:'L-SM-2605-01', purity:'99.8', date:'6/12/2026', report:'BTL26699-15'},
+  {id:'selank', name:'Selank', cat:'Neuro/Cognitivo', lot:'L-SL-2605-01', purity:'99.7', date:'6/12/2026', report:'BTL26699-16'},
+  {id:'dsip', name:'DSIP', cat:'Neuro/Cognitivo', lot:'L-DS-2605-01', purity:'99.8', date:'6/12/2026', report:'BTL26699-17'},
+  {id:'glow', name:'GLOW (BPC + GHK-Cu + TB-500)', cat:'Stack', lot:'L-GW-2605-01', purity:'99.7', date:'6/12/2026', report:'BTL26699-14'},
+  {id:'tz60', name:'TRL-2 TZ (60mg)', cat:'Metabólico', lot:'TZ-2607-01', purity:'99.8', date:'8/20/2026', report:'COA261128-002'},
+  {id:'rt30', name:'TRL-3 RT (30mg)', cat:'Metabólico', lot:'RT-260700-01', purity:'99.8', date:'8/20/2026', report:'COA261128-004'},
+  {id:'ara290', name:'ARA-290', cat:'Recuperación', lot:'ARA-26000-01', purity:'99.8', date:'8/20/2026', report:'COA261128-005'},
+  {id:'pt141', name:'PT-141', cat:'Otros', lot:'PT-260603-01', purity:'99.8', date:'8/20/2026', report:'COA261128-006'},
+  {id:'tb500', name:'TB-500', cat:'Recuperación', lot:'TB-260603-01', purity:'99.5', date:'8/20/2026', report:'COA261128-008'},
+  {id:'aod', name:'AOD-9604', cat:'Metabólico', lot:'AOD-260603-01', purity:'99.8', date:'8/20/2026', report:'COA261128-010'},
+  {id:'cortagen', name:'Cortagen', cat:'Bioregulador', lot:'2605-040', purity:'99.7', date:'8/20/2026', report:'COA261128-011'},
+  {id:'vip', name:'VIP', cat:'Otros', lot:'VIP-2605-042', purity:'99.7', date:'8/20/2026', report:'COA261128-012'},
+  {id:'klow', name:'KLOW', cat:'Piel', lot:'KL-260603-01', purity:'99.7', date:'8/20/2026', report:'COA261128-013'},
+  {id:'motsc', name:'MOTS-c', cat:'Longevidad', lot:'MC-260603-0', purity:'99.8', date:'8/20/2026', report:'COA261128-014'},
+  {id:'bacwater', name:'Bacteriostatic Water', cat:'Solvente', lot:'L-BAC-2605-01', purity:'99.9', date:'6/12/2026', report:'BTL26699-19'}
+];
+
+const CATEGORIES = [
+  {key:'all', es:'Todos', en:'All'},
+  {key:'Metabólico', es:'Metabólico', en:'Metabolic'},
+  {key:'GH Axis', es:'GH Axis', en:'GH Axis'},
+  {key:'Longevidad', es:'Longevidad', en:'Longevity'},
+  {key:'Recuperación', es:'Recuperación', en:'Recovery'},
+  {key:'Piel', es:'Piel', en:'Skin'},
+  {key:'Neuro/Cognitivo', es:'Neuro/Cognitivo', en:'Neuro/Cognitive'},
+  {key:'Bioregulador', es:'Bioregulador', en:'Bioregulator'},
+  {key:'Otros', es:'Otros', en:'Other'},
+  {key:'Stack', es:'Stacks', en:'Stacks'},
+  {key:'Solvente', es:'Solvente', en:'Solvent'}
+];
+
+let activeFilter = 'all';
+let currentLang = localStorage.getItem('trl_lang') || 'es';
+
+// ============= RENDER FILTERS =============
+function renderFilters() {
+  const bar = document.getElementById('filterBar');
+  bar.innerHTML = CATEGORIES.map(c => {
+    const count = c.key === 'all' ? COAS.length : COAS.filter(x => x.cat === c.key).length;
+    if (count === 0) return '';
+    const label = currentLang === 'es' ? c.es : c.en;
+    return `<button class="filter-pill ${c.key === activeFilter ? 'active' : ''}" data-cat="${c.key}" onclick="filterCat('${c.key}', this)">
+      <span>${label}</span><span class="count">${count}</span>
+    </button>`;
+  }).join('');
+}
+
+// ============= RENDER GRID =============
+function renderGrid() {
+  const grid = document.getElementById('coaGrid');
+  const filtered = activeFilter === 'all' ? COAS : COAS.filter(c => c.cat === activeFilter);
+
+  grid.innerHTML = filtered.map(c => `
+    <div class="coa-card" onclick="openModal('${c.id}')">
+      <div class="coa-thumb">
+        <span class="lab-badge">BTLabs</span>
+        <span class="pass-badge">✓ Pass</span>
+        ${c.endo ? `<span class="dual-badge">2 Certs</span>` : ''}
+        <img src="assets/docs/coas/thumbs/${c.id}.png" alt="COA ${c.name}" onerror="this.style.opacity=0" />
+        <div class="coa-thumb-overlay">
+          <span class="view-pill">${currentLang === 'es' ? 'Ver Certificado' : 'View Certificate'}</span>
+        </div>
+      </div>
+      <div class="coa-body">
+        <span class="cat-badge">${c.cat}</span>
+        <h3 class="coa-name">${c.name}</h3>
+        <div class="coa-meta-row">
+          <span class="coa-meta-label">${currentLang === 'es' ? 'Pureza HPLC' : 'HPLC Purity'}</span>
+          <span class="coa-meta-val purity-val">${c.purity}%</span>
+        </div>
+        <div class="coa-meta-row">
+          <span class="coa-meta-label">${currentLang === 'es' ? 'Lote' : 'Lot'}</span>
+          <span class="coa-meta-val">${c.lot}</span>
+        </div>
+        <div class="coa-meta-row">
+          <span class="coa-meta-label">${currentLang === 'es' ? 'Fecha' : 'Date'}</span>
+          <span class="coa-meta-val">${c.date}</span>
+        </div>
+        <div class="coa-actions" onclick="event.stopPropagation()">
+          <button class="btn-view" onclick="openModal('${c.id}')"><span>${currentLang === 'es' ? 'Ver COA' : 'View COA'}</span></button>
+          <a class="btn-download" href="assets/docs/coas/${c.id}.pdf" download>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterCat(cat, btn) {
+  activeFilter = cat;
+  document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid();
+}
+
+// ============= MODAL =============
+let currentCoaId = null;
+
+function openModal(id) {
+  const c = COAS.find(x => x.id === id);
+  if (!c) return;
+  currentCoaId = id;
+  document.getElementById('modalTitle').textContent = c.name + ' · ' + c.lot;
+
+  // Show/hide endotoxin tab based on availability
+  const tabEndo = document.getElementById('tabEndo');
+  const tabs = document.getElementById('modalTabs');
+  if (c.endo) {
+    tabEndo.style.display = '';
+    tabs.style.display = 'flex';
+  } else {
+    tabEndo.style.display = 'none';
+    tabs.style.display = 'none';
+  }
+
+  // Always start on purity cert
+  switchCert('purity');
+  document.getElementById('coaModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function switchCert(type) {
+  const c = COAS.find(x => x.id === currentCoaId);
+  if (!c) return;
+  const tabP = document.getElementById('tabPurity');
+  const tabE = document.getElementById('tabEndo');
+  let path;
+  if (type === 'endo') {
+    path = `assets/docs/coas/endotoxin/${c.id}.pdf`;
+    tabE.classList.add('active'); tabP.classList.remove('active');
+  } else {
+    path = `assets/docs/coas/${c.id}.pdf`;
+    tabP.classList.add('active'); tabE.classList.remove('active');
+  }
+  document.getElementById('modalPdf').src = `${path}#toolbar=1&view=FitH`;
+  document.getElementById('modalDownload').href = path;
+}
+
+function closeModal(e) {
+  if (e && e.target && e.currentTarget !== e.target) return;
+  document.getElementById('coaModal').classList.remove('open');
+  document.getElementById('modalPdf').src = '';
+  document.body.style.overflow = '';
+}
+
+// ============= BILINGUAL =============
+function applyLanguage(lang) {
+  currentLang = lang;
+  localStorage.setItem('trl_lang', lang);
+  document.getElementById('htmlRoot').setAttribute('lang', lang);
+  const langCurrent = document.getElementById('langCurrent');
+  const langOther = document.getElementById('langOther');
+  if (langCurrent && langOther) {
+    langCurrent.textContent = lang.toUpperCase();
+    langOther.textContent = (lang === 'es' ? 'EN' : 'ES');
+  }
+  document.querySelectorAll('[data-es]').forEach(el => {
+    const value = el.getAttribute(`data-${lang}`);
+    if (value !== null) el.textContent = value;
+  });
+  document.querySelectorAll('[data-es-html]').forEach(el => {
+    const value = el.getAttribute(`data-${lang}-html`);
+    if (value !== null) el.innerHTML = value;
+  });
+  renderFilters();
+  renderGrid();
+}
+
+function toggleLang() {
+  applyLanguage(currentLang === 'es' ? 'en' : 'es');
+}
+
+// ============= INIT =============
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('statCount').textContent = COAS.length + COAS.filter(c => c.endo).length;
+  applyLanguage(currentLang);
+});
+
+window.addEventListener('load', () => {
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.to('.reveal-text-inner', { y: 0, duration: 1.2, ease: 'power4.out', stagger: 0.1, delay: 0.2 });
+  gsap.utils.toArray('.reveal-up').forEach((el) => {
+    gsap.to(el, { opacity: 1, y: 0, duration: 1, ease: 'power3.out',
+      scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' } });
+  });
+  ScrollTrigger.create({
+    start: 'top -100', end: 99999,
+    onUpdate: (self) => {
+      const nav = document.getElementById('mainNav');
+      if (self.scroll() > 100) {
+        nav.style.background = 'rgba(5, 8, 16, 0.95)';
+        nav.style.backdropFilter = 'blur(20px)';
+        nav.style.borderBottom = '1px solid rgba(0,212,170,0.1)';
+        nav.style.padding = '16px 48px';
+      } else {
+        nav.style.background = 'transparent';
+        nav.style.backdropFilter = 'none';
+        nav.style.borderBottom = 'none';
+        nav.style.padding = '24px 48px';
+      }
+    }
+  });
+});
+
+// Cursor
+const cursorDot = document.getElementById('cursorDot');
+const cursorRing = document.getElementById('cursorRing');
+let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX; mouseY = e.clientY;
+  cursorDot.style.left = mouseX + 'px'; cursorDot.style.top = mouseY + 'px';
+});
+function animateRing() {
+  ringX += (mouseX - ringX) * 0.15; ringY += (mouseY - ringY) * 0.15;
+  cursorRing.style.left = ringX + 'px'; cursorRing.style.top = ringY + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+document.addEventListener('mouseover', (e) => {
+  if (e.target.closest('a, button, .coa-card, .filter-pill')) document.body.classList.add('cursor-hover');
+});
+document.addEventListener('mouseout', (e) => {
+  if (!e.relatedTarget || !e.relatedTarget.closest('a, button, .coa-card, .filter-pill')) document.body.classList.remove('cursor-hover');
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+</script>
+
+
+<script>
+function toggleMobileMenu(open) {
+  const m = document.getElementById('mobileMenu');
+  if (!m) return;
+  const willOpen = (typeof open === 'boolean') ? open : !m.classList.contains('open');
+  m.classList.toggle('open', willOpen);
+  document.body.style.overflow = willOpen ? 'hidden' : '';
+}
+</script>
+</body>
+</html>
